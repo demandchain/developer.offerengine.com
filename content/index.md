@@ -1,15 +1,15 @@
 ---
-title: GitHub API
+title: OfferEngine API
 ---
 
-# The GitHub API
+# The OfferEngine API
 
-This describes the resources that make up the official GitHub API v3. If
+This describes the resources that make up the official OfferEngine API. If
 you have any problems or requests please contact
-[support](mailto:support@github.com?subject=APIv3).
+[support](mailto:support@offerengine.com).
 
-For the new API v3, start browsing the resources on the right >>
+For the new API, start browsing the resources on the right >>
 
-View the [API Changelog](/v3/changelog) for information on existing and
+View the [API Changelog](/changelog) for information on existing and
 planned changes to the API.
 
