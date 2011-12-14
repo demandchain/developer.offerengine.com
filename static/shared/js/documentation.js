@@ -1,5 +1,10 @@
 // Init sidebar
 $(function() {
+
+  // add class for css styling
+  $('div.sidebar-module ul li').addClass('js-topic');
+  $('div.sidebar-module ul li ul').addClass('js-guides');
+
   var activeItem,
       helpList = $('#js-sidebar .js-topic'),
       firstOccurance = true
@@ -46,7 +51,7 @@ $(function() {
   $('#js-sidebar .js-accordion-list .js-topic h3 a').click(function(){
     var clickedTopic = $(this).parents('.js-topic'),
         topicGuides = clickedTopic.find('.js-guides li')
-    
+
     if(activeItem != clickedTopic.index()){
       if(helpList.eq(activeItem)){
         helpList.eq(activeItem).find('.js-guides li').toggle(100)

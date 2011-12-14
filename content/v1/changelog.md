@@ -4,17 +4,15 @@ title: OfferEngine API Changelog
 
 # Current Version
 
-    Accept: application/vnd.github.beta+json
+    blockquote
 
-The GitHub API version is currently in beta.  The `beta` mime type property will
-be valid until sometime in 2012.  A notice will be given closer to the
-actual date.
+more stuff
 
 ## Upcoming Version
 
-    Accept: application/vnd.github.v3+json
+    blockquote
 
-The API is expected to be finalized in late 2011.
+other things
 
 ### Expected Changes
 
