@@ -5,6 +5,7 @@ require 'resources/user'
 require 'resources/deal'
 require 'resources/purchase'
 require 'resources/coupon'
+require 'resources/card_link'
 
 module OfferEngine
   ACCESS_TOKEN = {
