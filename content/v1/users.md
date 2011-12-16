@@ -12,7 +12,7 @@ user infered from an access token.
 
 ## Get a user
 
-    GET /users/:user
+    GET /users/:user_id
 
 ### Response
 
@@ -51,6 +51,12 @@ birthday
 postal_code
 : _String_
 
+credits
+: _Integer_ Amount of credits in cents. If this value is not provided, the default new user signup credit will be assigned.
+
+partner_data
+: _Hash_ Store data about a user.  Be careful to not overwrite this value.
+
 ### Response
 
 <%= headers 200 %>
@@ -59,7 +65,7 @@ postal_code
 
 ## Update a user
 
-    PUT /users/:user
+    PUT /users/:user_id
 
 
 ### Parameters
@@ -86,6 +92,12 @@ birthday
 
 postal_code
 : _String_
+
+partner_data
+: _Hash_ Store data about a user.  Be careful to not overwrite this value.
+
+is_deleted
+: _Boolean_ The soft delete status of a user.
 
 ### Response
 
