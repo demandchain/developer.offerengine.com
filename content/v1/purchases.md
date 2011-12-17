@@ -7,7 +7,7 @@ title: Purchases
 ## Get a purchase
 Returns a serialized representation of the purchase.
 
-    GET /purchases/:purchase
+    GET /purchases/:purchase_id
 
 ### Response
 

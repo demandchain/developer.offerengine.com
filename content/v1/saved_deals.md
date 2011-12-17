@@ -28,7 +28,7 @@ user_id
 ## Delete a saved deal
 Deletes a saved deal.
 
-    DELETE https://partner.domain/api/v1/saved_deals/ID
+    DELETE https://partner.domain/api/v1/saved_deals/:saved_deal_id
 
 ### Response
 
