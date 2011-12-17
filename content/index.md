@@ -9,7 +9,3 @@ you have any problems or requests please contact
 [support](mailto:support@offerengine.com).
 
 For the new API, start browsing the resources on the right >>
-
-View the [API Changelog](/v1/changelog/) for information on existing and
-planned changes to the API.
-
