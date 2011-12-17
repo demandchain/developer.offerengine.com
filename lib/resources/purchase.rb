@@ -5,10 +5,8 @@ module OfferEngine
   def self.purchase(opts = {})
     {
       :id => "34063ec2",
-      :slug => "34063ec2",
       :purchase_id => "34063ec2",
       :deal_type => "standard",
-      :deal_slug => OfferEngine.short_deal[:id],
       :deal_id => OfferEngine.short_deal[:id],
       :price => 1000,
       :amount => 950,

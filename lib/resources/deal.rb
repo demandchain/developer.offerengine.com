@@ -13,7 +13,6 @@ module OfferEngine
   def self.deal
     {
       :id => "a-50-for-100-worth-of-dining-1",
-      :slug => "a-50-for-100-worth-of-dining-1",
       :deal_id => "a-50-for-100-worth-of-dining825ac500",
       :locations => [],
       :title => "Great Dining",
@@ -22,7 +21,7 @@ module OfferEngine
       :image_url_abs =>  "http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif",
       :shipping_address_required => false,
       :merchant_name => "Morar, Shanahan and Ruecker",
-      :region_slug => "san-francisco",
+      :region_id => "san-francisco",
       :starting_price => 5000,
       :current_price => 5000,
       :value => 10000,

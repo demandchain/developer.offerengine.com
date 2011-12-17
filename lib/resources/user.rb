@@ -1,7 +1,6 @@
 module OfferEngine
   USER = {
     id:         "ABC123",
-    slug:       "ABC123",
     firstname:  "deal",
     lastname:   "seeker",
     image_url:  "http://graph.facebook.com/508354830/picture?type=large",
