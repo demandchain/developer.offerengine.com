@@ -50,7 +50,7 @@ user_id
 ## Release a reserved purchase
 If you have reserved inventory for a purchase, but the payment processing has failed, use release to indicate release the inventory of the purchase.
 
-    PUT /purchases/:purchase_id/relase
+    PUT /purchases/:purchase_id/release
 
 ### Response
 
