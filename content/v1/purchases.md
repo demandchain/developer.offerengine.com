@@ -42,9 +42,6 @@ After inventory has been reserved for a purchase and payment processing was succ
 user_id
 : _String_  Id of the deal you are reserving inventory for
 
-num_bought
-: _Integer_ The number of deals you are reserving for this purchase
-
 ### Response
 
 <%= headers 200 %>
