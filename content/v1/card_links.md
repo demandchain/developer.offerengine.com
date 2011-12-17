@@ -43,3 +43,18 @@ Used to change a card link from "unlinked" to "linked".
 
 <%= headers 200 %>
 <%= json(:status => "success", :card_link => OfferEngine.card_link) %>
+
+## Redeem a card link
+Used to notify us when a card link has been redeemed.
+
+    POST /card_links/:card_link_id/redeem
+
+### Parameters
+
+total_amount
+: _Integer_ total amount charged in cents
+
+### Response
+
+<%= headers 200 %>
+<%= json(:status => "success") %>
