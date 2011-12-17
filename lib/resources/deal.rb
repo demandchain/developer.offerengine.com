@@ -12,8 +12,8 @@ module OfferEngine
 
   def self.deal
     {
-      :id => "a-50-for-100-worth-of-dining-1",
-      :deal_id => "a-50-for-100-worth-of-dining825ac500",
+      :id => "my-restaurant",
+      :deal_id => "my-restaurant",
       :locations => [],
       :title => "Great Dining",
       :type => "daily-deal",
@@ -47,7 +47,19 @@ module OfferEngine
       :incentive_percentage => nil,
       :fixed_fee => nil,
       :percent_fee => nil,
-      :robotitle => "$50 for $100 Great Dining at Kuhn, Goldner and Spencer"
+      :category => "category",
+      :subcategory => "subcategory",
+      :robotitle => "$50 for $100 Great Dining at Kuhn, Goldner and Spencer",
+      :show_url => "http://domain/deal/my-restaurant",
+      :purchase_url => "http://domain/deal/my-restaurant/get",
+      :primary_image => {
+        "thumb" => {"dimensions" => "(198x130>)","url" => "http://domain/images/deals/generic640x426.gif"},
+        "tiny" =>  {"dimensions" => "(81x56)","url" => "http://domain/images/deals/generic640x426.gif"},
+        "xlarge" => {"dimensions" => "(640x640>)","url" => "http://domain/images/deals/generic640x426.gif"},
+        "large" => {"dimensions" => "(520x352)","url" => "http://domain/images/deals/generic640x426.gif"},
+        "medium" => {"dimensions" => "(390x260)","url" => "http://domain/images/deals/generic640x426.gif"}
+      },
+      :campaign => "campaign"
     }
   end
 end
