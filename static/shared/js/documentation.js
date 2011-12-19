@@ -76,6 +76,26 @@ $(function() {
     }
   })
 
+  // Expands the code examples to a nice width within the page.
+  // 898 is a nice looking width within the container
+  // 538 is the original width of the code container (not counting border/padding/margin)
+  // 560 is the displayed width of the code container
+  $('pre.highlight').hover(function(){ // mouseover
+    var $this = $(this);
+    var $code = $this.find('code');
+
+    if($code.width() > 560 && $code.width() <= 898){
+      $this.animate({width: $code.width()});
+    } else if($code.width() > 898) {
+      $this.animate({width: 898});
+    }
+
+    $this.css('overflow-y', 'auto');
+
+  }, function(){ // mouseout
+    $(this).stop().animate({width: 538}).css('overflow-y', 'auto');
+  });
+
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
   $("#year").text( (new Date).getFullYear() );
