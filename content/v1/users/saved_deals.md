@@ -12,10 +12,7 @@ Returns an array of saved deal representations.
 
 ### Parameters
 
-options
-: _Hash_ A list of options to customize the response results.
-  count
-  : returns the count instead of the list
+<%= list_parameters %>
 
 ### Response
 

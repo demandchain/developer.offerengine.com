@@ -12,14 +12,7 @@ Returns an array of coupon representations.
 
 ### Parameters
 
-options
-: _Hash_ A list of options to customize the response results.
-
-  filter
-  : filter the list of coupons to a specific state. value can be one of "valid", "redeemed", "expired"
-
-  count
-  : returns the count instead of the list
+<%= list_parameters :applicable_filters => ["valid", "redeemed", "expired"] %>
 
 ### Response
 

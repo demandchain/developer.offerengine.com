@@ -5,7 +5,9 @@ title: Regional Deals
 # Regional Deals
 
 ## List all region's deals
-Returns an array of deal representations.
+Returns an array of deal representations, ordered by start_at time (earliest first).
+
+*Important Note*: There are default filters "in_flight", "current", "not_bg" for backwards compatibility.  Most partners will want to override the filter value with "in_flight".
 
     GET /regions/:region_id/deals
     GET /regions/:zip/deals
@@ -17,17 +19,7 @@ Returns an array of deal representations.
 user_id (optional)
 : _String_ A user id that will be used to filter deals (e.g. based on user preferences).
 
-options
-: _Hash_ A list of options to customize the response results.
-
-  filter
-  : filter the list of deals to a specific types. e.g. "daily-deal"
-
-  count
-  : returns the count instead of the list
-
-  limit
-  : limit the result set
+<%= list_parameters :applicable_filters => ["in_flight", "offer", "current", "not_bg"]%>
 
 ### Response
 

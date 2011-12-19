@@ -15,6 +15,7 @@ title: Deals
 <%= json(:status => "success", :deal => OfferEngine.deal) %>
 
 ## Get deals near a latitude and longitude
+Returns an array of deal representations, ordered by start_at time (earliest first).
 
     GET /deals/locate
 

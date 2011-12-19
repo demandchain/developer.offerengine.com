@@ -12,14 +12,7 @@ Returns an array of card link representations.
 
 ### Parameters
 
-options
-: _Hash_ A list of options to customize the response results.
-
-  filter
-  : filter the list of card links to a specific state. value can be one of "linked", "unlinked", "fulfilled"
-
-  count
-  : returns the count instead of the list
+<%= list_parameters :applicable_filters => ["linked", "unlinked", "fulfilled"] %>
 
 ### Response
 

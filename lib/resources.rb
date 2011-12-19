@@ -8,6 +8,28 @@ require 'resources/coupon'
 require 'resources/card_link'
 
 module OfferEngine
+  module Helpers
+    FILTER = "filter (optional)
+: _String_ Filter the list according to applicable filters (comma-separated)."
+
+    COUNT = "count (optional)
+: _Boolean_ Returns the count instead of the list.  If present, per_page and page will be ignored."
+
+    PER_PAGE = "per_page (optional)
+: _Integer_ Limits the size of the list.  Default is 100.  Max is 1000."
+
+    PAGE = "page (optional)
+: _Integer_ Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1."
+
+    def list_parameters(options={})
+      parameters = [COUNT, PER_PAGE, PAGE]
+      if options[:applicable_filters]
+        parameters.unshift(FILTER + "  These include: \"#{options[:applicable_filters].join('", "')}\".")
+      end
+      parameters.join("\n\n")
+    end
+  end
+
   ACCESS_TOKEN = {
     id:         "zzzaaaa123",
     user_id:    "abc123",
@@ -16,6 +38,8 @@ module OfferEngine
     access:     "read,write"
   }
 end
+
+include OfferEngine::Helpers
 
 module GitHub
   module Resources
