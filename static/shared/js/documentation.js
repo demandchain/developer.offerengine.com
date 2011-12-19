@@ -82,7 +82,7 @@ $(function() {
   // 560 is the displayed width of the code container
   $('pre.highlight').hover(function(){ // mouseover
     var $this = $(this);
-    var $code = $this.find('code')
+    var $code = $this.find('code');
 
     if($code.width() > 560 && $code.width() <= 898){
       $this.animate({width: $code.width()});
@@ -90,7 +90,7 @@ $(function() {
       $this.animate({width: 898});
     }
 
-    $this.css('overflow-y', 'auto')
+    $this.css('overflow-y', 'auto');
 
   }, function(){ // mouseout
     $(this).stop().animate({width: 538}).css('overflow-y', 'auto');
