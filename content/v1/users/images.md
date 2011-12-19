@@ -6,8 +6,7 @@ title: User Images
 
 Users can have a single image.
 
-
-## Create an access token
+## Create a user image
 
     POST /users/:user/images
 
@@ -15,7 +14,7 @@ Users can have a single image.
 ### Parameters
 
 image
-: _File_
+: _File_ Multi-part image data.
 
 
 ### Response

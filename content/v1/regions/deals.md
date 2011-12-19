@@ -7,6 +7,8 @@ title: Regional Deals
 ## List all region's deals
 Returns an array of deal representations, ordered by start_at time (earliest first).
 
+If you are using the "city, state" syntax, abbreviations are not accepted.  "St Louis" must be spelled as "Saint Louis".
+
 *Important Note*: There are default filters "in_flight", "current", "not_bg" for backwards compatibility.  Most partners will want to override the filter value with "in_flight".
 
     GET /regions/:region_id/deals
