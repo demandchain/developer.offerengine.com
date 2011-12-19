@@ -4,4 +4,12 @@ title: Regions
 
 # Regions
 
-Currently there are no region specific APIs.  Please see regional deals to the right.
+## List all regions
+Returns an array of region representations.
+
+    GET /regions
+
+### Response
+
+<%= headers 200 %>
+<%= json(:status => "success", :regions => [OfferEngine.region]) %>
