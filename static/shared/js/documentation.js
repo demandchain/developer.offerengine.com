@@ -76,6 +76,13 @@ $(function() {
     }
   })
 
+  // Expands the code examples to a nice width within the page.
+  $('pre.highlight').hover(function(){
+    $(this).animate({width: 898}).css('overflow-y', 'auto');
+  }, function(){
+    $(this).stop().animate({width: 538}).css('overflow-y', 'auto');
+  });
+
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
   $("#year").text( (new Date).getFullYear() );
