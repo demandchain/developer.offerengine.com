@@ -4,6 +4,11 @@ title: Subscriptions
 
 # Subscriptions
 
+* [List all user's subscriptions](/v1/users/subscriptions/#list-all-users-subscriptions)
+* [Get a subscription](/v1/users/subscriptions/#get-a-subscription)
+* [Create a subscription](/v1/users/subscriptions/#create-a-subscription)
+* [Update a subscription](/v1/users/subscriptions/#update-a-subscription)
+
 ## List all user's subscriptions
 Returns an array of subscription representations.
 
@@ -29,7 +34,7 @@ Returns a serialized representation of the subscription.
 <%= headers 200 %>
 <%= json(:status => "success", :subscription => OfferEngine.subscription) %>
 
-## Create a subscription for a user
+## Create a subscription
 
     POST /users/:user_id/subscriptions
 

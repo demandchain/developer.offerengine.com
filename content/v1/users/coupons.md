@@ -4,6 +4,9 @@ title: User Coupons
 
 # User Coupons
 
+* [List all user's coupons](/v1/users/coupons/#list-all-users-coupons)
+* [Redeem a coupon](/v1/users/coupons/#redeem-a-coupon)
+
 ## List all user's coupons
 Returns an array of coupon representations.
 
@@ -18,7 +21,7 @@ Returns an array of coupon representations.
 <%= headers 200 %>
 <%= json(:status => "success", :coupons => [OfferEngine.coupon]) %>
 
-## Redeem user's coupon
+## Redeem a coupon
 Marks a coupon as redeemed.
 
     PUT /users/:user_id/coupons/:coupon_id/redeem

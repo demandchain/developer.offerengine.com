@@ -3,6 +3,11 @@ title: User Saved Deals
 ---
 
 # User Saved Deals
+
+* [List all user's saved deals](/v1/users/saved_deals/#list-all-users-saved-deals)
+* [Create a saved deal](/v1/users/saved_deals/#create-a-saved-deal)
+* [Delete a saved deal](/v1/users/saved_deals/#delete-a-saved-deal)
+
 A saved deal let's a user keep a list of deals for future reference.
 
 ## List all user's saved deals

@@ -3,6 +3,13 @@ title: User Card Links
 ---
 
 # User Card Links
+
+* [List all user's card links](/v1/users/card_links/#list-all-users-card-links)
+* [Create a card link](/v1/users/card_links/#create-a-card-link)
+* [Unlink a card link](/v1/users/card_links/#unlink-a-card-link)
+* [Link a card link](/v1/users/card_links/#link-a-card-link)
+* [Redeem a card link](/v1/users/card_links/#redeem-a-card-link)
+
 A card link represents a user linking to a deal.  Once created, a card link will have a state of either "linked", "unlinked", or "fulfilled".
 
 ## List all user's card links

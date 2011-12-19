@@ -4,6 +4,10 @@ title: Users
 
 # Users
 
+* [Get a user](/v1/users/#get-a-user)
+* [Create a user](/v1/users/#create-a-user)
+* [Update a user](/v1/users/#update-a-user)
+
 Many of the resources on the users API provide a shortcut for getting
 information about the currently authenticated user. If a request URL
 does not include a `:user` parameter than the response will be for the

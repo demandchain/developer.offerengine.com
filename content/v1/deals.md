@@ -4,6 +4,11 @@ title: Deals
 
 # Deals
 
+* [Get a deal](/v1/deals/#get-a-deal)
+* [Get deals near latitude & longitude](/v1/deals/#get-deals-near-a-latitude-and-longitude)
+* [External approve a deal](/v1/deals/#external-approve-a-deal)
+* [External validate a deal](/v1/deals/#external-validate-a-deal)
+* [External reject a deal](/v1/deals/#external-reject-a-deal)
 
 ## Get a deal
 

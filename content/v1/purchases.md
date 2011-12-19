@@ -4,6 +4,11 @@ title: Purchases
 
 # Purchases
 
+* [Get a purchase](/v1/purchases/#get-a-purchase)
+* [Reserve a purchase](/v1/purchases/#reserve-a-purchase)
+* [Claim a purchase](/v1/purchases/#claim-a-purchase)
+* [Release a reserved purchase](/v1/purchases/#release-a-reserved-purchase)
+
 ## Get a purchase
 Returns a serialized representation of the purchase.
 
