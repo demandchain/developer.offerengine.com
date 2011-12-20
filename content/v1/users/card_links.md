@@ -67,7 +67,7 @@ Used to change a card link from "unlinked" to "linked".
 ## Redeem a card link
 Used to notify us when a card link has been redeemed.
 
-    POST /card_links/:card_link_id/redeem
+    PUT /card_links/:card_link_id/redeem
 
 ### Parameters
 
