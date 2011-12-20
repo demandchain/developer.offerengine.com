@@ -60,4 +60,4 @@ If you have reserved inventory for a purchase, but the payment processing has fa
 ### Response
 
 <%= headers 200 %>
-<%= json(:status => "success", :purchase => OfferEngine.purchase) %>
+<%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:fulfillment_state => "released", :payment_state => "pending", :coupons => [], :credit_card_id => nil, :user_id => nil)) %>
