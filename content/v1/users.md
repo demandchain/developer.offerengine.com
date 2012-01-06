@@ -61,6 +61,9 @@ credits
 partner_data
 : _Hash_ Store data about a user.  Be careful to not overwrite this value.
 
+session_id (optional)
+: _STRING_ If specified, the action will find the affiliate information from the session and remember the user is created through the affiliate
+
 ### Response
 
 <%= headers 200 %>
