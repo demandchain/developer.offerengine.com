@@ -5,7 +5,7 @@ title: Purchases
 # Purchases
 
 * [Get a purchase](/v1/purchases/#get-a-purchase)
-* [Make a purchase](/v1/purchases/#make-a-purchase)
+* [Create a purchase](/v1/purchases/#create-a-purchase)
 * [Reserve a purchase](/v1/purchases/#reserve-a-purchase)
 * [Claim a purchase](/v1/purchases/#claim-a-purchase)
 * [Release a reserved purchase](/v1/purchases/#release-a-reserved-purchase)
@@ -20,28 +20,28 @@ Returns a serialized representation of the purchase.
 <%= headers 200 %>
 <%= json(:status => "success", :purchase => OfferEngine.purchase) %>
 
-## Make a purchase
+## Create a purchase
 
     POST /purchases
 
 ### Parameters
 deal_id
-: _String_  Id of the deal you are reserving inventory for
+: _String_  Id of the deal you are purchasing inventory for
 
 quantity
-: _Integer_ The number of deals you are reserving for this purchase
+: _Integer_ The number of deals you are purchasing for this purchase
 
 user_id
-: _String_  Id of the deal you are reserving inventory for
+: _String_  Id of the deal you are purchasing inventory for
 
 credit_card_id
-: _String_  Id of the creadit card you are reserving inventory for
+: _String_  Id of the credit card you are purchasing inventory for
 
 expected_price_per_unit
 : _Integer_ The expected price
 
 sesison_id (optional)
-: _String_ The seesion id that is asscoated to an affiliate
+: _String_ The session id that is associated to an affiliate
 
 ### Response
 <%= headers 200 %>
