@@ -1,9 +1,9 @@
 module OfferEngine
   def self.session
     {
-      :id => "a-hex-string",
-      :user_token => "a-hex-string",
-      :user_id => "user-id"
+      :id => "2345dfer4123s5t6",
+      :user_token => "2345dfer4123s5t6",
+      :user_id => "752a4674"
     }
   end
 end
