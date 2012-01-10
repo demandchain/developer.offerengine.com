@@ -5,6 +5,7 @@ title: Purchases
 # Purchases
 
 * [Get a purchase](/v1/purchases/#get-a-purchase)
+* [Create a purchase](/v1/purchases/#create-a-purchase)
 * [Reserve a purchase](/v1/purchases/#reserve-a-purchase)
 * [Claim a purchase](/v1/purchases/#claim-a-purchase)
 * [Release a reserved purchase](/v1/purchases/#release-a-reserved-purchase)
@@ -18,6 +19,33 @@ Returns a serialized representation of the purchase.
 
 <%= headers 200 %>
 <%= json(:status => "success", :purchase => OfferEngine.purchase) %>
+
+## Create a purchase
+
+    POST /purchases
+
+### Parameters
+deal_id
+: _String_  Id of the deal you are purchasing inventory for
+
+quantity
+: _Integer_ The number of deals you are purchasing for this purchase
+
+user_id
+: _String_  Id of the deal you are purchasing inventory for
+
+credit_card_id
+: _String_  Id of the credit card you are purchasing inventory for
+
+expected_price_per_unit
+: _Integer_ The expected price
+
+sesison_id (optional)
+: _String_ The session id that is associated to an affiliate
+
+### Response
+<%= headers 200 %>
+<%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:coupons => nil)) %>
 
 ## Reserve a purchase
 Temporarily (5 minutes) reserve inventory for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.
