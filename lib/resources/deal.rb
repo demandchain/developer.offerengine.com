@@ -38,7 +38,7 @@ module OfferEngine
       :description1 => "Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut.",
       :description2 => "Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem.",
       :fine_print => "Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
-      :sub_supplier_id => "sub-partner1",
+      :supplier_id => "sub-partner1",
       :highlights => "Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
       :maximum_allowance => nil,
       :incentive_amount => nil,
