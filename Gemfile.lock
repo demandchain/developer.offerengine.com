@@ -6,8 +6,8 @@ GEM
     cri (2.0.2)
     kramdown (0.13.4)
     mime-types (1.17.2)
-    nanoc (3.1.6)
-      nanoc3 (>= 3.1.6)
+    nanoc (3.2.4)
+      nanoc3 (>= 3.2.4)
     nanoc3 (3.2.4)
       cri (~> 2.0)
     nokogiri (1.4.7)
@@ -24,7 +24,7 @@ DEPENDENCIES
   adsf
   kramdown (~> 0.13.2)
   mime-types (~> 1.16)
-  nanoc (= 3.1.6)
+  nanoc
   nokogiri (~> 1.4.4)
   pygmentize (~> 0.0.3)
   rake
