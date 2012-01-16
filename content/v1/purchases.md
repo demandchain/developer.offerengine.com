@@ -40,7 +40,7 @@ credit_card_id
 expected_price_per_unit
 : _Integer_ The expected price
 
-sesison_id (optional)
+session_id (optional)
 : _String_ The session id that is associated to an affiliate
 
 ### Response
