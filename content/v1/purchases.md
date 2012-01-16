@@ -73,7 +73,7 @@ After inventory has been reserved for a purchase and payment processing was succ
 ### Parameters
 
 user_id
-: _String_  Id of the deal you are reserving inventory for
+: _String_  Id of the user you are reserving inventory for
 
 ### Response
 
