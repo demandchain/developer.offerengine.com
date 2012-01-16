@@ -78,7 +78,7 @@ user_id
 ### Response
 
 <%= headers 200 %>
-<%= json(:status => "success", :purchase => OfferEngine.purchase, :credit_card_id => nil) %>
+<%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:credit_card_id => nil)) %>
 
 ## Release a reserved purchase
 If you have reserved inventory for a purchase, but the payment processing has failed, use release to indicate release the inventory of the purchase.
