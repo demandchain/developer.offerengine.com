@@ -73,10 +73,13 @@ Used to notify us when a card link has been redeemed.
 
 transaction_amount
 : _Integer_ total amount charged in cents
+
 transaction_date
 : _String_ XML DateTime formatted as "YYYY-MM-DDThh:mm:ss"; i.e. 2012-02-06T21:39:51-08:00
+
 transaction_reference
 : _String_
+
 max_redemption
 : _Boolean_ Set to true if this redemption fulfills the card link.
 
