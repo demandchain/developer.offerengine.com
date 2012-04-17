@@ -21,7 +21,7 @@ title: Regions
 ## List all regions
 Returns an array of region representations.
 
-    GET /regions
+    GET /api/v1/regions
 
 ### Response
 
