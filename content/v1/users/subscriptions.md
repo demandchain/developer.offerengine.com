@@ -8,6 +8,9 @@ title: Subscriptions
 * [Get a subscription](/v1/users/subscriptions/#get-a-subscription)
 * [Create a subscription](/v1/users/subscriptions/#create-a-subscription)
 * [Update a subscription](/v1/users/subscriptions/#update-a-subscription)
+* [Update by zip code](/v1/users/subscriptions/#update-by-zipcode)
+* [Update by full zip code](/v1/users/subscriptions/#update-by-full-zipcode)
+* [Unsubscribe](/v1/users/subscriptions/#unsubscribe)
 
 ## List all user's subscriptions
 Returns an array of subscription representations.
@@ -59,3 +62,47 @@ status
 
 <%= headers 200 %>
 <%= json(:status => "success", :subscription => OfferEngine.subscription) %>
+
+
+## Update by zipcode
+
+    PUT /api/v1/users/:user_id/subscriptions/postal_code/:postal_code
+
+### Parameters
+
+    none
+
+### Response
+
+<%= headers 200 %>
+<%= json(:status => "success", :subscription => OfferEngine.subscription) %>
+
+
+## Update by full zipcode
+This is very similar to updating by zip code, and infact the -4 digits are ignored
+
+    PUT /api/v1/users/:user_id/subscriptions/postal_code/:full_postal_code
+
+### Parameters
+
+    none
+
+### Response
+
+<%= headers 200 %>
+<%= json(:status => "success", :subscription => OfferEngine.subscription) %>
+
+
+## Unsubscribe
+This will unsubscribe from all the users subscriptions
+
+    DELETE /api/v1/users/:user_id/subscriptions
+
+### Parameters
+
+    none
+
+### Response
+
+<%= headers 200 %>
+<%= json(:status => "success") %>
