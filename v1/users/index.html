@@ -34,6 +34,7 @@
 <li><a href="/v1/users/#get-a-user">Get a user</a></li>
   <li><a href="/v1/users/#create-a-user">Create a user</a></li>
   <li><a href="/v1/users/#update-a-user">Update a user</a></li>
+  <li><a href="/v1/users/#update-a-user-by-email">Update a user by email</a></li>
 </ul><p>Many of the resources on the users API provide a shortcut for getting
 information about the currently authenticated user. If a request URL
 does not include a <code>:user</code> parameter than the response will be for the
@@ -171,6 +172,116 @@ user infered from an access token.</p>
     <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"partner_provided"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<h2 id="update-a-user-by-email">Update a user by email</h2>
+<p>This particular resource can be accessed with an optional request parameter</p>
+
+<p>Without the optional parameter the request will look like this</p>
+
+<pre><code>PUT /api/v1/users/:user@email_address.com/update_by_email
+</code></pre>
+
+<p>With the optional parameter the request will look like this</p>
+
+<pre><code>PUT /api/v1/users/:user@email_address.com/update_by_email?overwrite_token=true
+</code></pre>
+
+<p>The ramifications of this are as follows:-</p>
+
+<ul>
+<li>
+    <p>assuming the user pre-exists in the offer engine</p>
+
+    <ul>
+<li>
+        <p>if a token is included in the request but it has not changed  <br>
+then no further action is required</p>
+      </li>
+      <li>
+        <p>if a token is included in the request and there was not a token previously  <br>
+then no further action is required</p>
+      </li>
+      <li>
+        <p>if a token is included in the request but it has changed  <br>
+then the overwrite_token = true option must be included:    </p>
+        <ul>
+<li>this will instruct the api to update the users token with the new value,  <br>
+failure to include the option will result in a 422 error</li>
+        </ul>
+</li>
+    </ul>
+</li>
+  <li>
+    <p>assuming the user does not exist yet in the offer engine</p>
+
+    <ul>
+<li>this resource can still be PUT to,   <br>
+resulting in the user being created in the offer engine:  <br>
+The overwrite token is not required in this scenario   </li>
+    </ul>
+</li>
+</ul><h3 id="parameters-2">Parameters</h3>
+
+<dl>
+<dt>source</dt>
+  <dd>
+    <ul>
+<li>
+<em>String</em> used for reporting</li>
+      <li>only valid with <em>api_token</em>
+</li>
+    </ul>
+</dd>
+  <dt>token</dt>
+  <dd>
+    <ul>
+<li>
+<em>String</em> partner token</li>
+      <li>only valid with <em>api_token</em>
+</li>
+      <li>see note above: optional overwrite_token=true might be required on the request</li>
+    </ul>
+</dd>
+  <dt>first_name</dt>
+  <dd><em>String</em></dd>
+  <dt>last_name</dt>
+  <dd><em>String</em></dd>
+  <dt>birthday</dt>
+  <dd><em>String</em></dd>
+  <dt>postal_code</dt>
+  <dd><em>String</em></dd>
+  <dt>partner_data</dt>
+  <dd>
+<em>Hash</em> Store data about a user.  Be careful to not overwrite this value.</dd>
+  <dt>is_deleted</dt>
+  <dd>
+<em>Boolean</em> The soft delete status of a user.</dd>
+</dl><h3 id="response-3">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"ABC123"</span><span class="p">,</span>
+    <span class="s2">"firstname"</span><span class="o">:</span> <span class="s2">"deal"</span><span class="p">,</span>
+    <span class="s2">"lastname"</span><span class="o">:</span> <span class="s2">"seeker"</span><span class="p">,</span>
+    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"http://graph.facebook.com/508354830/picture?type=large"</span><span class="p">,</span>
+    <span class="s2">"points"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"partner_provided"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<ul>
+<li>if the token has changed for an existing user and the overwrite_token=true option  <br>
+was not included on the request then the reponse will be</li>
+</ul><pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"update_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to update, partner token has changed"</span>
+<span class="p">}</span></code></pre>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">
@@ -222,6 +333,12 @@ user infered from an access token.</p>
                 <li><a href="/v1/users/saved_deals/">Saved Deals</a></li>
                 <li><a href="/v1/users/shipping_addresses/">Shipping Addresses</a></li>
                 <li><a href="/v1/users/subscriptions/">Subscriptions</a></li>
+              </ul>
+            </li>
+            <li>
+              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Targeted Emails</a></h3>
+              <ul>
+                <li><a href="/v1/targeted_emails/batches/">Batches</a></li>
               </ul>
             </li>
           </ul>

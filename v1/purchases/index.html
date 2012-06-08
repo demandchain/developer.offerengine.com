@@ -106,7 +106,7 @@
   <dt>expected_price_per_unit</dt>
   <dd>
 <em>Integer</em> The expected price</dd>
-  <dt>sesison_id (optional)</dt>
+  <dt>session_id (optional)</dt>
   <dd>
 <em>String</em> The session id that is associated to an affiliate</dd>
 </dl><h3 id="response-1">Response</h3>
@@ -198,7 +198,7 @@
 <dl>
 <dt>user_id</dt>
   <dd>
-<em>String</em>  Id of the deal you are reserving inventory for</dd>
+<em>String</em>  Id of the user you are reserving inventory for</dd>
 </dl><h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -217,7 +217,7 @@
     <span class="s2">"fulfillment_state"</span><span class="o">:</span> <span class="s2">"fulfilled"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:11:15 UTC 2011"</span><span class="p">,</span>
     <span class="s2">"user_id"</span><span class="o">:</span> <span class="s2">"fce3237b"</span><span class="p">,</span>
-    <span class="s2">"credit_card_id"</span><span class="o">:</span> <span class="s2">"a877875fc3"</span><span class="p">,</span>
+    <span class="s2">"credit_card_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
       <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
@@ -238,8 +238,7 @@
         <span class="s2">"print_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupons/a21c5452d8/print"</span>
       <span class="p">}</span>
     <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"credit_card_id"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="release-a-reserved-purchase">Release a reserved purchase</h2>
@@ -331,6 +330,12 @@
                 <li><a href="/v1/users/saved_deals/">Saved Deals</a></li>
                 <li><a href="/v1/users/shipping_addresses/">Shipping Addresses</a></li>
                 <li><a href="/v1/users/subscriptions/">Subscriptions</a></li>
+              </ul>
+            </li>
+            <li>
+              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Targeted Emails</a></h3>
+              <ul>
+                <li><a href="/v1/targeted_emails/batches/">Batches</a></li>
               </ul>
             </li>
           </ul>

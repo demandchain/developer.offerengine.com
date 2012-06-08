@@ -30,13 +30,34 @@
       <div class="content">
         <h1 id="regions">Regions</h1>
 
-<h2 id="list-all-regions">List all regions</h2>
-<p>Returns an array of region representations.</p>
+<ul>
+<li><a href="/v1/regions/#get-a-region">Get a region</a></li>
+  <li><a href="/v1/regions/#list-all-regions">List all regions</a></li>
+</ul><h2 id="get-a-region">Get a region</h2>
 
-<pre><code>GET /regions
+<pre><code>GET /api/v1/regions/:region_id
 </code></pre>
 
 <h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"region"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"atlanta"</span><span class="p">,</span>
+    <span class="s2">"active"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Atlanta"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="list-all-regions">List all regions</h2>
+<p>Returns an array of region representations.</p>
+
+<pre><code>GET /api/v1/regions
+</code></pre>
+
+<h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -101,6 +122,12 @@
                 <li><a href="/v1/users/saved_deals/">Saved Deals</a></li>
                 <li><a href="/v1/users/shipping_addresses/">Shipping Addresses</a></li>
                 <li><a href="/v1/users/subscriptions/">Subscriptions</a></li>
+              </ul>
+            </li>
+            <li>
+              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Targeted Emails</a></h3>
+              <ul>
+                <li><a href="/v1/targeted_emails/batches/">Batches</a></li>
               </ul>
             </li>
           </ul>

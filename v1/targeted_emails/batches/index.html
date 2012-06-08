@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Leads - OfferEngine API</title>
+  <title>Targeted Emails Batches - OfferEngine API</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -28,27 +28,119 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="sessions">Sessions</h1>
+        <h1 id="batches">Batches</h1>
 
 <ul>
-<li><a href="/v1/sessions/#create-a-lead">Create a lead, given a session id</a></li>
-  <li><a href="/v1/sessions/#retrieve-a-session">Retrieve a session</a></li>
-</ul><h2 id="create-a-lead">Create a lead</h2>
+<li><a href="/v1/targeted_emails/batches/#get-a-batch">Get a batch</a></li>
+  <li><a href="/v1/targeted_emails/batches/#create-a-batch">Create a batch</a></li>
+  <li><a href="/v1/targeted_emails/batches/#cancel-a-batch">Cancel a batch</a></li>
+</ul><h2 id="get-a-batch">Get a batch</h2>
+<p>Returns a serialized representation of the batch.</p>
 
-<pre><code>POST api/v1/sessions/session_id/leads
+<pre><code>GET /v1/targeted_email/batches/:batch_id
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
 <dl>
-<dt>source_id</dt>
+<dt>api_key</dt>
   <dd>
-<em>STRING</em> The affiliate’s ID</dd>
-  <dt>source_type</dt>
+<em>STRING</em> Partners API key</dd>
+  <dt>deal_id</dt>
   <dd>
-<em>STRING</em> The type of the source. The possible value is “affiliate”</dd>
+<em>STRING</em> The deal id associated with the batch. Used to verify that the batch is associated with this deal</dd>
 </dl><h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"batch"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"send_at"</span><span class="o">:</span> <span class="s2">"2012-06-09T12:00:00Z"</span><span class="p">,</span>
+    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining9d343eaf"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"pending"</span><span class="p">,</span>
+    <span class="s2">"user_ids"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"3f586cbb"</span>
+    <span class="p">],</span>
+    <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"suppress"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"e8f6859a"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="create-a-batch">Create a batch</h2>
+
+<pre><code>POST /v1/targeted_email/batches
+</code></pre>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<dl>
+<dt>api_key</dt>
+  <dd>
+<em>String</em> Partners api_key</dd>
+  <dt>deal_id</dt>
+  <dd>
+<em>String</em> Deal slug that this batch is bound to</dd>
+  <dt>user_ids</dt>
+  <dd>
+<em>Array</em> Of strings containing the user slugs to include in the batch</dd>
+  <dt>mode</dt>
+  <dd>
+<em>String</em> Either “suppress” to make sure the users are not sent a daily update email or “augment” to send email as usual</dd>
+  <dt>send_at</dt>
+  <dd>
+<em>String</em> Date the batch should be scheduled for</dd>
+</dl><h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"batch"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"send_at"</span><span class="o">:</span> <span class="s2">"2012-06-09T12:00:00Z"</span><span class="p">,</span>
+    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining9d343eaf"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"pending"</span><span class="p">,</span>
+    <span class="s2">"user_ids"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"3f586cbb"</span>
+    <span class="p">],</span>
+    <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"suppress"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"e8f6859a"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="cancel-a-batch">Cancel a batch</h2>
+<p>Cancels the batch.</p>
+
+<pre><code>DELETE /v1/targeted_email/batches/:batch_id
+</code></pre>
+
+<h3 id="parameters-2">Parameters</h3>
+<dl>
+<dt>api_key</dt>
+  <dd>
+<em>STRING</em> Partners API key</dd>
+  <dt>batch_id</dt>
+  <dd>
+<em>STRING</em> The batch id to cancel</dd>
+  <dt>deal_id</dt>
+  <dd>
+<em>STRING</em> The deal id associated with the batch. Used to verify that the batch is associated with this deal</dd>
+</dl><h3 id="response-2">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"batch"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"send_at"</span><span class="o">:</span> <span class="s2">"2012-06-09T12:00:00Z"</span><span class="p">,</span>
+    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining9d343eaf"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"cancelled"</span><span class="p">,</span>
+    <span class="s2">"user_ids"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"3f586cbb"</span>
+    <span class="p">],</span>
+    <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"suppress"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"e8f6859a"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">

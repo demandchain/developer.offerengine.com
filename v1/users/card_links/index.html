@@ -157,9 +157,17 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <dl>
-<dt>total_amount</dt>
+<dt>transaction_amount</dt>
   <dd>
 <em>Integer</em> total amount charged in cents</dd>
+  <dt>transaction_date</dt>
+  <dd>
+<em>String</em> XML DateTime formatted as “YYYY-MM-DDThh:mm:ss”; i.e. 2012-02-06T21:39:51-08:00</dd>
+  <dt>transaction_reference</dt>
+  <dd><em>String</em></dd>
+  <dt>max_redemption</dt>
+  <dd>
+<em>Boolean</em> Set to true if this redemption fulfills the card link.</dd>
 </dl><h3 id="response-4">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -218,6 +226,12 @@
                 <li><a href="/v1/users/saved_deals/">Saved Deals</a></li>
                 <li><a href="/v1/users/shipping_addresses/">Shipping Addresses</a></li>
                 <li><a href="/v1/users/subscriptions/">Subscriptions</a></li>
+              </ul>
+            </li>
+            <li>
+              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Targeted Emails</a></h3>
+              <ul>
+                <li><a href="/v1/targeted_emails/batches/">Batches</a></li>
               </ul>
             </li>
           </ul>
