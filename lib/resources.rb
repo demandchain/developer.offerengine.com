@@ -6,6 +6,7 @@ require 'resources/deal'
 require 'resources/purchase'
 require 'resources/coupon'
 require 'resources/card_link'
+require 'resources/batch'
 
 module OfferEngine
   module Helpers
