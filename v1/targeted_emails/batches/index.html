@@ -44,10 +44,10 @@
 <dl>
 <dt>api_key</dt>
   <dd>
-<em>STRING</em> Partners API key</dd>
+<em>String</em> Partners API key</dd>
   <dt>deal_id</dt>
   <dd>
-<em>STRING</em> The deal id associated with the batch. Used to verify that the batch is associated with this deal</dd>
+<em>String</em> The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal</dd>
 </dl><h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -67,6 +67,9 @@
 <span class="p">}</span></code></pre>
 
 <h2 id="create-a-batch">Create a batch</h2>
+<p>Creates a new targeted email batch.
+Limited to 1000 user ids per request.
+Limited to 10 000 scheduled user ids per send_at day.</p>
 
 <pre><code>POST /v1/targeted_email/batches
 </code></pre>
@@ -79,16 +82,20 @@
 <em>String</em> Partners api_key</dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em> Deal slug that this batch is bound to</dd>
+<em>String</em> Deal id that this batch is bound to</dd>
   <dt>user_ids</dt>
-  <dd>
-<em>Array</em> Of strings containing the user slugs to include in the batch</dd>
+  <dd>_Array<string>_ User ids to include in the batch</string>
+</dd>
   <dt>mode</dt>
   <dd>
-<em>String</em> Either “suppress” to make sure the users are not sent a daily update email or “augment” to send email as usual</dd>
+    <table><tbody><tr>
+<td>_String (‘suppress’</td>
+          <td>‘augment’)_ Either “suppress” to make sure the users are not sent a daily update email on the send_at day, or “augment” to allow sending the daily update to be sent that day.</td>
+        </tr></tbody></table>
+</dd>
   <dt>send_at</dt>
   <dd>
-<em>String</em> Date the batch should be scheduled for</dd>
+<em>String</em> UTC Time the batch delivery should be scheduled for. Must be after tonight midnight and before tomorrow midnight.</dd>
 </dl><h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
@@ -117,13 +124,13 @@
 <dl>
 <dt>api_key</dt>
   <dd>
-<em>STRING</em> Partners API key</dd>
+<em>String</em> Partners API key</dd>
   <dt>batch_id</dt>
   <dd>
-<em>STRING</em> The batch id to cancel</dd>
+<em>String</em> The batch id to cancel</dd>
   <dt>deal_id</dt>
   <dd>
-<em>STRING</em> The deal id associated with the batch. Used to verify that the batch is associated with this deal</dd>
+<em>String</em> The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal.</dd>
 </dl><h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
