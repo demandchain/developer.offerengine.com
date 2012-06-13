@@ -15,10 +15,10 @@ Returns a serialized representation of the batch.
 
 ### Parameters
 api_key
-: _STRING_ Partners API key
+: _String_ Partners API key
 
 deal_id
-: _STRING_ The deal id associated with the batch. Used to verify that the batch is associated with this deal
+: _String_ The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal
 
 ### Response
 
@@ -27,6 +27,9 @@ deal_id
 
 
 ## Create a batch
+Creates a new targeted email batch.
+Limited to 1000 user ids per request.
+Limited to 10 000 scheduled user ids per send_at day.
 
     POST /v1/targeted_email/batches
 
@@ -37,16 +40,16 @@ api_key
 : _String_ Partners api_key
 
 deal_id
-: _String_ Deal slug that this batch is bound to
+: _String_ Deal id that this batch is bound to
 
 user_ids
-: _Array_ Of strings containing the user slugs to include in the batch
+: _Array<String>_ User ids to include in the batch
 
 mode
-: _String_ Either "suppress" to make sure the users are not sent a daily update email or "augment" to send email as usual
+: _String ('suppress'|'augment')_ Either "suppress" to make sure the users are not sent a daily update email on the send_at day, or "augment" to allow sending the daily update to be sent that day.
 
 send_at
-: _String_ Date the batch should be scheduled for
+: _String_ UTC Time the batch delivery should be scheduled for. Must be after tonight midnight and before tomorrow midnight.
 
 
 ### Response
@@ -62,13 +65,13 @@ Cancels the batch.
 
 ### Parameters
 api_key
-: _STRING_ Partners API key
+: _String_ Partners API key
 
 batch_id
-: _STRING_ The batch id to cancel
+: _String_ The batch id to cancel
 
 deal_id
-: _STRING_ The deal id associated with the batch. Used to verify that the batch is associated with this deal
+: _String_ The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal.
 
 ### Response
 
