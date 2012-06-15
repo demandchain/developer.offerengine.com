@@ -14,6 +14,7 @@ Returns a serialized representation of the batch.
     GET /v1/targeted_email/batches/:batch_id
 
 ### Parameters
+
 api_key
 : _String_ Partners API key
 
@@ -43,10 +44,10 @@ deal_id
 : _String_ Deal id that this batch is bound to
 
 user_ids
-: _Array<String>_ User ids to include in the batch
+: _Array\<String\>_ User ids to include in the batch
 
 mode
-: _String ('suppress'|'augment')_ Either "suppress" to make sure the users are not sent a daily update email on the send_at day, or "augment" to allow sending the daily update to be sent that day.
+: _String \('suppress'\|'augment'\)_ Either "suppress" to make sure the users are not sent a daily update email on the send_at day, or "augment" to allow sending the daily update to be sent that day.
 
 send_at
 : _String_ UTC Time the batch delivery should be scheduled for. Must be after tonight midnight and before tomorrow midnight.
