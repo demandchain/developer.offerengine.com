@@ -84,15 +84,11 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <dd>
 <em>String</em> Deal id that this batch is bound to</dd>
   <dt>user_ids</dt>
-  <dd>_Array<string>_ User ids to include in the batch</string>
-</dd>
+  <dd>
+<em>Array&lt;String&gt;</em> User ids to include in the batch</dd>
   <dt>mode</dt>
   <dd>
-    <table><tbody><tr>
-<td>_String (‘suppress’</td>
-          <td>‘augment’)_ Either “suppress” to make sure the users are not sent a daily update email on the send_at day, or “augment” to allow sending the daily update to be sent that day.</td>
-        </tr></tbody></table>
-</dd>
+<em>String (‘suppress’|‘augment’)</em> Either “suppress” to make sure the users are not sent a daily update email on the send_at day, or “augment” to allow sending the daily update to be sent that day.</dd>
   <dt>send_at</dt>
   <dd>
 <em>String</em> UTC Time the batch delivery should be scheduled for. Must be after tonight midnight and before tomorrow midnight.</dd>
