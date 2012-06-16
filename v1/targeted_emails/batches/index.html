@@ -145,6 +145,19 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
     <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"e8f6859a"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<h2 id="possible-batch-statuses">Possible Batch Statuses</h2>
+
+<dl>
+<dt>pending</dt>
+  <dd>batch is ready and waiting for the send_at time to deliver its targeted emails.</dd>
+  <dt>processed</dt>
+  <dd>batch has delivered all of its targeted emails successfully.</dd>
+  <dt>failed</dt>
+  <dd>batch has delivered all of its targeted emails. One or more emails failed to send.</dd>
+  <dt>cancelled</dt>
+  <dd>batch was cancelled before its delivery time (send_at time).</dd>
+</dl>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">
