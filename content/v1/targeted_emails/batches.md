@@ -78,3 +78,18 @@ deal_id
 
 <%= headers 200 %>
 <%= json(:status => "success", :batch => {:send_at => "2012-06-09T12:00:00Z", :deal_id =>  "a-50-for-100-worth-of-dining9d343eaf", :status => "cancelled", :user_ids => ["3f586cbb"], :mode => "suppress", :id => "e8f6859a"}) %>
+
+
+## Possible Batch Statuses
+
+pending
+: batch is ready and waiting for the send_at time to deliver its targeted emails.
+
+processed
+: batch has delivered all of its targeted emails successfully.
+
+failed
+: batch has delivered all of its targeted emails. One or more emails failed to send.
+
+cancelled
+: batch was cancelled before its delivery time (send_at time).
