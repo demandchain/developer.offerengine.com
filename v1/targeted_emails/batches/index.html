@@ -67,7 +67,17 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="create-a-batch">Create a batch</h2>
+<h3 id="response-errors">Response Errors</h3>
+
+<h5 id="dealid">deal_id</h5>
+<dl>
+<dt>deal_id is absent</dt>
+  <dd>“is required”</dd>
+  <dt>deal_id is unknown</dt>
+  <dd>“unknown deal”</dd>
+  <dt>deal does not match batch’s deal</dt>
+  <dd>“does not match this batch”</dd>
+</dl><h2 id="create-a-batch">Create a batch</h2>
 <p>Creates a new targeted email batch.
 Limited to 1000 user ids per request.
 Limited to 10 000 scheduled user ids per send_at day.</p>
@@ -111,7 +121,43 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="cancel-a-batch">Cancel a batch</h2>
+<h3 id="response-errors-1">Response Errors</h3>
+
+<h5 id="dealid-1">deal_id</h5>
+<dl>
+<dt>deal_id is absent</dt>
+  <dd>“is required”</dd>
+  <dt>deal_id is unknown</dt>
+  <dd>“unknown deal”</dd>
+  <dt>deal is not in-flight or or approved</dt>
+  <dd>“deal’s status must be in-flight or approved”</dd>
+</dl><h5 id="sendat">send_at</h5>
+<dl>
+<dt>send_at is absent</dt>
+  <dd>“is required”</dd>
+  <dt>send_at is not tomorrow</dt>
+  <dd>“must be tomorrow”</dd>
+  <dt>send_at is before deal start time</dt>
+  <dd>“must be after deal’s start time”</dd>
+  <dt>send_at is after deal end time</dt>
+  <dd>“must be before deal’s end time”</dd>
+</dl><h5 id="userids">user_ids</h5>
+<dl>
+<dt>is absent</dt>
+  <dd>“is required”</dd>
+  <dt>none exist</dt>
+  <dd>“do not exist or are invalid”</dd>
+  <dt>some are invalid or do not exist</dt>
+  <dd>“some are invalid or do not exist”</dd>
+  <dt>all user_ids already scheduled for that day</dt>
+  <dd>“already scheduled for that day”</dd>
+</dl><h5 id="mode">mode</h5>
+<dl>
+<dt>is absent</dt>
+  <dd>“is required”</dd>
+  <dt>is invalid</dt>
+  <dd>“must be either (…)”</dd>
+</dl><h2 id="cancel-a-batch">Cancel a batch</h2>
 <p>Cancels the batch.</p>
 
 <pre><code>DELETE /v1/targeted_email/batches/:batch_id
@@ -146,7 +192,21 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="possible-batch-statuses">Possible Batch Statuses</h2>
+<h3 id="response-errors-2">Response Errors</h3>
+
+<h5 id="dealid-2">deal_id</h5>
+<dl>
+<dt>deal_id is absent</dt>
+  <dd>“is required”</dd>
+  <dt>deal_id is unknown</dt>
+  <dd>“unknown deal”</dd>
+  <dt>deal does not match batch’s deal</dt>
+  <dd>“does not match this batch”</dd>
+</dl><h5 id="batchid">batch_id</h5>
+<dl>
+<dt>batch is already processed</dt>
+  <dd>“is already processed, cannot be cancelled”</dd>
+</dl><h2 id="possible-batch-statuses">Possible Batch Statuses</h2>
 
 <dl>
 <dt>pending</dt>
