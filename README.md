@@ -110,7 +110,8 @@ This starts a web server too, so there's no need to run `nanoc view`.
 One thing: remember to add trailing slashes to all nanoc links!
 
 ## Deploy
-
+    (commit your changes)
+    $ git push origin
     $ rake publish
 
 ## TODO
