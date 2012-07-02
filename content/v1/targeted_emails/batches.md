@@ -26,6 +26,18 @@ deal_id
 <%= headers 200 %>
 <%= json(:status => "success", :batch => OfferEngine.batch) %>
 
+### Response Errors
+
+##### deal_id
+deal_id is absent
+: "is required"
+
+deal_id is unknown
+: "unknown deal"
+
+deal does not match batch's deal
+: "does not match this batch"
+
 
 ## Create a batch
 Creates a new targeted email batch.
@@ -58,6 +70,50 @@ send_at
 <%= headers 201 %>
 <%= json(:status => "success", :batch => OfferEngine.batch) %>
 
+### Response Errors
+
+##### deal_id
+deal_id is absent
+: "is required"
+
+deal_id is unknown
+: "unknown deal"
+
+deal is not in-flight or or approved
+: "deal's status must be in-flight or approved"
+
+##### send_at
+send_at is absent
+: "is required"
+
+send_at is not tomorrow
+: "must be tomorrow"
+
+send_at is before deal start time
+: "must be after deal's start time"
+
+send_at is after deal end time
+: "must be before deal's end time"
+
+##### user_ids
+is absent
+: "is required"
+
+none exist
+: "do not exist or are invalid"
+
+some are invalid or do not exist
+: "some are invalid or do not exist"
+
+all user_ids already scheduled for that day
+: "already scheduled for that day"
+
+##### mode
+is absent
+: "is required"
+
+is invalid
+: "must be either (...)"
 
 ## Cancel a batch
 Cancels the batch.
@@ -79,6 +135,21 @@ deal_id
 <%= headers 200 %>
 <%= json(:status => "success", :batch => {:send_at => "2012-06-09T12:00:00Z", :deal_id =>  "a-50-for-100-worth-of-dining9d343eaf", :status => "cancelled", :user_ids => ["3f586cbb"], :mode => "suppress", :id => "e8f6859a"}) %>
 
+### Response Errors
+
+##### deal_id
+deal_id is absent
+: "is required"
+
+deal_id is unknown
+: "unknown deal"
+
+deal does not match batch's deal
+: "does not match this batch"
+
+##### batch_id
+batch is already processed
+: "is already processed, cannot be cancelled"
 
 ## Possible Batch Statuses
 
