@@ -40,7 +40,7 @@ deal does not match batch's deal
 
 
 ## Create a batch
-Creates a new targeted email batch.
+Creates a new targeted email batch. 
 Limited to 1000 user ids per request.
 Limited to 10 000 scheduled user ids per send_at day.
 
@@ -56,7 +56,7 @@ deal_id
 : _String_ Deal id that this batch is bound to
 
 user_ids
-: _Array\<String\>_ User ids to include in the batch
+: _Array\<String\>_ User ids to include in the batch. Any invalid user id will be dropped and as long as there are valid user ids left, the batch will be created and only the valid user ids will be added to the batch. A user id is invalid if it doesn't exist, or if that user id is already present in another batch scheduled for the same date as the requested send_at date.
 
 mode
 : _String \('suppress'\|'augment'\)_ Either "suppress" to make sure the users are not sent a daily update email on the send_at day, or "augment" to allow sending the daily update to be sent that day.
