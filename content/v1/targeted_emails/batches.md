@@ -99,14 +99,11 @@ send_at is after deal end time
 is absent
 : "is required"
 
-none exist
-: "do not exist or are invalid"
-
-some are invalid or do not exist
-: "some are invalid or do not exist"
+all are invalid or do not exist
+: "are all invalid"
 
 all user_ids already scheduled for that day
-: "already scheduled for that day"
+: "are all already scheduled for that day"
 
 ##### mode
 is absent
