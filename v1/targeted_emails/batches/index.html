@@ -78,7 +78,7 @@
   <dt>deal does not match batch’s deal</dt>
   <dd>“does not match this batch”</dd>
 </dl><h2 id="create-a-batch">Create a batch</h2>
-<p>Creates a new targeted email batch.
+<p>Creates a new targeted email batch. 
 Limited to 1000 user ids per request.
 Limited to 10 000 scheduled user ids per send_at day.</p>
 
@@ -96,7 +96,7 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 <em>String</em> Deal id that this batch is bound to</dd>
   <dt>user_ids</dt>
   <dd>
-<em>Array&lt;String&gt;</em> User ids to include in the batch</dd>
+<em>Array&lt;String&gt;</em> User ids to include in the batch. Any invalid user id will be dropped and as long as there are valid user ids left, the batch will be created and only the valid user ids will be added to the batch. A user id is invalid if it doesn’t exist, or if that user id is already present in another batch scheduled for the same date as the requested send_at date.</dd>
   <dt>mode</dt>
   <dd>
 <em>String (‘suppress’|‘augment’)</em> Either “suppress” to make sure the users are not sent a daily update email on the send_at day, or “augment” to allow sending the daily update to be sent that day.</dd>
@@ -145,12 +145,10 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 <dl>
 <dt>is absent</dt>
   <dd>“is required”</dd>
-  <dt>none exist</dt>
-  <dd>“do not exist or are invalid”</dd>
-  <dt>some are invalid or do not exist</dt>
-  <dd>“some are invalid or do not exist”</dd>
+  <dt>all are invalid or do not exist</dt>
+  <dd>“are all invalid”</dd>
   <dt>all user_ids already scheduled for that day</dt>
-  <dd>“already scheduled for that day”</dd>
+  <dd>“are all already scheduled for that day”</dd>
 </dl><h5 id="mode">mode</h5>
 <dl>
 <dt>is absent</dt>
