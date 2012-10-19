@@ -11,16 +11,82 @@ title: Purchases
 * [Release a reserved purchase](/v1/purchases/#release-a-reserved-purchase)
 
 ## Get a purchase
-Returns a serialized representation of the purchase.
 
-    GET /purchases/:purchase_id
+To get a particular purchase object
+
+This operation returns a representation of a specific purchase transaction and associated information.
+
+### Request
+
+    GET /purchases/<purchase_id>?api_key=<api_key>
+
+### Parameters
+
+None
+
+### Request Example
+
+<%= requests("GET /purchases/34063ec2.json?api_key=1234567") %>
 
 ### Response
 
+### Parameters
+
+status
+: _String_  State of this purchase ("success" or error type)
+
+purchase_id
+: _String_  Unique identifier for this purchase
+
+deal_id
+: _String_  Unique identifier for deal purchased
+
+user_id
+: _String_  Unique identifier for purchasing user
+
+credit_card_id
+: _String_  Unique identifier for credit card used to make this purchase
+
+#### coupons
+id
+: _String_  Unique identifier for this purchase voucher
+
+slug
+: _String_  Unique identifier for this purchase voucher
+
+deal_id
+: _String_  Unique identifier for deal purchased
+
+deal_type
+: _String_  Type of deal purchased (<possible results>)
+
+barcode
+: _String_  Unique barcode used for purchase redemption
+
+redemption_code
+: _String_  Unique code used for purchase redemption
+
+expires_at
+: _String_  Date and time of purchase voucher expiration
+
+created_at
+: _String_  Date and time purchase was made
+
+state
+: _String_  State of the purchase (<possible results>)
+
+redeemed_at
+: _Optional String_  Date and time when purchase voucher was redeemed
+
+### Response Example
 <%= headers 200 %>
 <%= json(:status => "success", :purchase => OfferEngine.purchase) %>
 
 ## Create a purchase
+
+To create a purchase for an existing user with a stored credit card
+
+This operation will execute a purchase transaction for an existing user that already has a stored credit card
 
     POST /purchases
 
@@ -32,7 +98,7 @@ quantity
 : _Integer_ The number of deals you are purchasing for this purchase
 
 user_id
-: _String_  Id of the deal you are purchasing inventory for
+: _String_  Id of the user who is making the purchase
 
 credit_card_id
 : _String_  Id of the credit card you are purchasing inventory for

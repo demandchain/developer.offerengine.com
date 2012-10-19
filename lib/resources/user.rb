@@ -22,4 +22,25 @@ module OfferEngine
       todo: "PLEASE"
     }
   )
+
+  def self.new_user 
+    {
+      :email => "help@developer.offerengine.com",
+      :password => "pass123",
+      :password_confirmation => "pass123",
+      :first_name => "Hank",
+      :last_name => "Rearden",
+    }
+  end
+
+  def self.shipping_address
+    {
+      :address_one => "501 Howard St",
+      :address_two => "#2000",
+      :postal_code => "94105",
+      :city => "San Francisco",
+      :state => "CA",
+      :country => "US",
+    }
+  end
 end

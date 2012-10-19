@@ -93,6 +93,11 @@ module GitHub
         %(<pre class="highlight"><code class="language-javascript">) +
           JSON.pretty_generate(hash) + "</code></pre>"
       end
+
+      def requests(content)
+        lines = [content]
+        %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
+      end
     end
   end
 end
