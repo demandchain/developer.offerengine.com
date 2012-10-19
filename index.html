@@ -20,7 +20,7 @@
       <div id="header">
         <div>
           <ul class="nav">
-            <li><a href="javascript:">Support</a></li>
+            <li><a href="mailto:support@offerengine.com">Support</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -28,85 +28,110 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="the-offerengine-api">The OfferEngine API</h1>
+        <h1 id="offerengine-api-introduction">OfferEngine API Introduction</h1>
 
-<p>This describes the resources that make up the official OfferEngine API. If
-you have any problems or requests please contact
-<a href="mailto:support@offerengine.com">support</a>.</p>
+<p>Deem Offers provides APIs allowing you to integrate Offers content into your existing platform and services.</p>
 
-<p>For the new API, start browsing the resources on the right »</p>
+<p>Using two simple API calls you can provide in-context Offers within your existing website, mobile app, emails, or any other internet enabled surface. The entire sales process, display through purchase, can be seamlessly integrated providing your customers an uninterrupted user experience.</p>
 
-<p>Please remember <b>all calls must be made via HTTPS</b>.  Never send your api_key over HTTP.</p>
+<p>On this website, we would like to provide all the information you will need to start using Deem Offers APIs.</p>
+
+<p>Specifically, you will find information to:</p>
+
+<ul>
+<li><a href="/v1/authentication/">Authenticate your calls</a></li>
+  <li><a href="/v1/get_deals/">Get Deal inventory</a></li>
+  <li><a href="/v1/full_purchase/">Make Deal purchases</a></li>
+</ul><h2 id="overview">Overview</h2>
+
+<p>This is a RESTful API. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application. JSON will be returned in all responses from the API, including errors.</p>
+
+<p>Accounts have test-mode API keys, as well as live-mode API keys. These keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge credit cards.</p>
+
+<p>If you have any problems or requests please contact <a href="mailto:support@offerengine.com">support</a>.</p>
+
+<h2 id="endpoint">Endpoint</h2>
+
+<p><b>https://api.offers.deem.com/</b></p>
+
+<h2 id="basic-actions">Basic Actions</h2>
+
+<p>The basic actions needed to provide offers to your users are: </p>
+
+<ul>
+<li>to get a list of available offers, which then are displayed by you on your surfaces</li>
+  <li>to make a purchase of an offer for your users. </li>
+</ul><p>The following two separate requests are required to perform these actions:</p>
+
+<ul>
+<li><a href="/v1/get_deals/">Get Deals</a></li>
+  <li><a href="/v1/full_purchase/">Execute Purchases</a></li>
+</ul><p>Additional requests providing advanced features can be found here:</p>
+
+<ul>
+<li><a href="/v1/advanced/">Additional Requests</a></li>
+</ul>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">
         <div class="js-toggle-list sidebar-module expandable">
           <ul>
             <li>
-              <h3><a href="/">Home</a></h3>
+              <h3><a href="/">Introduction</a></h3>
             </li>
+            <li>
+              <h3><a href="/v1/authentication/">Authentication</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/get_deals/">Get Deals</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/full_purchase/">Execute Purchases</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/errors/">Errors</a></h3>
+            </li>
+
             <li>
               <h3>
                 <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/deals/">Deals</a>
+                <a href="/v1/advanced/">Additional Requests</a>
               </h3>
               <ul>
-                <li><a href="/v1/deals/discussions/">Discussions</a></li>
+                <li><a href="/v1/deals/">Deals</a></li>
+                <li><a href="/v1/deals/discussions/">Deal Discussions</a></li>
+                <li><a href="/v1/purchases/">Purchases</a></li>
+                <li><a href="/v1/sessions/">Sessions</a></li>
+                <li><a href="/v1/sessions/leads/">Session Leads</a></li>
+                <li><a href="/v1/regions/">Regions</a></li>
+                <li><a href="/v1/regions/deals/">Region Deals</a></li>
+                <li><a href="/v1/regions/activity/">Region Activity</a></li>
+                <li><a href="/v1/users/">Users</a></li>
+                <li><a href="/v1/users/access_tokens/">User Access Tokens</a></li>
+                <li><a href="/v1/users/card_links/">User Card Links</a></li>
+                <li><a href="/v1/users/coupons/">User Coupons</a></li>
+                <li><a href="/v1/users/credit_cards/">User Credit Cards</a></li>
+                <li><a href="/v1/users/images/">User Images</a></li>
+                <li><a href="/v1/users/purchases/">User Purchases</a></li>
+                <li><a href="/v1/users/saved_deals/">User Saved Deals</a></li>
+                <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a></li>
+                <li><a href="/v1/users/subscriptions/">User Subscriptions</a></li>
+                <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a></li>
+                <li><a href="/v1/targeted_emails/batches/">Targeted Email Batches</a></li>
+                <li><a href="/v1/stats/merchants/">Stats</a></li>
               </ul>
             </li>
+
+            <!--
             <li>
-              <h3><a href="/v1/purchases/">Purchases</a></h3>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/sessions/">Sessions</a>
-              </h3>
-              <ul>
-                <li><h3><a href="/v1/sessions/leads/">Leads</a></h3></li>
-              </ul>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/regions/">Regions</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/regions/deals/">Deals</a></li>
-                <li><a href="/v1/regions/activity/">Activity</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/v1/users/">Users</a></h3>
-              <ul>
-                <li><a href="/v1/users/access_tokens/">Access Tokens</a></li>
-                <li><a href="/v1/users/card_links/">Card Links</a></li>
-                <li><a href="/v1/users/coupons/">Coupons</a></li>
-                <li><a href="/v1/users/credit_cards/">Credit Cards</a></li>
-                <li><a href="/v1/users/images/">Images</a></li>
-                <li><a href="/v1/users/purchases/">Purchases</a></li>
-                <li><a href="/v1/users/saved_deals/">Saved Deals</a></li>
-                <li><a href="/v1/users/shipping_addresses/">Shipping Addresses</a></li>
-                <li><a href="/v1/users/subscriptions/">Subscriptions</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Targeted Emails</a></h3>
-              <ul>
-                <li><a href="/v1/targeted_emails/batches/">Batches</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/">Stats</a></h3>
+              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/v1/stats/merchants/">Stats</a></h3>
               <ul>
                 <li><a href="/v1/stats/merchants/">Merchants</a></li>
               </ul>
             </li>
+            -->
           </ul>
         </div> <!-- /sidebar-module -->
-        <div class="sidebar-module">
-          <p>This website is <a href="https://github.com/demandchain/developer.offerengine.com" target="_blank">open source</a>. Please help us by forking the project and adding to it.</p>
-        </div>
       </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User Shipping Addresses - OfferEngine API</title>
+  <title>Errors - OfferEngine API</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -28,42 +28,87 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="user-shipping-addresses">User Shipping Addresses</h1>
+        <h1 id="errors">Errors</h1>
 
-<h2 id="create-a-shipping-address-for-user">Create a shipping address for user</h2>
-<p>Store a shipping address for a user</p>
+<p>Conventional HTTP response codes to indicate success or failure of an API request are used. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with OfferEngine’s servers.</p>
 
-<p>Note: All addresses are geo-located and corrected for typos.</p>
+<p>Not all errors map cleanly onto HTTP response codes. All specific errors are mentioned on a per request basis in each request explanation.</p>
 
-<pre><code>POST /shipping_addresss
-</code></pre>
+<p>All errors return JSON with a type and message describing the particular problem that occurred with the previous request.</p>
 
-<h3 id="parameters">Parameters</h3>
+<p>This section provides a high overview of the error behavior, but each api call has specific error responses explained within its own documentation.</p>
 
-<dl>
-<dt>name</dt>
-  <dd><em>String</em></dd>
-  <dt>address_one</dt>
-  <dd><em>String</em></dd>
-  <dt>address_two</dt>
-  <dd><em>String</em></dd>
-  <dt>city</dt>
-  <dd><em>String</em></dd>
-  <dt>state</dt>
-  <dd><em>String</em></dd>
-  <dt>country</dt>
-  <dd><em>String</em></dd>
-  <dt>telephone</dt>
-  <dd><em>String</em></dd>
-  <dt>user_id</dt>
-  <dd>
-<em>String</em> Id of the user</dd>
-</dl><h3 id="response">Response</h3>
+<h2 id="http-status-code-summary">HTTP Status Code Summary</h2>
 
-<pre class="headers"><code>Status: 200 OK</code></pre>
+<ul>
+<li>
+    <p><b>200</b> OK - Everything worked as expected.</p>
+  </li>
+  <li>
+    <p><b>400</b> Bad Request - Often missing a required parameter.</p>
+  </li>
+  <li>
+    <p><b>401</b> Unauthorized - No valid API key provided.</p>
+  </li>
+  <li>
+    <p><b>402</b> Request Failed - Parameters were valid but request failed.</p>
+  </li>
+  <li>
+    <p><b>404</b> Not Found - The requested item doesn’t exist.</p>
+  </li>
+  <li>
+    <p><b>409</b> Conflict - A conflict with request and stored data.</p>
+  </li>
+  <li>
+    <p><b>422</b> Unprocessable Entity - The request is unprocessable.</p>
+  </li>
+  <li>
+    <p><b>500, 502, 503, 504</b> Server errors - something went wrong on an OfferEngine server.</p>
+  </li>
+</ul><h2 id="error-types">Error Types</h2>
+
+<ul>
+<li>
+    <p><b>auth_failed</b> - key provided does not match an active api key</p>
+  </li>
+  <li>
+    <p><b>validation_failed</b> - usually a missing required parameter</p>
+  </li>
+  <li>
+    <p><b>create_failed</b> - object parameters are malformed</p>
+  </li>
+  <li>
+    <p><b>update_failed</b> - object parameters are malformed</p>
+  </li>
+  <li>
+    <p><b>find_failed</b> - objects or objects could not be found as requested</p>
+  </li>
+  <li>
+    <p><b>purchase_failed</b> - credit card charge failed </p>
+  </li>
+  <li>
+    <p><b>redeem_failed</b> - voucher could not be found or is already redeemed</p>
+  </li>
+</ul><h2 id="error-message">Error Message</h2>
+
+<p>Field providing a human readable explanation of the error that occurred </p>
+
+<h2 id="error-response">Error Response</h2>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">""</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="error-response-example">Error Response Example</h2>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
       </div>
 

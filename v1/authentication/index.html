@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User Shipping Addresses - OfferEngine API</title>
+  <title>Authentication - OfferEngine API</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -28,43 +28,25 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="user-shipping-addresses">User Shipping Addresses</h1>
+        <h1 id="authentication">Authentication</h1>
 
-<h2 id="create-a-shipping-address-for-user">Create a shipping address for user</h2>
-<p>Store a shipping address for a user</p>
+<p>Authenticate to the OfferEngine API by providing your API key in each request. Your API key has many privileges, so <b>keep it secret</b>.</p>
 
-<p>Note: All addresses are geo-located and corrected for typos.</p>
+<p>Your unique API key will be provided to you via your Admin console. If at any time your key has been compromised, generate a new key within Admin from the same location you received your intial key.</p>
 
-<pre><code>POST /shipping_addresss
+<p><b>All API requests must be made over HTTPS.</b> Calls made over plain HTTP will fail. You must authenticate for all requests.</p>
+
+<p>All that needs to be done for each request is to add the api_key parameter to each request (GET, POST, and PUT) with your unique key.</p>
+
+<h2 id="request">Request</h2>
+
+<pre><code>GET /v1/deals?api_key={api_key}
 </code></pre>
 
-<h3 id="parameters">Parameters</h3>
+<h2 id="request-example">Request Example</h2>
 
-<dl>
-<dt>name</dt>
-  <dd><em>String</em></dd>
-  <dt>address_one</dt>
-  <dd><em>String</em></dd>
-  <dt>address_two</dt>
-  <dd><em>String</em></dd>
-  <dt>city</dt>
-  <dd><em>String</em></dd>
-  <dt>state</dt>
-  <dd><em>String</em></dd>
-  <dt>country</dt>
-  <dd><em>String</em></dd>
-  <dt>telephone</dt>
-  <dd><em>String</em></dd>
-  <dt>user_id</dt>
-  <dd>
-<em>String</em> Id of the user</dd>
-</dl><h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
-<span class="p">}</span></code></pre>
+<pre><code>GET /v1/deals?api_key=1234567
+</code></pre>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">
