@@ -34,7 +34,7 @@
 
 <p>This single operation will create a new user, if that user doesn’t already exist, execute a single purchase transaction, and will associate credit card information with the user</p>
 
-<p>It doesn’t matter if a user or credit card object already exist in the system. The backend software is intelligent enough to match existing objects to fullfill the purchase properly.</p>
+<p>It doesn’t matter if a user or credit card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.</p>
 
 <h2 id="request">Request</h2>
 
@@ -43,7 +43,7 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>Required and optional parameters should be provided as a json file. The required fields are: <b>purchase parameters (deal_id, quantity), user parameters (user id or user object), credit card parameters (credit card id or credit card object), and shipping address parameters (shipping address id or shipping address object) if the offer needs to be shipped</b></p>
+<p>Required and optional parameters should be provided as a json file. The required fields are: <b>purchase parameters (deal_id, quantity), user parameters (user id or user resource), credit card parameters (credit card id or credit card resource), and shipping address parameters (shipping address id or shipping address resource) if the offer needs to be shipped</b></p>
 
 <h3 id="purchase-parameters">purchase parameters</h3>
 
@@ -57,7 +57,7 @@
 <br><br>
 </dd>
 </dl><h3 id="user-parameters">user parameters</h3>
-<p>Provide a <b>stored id or a complete user object</b> with the associated user fields (email, password, password_confirmation)</p>
+<p>Provide a <b>stored id or a complete user resource</b> with the associated user fields (email, password, password_confirmation)</p>
 
 <h4 id="user-id">user id</h4>
 
@@ -65,7 +65,7 @@
 <dt>user_id</dt>
   <dd>
 <em>String</em> Id of the user who is making the purchase</dd>
-</dl><h5 id="user-object">user object</h5>
+</dl><h5 id="user-resource">user resource</h5>
 
 <dl>
 <dt>email</dt>
@@ -86,7 +86,7 @@
 <br><br>
 </dd>
 </dl><h3 id="credit-card-parameters">credit card parameters</h3>
-<p>Provide a <b>stored id or a complete credit card object</b> with the associated credit card fields (number, verfication_value, month, year)</p>
+<p>Provide a <b>stored id or a complete credit card resource</b> with the associated credit card fields (number, verfication_value, month, year)</p>
 
 <h4 id="credit-card-id">credit card id</h4>
 
@@ -94,7 +94,7 @@
 <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  Id of stored credit card being used for purchase</dd>
-</dl><h4 id="credit-card-object">credit card object</h4>
+</dl><h4 id="credit-card-resource">credit card resource</h4>
 
 <dl>
 <dt>number</dt>
@@ -112,7 +112,7 @@
 <br><br>
 </dd>
 </dl><h3 id="shipping-address-parameters">shipping address parameters</h3>
-<p>Provide a <b>stored id or a complete shipping address object</b> with the associated shipping address fields (address_one, postal_code, city, state, country)</p>
+<p>Provide an <b>existing id or a complete shipping address resource</b> with the associated shipping address fields (address_one, postal_code, city, state, country). This is only required for deals with a “shipped” fulfillment type.</p>
 
 <h4 id="shipping-address-id">shipping address id</h4>
 
@@ -120,7 +120,7 @@
 <dt>shipping_address_id</dt>
   <dd>
 <em>String</em>  Id of stored shipping address being used for purchase</dd>
-</dl><h4 id="shipping-address-object">shipping address object</h4>
+</dl><h4 id="shipping-address-resource">shipping address resource</h4>
 
 <dl>
 <dt>name</dt>
@@ -195,7 +195,7 @@
 
 <h2 id="response-attributes">Response Attributes</h2>
 
-<p>The response json file will contain: an overall purchase status plus purchase objects for each purchase in the request</p>
+<p>The response json file will contain: an overall purchase status plus purchase resources for each purchase in the request</p>
 
 <h3 id="status-attributes">status attributes</h3>
 
@@ -363,7 +363,7 @@
   <dt>error_type = “declined”</dt>
   <dd>Purchase declined</dd>
   <dt>error_type = “validations_failed”</dt>
-  <dd>Validation failed which can have 4 types (missing_field, missing, invalid, and not_found). Each type will also have the associated resource that caused the error (user, credit_card, purchase, shipping address) and may have a field narrowing down the specific attribute if applicable.</dd>
+  <dd>Validation failed which can have 5 types (missing_field, missing, invalid, not_owner and not_found). Each type will also have the associated resource that caused the error (user, credit_card, purchase, shipping address) and may have a field narrowing down the specific attribute if applicable.</dd>
 </dl><h2 id="error-response-example">Error Response Example</h2>
 
 <h3 id="validation-errors-for-purchase-only">Validation errors for purchase only</h3>
@@ -465,7 +465,6 @@
                 <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a></li>
                 <li><a href="/v1/users/subscriptions/">User Subscriptions</a></li>
                 <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a></li>
-                <li><a href="/v1/targeted_emails/batches/">Targeted Email Batches</a></li>
                 <li><a href="/v1/stats/merchants/">Stats</a></li>
               </ul>
             </li>
