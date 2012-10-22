@@ -4,7 +4,7 @@ title: Get Deals
 
 # Get Deals
 
-This api will return a set of applicable deal objects based upon the filtering parameters that are passed in the request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.
+This api will return a set of applicable deal resources based upon the filtering parameters that are passed in the request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.
 
 ## Request 
 
@@ -134,7 +134,7 @@ The request response will provide a http status of the request along with the as
 
 ## Response Attributes
 
-The response json file will contain a list of deal objects meeting the request filter parameters
+The response json file will contain a list of deal resources meeting the request filter parameters
 
 ### status attributes
 
@@ -143,7 +143,7 @@ status
 
 ### deal attributes
 
-Will contain a list of deal objects with all associated deal attributes for each deal in result set
+Will contain a list of deal resources with all associated deal attributes for each deal in result set
 
 id
 : _String_ Unique identifier for deal purchased

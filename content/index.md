@@ -12,9 +12,9 @@ On this website, we would like to provide all the information you will need to s
 
 Specifically, you will find information to:
 
-* [Authenticate your calls](/v1/authentication/)
-* [Get Deal inventory](/v1/get_deals/)
-* [Make Deal purchases](/v1/full_purchase/)
+* Authenticate your calls - [Authentication](/v1/authentication/)
+* Get deal inventory - [Get Deals](/v1/get_deals/)
+* Make deal purchases - [Execute Purchases](/v1/full_purchase/)
 
 ## Overview
 

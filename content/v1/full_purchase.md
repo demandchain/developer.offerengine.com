@@ -8,7 +8,7 @@ All in one api call to create a purchase, new user, and store a credit card
 
 This single operation will create a new user, if that user doesn't already exist, execute a single purchase transaction, and will associate credit card information with the user
 
-It doesn't matter if a user or credit card object already exist in the system. The backend software is intelligent enough to match existing objects to fullfill the purchase properly.
+It doesn't matter if a user or credit card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.
 
 ## Request 
 
@@ -16,7 +16,7 @@ It doesn't matter if a user or credit card object already exist in the system. T
 
 ## Request Parameters
 
-Required and optional parameters should be provided as a json file. The required fields are: <b>purchase parameters (deal_id, quantity), user parameters (user id or user object), credit card parameters (credit card id or credit card object), and shipping address parameters (shipping address id or shipping address object) if the offer needs to be shipped</b>
+Required and optional parameters should be provided as a json file. The required fields are: <b>purchase parameters (deal_id, quantity), user parameters (user id or user resource), credit card parameters (credit card id or credit card resource), and shipping address parameters (shipping address id or shipping address resource) if the offer needs to be shipped</b>
 
 ### purchase parameters
 
@@ -28,14 +28,14 @@ quantity
 <br/><br/>
 
 ### user parameters
-Provide a <b>stored id or a complete user object</b> with the associated user fields (email, password, password_confirmation)
+Provide a <b>stored id or a complete user resource</b> with the associated user fields (email, password, password_confirmation)
 
 #### user id
 
 user_id
 : _String_ Id of the user who is making the purchase
 
-##### user object
+##### user resource
 
 email
 : _String_ Email address of the user who is making the purchase
@@ -54,14 +54,14 @@ last_name
 <br/><br/>
 
 ### credit card parameters
-Provide a <b>stored id or a complete credit card object</b> with the associated credit card fields (number, verfication_value, month, year)
+Provide a <b>stored id or a complete credit card resource</b> with the associated credit card fields (number, verfication_value, month, year)
 
 #### credit card id
 
 credit_card_id
 : _String_  Id of stored credit card being used for purchase
 
-#### credit card object
+#### credit card resource
 
 number
 : _String_  Credit card number being used for purchase
@@ -77,14 +77,14 @@ year
 <br/><br/>
 
 ### shipping address parameters
-Provide a <b>stored id or a complete shipping address object</b> with the associated shipping address fields (address_one, postal_code, city, state, country)
+Provide an <b>existing id or a complete shipping address resource</b> with the associated shipping address fields (address_one, postal_code, city, state, country). This is only required for deals with a "shipped" fulfillment type.
 
 #### shipping address id
 
 shipping_address_id
 : _String_  Id of stored shipping address being used for purchase
 
-#### shipping address object
+#### shipping address resource
 
 name
 : _String_ Name associated with this shipping address (Home, Work, ...)
@@ -125,7 +125,7 @@ The request response will provide a http status of the request along with the as
 
 ## Response Attributes
 
-The response json file will contain: an overall purchase status plus purchase objects for each purchase in the request
+The response json file will contain: an overall purchase status plus purchase resources for each purchase in the request
 
 ### status attributes
 
@@ -251,7 +251,7 @@ error_type = "declined"
 : Purchase declined
 
 error_type = "validations_failed"
-: Validation failed which can have 4 types (missing_field, missing, invalid, and not_found). Each type will also have the associated resource that caused the error (user, credit_card, purchase, shipping address) and may have a field narrowing down the specific attribute if applicable.
+: Validation failed which can have 5 types (missing_field, missing, invalid, not_owner and not_found). Each type will also have the associated resource that caused the error (user, credit_card, purchase, shipping address) and may have a field narrowing down the specific attribute if applicable.
 
 
 ## Error Response Example

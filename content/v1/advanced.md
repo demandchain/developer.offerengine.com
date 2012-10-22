@@ -1,8 +1,8 @@
 ---
-title: Advanced Requests
+title: Additional Requests
 ---
 
-# Advanced Requests
+# Additional Requests
 
 The following requests provide additional functionality which are not necessary to provide Deem Offers to your customers.
 
@@ -54,8 +54,6 @@ Additional user operations
 Marketing email operations
 
 * [Targeted Emails](/v1/targeted_emails/batches/)
-	* [Targeted Emails](/v1/targeted_emails/batches/)
-    * [Targeted Email Batches](/v1/targeted_emails/batches/)
 
 ## Stats
 
