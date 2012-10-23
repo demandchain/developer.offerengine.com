@@ -22,7 +22,7 @@ If you have any problems or requests please contact [support](mailto:support@off
 
 ## Example Implementation
 
-Using just two simple API calls you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:
+Using just two simple API calls (get deals and execute purchase) you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:
 
 <img src="/images/mobile_use_example.png" alt="Mobile Example Image" > 
 
