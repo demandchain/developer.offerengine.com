@@ -47,15 +47,12 @@
 <dt>slug</dt>
   <dd>
 <em>Optional String</em> Filter deals by a particular deal slug</dd>
-  <dt>id </dt>
-  <dd>
-<em>Optional String</em> Filter deals by a particular deal slug</dd>
   <dt>marketplace_slug</dt>
   <dd>
 <em>Optional String</em> Filter deals by a particular marketplace deal slug</dd>
   <dt>title</dt>
   <dd>
-<em>Optional String</em> Filter deals by title like this parameter</dd>
+<em>Optional String</em> Filter deals by title with this value in it (“burger” could return deals with title “$20 off Bob’s burgers”, “$10 off Burgermeister”, etc…)</dd>
 </dl><h3 id="state-parameters">state parameters</h3>
 
 <dl>
@@ -70,19 +67,16 @@
 <dl>
 <dt>category</dt>
   <dd>
-<em>Optional String</em> Filter deals by category like this parameter</dd>
+<em>Optional String</em> Filter deals by category with this value in it (“Foo” could return deals in the category “Food”)</dd>
   <dt>subcategory</dt>
   <dd>
-<em>Optional String</em> Filter deals by subcategory like this parameter</dd>
+<em>Optional String</em> Filter deals by subcategory with this value in it (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”)</dd>
 </dl><h3 id="merchant-parameters">merchant parameters</h3>
 
 <dl>
 <dt>merchant</dt>
   <dd>
-<em>Optional String</em> Filter deals by merchant name like this parameter</dd>
-  <dt>merchant_name</dt>
-  <dd>
-<em>Optional String</em> Filter deals by merchant name like this parameter</dd>
+<em>Optional String</em> Filter deals by merchant name with this value in it (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, etc…)</dd>
 </dl><h3 id="price-parameters">price parameters</h3>
 
 <dl>
@@ -118,10 +112,10 @@
 <dl>
 <dt>user_id</dt>
   <dd>
-<em>Optional String</em> Filter deals for user (user slug or email) (requires card_links_redeemed == false and region)</dd>
+<em>Optional String</em> Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified</dd>
   <dt>user</dt>
   <dd>
-<em>Optional String</em> Filter deals for user (user slug or email) (requires card_links_redeemed == false and region)</dd>
+<em>Optional String</em> Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified</dd>
 </dl><h3 id="source-parameters">source parameters</h3>
 
 <dl>
@@ -495,10 +489,16 @@
         <div class="js-toggle-list sidebar-module expandable">
           <ul>
             <li>
-              <h3><a href="/">Introduction</a></h3>
+              <h3><a href="/">Overview</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/quick_start/">Quick Start</a></h3>
             </li>
             <li>
               <h3><a href="/v1/authentication/">Authentication</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/errors/">Errors</a></h3>
             </li>
             <li>
               <h3><a href="/v1/get_deals/">Get Deals</a></h3>
@@ -506,10 +506,6 @@
             <li>
               <h3><a href="/v1/full_purchase/">Execute Purchases</a></h3>
             </li>
-            <li>
-              <h3><a href="/v1/errors/">Errors</a></h3>
-            </li>
-
             <li>
               <h3>
                 <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>

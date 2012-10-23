@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Regional Deals - OfferEngine API</title>
+  <title>OfferEngine API Quick Start - OfferEngine API</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -28,39 +28,36 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="regional-deals">Regional Deals</h1>
+        <h1 id="offerengine-api-quick-start">OfferEngine API Quick Start</h1>
 
-<h2 id="list-all-regions-deals">List all region’s deals</h2>
-<p>Returns an array of deal representations, ordered by start_at time (earliest first).</p>
+<p>Deem Offers provides APIs allowing you to integrate Offers content into your existing platform and services. Only, three simple steps are needed to get a fully functional Deem Offers API implementation up and running:</p>
 
-<p>If you are using the “city, state” syntax, abbreviations are not accepted.  “St Louis” must be spelled as “Saint Louis”.</p>
+<ul>
+<li>Authentication</li>
+  <li>Get Deals</li>
+  <li>Execute Purchases</li>
+</ul><p>In order to continue, you must be an approved Deem Offers partner and have access to your Deem Offers Admin site. If you are not a Deem Offers partner or cannot log into your Deem Offers Admin site, please contact <a href="mailto:support@offerengine.com">support</a>.</p>
 
-<p><em>Important Note</em>: There are default filters “in_flight”, “current”, “not_bg” for backwards compatibility.  Most partners will want to override the filter value with “in_flight”.</p>
+<h2 id="step-1---authentication">Step 1 - Authentication</h2>
 
-<pre><code>GET /regions/:region_id/deals
-GET /regions/:zip/deals
-GET /regions/:city,:state/deals
+<p>As a new Deem Offers API user, you must first get your partner api key from your Deem Offers Admin website. Keep this private key secret. You will provide this key with every API call you make. Here is an example of how your requests will look:</p>
+
+<pre><code>GET /v1/deals?api_key={api_key}
 </code></pre>
 
-<h3 id="parameters">Parameters</h3>
+<p>Additional authentication information can be found here: <a href="/v1/authentication/">Authentication</a></p>
 
-<dl>
-<dt>user_id (optional)</dt>
-  <dd>
-<em>String</em> A user id that will be used to filter deals (e.g. based on user preferences).</dd>
-  <dt>filter (optional)</dt>
-  <dd>
-<em>String</em> Filter the list according to applicable filters (comma-separated).  These include: “in_flight”, “offer”, “current”, “not_bg”.</dd>
-  <dt>count (optional)</dt>
-  <dd>
-<em>Boolean</em> Returns the count instead of the list.  If present, per_page and page will be ignored.</dd>
-  <dt>per_page (optional)</dt>
-  <dd>
-<em>Integer</em> Limits the size of the list.  Default is 100.  Max is 1000.</dd>
-  <dt>page (optional)</dt>
-  <dd>
-<em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+<h2 id="step-2---get-deals">Step 2 - Get Deals</h2>
+
+<p>Once you have your api key, you can now request available deals which you can display on your website, in emails, or in your mobile app (surfaces). To get a set of deal inventory available, you can make a request like the one below: </p>
+
+<pre class="headers"><code>GET /v1/deals?api_key=1234567</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"san-francisco"</span>
+<span class="p">}</span></code></pre>
+
+<p>This will return a set of deal resources containing all of the information you need to display deals on your surface (title, availability dates, inventory quantity, purchase limits, images, and additional attributes). It will look like this:</p>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -136,6 +133,89 @@ GET /regions/:city,:state/deals
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
+
+<p>Additional deal inventory request information can be found here: <a href="/v1/get_deals/">Get Deals</a></p>
+
+<h2 id="step-3---execute-purchases">Step 3 - Execute Purchases</h2>
+
+<p>Deals have been displayed on your different surfaces and a user wants to purchase one. This purchase can be made with one simple call that includes: user information, payment information, deal information, and shipping information, if needed. The purchase request will look like this:</p>
+
+<pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"api_key"</span><span class="o">:</span> <span class="s2">"1234567"</span><span class="p">,</span>
+  <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
+  <span class="s2">"quantity"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"help@developer.offerengine.com"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="o">:</span> <span class="s2">"pass123"</span><span class="p">,</span>
+    <span class="s2">"password_confirmation"</span><span class="o">:</span> <span class="s2">"pass123"</span><span class="p">,</span>
+    <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"Hank"</span><span class="p">,</span>
+    <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Rearden"</span>
+  <span class="p">},</span>
+  <span class="s2">"credit_card"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"number"</span><span class="o">:</span> <span class="s2">"424242424242424"</span><span class="p">,</span>
+    <span class="s2">"cvv"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"month"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"year"</span><span class="o">:</span> <span class="mi">2014</span>
+  <span class="p">},</span>
+  <span class="s2">"shipping_address"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"address_one"</span><span class="o">:</span> <span class="s2">"501 Howard St"</span><span class="p">,</span>
+    <span class="s2">"address_two"</span><span class="o">:</span> <span class="s2">"#2000"</span><span class="p">,</span>
+    <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"94105"</span><span class="p">,</span>
+    <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<p>When the purchase executes successfully, you will receive a response similar to this:</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"purchase"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
+    <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
+    <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
+    <span class="s2">"price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">500000</span><span class="p">,</span>
+    <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"payment_state"</span><span class="o">:</span> <span class="s2">"charged"</span><span class="p">,</span>
+    <span class="s2">"fulfillment_state"</span><span class="o">:</span> <span class="s2">"fulfilled"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:11:15 UTC 2011"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="s2">"ABC123"</span><span class="p">,</span>
+    <span class="s2">"credit_card_id"</span><span class="o">:</span> <span class="s2">"2342f8073e"</span><span class="p">,</span>
+    <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
+      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"$50 for $100 worth of Dining"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
+    <span class="p">},</span>
+    <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
+        <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
+        <span class="s2">"barcode"</span><span class="o">:</span> <span class="s2">"19435755354"</span><span class="p">,</span>
+        <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
+        <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"print_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupons/a21c5452d8/print"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<p>Additional deal purchase information can be found here: <a href="/v1/full_purchase/">Execute Purchases</a></p>
+
+<h2 id="additional-requests">Additional Requests</h2>
+
+<p>Additional functionality is provided through the Deem Offers API and it can found here: <a href="/v1/advanced/">Additional Requests</a></p>
       </div>
 
       <div id="js-sidebar" class="sidebar-shell">

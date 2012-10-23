@@ -30,11 +30,11 @@
       <div class="content">
         <h1 id="create-a-full-purchase">Create a Full Purchase</h1>
 
-<p>All in one api call to create a purchase, new user, and store a credit card</p>
+<p>All in one api call to create a purchase, new user, and store a purchase card</p>
 
-<p>This single operation will create a new user, if that user doesn’t already exist, execute a single purchase transaction, and will associate credit card information with the user</p>
+<p>This single operation will create a new user, if that user doesn’t already exist, execute a single purchase transaction, and will associate purchase card information with the user</p>
 
-<p>It doesn’t matter if a user or credit card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.</p>
+<p>It doesn’t matter if a user or purchase card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.</p>
 
 <h2 id="request">Request</h2>
 
@@ -93,7 +93,7 @@
 <dl>
 <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  Id of stored credit card being used for purchase</dd>
+<em>String</em>  Id of stored purchase card being used for purchase</dd>
 </dl><h4 id="credit-card-resource">credit card resource</h4>
 
 <dl>
@@ -102,13 +102,13 @@
 <em>String</em>  Credit card number being used for purchase</dd>
   <dt>verification_value</dt>
   <dd>
-<em>String</em> Verification value (CVV) from credit card when credit card number</dd>
+<em>String</em> Verification value (CVV) from purchase card when purchase card number</dd>
   <dt>month </dt>
   <dd>
-<em>String</em> 2 digit month from credit card when credit card number</dd>
+<em>String</em> 2 digit month from purchase card when purchase card number</dd>
   <dt>year</dt>
   <dd>
-<em>String</em> 4 digit year from credit card when credit card number
+<em>String</em> 4 digit year from purchase card when purchase card number
 <br><br>
 </dd>
 </dl><h3 id="shipping-address-parameters">shipping address parameters</h3>
@@ -146,7 +146,7 @@
 <em>String</em> Two character country abbreviation of shipping address</dd>
 </dl><h2 id="request-example">Request Example</h2>
 
-<h3 id="new-user-account-new-credit-card-and-a-shipping-address">new user account, new credit card, and a shipping address</h3>
+<h3 id="new-user-account-new-purchase-card-and-a-shipping-address">new user account, new purchase card, and a shipping address</h3>
 
 <pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
 
@@ -177,7 +177,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="existing-user-account-stored-credit-card-and-no-shipping-address">existing user account, stored credit card, and no shipping address</h3>
+<h3 id="existing-user-account-stored-purchase-card-and-no-shipping-address">existing user account, stored purchase card, and no shipping address</h3>
 
 <pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
 
@@ -250,7 +250,7 @@
 <dl>
 <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  Unique identifier for credit card used to make this purchase</dd>
+<em>String</em>  Unique identifier for purchase card used to make this purchase</dd>
 </dl><h4 id="deal-attributes">deal attributes</h4>
 
 <dl>
@@ -425,10 +425,16 @@
         <div class="js-toggle-list sidebar-module expandable">
           <ul>
             <li>
-              <h3><a href="/">Introduction</a></h3>
+              <h3><a href="/">Overview</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/quick_start/">Quick Start</a></h3>
             </li>
             <li>
               <h3><a href="/v1/authentication/">Authentication</a></h3>
+            </li>
+            <li>
+              <h3><a href="/v1/errors/">Errors</a></h3>
             </li>
             <li>
               <h3><a href="/v1/get_deals/">Get Deals</a></h3>
@@ -436,10 +442,6 @@
             <li>
               <h3><a href="/v1/full_purchase/">Execute Purchases</a></h3>
             </li>
-            <li>
-              <h3><a href="/v1/errors/">Errors</a></h3>
-            </li>
-
             <li>
               <h3>
                 <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
