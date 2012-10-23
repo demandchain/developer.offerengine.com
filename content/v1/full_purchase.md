@@ -4,11 +4,11 @@ title: Full Purchase
 
 # Create a Full Purchase
 
-All in one api call to create a purchase, new user, and store a credit card
+All in one api call to create a purchase, new user, and store a purchase card
 
-This single operation will create a new user, if that user doesn't already exist, execute a single purchase transaction, and will associate credit card information with the user
+This single operation will create a new user, if that user doesn't already exist, execute a single purchase transaction, and will associate purchase card information with the user
 
-It doesn't matter if a user or credit card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.
+It doesn't matter if a user or purchase card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.
 
 ## Request 
 
@@ -59,7 +59,7 @@ Provide a <b>stored id or a complete credit card resource</b> with the associate
 #### credit card id
 
 credit_card_id
-: _String_  Id of stored credit card being used for purchase
+: _String_  Id of stored purchase card being used for purchase
 
 #### credit card resource
 
@@ -67,13 +67,13 @@ number
 : _String_  Credit card number being used for purchase
 
 verification_value
-: _String_ Verification value (CVV) from credit card when credit card number
+: _String_ Verification value (CVV) from purchase card when purchase card number
 
 month 
-: _String_ 2 digit month from credit card when credit card number
+: _String_ 2 digit month from purchase card when purchase card number
 
 year
-: _String_ 4 digit year from credit card when credit card number
+: _String_ 4 digit year from purchase card when purchase card number
 <br/><br/>
 
 ### shipping address parameters
@@ -109,12 +109,12 @@ country
 
 ## Request Example
 
-### new user account, new credit card, and a shipping address
+### new user account, new purchase card, and a shipping address
 
 <%= requests("POST /v1/purchases/full.json") %>
 <%= json(OfferEngine.full_purchase_request_new()) %>
 
-### existing user account, stored credit card, and no shipping address
+### existing user account, stored purchase card, and no shipping address
 
 <%= requests("POST /v1/purchases/full.json") %>
 <%= json(OfferEngine.full_purchase_request()) %>
@@ -175,7 +175,7 @@ user_id
 #### credit card attribute
 
 credit_card_id
-: _String_  Unique identifier for credit card used to make this purchase
+: _String_  Unique identifier for purchase card used to make this purchase
 
 #### deal attributes
 

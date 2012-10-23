@@ -19,14 +19,11 @@ Required and optional parameters should be provided as a json file. All paramete
 slug
 : _Optional String_ Filter deals by a particular deal slug
 
-id 
-: _Optional String_ Filter deals by a particular deal slug
-
 marketplace_slug
 : _Optional String_ Filter deals by a particular marketplace deal slug
 
 title
-: _Optional String_ Filter deals by title like this parameter
+: _Optional String_ Filter deals by title with this value in it ("burger" could return deals with title "$20 off Bob's burgers", "$10 off Burgermeister", etc...)
 
 ### state parameters
 
@@ -39,18 +36,15 @@ show_all
 ### category parameters
 
 category
-: _Optional String_ Filter deals by category like this parameter
+: _Optional String_ Filter deals by category with this value in it ("Foo" could return deals in the category "Food")
 
 subcategory
-: _Optional String_ Filter deals by subcategory like this parameter
+: _Optional String_ Filter deals by subcategory with this value in it ("Me" could return deals in the subcategories "Mexican", "Mediterreanean", and "Medical - Other")
 
 ### merchant parameters
 
 merchant
-: _Optional String_ Filter deals by merchant name like this parameter
-
-merchant_name
-: _Optional String_ Filter deals by merchant name like this parameter
+: _Optional String_ Filter deals by merchant name with this value in it ("burger" could return deals with merchants named "Bob's Burger", "Burgermeister", etc...)
 
 ### price parameters
 
@@ -83,10 +77,10 @@ radius
 ### user parameters
 
 user_id
-: _Optional String_ Filter deals for user (user slug or email) (requires card_links_redeemed == false and region)
+: _Optional String_ Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified
 
 user
-: _Optional String_ Filter deals for user (user slug or email) (requires card_links_redeemed == false and region)
+: _Optional String_ Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified
 
 ### source parameters
 

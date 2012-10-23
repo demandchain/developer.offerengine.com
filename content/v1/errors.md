@@ -4,7 +4,7 @@ title: Errors
 
 # Errors
 
-Conventional HTTP response codes to indicate success or failure of an API request are used. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with OfferEngine's servers.
+Conventional [HTTP response codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) to indicate success or failure of an API request are used. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with OfferEngine's servers.
 
 Not all errors map cleanly onto HTTP response codes. All specific errors are mentioned on a per request basis in each request explanation.
 

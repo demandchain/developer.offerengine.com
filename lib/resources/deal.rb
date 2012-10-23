@@ -125,6 +125,12 @@ module OfferEngine
       :deals => [self.deal, self.deal2,]
     }
   end
+  def self.deal_success
+    {
+      :status => "success",
+      :deals => [self.deal]
+    }
+  end
   def self.deals_empty
     {
       :status => "success",
