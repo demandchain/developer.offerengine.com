@@ -30,18 +30,183 @@
       <div class="content">
         <h1 id="deals">Deals</h1>
 
+<p>The following deal related resource requests can be made to get or modify your deals.</p>
+
 <ul>
 <li><a href="/v1/deals/#get-a-deal">Get a deal</a></li>
   <li><a href="/v1/deals/#get-deals-near-a-latitude-and-longitude">Get deals near latitude &amp; longitude</a></li>
   <li><a href="/v1/deals/#external-approve-a-deal">External approve a deal</a></li>
   <li><a href="/v1/deals/#external-validate-a-deal">External validate a deal</a></li>
   <li><a href="/v1/deals/#external-reject-a-deal">External reject a deal</a></li>
-</ul><h2 id="get-a-deal">Get a deal</h2>
+</ul><h1 id="get-a-deal">Get a deal</h1>
 
-<pre><code>GET /deals/:deal_id
+<p>This API call will return a single deal resource for the specific deal requested</p>
+
+<h2 id="request">Request</h2>
+
+<pre><code>GET /deals/{deal_id}?api_key={api_key}
 </code></pre>
 
-<h3 id="response">Response</h3>
+<h2 id="request-parameters">Request Parameters</h2>
+
+<p>Only a single parameter exists for this call, which is included in the HTTP URL.</p>
+
+<dl>
+<dt>deal_id</dt>
+  <dd>
+<em>String</em> Unique identifier slug for a specific deal</dd>
+</dl><h2 id="request-example">Request Example</h2>
+
+<pre><code>GET /v1/deals/my-restaurant?api_key=1234567
+</code></pre>
+
+<h2 id="response">Response</h2>
+
+<p>The response json file will contain a single deal resource with the matching deal id provided in the request URL.</p>
+
+<h2 id="response-attributes">Response Attributes</h2>
+
+<p>The response json file will contain a list of deal resources meeting the request filter parameters</p>
+
+<h3 id="status-attributes">status attributes</h3>
+
+<dl>
+<dt>status</dt>
+  <dd>
+<em>String</em>  State of the request (success or error)</dd>
+</dl><h3 id="deal-attributes">deal attributes</h3>
+
+<p>Will contain a list of deal resources with all associated deal attributes for each deal in result set</p>
+
+<dl>
+<dt>id</dt>
+  <dd>
+<em>String</em> Unique identifier for deal purchased</dd>
+  <dt>deal_id</dt>
+  <dd>
+<em>String</em> Unique identifier for deal purchased</dd>
+  <dt>title</dt>
+  <dd>
+<em>String</em> Title of the deal purchased</dd>
+  <dt>type</dt>
+  <dd>
+<em>String</em> Type of the deal purchased</dd>
+  <dt>image_url</dt>
+  <dd>
+<em>String</em> Relative URL for image associated with the deal purchased</dd>
+  <dt>image_url_abs</dt>
+  <dd>
+<em>String</em> Absolute URL for image associated with the deal purchased</dd>
+  <dt>locations</dt>
+  <dd>
+<em>Array</em> Merchant locations associated with the deal</dd>
+  <dt>shipping_address_required</dt>
+  <dd>
+<em>Boolean</em> Flag if a shipping address is required to purchase this deal</dd>
+  <dt>merchant_name</dt>
+  <dd>
+<em>String</em> Name of the merchant of the deal</dd>
+  <dt>region_id</dt>
+  <dd>
+<em>String</em> Region slug the deal is available in</dd>
+  <dt>starting_price</dt>
+  <dd>
+<em>Integer</em> The original price of the deal in cents</dd>
+  <dt>current_price</dt>
+  <dd>
+<em>Integer</em> The current price of the deal in cents</dd>
+  <dt>value</dt>
+  <dd>
+<em>Integer</em> The value of the deal in cents</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of the this deal</dd>
+  <dt>ended</dt>
+  <dd>
+<em>Boolean</em> Flag if the deal has ended</dd>
+  <dt>start_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal was first available to purchase</dd>
+  <dt>end_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal will no longer be available to purchase</dd>
+  <dt>expires_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal voucher will expire</dd>
+  <dt>state</dt>
+  <dd>
+<em>String</em> The workflow state the deal is currently in</dd>
+  <dt>purchasable_number</dt>
+  <dd>
+<em>Integer</em> The quantity of units available to sell</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>region_name</dt>
+  <dd>
+<em>String</em> Human readable region name</dd>
+  <dt>soldout</dt>
+  <dd>
+<em>Boolean</em> Flag if the deal has sold out of inventory</dd>
+  <dt>description1</dt>
+  <dd>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
+  <dd>
+<em>String</em> Secondary description of the deal</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>supplier_id</dt>
+  <dd>
+<em>String</em> The deal’s sourcing supplier’s slug</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>category</dt>
+  <dd>
+<em>String</em> Broad deal type</dd>
+  <dt>:subcategory</dt>
+  <dd>
+<em>String</em> More specific deal type</dd>
+  <dt>robotitle</dt>
+  <dd>
+<em>String</em> Deal title for affiliate feeds</dd>
+  <dt>show_url</dt>
+  <dd>
+<em>String</em> Url for the deal details web page</dd>
+  <dt>purchase_url</dt>
+  <dd>
+<em>String</em> Url for deal purchase web page</dd>
+  <dt>campaign</dt>
+  <dd>
+<em>String</em> Name for tracking group of deals used in a marketing campaign</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user (only for card linked offers)</dd>
+  <dt>maximum_allowance</dt>
+  <dd>
+<em>Integer</em> The maximum value of a purchase that the deal will be attributed to 
+(only for card linked offers)</dd>
+  <dt>min_spend</dt>
+  <dd>
+<em>Integer</em> Minimum value of a purchase to qualify for the deal (only for card linked offers)</dd>
+  <dt>incentive_amount</dt>
+  <dd>
+<em>Integer</em> Flat amount discount in cents a user gets for using this deal (only for card linked offers)</dd>
+  <dt>incentive_percentage</dt>
+  <dd>
+<em>Integer</em> Percent discount a user gets for using this deal (only for card linked offers)</dd>
+  <dt>fixed_fee</dt>
+  <dd>
+<em>Integer</em> Fee charged for running the deal in cents (only for card linked offers)</dd>
+  <dt>percent_fee</dt>
+  <dd>
+<em>Integer</em> Percent charged for running the deal (only for card linked offers)</dd>
+  <dt>primary_image</dt>
+  <dd>
+<em>Hash</em> List of deal image in different sizes. Each image is available in sizes: thumb, tiny, xlarge, large, medium. Each of those items have a hash with: dimensions and url.</dd>
+</dl><h2 id="response-example">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -116,13 +281,37 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</h2>
-<p>Returns an array of deal representations, ordered by start_at time (earliest first).</p>
+<h2 id="error-responses">Error Responses</h2>
 
-<pre><code>GET /deals/locate
+<p>Responses provided for failed requests</p>
+
+<h3 id="section">404</h3>
+
+<dl>
+<dt>error_type = “find_failed”</dt>
+  <dd>Parameter information provided is invalid</dd>
+</dl><h2 id="error-response-example">Error Response Example</h2>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
+<span class="p">}</span></code></pre>
+
+<h1 id="get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</h1>
+
+<p>This API call returns an array of deal resources, ordered by start_at time with the earliest first, based upon the location filtering parameters passed in the request.</p>
+
+<h2 id="request-1">Request</h2>
+
+<pre><code>GET /deals/locate?api_key={api_key}
 </code></pre>
 
-<h3 id="parameters">Parameters</h3>
+<h2 id="request-parameters-1">Request Parameters</h2>
+
+<p>Required location parameters should be provided as a json file. Results will be provided for active deals within the location area described with the request parameters.</p>
 
 <dl>
 <dt>latitude</dt>
@@ -133,8 +322,164 @@
 <em>Float</em> longitude coordinate for origin of search</dd>
   <dt>radius</dt>
   <dd>
-<em>float</em> distance in miles from origin</dd>
-</dl><h3 id="response-1">Response</h3>
+<em>Float</em> distance in miles from origin</dd>
+</dl><h2 id="request-example-1">Request Example</h2>
+
+<pre class="headers"><code>GET /v1/deals/locate?api_key=1234567</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">122.4183</span><span class="p">,</span>
+  <span class="s2">"longitude"</span><span class="o">:</span> <span class="mf">37.775</span><span class="p">,</span>
+  <span class="s2">"radius"</span><span class="o">:</span> <span class="mf">10.0</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="response-1">Response</h2>
+
+<p>The response will provide a HTTP status of the request along with the associated response data provided as a json file</p>
+
+<h2 id="response-attributes-1">Response Attributes</h2>
+
+<p>The response json file will contain a list of deal resources meeting the request filter parameters.</p>
+
+<h3 id="status-attributes-1">status attributes</h3>
+
+<dl>
+<dt>status</dt>
+  <dd>
+<em>String</em>  State of the request (success or error)</dd>
+</dl><h3 id="deal-attributes-1">deal attributes</h3>
+
+<p>Will contain a list of deal resources with all associated deal attributes for each deal in result set</p>
+
+<dl>
+<dt>id</dt>
+  <dd>
+<em>String</em> Unique identifier for deal purchased</dd>
+  <dt>deal_id</dt>
+  <dd>
+<em>String</em> Unique identifier for deal purchased</dd>
+  <dt>title</dt>
+  <dd>
+<em>String</em> Title of the deal purchased</dd>
+  <dt>type</dt>
+  <dd>
+<em>String</em> Type of the deal purchased</dd>
+  <dt>image_url</dt>
+  <dd>
+<em>String</em> Relative URL for image associated with the deal purchased</dd>
+  <dt>image_url_abs</dt>
+  <dd>
+<em>String</em> Absolute URL for image associated with the deal purchased</dd>
+  <dt>locations</dt>
+  <dd>
+<em>Array</em> Merchant locations associated with the deal</dd>
+  <dt>shipping_address_required</dt>
+  <dd>
+<em>Boolean</em> Flag if a shipping address is required to purchase this deal</dd>
+  <dt>merchant_name</dt>
+  <dd>
+<em>String</em> Name of the merchant of the deal</dd>
+  <dt>region_id</dt>
+  <dd>
+<em>String</em> Region slug the deal is available in</dd>
+  <dt>starting_price</dt>
+  <dd>
+<em>Integer</em> The original price of the deal in cents</dd>
+  <dt>current_price</dt>
+  <dd>
+<em>Integer</em> The current price of the deal in cents</dd>
+  <dt>value</dt>
+  <dd>
+<em>Integer</em> The value of the deal in cents</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of the this deal</dd>
+  <dt>ended</dt>
+  <dd>
+<em>Boolean</em> Flag if the deal has ended</dd>
+  <dt>start_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal was first available to purchase</dd>
+  <dt>end_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal will no longer be available to purchase</dd>
+  <dt>expires_at</dt>
+  <dd>
+<em>Date</em> The date and time the deal voucher will expire</dd>
+  <dt>state</dt>
+  <dd>
+<em>String</em> The workflow state the deal is currently in</dd>
+  <dt>purchasable_number</dt>
+  <dd>
+<em>Integer</em> The quantity of units available to sell</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>region_name</dt>
+  <dd>
+<em>String</em> Human readable region name</dd>
+  <dt>soldout</dt>
+  <dd>
+<em>Boolean</em> Flag if the deal has sold out of inventory</dd>
+  <dt>description1</dt>
+  <dd>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
+  <dd>
+<em>String</em> Secondary description of the deal</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>supplier_id</dt>
+  <dd>
+<em>String</em> The deal’s sourcing supplier’s slug</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>category</dt>
+  <dd>
+<em>String</em> Broad deal type</dd>
+  <dt>:subcategory</dt>
+  <dd>
+<em>String</em> More specific deal type</dd>
+  <dt>robotitle</dt>
+  <dd>
+<em>String</em> Deal title for affiliate feeds</dd>
+  <dt>show_url</dt>
+  <dd>
+<em>String</em> Url for the deal details web page</dd>
+  <dt>purchase_url</dt>
+  <dd>
+<em>String</em> Url for deal purchase web page</dd>
+  <dt>campaign</dt>
+  <dd>
+<em>String</em> Name for tracking group of deals used in a marketing campaign</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user (only for card linked offers)</dd>
+  <dt>maximum_allowance</dt>
+  <dd>
+<em>Integer</em> The maximum value of a purchase that the deal will be attributed to 
+(only for card linked offers)</dd>
+  <dt>min_spend</dt>
+  <dd>
+<em>Integer</em> Minimum value of a purchase to qualify for the deal (only for card linked offers)</dd>
+  <dt>incentive_amount</dt>
+  <dd>
+<em>Integer</em> Flat amount discount in cents a user gets for using this deal (only for card linked offers)</dd>
+  <dt>incentive_percentage</dt>
+  <dd>
+<em>Integer</em> Percent discount a user gets for using this deal (only for card linked offers)</dd>
+  <dt>fixed_fee</dt>
+  <dd>
+<em>Integer</em> Fee charged for running the deal in cents (only for card linked offers)</dd>
+  <dt>percent_fee</dt>
+  <dd>
+<em>Integer</em> Percent charged for running the deal (only for card linked offers)</dd>
+  <dt>primary_image</dt>
+  <dd>
+<em>Hash</em> List of deal image in different sizes. Each image is available in sizes: thumb, tiny, xlarge, large, medium. Each of those items have a hash with: dimensions and url.</dd>
+</dl><h2 id="response-example-1">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -207,23 +552,134 @@
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"your-restaurant"</span><span class="p">,</span>
+      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"your-restaurant"</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+
+      <span class="p">],</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Fine Dining"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d89fsdf89sdf8.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Some Guys"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">20000</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"Sun Nov 21 02:35:58 UTC 2011"</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"Tue Nov 23 02:35:58 UTC 2011"</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"Tue Nov 29 02:35:58 UTC 2011"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
+      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$100 for $200 Fine Dining at Some Guys"</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/your-restaurant"</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/your-restaurant/get"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="external-approve-a-deal">External approve a deal</h2>
-<p>Mark the deal as externally approved. The deal must be pending external approval.</p>
+<h2 id="error-responses-1">Error Responses</h2>
 
-<pre><code>PUT /deals/:deal_id/external_approve
-</code></pre>
+<p>Responses provided for failed requests</p>
 
-<h3 id="parameters-1">Parameters</h3>
+<h3 id="section-1">404</h3>
 
 <dl>
-<dt>reason (optional)</dt>
+<dt>error_type = “find_failed”</dt>
+  <dd>Parameter information provided is invalid</dd>
+</dl><h2 id="error-response-example-1">Error Response Example</h2>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
+<span class="p">}</span></code></pre>
+
+<h1 id="external-approve-a-deal">External approve a deal</h1>
+
+<p>This API call will mark the deal as externally approved. The deal must be pending external approval state to send this request successfully. This request is only needed when external approval of deals are needed before they are activated for users to purchase.</p>
+
+<h2 id="request-2">Request</h2>
+
+<pre><code>PUT /deals/{deal_id}/external_approve
+</code></pre>
+
+<h2 id="request-parameters-2">Request Parameters</h2>
+
+<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
+
+<dl>
+<dt>deal_id</dt>
   <dd>
-<em>String</em>  reason for validating.</dd>
-</dl><h3 id="response-2">Response</h3>
+<em>String</em> Unique identifier slug for a specific deal</dd>
+  <dt>reason</dt>
+  <dd>
+<em>Optional String</em> Reason for validating</dd>
+</dl><h2 id="request-example-2">Request Example</h2>
+
+<pre><code>PUT /deals/my-restaurant/external_approve?api_key=1234567
+</code></pre>
+
+<h2 id="response-2">Response</h2>
+
+<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+
+<h2 id="response-attributes-2">Response Attributes</h2>
+
+<p>The response json file will contain a single deal state attribute</p>
+
+<dl>
+<dt>deal</dt>
+  <dd>
+<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+</dl><h2 id="response-example-2">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -298,19 +754,44 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="external-validate-a-deal">External validate a deal</h2>
-<p>Mark the deal as externally validated.  This is used to ensure the deal meets basic validation criteria from a 3rd party system before entering the ‘in review’ state for admin.</p>
+<h1 id="external-validate-a-deal">External validate a deal</h1>
 
-<pre><code>PUT /deals/:deal_id/external_validate
+<p>This API call will mark the deal as externally validated. This is used to ensure the deal meets basic validation criteria from a 3rd party system before entering the ‘in review’ state for admin.</p>
+
+<h2 id="request-3">Request</h2>
+
+<pre><code>PUT /deals/{deal_id}/external_validate
 </code></pre>
 
-<h3 id="parameters-2">Parameters</h3>
+<h2 id="request-parameters-3">Request Parameters</h2>
+
+<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
 
 <dl>
-<dt>reason (optional)</dt>
+<dt>deal_id</dt>
   <dd>
-<em>String</em>  reason for approving.</dd>
-</dl><h3 id="response-3">Response</h3>
+<em>String</em> Unique identifier slug for a specific deal</dd>
+  <dt>reason</dt>
+  <dd>
+<em>Optional String</em> Reason for validating</dd>
+</dl><h2 id="request-example-3">Request Example</h2>
+
+<pre><code>PUT /deals/my-restaurant/external_validate?api_key=1234567
+</code></pre>
+
+<h2 id="response-3">Response</h2>
+
+<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+
+<h2 id="response-attributes-3">Response Attributes</h2>
+
+<p>The response json file will contain a single deal state attribute</p>
+
+<dl>
+<dt>deal</dt>
+  <dd>
+<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+</dl><h2 id="response-example-3">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -386,18 +867,43 @@
 <span class="p">}</span></code></pre>
 
 <h2 id="external-reject-a-deal">External reject a deal</h2>
-<p>Mark the deal as externally rejected. The deal must be pending external approval or pending external validation.</p>
 
-<pre><code>PUT /deals/:deal_id/external_reject
+<p>This API call will mark the deal as externally rejected. The deal must be pending external approval or pending external validation.</p>
+
+<h2 id="request-4">Request</h2>
+
+<pre><code>PUT /deals/{deal_id}/external_reject
 </code></pre>
 
-<h3 id="parameters-3">Parameters</h3>
+<h2 id="request-parameters-4">Request Parameters</h2>
+
+<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
 
 <dl>
-<dt>reason (optional)</dt>
+<dt>deal_id</dt>
   <dd>
-<em>String</em>  reason for rejecting.</dd>
-</dl><h3 id="response-4">Response</h3>
+<em>String</em> Unique identifier slug for a specific deal</dd>
+  <dt>reason</dt>
+  <dd>
+<em>Optional String</em> Reason for validating</dd>
+</dl><h2 id="request-example-4">Request Example</h2>
+
+<pre><code>PUT /deals/my-restaurant/external_validate?api_key=1234567
+</code></pre>
+
+<h2 id="response-4">Response</h2>
+
+<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+
+<h2 id="response-attributes-4">Response Attributes</h2>
+
+<p>The response json file will contain a single deal state attribute</p>
+
+<dl>
+<dt>deal</dt>
+  <dd>
+<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+</dl><h2 id="response-example-4">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
