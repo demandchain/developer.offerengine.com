@@ -38,6 +38,7 @@ module OfferEngine
     scope:      "user,credit_card",
     access:     "read,write"
   }
+
 end
 
 include OfferEngine::Helpers
@@ -97,6 +98,10 @@ module GitHub
       def requests(content)
         lines = [content]
         %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
+      end
+
+      def get_deal_resource()
+        OfferEngine.deal_resource
       end
     end
   end

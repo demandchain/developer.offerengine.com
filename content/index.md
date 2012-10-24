@@ -20,6 +20,14 @@ If you have any problems or requests please contact [support](mailto:support@off
 
 <b>https://api.offers.deem.com/</b>
 
+## Deal
+
+A deal is a product offering goods or services from different merchants at discounted levels. 
+
+## Purchase
+
+A purchase is buying a quantity of unit inventory of a specific deal which results in either a voucher, to redeem the deal at the deal merchant's location or website, being bought or a good being shipped directly to the purchaser.
+
 ## Example Implementation
 
 Using just two simple API calls (get deals and execute purchase) you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:

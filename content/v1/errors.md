@@ -52,6 +52,7 @@ Field providing a human readable explanation of the error that occurred
 
 ## Error Response
 
+<%= headers 400 %>
 <%= json(OfferEngine.error_response()) %>
 
 ## Error Response Example

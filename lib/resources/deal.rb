@@ -1,4 +1,8 @@
 module OfferEngine
+  $longitude = 37.7750
+  $latitude = 122.4183
+  $radius = 10.0
+
   def self.short_deal
     {
       :id => "a-50-for-100-worth-of-dining-1",
@@ -119,6 +123,13 @@ module OfferEngine
       :region => self.deal[:region_id],
     }
   end
+  def self.deals_locate_request
+    {
+      :latitude => $latitude,
+      :longitude => $longitude,
+      :radius => $radius,
+    }
+  end
   def self.deals
     {
       :status => "success",
@@ -143,5 +154,142 @@ module OfferEngine
       :error_type => "find_failed",
       :error_msg => "Unable to find",
     }
+  end
+  def self.deal_resource
+    "### status attributes
+
+status
+: _String_  State of the request (success or error)
+
+### deal attributes
+
+Will contain a list of deal resources with all associated deal attributes for each deal in result set
+
+id
+: _String_ Unique identifier for deal purchased
+
+deal_id
+: _String_ Unique identifier for deal purchased
+
+title
+: _String_ Title of the deal purchased
+
+type
+: _String_ Type of the deal purchased
+
+image_url
+: _String_ Relative URL for image associated with the deal purchased
+
+image_url_abs
+: _String_ Absolute URL for image associated with the deal purchased
+
+locations
+: _Array_ Merchant locations associated with the deal
+
+shipping_address_required
+: _Boolean_ Flag if a shipping address is required to purchase this deal
+
+merchant_name
+: _String_ Name of the merchant of the deal
+
+region_id
+: _String_ Region slug the deal is available in
+
+starting_price
+: _Integer_ The original price of the deal in cents
+
+current_price
+: _Integer_ The current price of the deal in cents
+
+value
+: _Integer_ The value of the deal in cents
+
+number_sold
+: _Integer_ The quantity of units sold of the this deal
+
+ended
+: _Boolean_ Flag if the deal has ended
+
+start_at
+: _Date_ The date and time the deal was first available to purchase
+
+end_at
+: _Date_ The date and time the deal will no longer be available to purchase
+
+expires_at
+: _Date_ The date and time the deal voucher will expire
+
+state
+: _String_ The workflow state the deal is currently in
+
+purchasable_number
+: _Integer_ The quantity of units available to sell
+
+num_left
+: _Integer_ The quantity of units left for purchase
+
+region_name
+: _String_ Human readable region name
+
+soldout
+: _Boolean_ Flag if the deal has sold out of inventory
+
+description1
+: _String_ Primary description of the deal
+
+description2
+: _String_ Secondary description of the deal
+
+fine_print
+: _String_ Specific details and restrictions associated with the deal
+
+supplier_id
+: _String_ The deal's sourcing supplier's slug
+
+highlights
+: _String_ Additional important details about the deal
+
+category
+: _String_ Broad deal type
+
+:subcategory
+: _String_ More specific deal type
+
+robotitle
+: _String_ Deal title for affiliate feeds
+
+show_url
+: _String_ Url for the deal details web page
+
+purchase_url
+: _String_ Url for deal purchase web page
+      
+campaign
+: _String_ Name for tracking group of deals used in a marketing campaign
+
+max_per_user
+: _Integer_ The maximum quantity available to purchase by a user (only for card linked offers)
+
+maximum_allowance
+: _Integer_ The maximum value of a purchase that the deal will be attributed to 
+(only for card linked offers)
+
+min_spend
+: _Integer_ Minimum value of a purchase to qualify for the deal (only for card linked offers)
+
+incentive_amount
+: _Integer_ Flat amount discount in cents a user gets for using this deal (only for card linked offers)
+
+incentive_percentage
+: _Integer_ Percent discount a user gets for using this deal (only for card linked offers)
+
+fixed_fee
+: _Integer_ Fee charged for running the deal in cents (only for card linked offers)
+
+percent_fee
+: _Integer_ Percent charged for running the deal (only for card linked offers)
+
+primary_image
+: _Hash_ List of deal image in different sizes. Each image is available in sizes: thumb, tiny, xlarge, large, medium. Each of those items have a hash with: dimensions and url."
   end
 end

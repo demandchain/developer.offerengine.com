@@ -22,7 +22,7 @@ Additional authentication information can be found here: [Authentication](/v1/au
 
 ## Step 2 - Get Deals
 
-Once you have your api key, you can now request available deals which you can display on your website, in emails, or in your mobile app (surfaces). To get a set of deal inventory available, you can make a request like the one below: 
+Once you have your api key, you can now request available deals which you can display on your website, in emails, or in your mobile app (surfaces). To get a set of deal inventory available in San Francisco, you can make a request like the one below: 
 
 <%= requests("GET /v1/deals?api_key=1234567") %>
 <%= json(OfferEngine.deals_request()) %>
