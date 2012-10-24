@@ -24,6 +24,16 @@ If you have any problems or requests please contact [support](mailto:support@off
 
 Using just two simple API calls (get deals and execute purchase) you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:
 
+In this example, a partner has integrated the entire deal viewing and purchasing process into their existing native mobile app experience. Below is a diagram of the user purchase flow as well as a description of the steps needed to implement each step: 
+
 <img src="/images/mobile_use_example.png" alt="Mobile Example Image" > 
+
+* Show Offers - request deals with the Deem Offers Get Deals call. A list of deals available to purcahse will be returned based upon your request filter parameters. A subset of deals are displayed to the user with just a few key aspects of the deal.
+
+* Show Offer Details - if a user is interested in a deal from the list, they select it taking them to a detail page about the deal. From the information returned in the previous Get Deals call, more detailed information is provided about this specific deal. A buy now call to action button is provided to start the purchase process.
+
+* Purchase Offer - the buy now call to action button takes the use to a purchase form where they enter all of their purchase information. When the user presses the purchase button, the Deem Offers Execute Purchase request is made.
+
+* Redeem Offer - on successful return of the Execute Purchase request, a purchase confirmation page is shown with a link to the redemption voucher for the deal the user just purchased.
 
 To get started implementing this on your own surface, go to our [Quick Start Guide](/v1/quick_start/)
