@@ -30,7 +30,7 @@ title
 ### state parameters
 
 state
-: _Optional String_ Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)
+: _Optional String_ Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
 
 show_all
 : _Optional Boolean_ Show deals in all wordflow states (true only)

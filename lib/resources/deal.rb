@@ -220,7 +220,16 @@ expires_at
 : _Date_ The date and time the deal voucher will expire
 
 state
-: _String_ The workflow state the deal is currently in
+: _String_ The workflow state the deal is currently in (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)
+
+: * submitted - base deal data has been entered and not available for purchase
+: * in-review - needs approval to continue in work flow and not available for purchase
+: * rejected - failed approval and not available for purchase
+: * approved - content complete and ready to be run, but not purchasable
+: * in-flight - available for purchase
+: * paused - sale haulted and not currently available for purchase
+: * landed - run window has passed and no longer available for purchase
+: * deleted - removed<br><br>
 
 purchasable_number
 : _Integer_ The quantity of units available to sell
