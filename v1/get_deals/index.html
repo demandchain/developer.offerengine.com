@@ -60,7 +60,8 @@
 <dl>
 <dt>state</dt>
   <dd>
-<em>Optional String</em> Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)</dd>
+<em>Optional String</em> Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
+</dd>
   <dt>show_all</dt>
   <dd>
 <em>Optional Boolean</em> Show deals in all wordflow states (true only)</dd>
@@ -239,7 +240,48 @@
 <em>Date</em> The date and time the deal voucher will expire</dd>
   <dt>state</dt>
   <dd>
-<em>String</em> The workflow state the deal is currently in</dd>
+<em>String</em> The workflow state the deal is currently in (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)</dd>
+  <dd>
+    <ul>
+<li>submitted - base deal data has been entered and not available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>in-review - needs approval to continue in work flow and not available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>rejected - failed approval and not available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>approved - content complete and ready to be run, but not purchasable</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>in-flight - available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>paused - sale haulted and not currently available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>landed - run window has passed and no longer available for purchase</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>deleted - removed<br><br>
+</li>
+    </ul>
+</dd>
   <dt>purchasable_number</dt>
   <dd>
 <em>Integer</em> The quantity of units available to sell</dd>
