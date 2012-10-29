@@ -1,8 +1,8 @@
 ---
-title: OfferEngine API Quick Start
+title: Quick Start
 ---
 
-# OfferEngine API Quick Start
+# Quick Start
 
 Deem Offers provides APIs allowing you to integrate Offers content into your existing platform and services. Only, three simple steps are needed to get a fully functional Deem Offers API implementation up and running:
 
@@ -22,7 +22,7 @@ Additional authentication information can be found here: [Authentication](/v1/au
 
 ## Step 2 - Get Deals
 
-Once you have your api key, you can now request available deals which you can display on your website, in emails, or in your mobile app (surfaces). To get a set of deal inventory available in San Francisco, you can make a request like the one below: 
+Once you have your api key, you can now request available deals which you can display on your website, in emails, or in your mobile app (surfaces). To get a set of deal inventory available in San Francisco which isn't currently sold out, you can make a request like the one below: 
 
 <%= requests("GET /v1/deals?api_key=1234567") %>
 <%= json(OfferEngine.deals_request()) %>
@@ -51,4 +51,4 @@ Additional deal purchase information can be found here: [Execute Purchases](/v1/
 
 ## Additional Requests
 
-Additional functionality is provided through the Deem Offers API and it can found here: [Additional Requests](/v1/advanced/)
+Additional functionality is provided through the Deem Offers API and it can found here: [Additional Calls](/v1/advanced/)

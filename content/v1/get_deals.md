@@ -8,6 +8,10 @@ This api call will return a set of applicable deal resources based upon the filt
 
 Each deal has a number of attributes that can be filtered on using this API call. Everything from price point, inventory, merchant, deal title, run date, location, etc... All of the possible filtering parameters are mentioned below in the Request Parameters section. Also, a detailed explanation of the deal construct can be found in the Response section to provide further background information on what a deal resource looks like.
 
+<b>For most use cases, you will want to at least pass location parameters and exclude_soldout set to "true" when making a call.</b>
+
+If you make this call with no parameters set, a list of ALL "in-flight" (currently active) deals across ALL geographical regions which are sold out and NOT sold out will be returned. It is recommended to at least set the exclude_souldout to "true" when making this call.
+
 ## Request 
 
 	GET /v1/deals?api_key={api_key}
@@ -33,7 +37,7 @@ state
 : _Optional String_ Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
 
 show_all
-: _Optional Boolean_ Show deals in all wordflow states (true only)
+: _Optional Boolean_ Show deals in all workflow states (true only)
 
 ### category parameters
 
@@ -61,12 +65,6 @@ price_max
 region
 : _Optional String_ Filter deals by region slug, city/state, IP address, or zip
 
-:region_id
-: _Optional String_ Filter deals by region slug, city/state, IP address, or zip
-
-lat_lng
-: _Optional String_ Filter deals by location (latitude and longitude are comma separated)
-
 latitude
 : _Optional String_ Filter deals by location (require longitude parameter)
 
@@ -77,9 +75,6 @@ radius
 : _Optional Float_ Filter deals within circular radius around longitude and latitude values 
 
 ### user parameters
-
-user_id
-: _Optional String_ Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified
 
 user
 : _Optional String_ Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified
@@ -92,16 +87,10 @@ suppliers
 vendors
 : _Optional Array_ Filter deals by vendor in the form of partner slugs or comma separated partner slugs
 
-account_manager
-: _Optional String_ Filter deals by account manager owner email address 
-
 ### inventory parameters
  
 num_left
 : _Optional Integer_ Filter deals by the quantity of inventory left
-
-sold_out
-: _Optional Boolean_ Filter deals not sold out (false only)
 
 exclude_soldout
 : _Optional Boolean_ Filter deals that are not sold out (true only)

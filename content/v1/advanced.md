@@ -1,10 +1,10 @@
 ---
-title: Additional Requests
+title: Additional Calls
 ---
 
-# Additional Requests
+# Additional Calls
 
-The following requests provide additional functionality which are not necessary to provide Deem Offers to your customers.
+The following requests provide additional functionality which are not necessary to provide Deem Offers deals to your customers.
 
 ## Deals
 

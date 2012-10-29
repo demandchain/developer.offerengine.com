@@ -121,6 +121,7 @@ module OfferEngine
   def self.deals_request
     {
       :region => self.deal[:region_id],
+      :exclude_soldout => "true",
     }
   end
   def self.deals_locate_request
