@@ -4,7 +4,7 @@ title: Authentication
 
 # Authentication
 
-Authenticate to the OfferEngine API by providing your API key in each request. Your API key has many privileges, so <b>keep it secret</b>.
+Authenticate to the OfferEngine API by providing your API key in each request. Your API key has many privileges, so you should <b>keep it secret</b>.
 
 Your unique API key will be provided to you via your Admin console. If at any time your key has been compromised, generate a new key within Admin from the same location you received your intial key.
 
