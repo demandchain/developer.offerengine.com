@@ -6,9 +6,9 @@ title: Quick Start
 
 Deem Offers provides an API for integrating deals with your existing platform and services. Follow these three simple steps to get a fully functional Deem Offers API implementation up and running:
 
-# Authentication
-# Get Deals
-# Execute Purchases
+1. Authentication
+2. Get Deals
+3. Execute Purchases
 
 In order to use the Deem Offers API, you must be an approved Deem Offers partner with access to your Deem Offers Admin site. If you are not a Deem Offers partner, or you can't log into your Deem Offers Admin site, please contact [support](mailto:support@offerengine.com).
 
