@@ -4,17 +4,17 @@ title: Overview
 
 # Overview
 
-This API provides the ability for you to include in-context Offers within your existing website, mobile app, emails, or any other internet enabled surfaces. The entire sales process, display through purchase, can be seamlessly integrated providing your customers an uninterrupted value added experience to purchase relevant offers when and where you see fit.
+This application programming interface (API) provides the ability for you to seamlessly integrate in-context deals with your existing website, mobile app, emails, or any other internet enabled surfaces. You can include the entire sales process -- from display through purchase -- in order to provide an uninterrupted value added experience for your customers to purchase relevant deals.
 
-On this website, we will provide all the information you need to start providing offers to your users using Deem Offers API.
+This website provides all the information you need to start offering deals to your users using the Deem Offers API.
 
 ## Introduction
 
-This is a [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) API. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in [HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application. [JSON](http://en.wikipedia.org/wiki/JSON) will be returned in all responses from the API, including errors.
+The Deem Offers API is [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer). It is designed to use predictable, resource-oriented URLs and HTTP response codes to indicate API errors. We use built-in [HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) features, such as HTTP authentication and HTTP verbs, which off-the-shelf HTTP clients can understand. We support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application. The API returns [JSON](http://en.wikipedia.org/wiki/JSON) in all responses, including errors.
 
-Accounts have test-mode API keys, as well as live-mode API keys. These keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.
+Accounts have test-mode and live-mode API keys. Both keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.
 
-If you have any problems or requests please contact [support](mailto:support@offerengine.com).
+If you have any problems or requests, please contact [support](mailto:support@offerengine.com).
 
 ## Endpoint
 
@@ -22,26 +22,28 @@ If you have any problems or requests please contact [support](mailto:support@off
 
 ## Deal
 
-A deal is a product offering goods or services from different merchants at discounted levels. 
+A _deal_ is a product that offers goods or services from different merchants at discounted levels. 
 
 ## Purchase
 
-A purchase is buying a quantity of unit inventory of a specific deal which results in either a voucher, to redeem the deal at the deal merchant's location or website, being bought or a good being shipped directly to the purchaser.
+A _purchase_ is a transaction in which a person (the _purchaser_) buys a quantity of unit inventory of a specific deal. A purchase results in one of the following:
+* A _voucher_, which a purchaser uses to redeem the deal at the deal merchant's location or website
+* A product that is shipped directly to the purchaser
 
-## Example Implementation
+## Implementation Example
 
-Using just two simple API calls (get deals and execute purchase) you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:
+You can provide deals to your customers using just two simple API calls: _get deals_ and _execute a purchase._ The following example is a brief description of how these calls work with an existing mobile application.
 
-In this example, a partner has integrated the entire deal viewing and purchasing process into their existing native mobile app experience. Below is a diagram of the user purchase flow as well as a description of the steps needed to implement each step: 
+In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow: 
 
 <img src="/images/mobile_use_example.png" alt="Mobile Example Image" > 
 
-* Show Offers - request deals with the Deem Offers Get Deals call. A list of deals available to purcahse will be returned based upon your request filter parameters. A subset of deals are displayed to the user with just a few key aspects of the deal.
+* Show Offers: Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.
 
-* Show Offer Details - if a user is interested in a deal from the list, they select it taking them to a detail page about the deal. From the information returned in the previous Get Deals call, more detailed information is provided about this specific deal. A buy now call to action button is provided to start the purchase process.
+* Show Offer Details: When a user selects a deal, he or she lands on a detail page that describes the deal. More detailed information is provided based on the information returned in the previous Get Deals request. The user can click the *Buy now* call-to-action button to start the purchase process.
 
-* Purchase Offer - the buy now call to action button takes the use to a purchase form where they enter all of their purchase information. When the user presses the purchase button, the Deem Offers Execute Purchase request is made.
+* Purchase Offer: The *Buy now* call-to-action button takes the user to a purchase form, where the user enters his or her purchasing information. The user presses the *Purchase* button to make the Execute Purchase request.
 
-* Redeem Offer - on successful return of the Execute Purchase request, a purchase confirmation page is shown with a link to the redemption voucher for the deal the user just purchased.
+* Redeem Offer: When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.
 
-To get started implementing this on your own surface, go to our [Quick Start Guide](/v1/quick_start/)
+To learn how to use the Deem Offers API, see our [Quick Start Guide](/v1/quick_start/).
