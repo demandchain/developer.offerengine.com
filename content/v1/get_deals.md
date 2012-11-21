@@ -10,7 +10,7 @@ Each deal has a number of attributes you can use to filter the Get Deals request
 
 <b>At the very least, you will want to pass location parameters and also set <i>exclude_soldout</i> to "true" when making a Get Deals call.</b>
 
-If you make this call with no set parameters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_souldout</i> to "true" when making this call.
+If you make this call with no set parameters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to "true" when making this call.
 
 ## Request 
 
