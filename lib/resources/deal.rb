@@ -162,39 +162,39 @@ module OfferEngine
 status
 : _String_  State of the request (success or error)
 
-### deal attributes
+### Deal attributes
 
-Will contain a list of deal resources with all associated deal attributes for each deal in result set
+A list of deal resources with all associated deal attributes for each deal in the result set:
 
 id
-: _String_ Unique identifier for deal purchased
+: _String_ Unique identifier for purchased deal 
 
 deal_id
-: _String_ Unique identifier for deal purchased
+: _String_ Unique identifier for purchased deal 
 
 title
-: _String_ Title of the deal purchased
+: _String_ Title of the purchased deal 
 
 type
-: _String_ Type of the deal purchased
+: _String_ Type of the purchased deal 
 
 image_url
-: _String_ Relative URL for image associated with the deal purchased
+: _String_ Relative URL for an image associated with the purchased deal 
 
 image_url_abs
-: _String_ Absolute URL for image associated with the deal purchased
+: _String_ Absolute URL for an image associated with the purchased deal 
 
 locations
 : _Array_ Merchant locations associated with the deal
 
 shipping_address_required
-: _Boolean_ Flag if a shipping address is required to purchase this deal
+: _Boolean_ Flagged if a shipping address is required to purchase this deal
 
 merchant_name
 : _String_ Name of the merchant of the deal
 
 region_id
-: _String_ Region slug the deal is available in
+: _String_ Region (region slug) in which the deal is available 
 
 starting_price
 : _Integer_ The original price of the deal in cents
@@ -206,31 +206,31 @@ value
 : _Integer_ The value of the deal in cents
 
 number_sold
-: _Integer_ The quantity of units sold of the this deal
+: _Integer_ The quantity of units sold of this deal
 
 ended
-: _Boolean_ Flag if the deal has ended
+: _Boolean_ Flagged if the deal has ended
 
 start_at
-: _Date_ The date and time the deal was first available to purchase
+: _Date_ The date and time that the deal was first available to purchase
 
 end_at
-: _Date_ The date and time the deal will no longer be available to purchase
+: _Date_ The date and time that the deal will no longer be available to purchase
 
 expires_at
-: _Date_ The date and time the deal voucher will expire
+: _Date_ The date and time that the deal voucher will expire
 
 state
-: _String_ The workflow state the deal is currently in (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)
+: _String_ The current workflow state of the deal:
 
-: * submitted - base deal data has been entered and not available for purchase
-: * in-review - needs approval to continue in work flow and not available for purchase
-: * rejected - failed approval and not available for purchase
-: * approved - content complete and ready to be run, but not purchasable
-: * in-flight - available for purchase
-: * paused - sale haulted and not currently available for purchase
-: * landed - run window has passed and no longer available for purchase
-: * deleted - removed<br><br>
+: * submitted - Base deal data has been entered and the deal is not available for purchase.
+: * in-review - The deal needs approval to continue in the workflow and is not available for purchase.
+: * rejected - The deal failed approval and is not available for purchase.
+: * approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
+: * in-flight - The deal is available for purchase.
+: * paused - The deal's sale is halted and the deal is not currently available for purchase.
+: * landed - The run window has passed and the deal is no longer available for purchase.
+: * deleted - The deal has been removed.<br><br>
 
 purchasable_number
 : _Integer_ The quantity of units available to sell
@@ -239,10 +239,10 @@ num_left
 : _Integer_ The quantity of units left for purchase
 
 region_name
-: _String_ Human readable region name
+: _String_ Human-readable region name
 
 soldout
-: _Boolean_ Flag if the deal has sold out of inventory
+: _Boolean_ Flagged if the deal has sold out of inventory
 
 description1
 : _String_ Primary description of the deal
@@ -254,7 +254,7 @@ fine_print
 : _String_ Specific details and restrictions associated with the deal
 
 supplier_id
-: _String_ The deal's sourcing supplier's slug
+: _String_ The slug for the deal's sourcing supplier
 
 highlights
 : _String_ Additional important details about the deal
@@ -266,40 +266,39 @@ category
 : _String_ More specific deal type
 
 robotitle
-: _String_ Deal title for affiliate feeds
+: _String_ The deal title for affiliate feeds
 
 show_url
-: _String_ Url for the deal details web page
+: _String_ The URL for the deal details web page
 
 purchase_url
-: _String_ Url for deal purchase web page
+: _String_ The URL for deal purchase web page
       
 campaign
-: _String_ Name for tracking group of deals used in a marketing campaign
+: _String_ The name for tracking a group of deals used in a marketing campaign
 
 max_per_user
-: _Integer_ The maximum quantity available to purchase by a user (only for card linked offers)
+: _Integer_ The maximum quantity available to purchase by a user (only for card-linked deals)
 
 maximum_allowance
-: _Integer_ The maximum value of a purchase that the deal will be attributed to 
-(only for card linked offers)
+: _Integer_ The maximum value of a deal purchase (only for card-linked deals)
 
 min_spend
-: _Integer_ Minimum value of a purchase to qualify for the deal (only for card linked offers)
+: _Integer_ The minimum value of a purchase to qualify for the deal (only for card-linked deals)
 
 incentive_amount
-: _Integer_ Flat amount discount in cents a user gets for using this deal (only for card linked offers)
+: _Integer_ A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)
 
 incentive_percentage
-: _Integer_ Percent discount a user gets for using this deal (only for card linked offers)
+: _Integer_ The percent discount a user gets for using this deal (only for card-linked deals)
 
 fixed_fee
-: _Integer_ Fee charged for running the deal in cents (only for card linked offers)
+: _Integer_ The fee charged for running the deal in cents (only for card-linked deals)
 
 percent_fee
-: _Integer_ Percent charged for running the deal (only for card linked offers)
+: _Integer_ The percent charged for running the deal (only for card-linked deals)
 
 primary_image
-: _Hash_ List of deal image in different sizes. Each image is available in sizes: thumb, tiny, xlarge, large, medium. Each of those items have a hash with: dimensions and url."
+: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.
   end
 end
