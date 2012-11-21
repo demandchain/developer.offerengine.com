@@ -4,13 +4,13 @@ title: Get Deals
 
 # Get Deals
 
-This api call will return a set of applicable deal resources based upon the filtering parameters passed in the request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.
+The Get Deals call returns a set of applicable deal resources based on the filtering parameters you pass in your request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.
 
-Each deal has a number of attributes that can be filtered on using this API call. Everything from price point, inventory, merchant, deal title, run date, location, etc... All of the possible filtering parameters are mentioned below in the Request Parameters section. Also, a detailed explanation of the deal construct can be found in the Response section to provide further background information on what a deal resource looks like.
+Each deal has a number of attributes you can use to filter the Get Deals request -- the price point, the amount of inventory, the merchant, the deal title, the run date, the location, and so on. You can find all of the possible filtering parameters in the "Request Parameters" section. For more information about the deal resource, see the "Response" section.
 
-<b>For most use cases, you will want to at least pass location parameters and exclude_soldout set to "true" when making a call.</b>
+<b>At the very least, you will want to pass location parameters and also set <i>exclude_soldout</i> to "true" when making a Get Deals call.</b>
 
-If you make this call with no parameters set, a list of ALL "in-flight" (currently active) deals across ALL geographical regions which are sold out and NOT sold out will be returned. It is recommended to at least set the exclude_souldout to "true" when making this call.
+If you make this call with no set parameters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to "true" when making this call.
 
 ## Request 
 
@@ -18,131 +18,131 @@ If you make this call with no parameters set, a list of ALL "in-flight" (current
 
 ## Request Parameters
 
-Required and optional parameters should be provided as a json file. All parameter fields are optional. Each additional parameter added acts as an <b>AND</b> to further filter the results that will be provided in the response.
+You provide the parameters as a JSON file. All parameter fields are optional. As you add a parameter, it is evaluated in a logical AND operation with any other paramaters to filter the results. For example, if the <i>title</i> parameter is set to "burger" and the <i>state</i> parameter is set to "in-flight", the filtering returns only in-flight deals that have "burger" in the title.
 
-### individual deal detail parameters
+### Individual deal detail parameters
 
 slug
-: _Optional String_ Filter deals by a particular deal slug
+: _Optional String_ Filter deals by a particular deal slug.
 
 marketplace_slug
-: _Optional String_ Filter deals by a particular marketplace deal slug
+: _Optional String_ Filter deals by a particular marketplace deal slug.
 
 title
-: _Optional String_ Filter deals by title with this value in it ("burger" could return deals with title "$20 off Bob's burgers", "$10 off Burgermeister", etc...)
+: _Optional String_ Filter deals by title with this value ("burger" could return deals with titles "$20 off Bob's Burgers", "$10 off Burgermeister", and so on).
 
-### state parameters
+### State parameters
 
 state
-: _Optional String_ Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
+: _Optional String_ Filter deals in this workflow state ("in-flight", "approved", "submitted", "landed", "in-review", "rejected", "paused", and "deleted"). <b>The "in-flight" state is the most relevant state because it identifies deals currently available for purchase.</b>
 
 show_all
-: _Optional Boolean_ Show deals in all workflow states (true only)
+: _Optional Boolean_ Show deals in all workflow states (true only).
 
-### category parameters
+### Category parameters
 
 category
-: _Optional String_ Filter deals by category with this value in it ("Foo" could return deals in the category "Food")
+: _Optional String_ Filter deals by category with this value ("Foo" could return deals in the category "Food").
 
 subcategory
-: _Optional String_ Filter deals by subcategory with this value in it ("Me" could return deals in the subcategories "Mexican", "Mediterreanean", and "Medical - Other")
+: _Optional String_ Filter deals by subcategory with this value ("Me" could return deals in the subcategories "Mexican", "Mediterreanean", and "Medical - Other").
 
-### merchant parameters
+### Merchant parameters
 
 merchant
-: _Optional String_ Filter deals by merchant name with this value in it ("burger" could return deals with merchants named "Bob's Burger", "Burgermeister", etc...)
+: _Optional String_ Filter deals by merchant name with this value ("burger" could return deals with merchants named "Bob's Burger", "Burgermeister", and so on).
 
-### price parameters
+### Price parameters
 
 price_min
-: _Optional Integer_ Filter minimum deal price in cents
+: _Optional Integer_ Filter the minimum deal price in cents (i.e., 100 equals one dollar).
 
 price_max 
-: _Optional Integer_ Filter maximum deal price in cents
+: _Optional Integer_ Filter the maximum deal price in cents.
 
-### location parameters
+### Location parameters
 
 region
-: _Optional String_ Filter deals by region slug, city/state, IP address, or zip
+: _Optional String_ Filter deals by region slug, city/state, IP address, or zip code.
 
 latitude
-: _Optional String_ Filter deals by location (require longitude parameter)
+: _Optional String_ Filter deals by location (requires an additional <i>longitude</i> parameter).
 
 longitude
-: _Optional String_ Filter deals by location (require latitude parameter)
+: _Optional String_ Filter deals by location (requires an additional <i>latitude</i> parameter).
 
 radius
-: _Optional Float_ Filter deals within circular radius around longitude and latitude values 
+: _Optional Float_ Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.
 
-### user parameters
+### User parameters
 
 user
-: _Optional String_ Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified
+: _Optional String_ Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.
 
-### source parameters
+### Source parameters
 
 suppliers 
-: _Optional Array_ Filter deals by supplier in the form of partner slugs or comma separated partner slugs
+: _Optional Array_ Filter deals by supplier (a partner slug or set of comma-separated partner slugs).
 
 vendors
-: _Optional Array_ Filter deals by vendor in the form of partner slugs or comma separated partner slugs
+: _Optional Array_ Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).
 
-### inventory parameters
+### Inventory parameters
  
 num_left
-: _Optional Integer_ Filter deals by the quantity of inventory left
+: _Optional Integer_ Filter deals by the quantity of inventory left.
 
 exclude_soldout
-: _Optional Boolean_ Filter deals that are not sold out (true only)
+: _Optional Boolean_ Filter deals that are not sold out (true only).
 
-### scheduling parameters
+### Scheduling parameters
 
 runs_min
-: _Optional Date_ Filter minimum deal run date
+: _Optional Date_ Filter the minimum deal run date.
 
 runs_max
-: _Optional Date_ Filter maximum deal run date
+: _Optional Date_ Filter the maximum deal run date.
 
 card_links_redeemed
-: _Optional Boolean_ Filter deals that are not card linked (false only)
+: _Optional Boolean_ Filter deals that are not card-linked (false only).
 
 ## Request Example
 
-### New user account, new credit card, and a shipping address
+### New user account, new payment card, and a shipping address:
 
 <%= requests("GET /v1/deals?api_key=1234567") %>
 <%= json(OfferEngine.deals_request()) %>
 
 ## Response
 
-The request response will provide a http status of the request along with the associated response data provided as a json file
+The response includes the HTTP status of the request along with the associated response data provided in a JSON file.
 
 ## Response Attributes
 
-The response json file will contain a list of deal resources meeting the request filter parameters
+The response JSON file contains a list of deal resources that meet the request filter parameters.
 
 <%= get_deal_resource %>
 
-## Response Example
+## Response Examples
 
-### filter deals by "san_francisco" region with two deals returned
+### Filter deals by the "san_francisco" region with two deals returned:
 
 <%= headers 200 %>
 <%= json(OfferEngine.deals) %>
 
-### filter deals by "restaurants" category with no deals returned 
+### Filter deals by the "restaurants" category with no deals returned:
 
 <%= headers 200 %>
 <%= json(OfferEngine.deals_empty) %>
 
 ## Error Responses
 
-Responses provided for failed requests
+Responses provided for failed requests:
 
 ### 404
 
 error_type = "find_failed"
-: Parameter information provided is invalid
+: Parameter information provided is invalid.
 
 ## Error Response Example
 
