@@ -299,6 +299,7 @@ percent_fee
 : _Integer_ The percent charged for running the deal (only for card-linked deals)
 
 primary_image
-: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.
+: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL."
+
   end
 end
