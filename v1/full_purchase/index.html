@@ -5,36 +5,95 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Full Purchase - OfferEngine API</title>
-  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
-  <link href="/css/960.css" rel="stylesheet" type="text/css" />
-  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
-  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="/shared/js/jquery.js" type="text/javascript"></script>
-  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+  
+  <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  
+  <title>Execute Purchases - OfferEngine API</title>
+  
+  <link href="/shared/css/documentation.css" rel="stylesheet" />
+  <link href="/shared/css/pygments.css" rel="stylesheet" />
+  <link href="/shared/css/font-awesome.css" rel="stylesheet" />
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if lte IE 7]> <link href="/shared/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
 </head>
 <body class="api">
 
-    <div id="header-wrapper">
-      <div id="header">
-        <div>
-          <ul class="nav">
-            <li><a href="mailto:support@offerengine.com">Support</a></li>
-          </ul>
-        </div>
-      </div><!-- #header -->
-    </div><!-- #header-wrapper -->
+<div id="wrapper">
+  <header class="row">
+    <div class="centered clearfix">
+      <h1>
+        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <article class="row">
+    <header class="row">
+      <div class="centered clearfix">
+        <h1>Deem Offers  API Documentation</h1>
+      </div>
+    </header>
+    
+    <div class="centered clearfix">
+      <nav id="side-menu" class="col3">
+        <h1>Introduction</h1>
+        <ul>
+          <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Getting Started</h1>
+        <ul>
+          <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Core Calls</h1>
+        <ul>
+          <li><a href="/v1/core/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/core/">Core Calls</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Additional Calls</h1>
+        <ul>
+          <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/deals/discussions/">Deal Discussions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/">Sessions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/leads/">Session Leads</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/activity/">Region Activity</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/images/">User Images</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/subscriptions/">User Subscriptions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      </nav>
+    
+      <div class="content col9">
+        <h1 id="execute-purchases-create-a-full-purchase">Execute Purchases (Create a Full Purchase)</h1>
 
-    <div id="wrapper">
-      <div class="content">
-        <h1 id="create-a-full-purchase">Create a Full Purchase</h1>
+<p>You can use the all-in-one Execute Purchases call to create a purchase, create a new user, and store a purchase card.</p>
 
-<p>All in one api call to create a purchase, new user, and store a purchase card</p>
-
-<p>This single operation will create a new user, if that user doesn’t already exist, execute a single purchase transaction, and will associate purchase card information with the user</p>
-
-<p>It doesn’t matter if a user or purchase card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.</p>
+<p>This single operation will create a new user if the user doesn’t already exist, and execute a single purchase transaction. It will also associate the purchase card information with the user. It doesn’t matter if a user or purchase card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.</p>
 
 <h2 id="request">Request</h2>
 
@@ -43,34 +102,38 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>Required and optional parameters should be provided as a json file. The required fields are: <b>purchase parameters (deal_id, quantity), user parameters (user id or user resource), credit card parameters (credit card id or credit card resource), and shipping address parameters (shipping address id or shipping address resource) if the offer needs to be shipped</b></p>
+<p>You provide the required and optional parameters as a JSON file. The required fields are: 
+* <b>purchase parameters</b> (<i>deal_id, quantity</i>) 
+* <b>user parameters</b> (<i>user id<i></i> or <i>user resource</i>)
+* <b>payment card parameters</b> (<i>credit card id</i> or <i>credit card resource</i>)
+* <b>shipping address parameters</b> (<i>shipping address id</i> or <i>shipping address resource</i>) if the deal needs to be shipped</i></p>
 
-<h3 id="purchase-parameters">purchase parameters</h3>
+<h3 id="purchase-parameters">Purchase parameters</h3>
 
 <dl>
 <dt>deal_id</dt>
   <dd>
-<em>String</em> Id of the deal you are purchasing inventory for</dd>
+<em>String</em> ID of the deal for which you are purchasing inventory</dd>
   <dt>quantity</dt>
   <dd>
 <em>Integer</em> Number of deals to be purchased
 <br><br>
 </dd>
-</dl><h3 id="user-parameters">user parameters</h3>
-<p>Provide a <b>stored id or a complete user resource</b> with the associated user fields (email, password, password_confirmation)</p>
+</dl><h3 id="user-parameters">User parameters</h3>
+<p>Provide a stored ID or a complete user resource with the associated user fields (<i>email, password,</i> and <i>password_confirmation</i>).</p>
 
-<h4 id="user-id">user id</h4>
+<h4 id="user-id">User id</h4>
 
 <dl>
 <dt>user_id</dt>
   <dd>
-<em>String</em> Id of the user who is making the purchase</dd>
-</dl><h5 id="user-resource">user resource</h5>
+<em>String</em> ID of the user making the purchase</dd>
+</dl><h5 id="user-resource">User resource</h5>
 
 <dl>
 <dt>email</dt>
   <dd>
-<em>String</em> Email address of the user who is making the purchase</dd>
+<em>String</em> Email address of the user making the purchase</dd>
   <dt>password</dt>
   <dd>
 <em>String</em> Password of user making the purchase</dd>
@@ -85,68 +148,68 @@
 <em>Optional String</em> Last name of user
 <br><br>
 </dd>
-</dl><h3 id="credit-card-parameters">credit card parameters</h3>
-<p>Provide a <b>stored id or a complete credit card resource</b> with the associated credit card fields (number, verfication_value, month, year)</p>
+</dl><h3 id="payment-card-parameters">Payment card parameters</h3>
+<p>Provide a stored ID or a complete payment card resource with the associated payment card fields (<i>number, verfication_value, month,</i> and <i>year</i>).</p>
 
-<h4 id="credit-card-id">credit card id</h4>
+<h4 id="payment-card-id">Payment card id</h4>
 
 <dl>
 <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  Id of stored purchase card being used for purchase</dd>
-</dl><h4 id="credit-card-resource">credit card resource</h4>
+<em>String</em>  ID of the stored payment card used for purchasing</dd>
+</dl><h4 id="payment-card-resource">Payment card resource</h4>
 
 <dl>
 <dt>number</dt>
   <dd>
-<em>String</em>  Credit card number being used for purchase</dd>
+<em>String</em>  Payment card number used for purchasing</dd>
   <dt>verification_value</dt>
   <dd>
-<em>String</em> Verification value (CVV) from purchase card when purchase card number</dd>
+<em>String</em> Verification value (CVV) for the payment card when a payment card number is provided</dd>
   <dt>month </dt>
   <dd>
-<em>String</em> 2 digit month from purchase card when purchase card number</dd>
+<em>String</em> Two-digit month for the payment card expiration date when a payment card number is provided</dd>
   <dt>year</dt>
   <dd>
-<em>String</em> 4 digit year from purchase card when purchase card number
+<em>String</em> Four-digit year for the payment card expiration date when a payment card number is provided
 <br><br>
 </dd>
-</dl><h3 id="shipping-address-parameters">shipping address parameters</h3>
-<p>Provide an <b>existing id or a complete shipping address resource</b> with the associated shipping address fields (address_one, postal_code, city, state, country). This is only required for deals with a “shipped” fulfillment type.</p>
+</dl><h3 id="shipping-address-parameters">Shipping address parameters</h3>
+<p>Provide an existing ID or a complete shipping address resource with the associated shipping address fields (<i>address_one, postal_code, city, state,</i> and <i>country</i>). This is required only for deals with a “shipped” fulfillment type.</p>
 
-<h4 id="shipping-address-id">shipping address id</h4>
+<h4 id="shipping-address-id">Shipping address id</h4>
 
 <dl>
 <dt>shipping_address_id</dt>
   <dd>
-<em>String</em>  Id of stored shipping address being used for purchase</dd>
-</dl><h4 id="shipping-address-resource">shipping address resource</h4>
+<em>String</em>  ID of the stored shipping address used for purchasing</dd>
+</dl><h4 id="shipping-address-resource">Shipping address resource</h4>
 
 <dl>
 <dt>name</dt>
   <dd>
-<em>String</em> Name associated with this shipping address (Home, Work, …)</dd>
+<em>String</em> Name associated with this shipping address (Home, Work, and so on)</dd>
   <dt>address_one</dt>
   <dd>
-<em>String</em> First line of shipping address</dd>
+<em>String</em> First line of the shipping address</dd>
   <dt>address_two</dt>
   <dd>
-<em>Optional String</em> Second line of shipping address</dd>
+<em>Optional String</em> Second line of the shipping address</dd>
   <dt>postal_code</dt>
   <dd>
-<em>String</em> Postal/Zip code of shipping address</dd>
+<em>String</em> Postal/Zip code of the shipping address</dd>
   <dt>city</dt>
   <dd>
-<em>String</em> City name of shipping address</dd>
+<em>String</em> City name of the shipping address</dd>
   <dt>state</dt>
   <dd>
-<em>String</em> Two character state abbreviation of shipping address</dd>
+<em>String</em> Two-character state abbreviation of the shipping address</dd>
   <dt>country</dt>
   <dd>
-<em>String</em> Two character country abbreviation of shipping address</dd>
+<em>String</em> Two-character country abbreviation of shipping address</dd>
 </dl><h2 id="request-example">Request Example</h2>
 
-<h3 id="new-user-account-new-purchase-card-and-a-shipping-address">new user account, new purchase card, and a shipping address</h3>
+<h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
 <pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
 
@@ -177,7 +240,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="existing-user-account-stored-purchase-card-and-no-shipping-address">existing user account, stored purchase card, and no shipping address</h3>
+<h3 id="existing-user-account-stored-payment-card-and-no-shipping-address">Existing user account, stored payment card, and no shipping address:</h3>
 
 <pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
 
@@ -191,23 +254,23 @@
 
 <h2 id="response">Response</h2>
 
-<p>The request response will provide a http status of the request along with the associated response data provided as a json file</p>
+<p>The request response includes an HTTP status of the request along with the associated response data provided as a JSON file.</p>
 
 <h2 id="response-attributes">Response Attributes</h2>
 
-<p>The response json file will contain: an overall purchase status plus purchase resources for each purchase in the request</p>
+<p>The response JSON file includes an overall purchase status and purchase resources for each purchase in the request.</p>
 
-<h3 id="status-attributes">status attributes</h3>
+<h3 id="status-attributes">Status attributes</h3>
 
 <dl>
 <dt>status</dt>
   <dd>
 <em>String</em>  State of this purchase (success or error)</dd>
-</dl><h3 id="purchases-attributes">purchases attributes</h3>
+</dl><h3 id="purchases-attributes">Purchases attributes</h3>
 
-<p>Will contain a purchase attribute, deal attributes, user attribute, credit card attribute, and coupon attributes or errors for each attribute that failed during the request</p>
+<p>The response includes a purchase attribute, deal attributes, a user attribute, a payment card attribute, coupon attributes, and errors for each attribute that failed during the request.</p>
 
-<h4 id="purchase-attributes">purchase attributes</h4>
+<h4 id="purchase-attributes">Purchase attributes</h4>
 <dl>
 <dt>id</dt>
   <dd>
@@ -223,10 +286,10 @@
 <em>String</em> Current state of the fulfillment process for this purchase</dd>
   <dt>created_at</dt>
   <dd>
-<em>String</em> Date and time purchase record was created</dd>
+<em>String</em> Date and time that the purchase record was created</dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em> Unique identifier for deal purchased</dd>
+<em>String</em> Unique identifier for the deal purchased</dd>
   <dt>deal_type</dt>
   <dd>
 <em>String</em> Type of the deal purchased</dd>
@@ -235,44 +298,44 @@
 <em>Integer</em> Price of the deal in cents</dd>
   <dt>amount</dt>
   <dd>
-<em>Integer</em> Total amount paid for purchase in cents</dd>
+<em>Integer</em> Total amount paid for the purchase in cents</dd>
   <dt>number_bought</dt>
   <dd>
-<em>Integer</em> Quantity of deals bought</dd>
-</dl><h4 id="user-attribute">user attribute</h4>
+<em>Integer</em> Quantity of the deals bought</dd>
+</dl><h4 id="user-attribute">User attribute</h4>
 
 <dl>
 <dt>user_id</dt>
   <dd>
-<em>String</em>  Unique identifier for purchasing user</dd>
-</dl><h4 id="credit-card-attribute">credit card attribute</h4>
+<em>String</em>  Unique identifier for the user making the purchase</dd>
+</dl><h4 id="payment-card-attribute">Payment card attribute</h4>
 
 <dl>
 <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  Unique identifier for purchase card used to make this purchase</dd>
-</dl><h4 id="deal-attributes">deal attributes</h4>
+<em>String</em>  Unique identifier for the payment card used to make this purchase</dd>
+</dl><h4 id="deal-attributes">Deal attributes</h4>
 
 <dl>
 <dt>id</dt>
   <dd>
-<em>String</em> Unique identifier for deal purchased</dd>
+<em>String</em> Unique identifier for the purchased deal </dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em> Unique identifier for deal purchased</dd>
+<em>String</em> Unique identifier for the purchased deal </dd>
   <dt>title</dt>
   <dd>
-<em>String</em> Title of the deal purchased</dd>
+<em>String</em> Title of the purchased deal </dd>
   <dt>type</dt>
   <dd>
-<em>String</em> Type of the deal purchased</dd>
+<em>String</em> Type of the purchased deal </dd>
   <dt>image_url</dt>
   <dd>
-<em>String</em> Relative URL for image associated with the deal purchased</dd>
+<em>String</em> Relative URL for an image associated with the purchased deal </dd>
   <dt>image_url_abs</dt>
   <dd>
-<em>String</em> Absolute URL for image associated with the deal purchased</dd>
-</dl><h4 id="coupon-attributes">coupon attributes</h4>
+<em>String</em> Absolute URL for an image associated with the purchased deal </dd>
+</dl><h4 id="coupon-attributes">Coupon attributes</h4>
 
 <dl>
 <dt>id</dt>
@@ -283,10 +346,10 @@
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em>  Unique identifier for deal purchased</dd>
+<em>String</em>  Unique identifier for purchased deal </dd>
   <dt>deal_type</dt>
   <dd>
-<em>String</em>  Type of deal purchased (daily-deal, city-sampler, private-reserve, card-linked)</dd>
+<em>String</em>  Type of purchased deal (“daily-deal”, “city-sampler”, “private-reserve”, “card-linked”)</dd>
   <dt>barcode</dt>
   <dd>
 <em>String</em>  Unique barcode used for purchase redemption</dd>
@@ -295,16 +358,16 @@
 <em>String</em>  Unique code used for purchase redemption</dd>
   <dt>expires_at</dt>
   <dd>
-<em>String</em>  Date and time of purchase voucher expiration</dd>
+<em>String</em>  Date and time of the purchase voucher expiration</dd>
   <dt>created_at</dt>
   <dd>
-<em>String</em>  Date and time purchase was made</dd>
+<em>String</em>  Date and time that the purchase was made</dd>
   <dt>state</dt>
   <dd>
-<em>String</em>  State of the purchase (valid, cancelled, expired, redeemed, reissued)</dd>
+<em>String</em>  State of the purchase (“valid”, “cancelled”, “expired”, “redeemed”, “reissued”)</dd>
   <dt>redeemed_at</dt>
   <dd>
-<em>Optional String</em>  Date and time when purchase voucher was redeemed</dd>
+<em>Optional String</em>  Date and time when the purchase voucher was redeemed</dd>
 </dl><h2 id="response-example">Response Example</h2>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -348,7 +411,7 @@
 
 <h2 id="error-responses">Error Responses</h2>
 
-<p>Responses are provided for each portion of the purchase request that fail. if the user, credit card, or shipping address sections error, a purchase will not occur. you don’t have to worry about purchases being made with invalid data. </p>
+<p>Responses are provided for each failed portion of the purchase request. if the user, payment card, or shipping address sections fail, the purchase does not occur. You don’t have to worry that purchases might be made with invalid data. </p>
 
 <h3 id="section">409</h3>
 
@@ -359,11 +422,11 @@
 
 <dl>
 <dt>error_type = “cannot_fufill”</dt>
-  <dd>Not able to fulfill purchase</dd>
+  <dd>Not able to fulfill the purchase</dd>
   <dt>error_type = “declined”</dt>
   <dd>Purchase declined</dd>
   <dt>error_type = “validations_failed”</dt>
-  <dd>Validation failed which can have 5 types (missing_field, missing, invalid, not_owner and not_found). Each type will also have the associated resource that caused the error (user, credit_card, purchase, shipping address) and may have a field narrowing down the specific attribute if applicable.</dd>
+  <dd>Validation failed, which can be five failure types (“missing_field”, “missing”, “invalid”, “not_owner”, and “not_found”). Each type also has the associated resource that caused the error (“user”, “credit_card”, “purchase”, “shipping address”) and may also have a field narrowing down the specific attribute if applicable.</dd>
 </dl><h2 id="error-response-example">Error Response Example</h2>
 
 <h3 id="validation-errors-for-purchase-only">Validation errors for purchase only</h3>
@@ -386,7 +449,7 @@
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="validation-errors-for-user-credit-card-purchase-and-shipping-address">Validation errors for user, credit card, purchase, and shipping address</h3>
+<h3 id="validation-errors-for-user-payment-card-purchase-and-shipping-address">Validation errors for user, payment card, purchase, and shipping address</h3>
 
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
@@ -420,143 +483,33 @@
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
       </div>
+      
+    </div>
 
-      <div id="js-sidebar" class="sidebar-shell">
-        <div class="js-toggle-list sidebar-module expandable">
-          <ul>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/">Overview</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/authentication/">Authentication</a></li>
-                <li><a href="/v1/errors/">Errors</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="/v1/quick_start/">Quick Start</a></h3>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/core/">Core Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/get_deals/">Get Deals</a></li>
-                <li><a href="/v1/full_purchase/">Execute Purchases</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/advanced/">Additional Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/deals/">Deals</a></li>
-                <li><a href="/v1/deals/discussions/">Deal Discussions</a></li>
-                <li><a href="/v1/purchases/">Purchases</a></li>
-                <li><a href="/v1/sessions/">Sessions</a></li>
-                <li><a href="/v1/sessions/leads/">Session Leads</a></li>
-                <li><a href="/v1/regions/">Regions</a></li>
-                <li><a href="/v1/regions/deals/">Region Deals</a></li>
-                <li><a href="/v1/regions/activity/">Region Activity</a></li>
-                <li><a href="/v1/users/">Users</a></li>
-                <li><a href="/v1/users/access_tokens/">User Access Tokens</a></li>
-                <li><a href="/v1/users/card_links/">User Card Links</a></li>
-                <li><a href="/v1/users/coupons/">User Coupons</a></li>
-                <li><a href="/v1/users/credit_cards/">User Credit Cards</a></li>
-                <li><a href="/v1/users/images/">User Images</a></li>
-                <li><a href="/v1/users/purchases/">User Purchases</a></li>
-                <li><a href="/v1/users/saved_deals/">User Saved Deals</a></li>
-                <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a></li>
-                <li><a href="/v1/users/subscriptions/">User Subscriptions</a></li>
-                <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a></li>
-                <li><a href="/v1/stats/merchants/">Stats</a></li>
-              </ul>
-            </li>
+  </article>
+</div>
 
-            <!--
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/v1/stats/merchants/">Stats</a></h3>
-              <ul>
-                <li><a href="/v1/stats/merchants/">Merchants</a></li>
-              </ul>
-            </li>
-            -->
-          </ul>
-        </div> <!-- /sidebar-module -->
-      </div><!-- /sidebar-shell -->
-
-    </div><!-- #wrapper -->
-
-    <div id="footer" >
-      <div class="upper_footer">
-        <div class="footer_inner clearfix">
-
-        <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
-        <!--![if !IE]><h4 id="blacktocat">GitHub Links</h4><![endif]-->
-
-        <!--ul class="footer_nav">
-          <h4>GitHub</h4>
-          <li><a href="https://github.com/about">About</a></li>
-          <li><a href="https://github.com/blog">Blog</a></li>
-          <li><a href="https://github.com/features">Features</a></li>
-          <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
-          <li><a href="https://github.com/training">Training</a></li>
-          <li><a href="http://status.github.com/">Site Status</a></li>
+<footer class="row">
+  <div class="centered clearfix">
+    <div class="left">
+      <nav class="clearfix">
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
         </ul>
+      </nav>
+      <p class="legal">&copy; 1999-2012 <a href="http://www.reardencommerce.com/" target="_blank">Rearden Commerce</a>, Inc. All rights reserved.</p>
+    </div>
+    
+    <h6 class="right"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></h6>
+  </div>
+</footer>
 
-        <ul class="footer_nav">
-          <h4>Tools</h4>
-          <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
-          <li><a href="http://mobile.github.com/">Issues for iPhone</a></li>
-          <li><a href="https://gist.github.com">Gist: Code Snippets</a></li>
-          <li><a href="http://enterprise.github.com/">GitHub Enterprise</a></li>
-          <li><a href="http://jobs.github.com/">Job Board</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Extras</h4>
-          <li><a href="http://shop.github.com/">GitHub Shop</a></li>
-          <li><a href="http://octodex.github.com/">The Octodex</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Documentation</h4>
-          <li><a href="http://help.github.com/">GitHub Help</a></li>
-          <li><a href="http://developer.github.com/">Developer API</a></li>
-          <li><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
-          <li><a href="http://pages.github.com/">GitHub Pages</a></li>
-        </ul-->
-
-        </div><!-- /.site -->
-      </div><!-- /.upper_footer -->
-
-      <div class="lower_footer">
-        <div class="footer_inner clearfix">
-          <div id="legal">
-
-            <ul id="legal_links">
-              <li>Terms of Service</li>
-              <li>Privacy</li>
-              <li>Security</li>
-            </ul>
-
-            <p>&copy; <span id="year">year</span> Rearden Commerce All rights reserved.</p>
-          </div><!-- /#legal or /#legal_ie-->
-
-          <!--div class="sponsor">
-            <a href="http://www.rackspace.com" class="logo">
-              <img src="/shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
-            </a>
-            Powered by the <a href="http://www.rackspace.com ">Dedicated
-            Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
-            Computing</a> of Rackspace Hosting<span>&reg;</span>
-          </div-->
-        </div><!-- /.site -->
-      </div><!-- /.lower_footer -->
-    </div><!-- /#footer -->
-
+<script src="/shared/js/jquery.js"></script>
+<script src="/shared/js/documentation.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
 </body>
 </html>

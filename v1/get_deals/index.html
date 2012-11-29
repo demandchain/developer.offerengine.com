@@ -5,38 +5,99 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
+  
+  <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  
   <title>Get Deals - OfferEngine API</title>
-  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
-  <link href="/css/960.css" rel="stylesheet" type="text/css" />
-  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
-  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="/shared/js/jquery.js" type="text/javascript"></script>
-  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+  
+  <link href="/shared/css/documentation.css" rel="stylesheet" />
+  <link href="/shared/css/pygments.css" rel="stylesheet" />
+  <link href="/shared/css/font-awesome.css" rel="stylesheet" />
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if lte IE 7]> <link href="/shared/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
 </head>
 <body class="api">
 
-    <div id="header-wrapper">
-      <div id="header">
-        <div>
-          <ul class="nav">
-            <li><a href="mailto:support@offerengine.com">Support</a></li>
-          </ul>
-        </div>
-      </div><!-- #header -->
-    </div><!-- #header-wrapper -->
-
-    <div id="wrapper">
-      <div class="content">
+<div id="wrapper">
+  <header class="row">
+    <div class="centered clearfix">
+      <h1>
+        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <article class="row">
+    <header class="row">
+      <div class="centered clearfix">
+        <h1>Deem Offers  API Documentation</h1>
+      </div>
+    </header>
+    
+    <div class="centered clearfix">
+      <nav id="side-menu" class="col3">
+        <h1>Introduction</h1>
+        <ul>
+          <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Getting Started</h1>
+        <ul>
+          <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Core Calls</h1>
+        <ul>
+          <li><a href="/v1/core/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/core/">Core Calls</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Additional Calls</h1>
+        <ul>
+          <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/deals/discussions/">Deal Discussions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/">Sessions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/leads/">Session Leads</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/activity/">Region Activity</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/images/">User Images</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/subscriptions/">User Subscriptions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      </nav>
+    
+      <div class="content col9">
         <h1 id="get-deals">Get Deals</h1>
 
-<p>This api call will return a set of applicable deal resources based upon the filtering parameters passed in the request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.</p>
+<p>The Get Deals call returns a set of applicable deal resources based on the filtering parameters you pass in your request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.</p>
 
-<p>Each deal has a number of attributes that can be filtered on using this API call. Everything from price point, inventory, merchant, deal title, run date, location, etc… All of the possible filtering parameters are mentioned below in the Request Parameters section. Also, a detailed explanation of the deal construct can be found in the Response section to provide further background information on what a deal resource looks like.</p>
+<p>Each deal has a number of attributes you can use to filter the Get Deals request – the price point, the amount of inventory, the merchant, the deal title, the run date, the location, and so on. You can find all of the possible filtering parameters in the “Request Parameters” section. For more information about the deal resource, see the “Response” section.</p>
 
-<p><b>For most use cases, you will want to at least pass location parameters and exclude_soldout set to “true” when making a call.</b></p>
+<p><b>At the very least, you will want to pass location parameters and also set <i>exclude_soldout</i> to “true” when making a Get Deals call.</b></p>
 
-<p>If you make this call with no parameters set, a list of ALL “in-flight” (currently active) deals across ALL geographical regions which are sold out and NOT sold out will be returned. It is recommended to at least set the exclude_souldout to “true” when making this call.</p>
+<p>If you make this call with no set parameters, Get Deals returns a list of <i>all</i> “in-flight” (currently active) deals across <i>all</i> geographical regions – including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to “true” when making this call.</p>
 
 <h2 id="request">Request</h2>
 
@@ -45,108 +106,108 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>Required and optional parameters should be provided as a json file. All parameter fields are optional. Each additional parameter added acts as an <b>AND</b> to further filter the results that will be provided in the response.</p>
+<p>You provide the parameters as a JSON file. All parameter fields are optional. As you add a parameter, it is evaluated in a logical AND operation with any other paramaters to filter the results. For example, if the <i>title</i> parameter is set to “burger” and the <i>state</i> parameter is set to “in-flight”, the filtering returns only in-flight deals that have “burger” in the title.</p>
 
-<h3 id="individual-deal-detail-parameters">individual deal detail parameters</h3>
+<h3 id="individual-deal-detail-parameters">Individual deal detail parameters</h3>
 
 <dl>
 <dt>slug</dt>
   <dd>
-<em>Optional String</em> Filter deals by a particular deal slug</dd>
+<em>Optional String</em> Filter deals by a particular deal slug.</dd>
   <dt>marketplace_slug</dt>
   <dd>
-<em>Optional String</em> Filter deals by a particular marketplace deal slug</dd>
+<em>Optional String</em> Filter deals by a particular marketplace deal slug.</dd>
   <dt>title</dt>
   <dd>
-<em>Optional String</em> Filter deals by title with this value in it (“burger” could return deals with title “$20 off Bob’s burgers”, “$10 off Burgermeister”, etc…)</dd>
-</dl><h3 id="state-parameters">state parameters</h3>
+<em>Optional String</em> Filter deals by title with this value (“burger” could return deals with titles “$20 off Bob’s Burgers”, “$10 off Burgermeister”, and so on).</dd>
+</dl><h3 id="state-parameters">State parameters</h3>
 
 <dl>
 <dt>state</dt>
   <dd>
-<em>Optional String</em> Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
+<em>Optional String</em> Filter deals in this workflow state (“in-flight”, “approved”, “submitted”, “landed”, “in-review”, “rejected”, “paused”, and “deleted”). <b>The “in-flight” state is the most relevant state because it identifies deals currently available for purchase.</b>
 </dd>
   <dt>show_all</dt>
   <dd>
-<em>Optional Boolean</em> Show deals in all workflow states (true only)</dd>
-</dl><h3 id="category-parameters">category parameters</h3>
+<em>Optional Boolean</em> Show deals in all workflow states (true only).</dd>
+</dl><h3 id="category-parameters">Category parameters</h3>
 
 <dl>
 <dt>category</dt>
   <dd>
-<em>Optional String</em> Filter deals by category with this value in it (“Foo” could return deals in the category “Food”)</dd>
+<em>Optional String</em> Filter deals by category with this value (“Foo” could return deals in the category “Food”).</dd>
   <dt>subcategory</dt>
   <dd>
-<em>Optional String</em> Filter deals by subcategory with this value in it (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”)</dd>
-</dl><h3 id="merchant-parameters">merchant parameters</h3>
+<em>Optional String</em> Filter deals by subcategory with this value (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”).</dd>
+</dl><h3 id="merchant-parameters">Merchant parameters</h3>
 
 <dl>
 <dt>merchant</dt>
   <dd>
-<em>Optional String</em> Filter deals by merchant name with this value in it (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, etc…)</dd>
-</dl><h3 id="price-parameters">price parameters</h3>
+<em>Optional String</em> Filter deals by merchant name with this value (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, and so on).</dd>
+</dl><h3 id="price-parameters">Price parameters</h3>
 
 <dl>
 <dt>price_min</dt>
   <dd>
-<em>Optional Integer</em> Filter minimum deal price in cents</dd>
+<em>Optional Integer</em> Filter the minimum deal price in cents (i.e., 100 equals one dollar).</dd>
   <dt>price_max </dt>
   <dd>
-<em>Optional Integer</em> Filter maximum deal price in cents</dd>
-</dl><h3 id="location-parameters">location parameters</h3>
+<em>Optional Integer</em> Filter the maximum deal price in cents.</dd>
+</dl><h3 id="location-parameters">Location parameters</h3>
 
 <dl>
 <dt>region</dt>
   <dd>
-<em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip</dd>
+<em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip code.</dd>
   <dt>latitude</dt>
   <dd>
-<em>Optional String</em> Filter deals by location (require longitude parameter)</dd>
+<em>Optional String</em> Filter deals by location (requires an additional <i>longitude</i> parameter).</dd>
   <dt>longitude</dt>
   <dd>
-<em>Optional String</em> Filter deals by location (require latitude parameter)</dd>
+<em>Optional String</em> Filter deals by location (requires an additional <i>latitude</i> parameter).</dd>
   <dt>radius</dt>
   <dd>
-<em>Optional Float</em> Filter deals within circular radius around longitude and latitude values </dd>
-</dl><h3 id="user-parameters">user parameters</h3>
+<em>Optional Float</em> Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.</dd>
+</dl><h3 id="user-parameters">User parameters</h3>
 
 <dl>
 <dt>user</dt>
   <dd>
-<em>Optional String</em> Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified</dd>
-</dl><h3 id="source-parameters">source parameters</h3>
+<em>Optional String</em> Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.</dd>
+</dl><h3 id="source-parameters">Source parameters</h3>
 
 <dl>
 <dt>suppliers </dt>
   <dd>
-<em>Optional Array</em> Filter deals by supplier in the form of partner slugs or comma separated partner slugs</dd>
+<em>Optional Array</em> Filter deals by supplier (a partner slug or set of comma-separated partner slugs).</dd>
   <dt>vendors</dt>
   <dd>
-<em>Optional Array</em> Filter deals by vendor in the form of partner slugs or comma separated partner slugs</dd>
-</dl><h3 id="inventory-parameters">inventory parameters</h3>
+<em>Optional Array</em> Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).</dd>
+</dl><h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
 <dt>num_left</dt>
   <dd>
-<em>Optional Integer</em> Filter deals by the quantity of inventory left</dd>
+<em>Optional Integer</em> Filter deals by the quantity of inventory left.</dd>
   <dt>exclude_soldout</dt>
   <dd>
-<em>Optional Boolean</em> Filter deals that are not sold out (true only)</dd>
-</dl><h3 id="scheduling-parameters">scheduling parameters</h3>
+<em>Optional Boolean</em> Filter deals that are not sold out (true only).</dd>
+</dl><h3 id="scheduling-parameters">Scheduling parameters</h3>
 
 <dl>
 <dt>runs_min</dt>
   <dd>
-<em>Optional Date</em> Filter minimum deal run date</dd>
+<em>Optional Date</em> Filter the minimum deal run date.</dd>
   <dt>runs_max</dt>
   <dd>
-<em>Optional Date</em> Filter maximum deal run date</dd>
+<em>Optional Date</em> Filter the maximum deal run date.</dd>
   <dt>card_links_redeemed</dt>
   <dd>
-<em>Optional Boolean</em> Filter deals that are not card linked (false only)</dd>
+<em>Optional Boolean</em> Filter deals that are not card-linked (false only).</dd>
 </dl><h2 id="request-example">Request Example</h2>
 
-<h3 id="new-user-account-new-credit-card-and-a-shipping-address">New user account, new credit card, and a shipping address</h3>
+<h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
 <pre class="headers"><code>GET /v1/deals?api_key=1234567</code></pre>
 
@@ -157,11 +218,11 @@
 
 <h2 id="response">Response</h2>
 
-<p>The request response will provide a http status of the request along with the associated response data provided as a json file</p>
+<p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
 
 <h2 id="response-attributes">Response Attributes</h2>
 
-<p>The response json file will contain a list of deal resources meeting the request filter parameters</p>
+<p>The response JSON file contains a list of deal resources that meet the request filter parameters.</p>
 
 <h3 id="status-attributes">status attributes</h3>
 
@@ -169,41 +230,41 @@
 <dt>status</dt>
   <dd>
 <em>String</em>  State of the request (success or error)</dd>
-</dl><h3 id="deal-attributes">deal attributes</h3>
+</dl><h3 id="deal-attributes">Deal attributes</h3>
 
-<p>Will contain a list of deal resources with all associated deal attributes for each deal in result set</p>
+<p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
 <dt>id</dt>
   <dd>
-<em>String</em> Unique identifier for deal purchased</dd>
+<em>String</em> Unique identifier for purchased deal </dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em> Unique identifier for deal purchased</dd>
+<em>String</em> Unique identifier for purchased deal </dd>
   <dt>title</dt>
   <dd>
-<em>String</em> Title of the deal purchased</dd>
+<em>String</em> Title of the purchased deal </dd>
   <dt>type</dt>
   <dd>
-<em>String</em> Type of the deal purchased</dd>
+<em>String</em> Type of the purchased deal </dd>
   <dt>image_url</dt>
   <dd>
-<em>String</em> Relative URL for image associated with the deal purchased</dd>
+<em>String</em> Relative URL for an image associated with the purchased deal </dd>
   <dt>image_url_abs</dt>
   <dd>
-<em>String</em> Absolute URL for image associated with the deal purchased</dd>
+<em>String</em> Absolute URL for an image associated with the purchased deal </dd>
   <dt>locations</dt>
   <dd>
 <em>Array</em> Merchant locations associated with the deal</dd>
   <dt>shipping_address_required</dt>
   <dd>
-<em>Boolean</em> Flag if a shipping address is required to purchase this deal</dd>
+<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
   <dt>merchant_name</dt>
   <dd>
 <em>String</em> Name of the merchant of the deal</dd>
   <dt>region_id</dt>
   <dd>
-<em>String</em> Region slug the deal is available in</dd>
+<em>String</em> Region (region slug) in which the deal is available </dd>
   <dt>starting_price</dt>
   <dd>
 <em>Integer</em> The original price of the deal in cents</dd>
@@ -215,60 +276,60 @@
 <em>Integer</em> The value of the deal in cents</dd>
   <dt>number_sold</dt>
   <dd>
-<em>Integer</em> The quantity of units sold of the this deal</dd>
+<em>Integer</em> The quantity of units sold of this deal</dd>
   <dt>ended</dt>
   <dd>
-<em>Boolean</em> Flag if the deal has ended</dd>
+<em>Boolean</em> Flagged if the deal has ended</dd>
   <dt>start_at</dt>
   <dd>
-<em>Date</em> The date and time the deal was first available to purchase</dd>
+<em>Date</em> The date and time that the deal was first available to purchase</dd>
   <dt>end_at</dt>
   <dd>
-<em>Date</em> The date and time the deal will no longer be available to purchase</dd>
+<em>Date</em> The date and time that the deal will no longer be available to purchase</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time the deal voucher will expire</dd>
+<em>Date</em> The date and time that the deal voucher will expire</dd>
   <dt>state</dt>
   <dd>
-<em>String</em> The workflow state the deal is currently in (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted)</dd>
+<em>String</em> The current workflow state of the deal:</dd>
   <dd>
     <ul>
-<li>submitted - base deal data has been entered and not available for purchase</li>
+<li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>in-review - needs approval to continue in work flow and not available for purchase</li>
+<li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>rejected - failed approval and not available for purchase</li>
+<li>rejected - The deal failed approval and is not available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>approved - content complete and ready to be run, but not purchasable</li>
+<li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>in-flight - available for purchase</li>
+<li>in-flight - The deal is available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>paused - sale haulted and not currently available for purchase</li>
+<li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>landed - run window has passed and no longer available for purchase</li>
+<li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
 </dd>
   <dd>
     <ul>
-<li>deleted - removed<br><br>
+<li>deleted - The deal has been removed.<br><br>
 </li>
     </ul>
 </dd>
@@ -280,10 +341,10 @@
 <em>Integer</em> The quantity of units left for purchase</dd>
   <dt>region_name</dt>
   <dd>
-<em>String</em> Human readable region name</dd>
+<em>String</em> Human-readable region name</dd>
   <dt>soldout</dt>
   <dd>
-<em>Boolean</em> Flag if the deal has sold out of inventory</dd>
+<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
   <dt>description1</dt>
   <dd>
 <em>String</em> Primary description of the deal</dd>
@@ -295,7 +356,7 @@
 <em>String</em> Specific details and restrictions associated with the deal</dd>
   <dt>supplier_id</dt>
   <dd>
-<em>String</em> The deal’s sourcing supplier’s slug</dd>
+<em>String</em> The slug for the deal’s sourcing supplier</dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
@@ -307,44 +368,43 @@
 <em>String</em> More specific deal type</dd>
   <dt>robotitle</dt>
   <dd>
-<em>String</em> Deal title for affiliate feeds</dd>
+<em>String</em> The deal title for affiliate feeds</dd>
   <dt>show_url</dt>
   <dd>
-<em>String</em> Url for the deal details web page</dd>
+<em>String</em> The URL for the deal details web page</dd>
   <dt>purchase_url</dt>
   <dd>
-<em>String</em> Url for deal purchase web page</dd>
+<em>String</em> The URL for deal purchase web page</dd>
   <dt>campaign</dt>
   <dd>
-<em>String</em> Name for tracking group of deals used in a marketing campaign</dd>
+<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
   <dt>max_per_user</dt>
   <dd>
-<em>Integer</em> The maximum quantity available to purchase by a user (only for card linked offers)</dd>
+<em>Integer</em> The maximum quantity available to purchase by a user (only for card-linked deals)</dd>
   <dt>maximum_allowance</dt>
   <dd>
-<em>Integer</em> The maximum value of a purchase that the deal will be attributed to 
-(only for card linked offers)</dd>
+<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
   <dt>min_spend</dt>
   <dd>
-<em>Integer</em> Minimum value of a purchase to qualify for the deal (only for card linked offers)</dd>
+<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
   <dt>incentive_amount</dt>
   <dd>
-<em>Integer</em> Flat amount discount in cents a user gets for using this deal (only for card linked offers)</dd>
+<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
   <dt>incentive_percentage</dt>
   <dd>
-<em>Integer</em> Percent discount a user gets for using this deal (only for card linked offers)</dd>
+<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
   <dt>fixed_fee</dt>
   <dd>
-<em>Integer</em> Fee charged for running the deal in cents (only for card linked offers)</dd>
+<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
   <dt>percent_fee</dt>
   <dd>
-<em>Integer</em> Percent charged for running the deal (only for card linked offers)</dd>
+<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
   <dt>primary_image</dt>
   <dd>
-<em>Hash</em> List of deal image in different sizes. Each image is available in sizes: thumb, tiny, xlarge, large, medium. Each of those items have a hash with: dimensions and url.</dd>
-</dl><h2 id="response-example">Response Example</h2>
+<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.</dd>
+</dl><h2 id="response-examples">Response Examples</h2>
 
-<h3 id="filter-deals-by-sanfrancisco-region-with-two-deals-returned">filter deals by “san_francisco” region with two deals returned</h3>
+<h3 id="filter-deals-by-the-sanfrancisco-region-with-two-deals-returned">Filter deals by the “san_francisco” region with two deals returned:</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -488,7 +548,7 @@
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="filter-deals-by-restaurants-category-with-no-deals-returned">filter deals by “restaurants” category with no deals returned</h3>
+<h3 id="filter-deals-by-the-restaurants-category-with-no-deals-returned">Filter deals by the “restaurants” category with no deals returned:</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -501,13 +561,13 @@
 
 <h2 id="error-responses">Error Responses</h2>
 
-<p>Responses provided for failed requests</p>
+<p>Responses provided for failed requests:</p>
 
 <h3 id="section">404</h3>
 
 <dl>
 <dt>error_type = “find_failed”</dt>
-  <dd>Parameter information provided is invalid</dd>
+  <dd>Parameter information provided is invalid.</dd>
 </dl><h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
@@ -518,143 +578,33 @@
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
       </div>
+      
+    </div>
 
-      <div id="js-sidebar" class="sidebar-shell">
-        <div class="js-toggle-list sidebar-module expandable">
-          <ul>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/">Overview</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/authentication/">Authentication</a></li>
-                <li><a href="/v1/errors/">Errors</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="/v1/quick_start/">Quick Start</a></h3>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/core/">Core Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/get_deals/">Get Deals</a></li>
-                <li><a href="/v1/full_purchase/">Execute Purchases</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/advanced/">Additional Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/deals/">Deals</a></li>
-                <li><a href="/v1/deals/discussions/">Deal Discussions</a></li>
-                <li><a href="/v1/purchases/">Purchases</a></li>
-                <li><a href="/v1/sessions/">Sessions</a></li>
-                <li><a href="/v1/sessions/leads/">Session Leads</a></li>
-                <li><a href="/v1/regions/">Regions</a></li>
-                <li><a href="/v1/regions/deals/">Region Deals</a></li>
-                <li><a href="/v1/regions/activity/">Region Activity</a></li>
-                <li><a href="/v1/users/">Users</a></li>
-                <li><a href="/v1/users/access_tokens/">User Access Tokens</a></li>
-                <li><a href="/v1/users/card_links/">User Card Links</a></li>
-                <li><a href="/v1/users/coupons/">User Coupons</a></li>
-                <li><a href="/v1/users/credit_cards/">User Credit Cards</a></li>
-                <li><a href="/v1/users/images/">User Images</a></li>
-                <li><a href="/v1/users/purchases/">User Purchases</a></li>
-                <li><a href="/v1/users/saved_deals/">User Saved Deals</a></li>
-                <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a></li>
-                <li><a href="/v1/users/subscriptions/">User Subscriptions</a></li>
-                <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a></li>
-                <li><a href="/v1/stats/merchants/">Stats</a></li>
-              </ul>
-            </li>
+  </article>
+</div>
 
-            <!--
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/v1/stats/merchants/">Stats</a></h3>
-              <ul>
-                <li><a href="/v1/stats/merchants/">Merchants</a></li>
-              </ul>
-            </li>
-            -->
-          </ul>
-        </div> <!-- /sidebar-module -->
-      </div><!-- /sidebar-shell -->
-
-    </div><!-- #wrapper -->
-
-    <div id="footer" >
-      <div class="upper_footer">
-        <div class="footer_inner clearfix">
-
-        <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
-        <!--![if !IE]><h4 id="blacktocat">GitHub Links</h4><![endif]-->
-
-        <!--ul class="footer_nav">
-          <h4>GitHub</h4>
-          <li><a href="https://github.com/about">About</a></li>
-          <li><a href="https://github.com/blog">Blog</a></li>
-          <li><a href="https://github.com/features">Features</a></li>
-          <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
-          <li><a href="https://github.com/training">Training</a></li>
-          <li><a href="http://status.github.com/">Site Status</a></li>
+<footer class="row">
+  <div class="centered clearfix">
+    <div class="left">
+      <nav class="clearfix">
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
         </ul>
+      </nav>
+      <p class="legal">&copy; 1999-2012 <a href="http://www.reardencommerce.com/" target="_blank">Rearden Commerce</a>, Inc. All rights reserved.</p>
+    </div>
+    
+    <h6 class="right"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></h6>
+  </div>
+</footer>
 
-        <ul class="footer_nav">
-          <h4>Tools</h4>
-          <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
-          <li><a href="http://mobile.github.com/">Issues for iPhone</a></li>
-          <li><a href="https://gist.github.com">Gist: Code Snippets</a></li>
-          <li><a href="http://enterprise.github.com/">GitHub Enterprise</a></li>
-          <li><a href="http://jobs.github.com/">Job Board</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Extras</h4>
-          <li><a href="http://shop.github.com/">GitHub Shop</a></li>
-          <li><a href="http://octodex.github.com/">The Octodex</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Documentation</h4>
-          <li><a href="http://help.github.com/">GitHub Help</a></li>
-          <li><a href="http://developer.github.com/">Developer API</a></li>
-          <li><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
-          <li><a href="http://pages.github.com/">GitHub Pages</a></li>
-        </ul-->
-
-        </div><!-- /.site -->
-      </div><!-- /.upper_footer -->
-
-      <div class="lower_footer">
-        <div class="footer_inner clearfix">
-          <div id="legal">
-
-            <ul id="legal_links">
-              <li>Terms of Service</li>
-              <li>Privacy</li>
-              <li>Security</li>
-            </ul>
-
-            <p>&copy; <span id="year">year</span> Rearden Commerce All rights reserved.</p>
-          </div><!-- /#legal or /#legal_ie-->
-
-          <!--div class="sponsor">
-            <a href="http://www.rackspace.com" class="logo">
-              <img src="/shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
-            </a>
-            Powered by the <a href="http://www.rackspace.com ">Dedicated
-            Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
-            Computing</a> of Rackspace Hosting<span>&reg;</span>
-          </div-->
-        </div><!-- /.site -->
-      </div><!-- /.lower_footer -->
-    </div><!-- /#footer -->
-
+<script src="/shared/js/jquery.js"></script>
+<script src="/shared/js/documentation.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
 </body>
 </html>

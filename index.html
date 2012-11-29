@@ -5,42 +5,103 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
+  
+  <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  
   <title>Overview - OfferEngine API</title>
-  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
-  <link href="/css/960.css" rel="stylesheet" type="text/css" />
-  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
-  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="/shared/js/jquery.js" type="text/javascript"></script>
-  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+  
+  <link href="/shared/css/documentation.css" rel="stylesheet" />
+  <link href="/shared/css/pygments.css" rel="stylesheet" />
+  <link href="/shared/css/font-awesome.css" rel="stylesheet" />
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if lte IE 7]> <link href="/shared/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
 </head>
 <body class="api">
 
-    <div id="header-wrapper">
-      <div id="header">
-        <div>
-          <ul class="nav">
-            <li><a href="mailto:support@offerengine.com">Support</a></li>
-          </ul>
-        </div>
-      </div><!-- #header -->
-    </div><!-- #header-wrapper -->
-
-    <div id="wrapper">
-      <div class="content">
+<div id="wrapper">
+  <header class="row">
+    <div class="centered clearfix">
+      <h1>
+        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <article class="row">
+    <header class="row">
+      <div class="centered clearfix">
+        <h1>Deem Offers  API Documentation</h1>
+      </div>
+    </header>
+    
+    <div class="centered clearfix">
+      <nav id="side-menu" class="col3">
+        <h1>Introduction</h1>
+        <ul>
+          <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Getting Started</h1>
+        <ul>
+          <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Core Calls</h1>
+        <ul>
+          <li><a href="/v1/core/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/core/">Core Calls</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      
+        <h1>Additional Calls</h1>
+        <ul>
+          <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/deals/discussions/">Deal Discussions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/">Sessions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/sessions/leads/">Session Leads</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/activity/">Region Activity</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/images/">User Images</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/subscriptions/">User Subscriptions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      </nav>
+    
+      <div class="content col9">
         <h1 id="overview">Overview</h1>
 
-<p>This API provides the ability for you to include in-context Offers within your existing website, mobile app, emails, or any other internet enabled surfaces. The entire sales process, display through purchase, can be seamlessly integrated providing your customers an uninterrupted value added experience to purchase relevant offers when and where you see fit.</p>
+<p>This application programming interface (API) provides the ability for you to seamlessly integrate in-context deals with your existing website, mobile app, emails, or any other internet enabled surfaces. You can include the entire sales process – from display through purchase – in order to provide an uninterrupted value added experience for your customers to purchase relevant deals.</p>
 
-<p>On this website, we will provide all the information you need to start providing offers to your users using Deem Offers API.</p>
+<p>This website provides all the information you need to start offering deals to your users using the Deem Offers API.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>This is a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> API. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a> features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application. <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> will be returned in all responses from the API, including errors.</p>
+<p>The Deem Offers API is <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a>. It is designed to use predictable, resource-oriented URLs and HTTP response codes to indicate API errors. We use built-in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a> features, such as HTTP authentication and HTTP verbs, which off-the-shelf HTTP clients can understand. We support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application. The API returns <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> in all responses, including errors.</p>
 
-<p>Accounts have test-mode API keys, as well as live-mode API keys. These keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.</p>
+<p>Accounts have test-mode and live-mode API keys. Both keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.</p>
 
-<p>If you have any problems or requests please contact <a href="mailto:support@offerengine.com">support</a>.</p>
+<p>If you have any problems or requests, please contact <a href="mailto:support@offerengine.com">support</a>.</p>
 
 <h2 id="endpoint">Endpoint</h2>
 
@@ -48,172 +109,64 @@
 
 <h2 id="deal">Deal</h2>
 
-<p>A deal is a product offering goods or services from different merchants at discounted levels. </p>
+<p>A <em>deal</em> is a product that offers goods or services from different merchants at discounted levels. </p>
 
 <h2 id="purchase">Purchase</h2>
 
-<p>A purchase is buying a quantity of unit inventory of a specific deal which results in either a voucher, to redeem the deal at the deal merchant’s location or website, being bought or a good being shipped directly to the purchaser.</p>
+<p>A <em>purchase</em> is a transaction in which a person (the <em>purchaser</em>) buys a quantity of unit inventory of a specific deal. A purchase results in one of the following:
+* A <em>voucher</em>, which a purchaser uses to redeem the deal at the deal merchant’s location or website
+* A product that is shipped directly to the purchaser</p>
 
-<h2 id="example-implementation">Example Implementation</h2>
+<h2 id="implementation-example">Implementation Example</h2>
 
-<p>Using just two simple API calls (get deals and execute purchase) you can provide offers to your users. Below is a brief description of how that would work with an existing mobile application:</p>
+<p>You can provide deals to your customers using just two simple API calls: <em>get deals</em> and <em>execute a purchase.</em> The following example is a brief description of how these calls work with an existing mobile application.</p>
 
-<p>In this example, a partner has integrated the entire deal viewing and purchasing process into their existing native mobile app experience. Below is a diagram of the user purchase flow as well as a description of the steps needed to implement each step: </p>
+<p>In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow: </p>
 
 <p><img src="/images/mobile_use_example.png" alt="Mobile Example Image"></p>
 
 <ul>
 <li>
-    <p>Show Offers - request deals with the Deem Offers Get Deals call. A list of deals available to purcahse will be returned based upon your request filter parameters. A subset of deals are displayed to the user with just a few key aspects of the deal.</p>
+    <p>Show Offers: Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.</p>
   </li>
   <li>
-    <p>Show Offer Details - if a user is interested in a deal from the list, they select it taking them to a detail page about the deal. From the information returned in the previous Get Deals call, more detailed information is provided about this specific deal. A buy now call to action button is provided to start the purchase process.</p>
+    <p>Show Offer Details: When a user selects a deal, he or she lands on a detail page that describes the deal. More detailed information is provided based on the information returned in the previous Get Deals request. The user can click the <em>Buy now</em> call-to-action button to start the purchase process.</p>
   </li>
   <li>
-    <p>Purchase Offer - the buy now call to action button takes the use to a purchase form where they enter all of their purchase information. When the user presses the purchase button, the Deem Offers Execute Purchase request is made.</p>
+    <p>Purchase Offer: The <em>Buy now</em> call-to-action button takes the user to a purchase form, where the user enters his or her purchasing information. The user presses the <em>Purchase</em> button to make the Execute Purchase request.</p>
   </li>
   <li>
-    <p>Redeem Offer - on successful return of the Execute Purchase request, a purchase confirmation page is shown with a link to the redemption voucher for the deal the user just purchased.</p>
+    <p>Redeem Offer: When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.</p>
   </li>
-</ul><p>To get started implementing this on your own surface, go to our <a href="/v1/quick_start/">Quick Start Guide</a></p>
+</ul><p>To learn how to use the Deem Offers API, see our <a href="/v1/quick_start/">Quick Start Guide</a>.</p>
       </div>
+      
+    </div>
 
-      <div id="js-sidebar" class="sidebar-shell">
-        <div class="js-toggle-list sidebar-module expandable">
-          <ul>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/">Overview</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/authentication/">Authentication</a></li>
-                <li><a href="/v1/errors/">Errors</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3><a href="/v1/quick_start/">Quick Start</a></h3>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/core/">Core Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/get_deals/">Get Deals</a></li>
-                <li><a href="/v1/full_purchase/">Execute Purchases</a></li>
-              </ul>
-            </li>
-            <li>
-              <h3>
-                <a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a>
-                <a href="/v1/advanced/">Additional Calls</a>
-              </h3>
-              <ul>
-                <li><a href="/v1/deals/">Deals</a></li>
-                <li><a href="/v1/deals/discussions/">Deal Discussions</a></li>
-                <li><a href="/v1/purchases/">Purchases</a></li>
-                <li><a href="/v1/sessions/">Sessions</a></li>
-                <li><a href="/v1/sessions/leads/">Session Leads</a></li>
-                <li><a href="/v1/regions/">Regions</a></li>
-                <li><a href="/v1/regions/deals/">Region Deals</a></li>
-                <li><a href="/v1/regions/activity/">Region Activity</a></li>
-                <li><a href="/v1/users/">Users</a></li>
-                <li><a href="/v1/users/access_tokens/">User Access Tokens</a></li>
-                <li><a href="/v1/users/card_links/">User Card Links</a></li>
-                <li><a href="/v1/users/coupons/">User Coupons</a></li>
-                <li><a href="/v1/users/credit_cards/">User Credit Cards</a></li>
-                <li><a href="/v1/users/images/">User Images</a></li>
-                <li><a href="/v1/users/purchases/">User Purchases</a></li>
-                <li><a href="/v1/users/saved_deals/">User Saved Deals</a></li>
-                <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a></li>
-                <li><a href="/v1/users/subscriptions/">User Subscriptions</a></li>
-                <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a></li>
-                <li><a href="/v1/stats/merchants/">Stats</a></li>
-              </ul>
-            </li>
+  </article>
+</div>
 
-            <!--
-            <li>
-              <h3><a href="javascript:" class="js-expand-btn collapsed">&nbsp;</a><a href="/v1/stats/merchants/">Stats</a></h3>
-              <ul>
-                <li><a href="/v1/stats/merchants/">Merchants</a></li>
-              </ul>
-            </li>
-            -->
-          </ul>
-        </div> <!-- /sidebar-module -->
-      </div><!-- /sidebar-shell -->
-
-    </div><!-- #wrapper -->
-
-    <div id="footer" >
-      <div class="upper_footer">
-        <div class="footer_inner clearfix">
-
-        <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
-        <!--![if !IE]><h4 id="blacktocat">GitHub Links</h4><![endif]-->
-
-        <!--ul class="footer_nav">
-          <h4>GitHub</h4>
-          <li><a href="https://github.com/about">About</a></li>
-          <li><a href="https://github.com/blog">Blog</a></li>
-          <li><a href="https://github.com/features">Features</a></li>
-          <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
-          <li><a href="https://github.com/training">Training</a></li>
-          <li><a href="http://status.github.com/">Site Status</a></li>
+<footer class="row">
+  <div class="centered clearfix">
+    <div class="left">
+      <nav class="clearfix">
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="mailto:support@offerengine.com">Support</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.reardencommerce.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
         </ul>
+      </nav>
+      <p class="legal">&copy; 1999-2012 <a href="http://www.reardencommerce.com/" target="_blank">Rearden Commerce</a>, Inc. All rights reserved.</p>
+    </div>
+    
+    <h6 class="right"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></h6>
+  </div>
+</footer>
 
-        <ul class="footer_nav">
-          <h4>Tools</h4>
-          <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
-          <li><a href="http://mobile.github.com/">Issues for iPhone</a></li>
-          <li><a href="https://gist.github.com">Gist: Code Snippets</a></li>
-          <li><a href="http://enterprise.github.com/">GitHub Enterprise</a></li>
-          <li><a href="http://jobs.github.com/">Job Board</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Extras</h4>
-          <li><a href="http://shop.github.com/">GitHub Shop</a></li>
-          <li><a href="http://octodex.github.com/">The Octodex</a></li>
-        </ul>
-
-        <ul class="footer_nav">
-          <h4>Documentation</h4>
-          <li><a href="http://help.github.com/">GitHub Help</a></li>
-          <li><a href="http://developer.github.com/">Developer API</a></li>
-          <li><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
-          <li><a href="http://pages.github.com/">GitHub Pages</a></li>
-        </ul-->
-
-        </div><!-- /.site -->
-      </div><!-- /.upper_footer -->
-
-      <div class="lower_footer">
-        <div class="footer_inner clearfix">
-          <div id="legal">
-
-            <ul id="legal_links">
-              <li>Terms of Service</li>
-              <li>Privacy</li>
-              <li>Security</li>
-            </ul>
-
-            <p>&copy; <span id="year">year</span> Rearden Commerce All rights reserved.</p>
-          </div><!-- /#legal or /#legal_ie-->
-
-          <!--div class="sponsor">
-            <a href="http://www.rackspace.com" class="logo">
-              <img src="/shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
-            </a>
-            Powered by the <a href="http://www.rackspace.com ">Dedicated
-            Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
-            Computing</a> of Rackspace Hosting<span>&reg;</span>
-          </div-->
-        </div><!-- /.site -->
-      </div><!-- /.lower_footer -->
-    </div><!-- /#footer -->
-
+<script src="/shared/js/jquery.js"></script>
+<script src="/shared/js/documentation.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
 </body>
 </html>
