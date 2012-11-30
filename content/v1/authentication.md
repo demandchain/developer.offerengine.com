@@ -4,13 +4,13 @@ title: Authentication
 
 # Authentication
 
-Authenticate to the OfferEngine API by providing your API key in each request. Your API key has many privileges, so you should <b>keep it secret</b>.
+Authentication is a way of identifying yourself in order to gain access to the API. You authenticate yourself with the Deem Offers API by providing your unique API key in each request. <b>You must keep your unique API key secret</b>.
 
-Your unique API key will be provided to you via your Admin console. If at any time your key has been compromised, generate a new key within Admin from the same location you received your intial key.
+Your unique API key is provided in the Admin Dashboard. If at any time your key has been compromised, you can generate a new key in the Admin Dashboard.
 
 <b>All API requests must be made over HTTPS.</b> Calls made over plain HTTP will fail. You must authenticate for all requests.
 
-All that needs to be done for each request is to add the api_key parameter to each request (GET, POST, and PUT) with your unique key.
+Add the api_key parameter to each GET, POST, and PUT request with the value of your unique API key:
 
 ## Request
 	
