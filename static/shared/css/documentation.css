@@ -153,12 +153,12 @@ ul,ol {
 
 body > #wrapper {  
   margin: 0 0 -130px;
-  min-height: 980px;
+  min-height: 100%;
   height: auto;
   width: 100%;
+  min-width:980px;
   overflow:auto;
 }
-
 /***** end block *****/
 
 
@@ -219,7 +219,6 @@ body > #wrapper {
     line-height:50px;
     padding:0 20px;
     background:transparent;
-  
   }
   #wrapper > header nav li a:hover,
   #wrapper > header nav li a.active { 
@@ -230,9 +229,13 @@ body > #wrapper {
     background: linear-gradient(top, #f5f5f5, #e8e8e8);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5', EndColorStr='#e8e8e8');
   }
-  #wrapper > header nav li a.active { color:#222; }
-
-
+  #wrapper > header nav li a.active { 
+    color:#222;
+    -webkit-box-shadow:1px 1px 10px #E2E2E2 inset, -1px 1px 10px #E2E2E2 inset;
+    -moz-box-shadow:1px 1px 10px #E2E2E2 inset, -1px 1px 10px #E2E2E2 inset;
+    box-shadow:1px 1px 10px #E2E2E2 inset, -1px 1px 10px #E2E2E2 inset;
+    
+  }
 /***** end block *****/
 
 
