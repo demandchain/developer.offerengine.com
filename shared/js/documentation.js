@@ -11,10 +11,9 @@
           var url = $(this).attr('href').toString();
           if(url.indexOf(docUrl[1]) >= 0 && url.length == docUrl[1].length){
             $(this).parent('li').addClass('active');
-          }          
+          }
         });
       }
-      else $('#side-menu li a[href="/"]').parent('li').addClass('active');
     }
  
  

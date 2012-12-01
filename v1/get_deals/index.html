@@ -23,12 +23,12 @@
   <header class="row">
     <div class="centered clearfix">
       <h1>
-        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
       </h1>
       <nav>
         <ul>
           <li><a href="http://www.deem.com/developer/">Home</a></li>
-          <li><a href="/" class="active">Documentation</a></li>
+          <li><a href="/">Documentation</a></li>
           <li><a href="mailto:support@offerengine.com">Support</a></li>
         </ul>
       </nav>
@@ -90,13 +90,13 @@
       <div class="content col9">
         <h1 id="get-deals">Get Deals</h1>
 
-<p>The Get Deals call returns a set of applicable deal resources based on the filtering parameters you pass in your request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.</p>
+<p>This api call will return a set of applicable deal resources based upon the filtering parameters passed in the request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.</p>
 
-<p>Each deal has a number of attributes you can use to filter the Get Deals request – the price point, the amount of inventory, the merchant, the deal title, the run date, the location, and so on. You can find all of the possible filtering parameters in the “Request Parameters” section. For more information about the deal resource, see the “Response” section.</p>
+<p>Each deal has a number of attributes that can be filtered on using this API call. Everything from price point, inventory, merchant, deal title, run date, location, etc… All of the possible filtering parameters are mentioned below in the Request Parameters section. Also, a detailed explanation of the deal construct can be found in the Response section to provide further background information on what a deal resource looks like.</p>
 
-<p><b>At the very least, you will want to pass location parameters and also set <i>exclude_soldout</i> to “true” when making a Get Deals call.</b></p>
+<p><b>For most use cases, you will want to at least pass location parameters and exclude_soldout set to “true” when making a call.</b></p>
 
-<p>If you make this call with no set parameters, Get Deals returns a list of <i>all</i> “in-flight” (currently active) deals across <i>all</i> geographical regions – including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to “true” when making this call.</p>
+<p>If you make this call with no parameters set, a list of ALL “in-flight” (currently active) deals across ALL geographical regions which are sold out and NOT sold out will be returned. It is recommended to at least set the exclude_souldout to “true” when making this call.</p>
 
 <h2 id="request">Request</h2>
 
@@ -105,108 +105,108 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>You provide the parameters as a JSON file. All parameter fields are optional. As you add a parameter, it is evaluated in a logical AND operation with any other paramaters to filter the results. For example, if the <i>title</i> parameter is set to “burger” and the <i>state</i> parameter is set to “in-flight”, the filtering returns only in-flight deals that have “burger” in the title.</p>
+<p>Required and optional parameters should be provided as a json file. All parameter fields are optional. Each additional parameter added acts as an <b>AND</b> to further filter the results that will be provided in the response.</p>
 
-<h3 id="individual-deal-detail-parameters">Individual deal detail parameters</h3>
+<h3 id="individual-deal-detail-parameters">individual deal detail parameters</h3>
 
 <dl>
 <dt>slug</dt>
   <dd>
-<em>Optional String</em> Filter deals by a particular deal slug.</dd>
+<em>Optional String</em> Filter deals by a particular deal slug</dd>
   <dt>marketplace_slug</dt>
   <dd>
-<em>Optional String</em> Filter deals by a particular marketplace deal slug.</dd>
+<em>Optional String</em> Filter deals by a particular marketplace deal slug</dd>
   <dt>title</dt>
   <dd>
-<em>Optional String</em> Filter deals by title with this value (“burger” could return deals with titles “$20 off Bob’s Burgers”, “$10 off Burgermeister”, and so on).</dd>
-</dl><h3 id="state-parameters">State parameters</h3>
+<em>Optional String</em> Filter deals by title with this value in it (“burger” could return deals with title “$20 off Bob’s burgers”, “$10 off Burgermeister”, etc…)</dd>
+</dl><h3 id="state-parameters">state parameters</h3>
 
 <dl>
 <dt>state</dt>
   <dd>
-<em>Optional String</em> Filter deals in this workflow state (“in-flight”, “approved”, “submitted”, “landed”, “in-review”, “rejected”, “paused”, and “deleted”). <b>The “in-flight” state is the most relevant state because it identifies deals currently available for purchase.</b>
+<em>Optional String</em> Filter deals in this workflow state (in-flight, approved, submitted, landed, in-review, rejected, paused, deleted) <b>in-flight is the most relevant state because it identifies deals currently available for purchase</b>
 </dd>
   <dt>show_all</dt>
   <dd>
-<em>Optional Boolean</em> Show deals in all workflow states (true only).</dd>
-</dl><h3 id="category-parameters">Category parameters</h3>
+<em>Optional Boolean</em> Show deals in all workflow states (true only)</dd>
+</dl><h3 id="category-parameters">category parameters</h3>
 
 <dl>
 <dt>category</dt>
   <dd>
-<em>Optional String</em> Filter deals by category with this value (“Foo” could return deals in the category “Food”).</dd>
+<em>Optional String</em> Filter deals by category with this value in it (“Foo” could return deals in the category “Food”)</dd>
   <dt>subcategory</dt>
   <dd>
-<em>Optional String</em> Filter deals by subcategory with this value (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”).</dd>
-</dl><h3 id="merchant-parameters">Merchant parameters</h3>
+<em>Optional String</em> Filter deals by subcategory with this value in it (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”)</dd>
+</dl><h3 id="merchant-parameters">merchant parameters</h3>
 
 <dl>
 <dt>merchant</dt>
   <dd>
-<em>Optional String</em> Filter deals by merchant name with this value (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, and so on).</dd>
-</dl><h3 id="price-parameters">Price parameters</h3>
+<em>Optional String</em> Filter deals by merchant name with this value in it (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, etc…)</dd>
+</dl><h3 id="price-parameters">price parameters</h3>
 
 <dl>
 <dt>price_min</dt>
   <dd>
-<em>Optional Integer</em> Filter the minimum deal price in cents (i.e., 100 equals one dollar).</dd>
+<em>Optional Integer</em> Filter minimum deal price in cents</dd>
   <dt>price_max </dt>
   <dd>
-<em>Optional Integer</em> Filter the maximum deal price in cents.</dd>
-</dl><h3 id="location-parameters">Location parameters</h3>
+<em>Optional Integer</em> Filter maximum deal price in cents</dd>
+</dl><h3 id="location-parameters">location parameters</h3>
 
 <dl>
 <dt>region</dt>
   <dd>
-<em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip code.</dd>
+<em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip</dd>
   <dt>latitude</dt>
   <dd>
-<em>Optional String</em> Filter deals by location (requires an additional <i>longitude</i> parameter).</dd>
+<em>Optional String</em> Filter deals by location (require longitude parameter)</dd>
   <dt>longitude</dt>
   <dd>
-<em>Optional String</em> Filter deals by location (requires an additional <i>latitude</i> parameter).</dd>
+<em>Optional String</em> Filter deals by location (require latitude parameter)</dd>
   <dt>radius</dt>
   <dd>
-<em>Optional Float</em> Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.</dd>
-</dl><h3 id="user-parameters">User parameters</h3>
+<em>Optional Float</em> Filter deals within circular radius around longitude and latitude values </dd>
+</dl><h3 id="user-parameters">user parameters</h3>
 
 <dl>
 <dt>user</dt>
   <dd>
-<em>Optional String</em> Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.</dd>
-</dl><h3 id="source-parameters">Source parameters</h3>
+<em>Optional String</em> Filter deals for user (user slug or email) Required: card_links_redeemed must be false and region must be specified</dd>
+</dl><h3 id="source-parameters">source parameters</h3>
 
 <dl>
 <dt>suppliers </dt>
   <dd>
-<em>Optional Array</em> Filter deals by supplier (a partner slug or set of comma-separated partner slugs).</dd>
+<em>Optional Array</em> Filter deals by supplier in the form of partner slugs or comma separated partner slugs</dd>
   <dt>vendors</dt>
   <dd>
-<em>Optional Array</em> Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).</dd>
-</dl><h3 id="inventory-parameters">Inventory parameters</h3>
+<em>Optional Array</em> Filter deals by vendor in the form of partner slugs or comma separated partner slugs</dd>
+</dl><h3 id="inventory-parameters">inventory parameters</h3>
 
 <dl>
 <dt>num_left</dt>
   <dd>
-<em>Optional Integer</em> Filter deals by the quantity of inventory left.</dd>
+<em>Optional Integer</em> Filter deals by the quantity of inventory left. Deals with inventory levels higher than requested will be returned</dd>
   <dt>exclude_soldout</dt>
   <dd>
-<em>Optional Boolean</em> Filter deals that are not sold out (true only).</dd>
-</dl><h3 id="scheduling-parameters">Scheduling parameters</h3>
+<em>Optional Boolean</em> Filter deals that are not sold out (true only)</dd>
+</dl><h3 id="scheduling-parameters">scheduling parameters</h3>
 
 <dl>
 <dt>runs_min</dt>
   <dd>
-<em>Optional Date</em> Filter the minimum deal run date.</dd>
+<em>Optional Date</em> Filter minimum deal run date</dd>
   <dt>runs_max</dt>
   <dd>
-<em>Optional Date</em> Filter the maximum deal run date.</dd>
+<em>Optional Date</em> Filter maximum deal run date</dd>
   <dt>card_links_redeemed</dt>
   <dd>
-<em>Optional Boolean</em> Filter deals that are not card-linked (false only).</dd>
+<em>Optional Boolean</em> Filter deals that are not card linked (false only)</dd>
 </dl><h2 id="request-example">Request Example</h2>
 
-<h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
+<h3 id="new-user-account-new-credit-card-and-a-shipping-address">New user account, new credit card, and a shipping address</h3>
 
 <pre class="headers"><code>GET /v1/deals?api_key=1234567</code></pre>
 
@@ -217,11 +217,11 @@
 
 <h2 id="response">Response</h2>
 
-<p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
+<p>The request response will provide a http status of the request along with the associated response data provided as a json file</p>
 
 <h2 id="response-attributes">Response Attributes</h2>
 
-<p>The response JSON file contains a list of deal resources that meet the request filter parameters.</p>
+<p>The response json file will contain a list of deal resources meeting the request filter parameters</p>
 
 <h3 id="status-attributes">status attributes</h3>
 
@@ -401,9 +401,9 @@
   <dt>primary_image</dt>
   <dd>
 <em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.</dd>
-</dl><h2 id="response-examples">Response Examples</h2>
+</dl><h2 id="response-example">Response Example</h2>
 
-<h3 id="filter-deals-by-the-sanfrancisco-region-with-two-deals-returned">Filter deals by the “san_francisco” region with two deals returned:</h3>
+<h3 id="filter-deals-by-sanfrancisco-region-with-two-deals-returned">filter deals by “san_francisco” region with two deals returned</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -547,7 +547,7 @@
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="filter-deals-by-the-restaurants-category-with-no-deals-returned">Filter deals by the “restaurants” category with no deals returned:</h3>
+<h3 id="filter-deals-by-restaurants-category-with-no-deals-returned">filter deals by “restaurants” category with no deals returned</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -560,13 +560,13 @@
 
 <h2 id="error-responses">Error Responses</h2>
 
-<p>Responses provided for failed requests:</p>
+<p>Responses provided for failed requests</p>
 
 <h3 id="section">404</h3>
 
 <dl>
 <dt>error_type = “find_failed”</dt>
-  <dd>Parameter information provided is invalid.</dd>
+  <dd>Parameter information provided is invalid</dd>
 </dl><h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>

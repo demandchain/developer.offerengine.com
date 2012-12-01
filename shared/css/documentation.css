@@ -120,12 +120,14 @@ video { outline:none; }
 Blue: #00bcff / RGB: 0,188,255
 	used in links
 	
+
 Grey 1 #222222
 	used in lateral nav
 	used footer
 
 Grey 2 #666666
 	used in top nav
+
 
 ******************************************************************/
 
@@ -144,6 +146,8 @@ p a { display:inline; }
 body { color:#222; }
 
 a, a:link, a:visited, a:active { color:#00bcff; }
+a:hover { color:#222; }
+
 
 
 ul,ol {
@@ -193,44 +197,44 @@ body > #wrapper {
 
 #wrapper > header nav {
   height:100%;
-  width:auto;
+  width:290px;
   float:right;
-  display:inline-block;
-  }
-  #wrapper > header nav ul { 
-    height:100%;
-  }
+  heightL:100%;
+  
+  
+}
+#wrapper > header nav ul { 
+  height:100%;
+}
 
-  #wrapper > header nav li:first-child {
-    border-left:1px solid #dadada;
-  }
-  #wrapper > header nav li { 
-    float:left;
-    display:inline-block;
-    border-right:1px solid #dadada;
-    height:100%;
+#wrapper > header nav li:first-child {
+  border-left:1px solid #dadada;
+}
+#wrapper > header nav li { 
+  float:left;
+  display:inline-block;
+  border-right:1px solid #dadada;
+  height:100%;
   
-  }
-  #wrapper > header nav li a {
-    display:block;
-    height:100%;
-    color:#666;
-    font-size:12px;
-    line-height:50px;
-    padding:0 20px;
-    background:transparent;
+}
+#wrapper > header nav li a {
+  display:block;
+  height:100%;
+  color:#666;
+  font-size:12px;
+  line-height:44px;
+  padding:0 20px;
+  background:transparent;
   
-  }
-  #wrapper > header nav li a:hover,
-  #wrapper > header nav li a.active { 
-    background: -webkit-linear-gradient(top, #f5f5f5, #e8e8e8);
-    background: -moz-linear-gradient(top, #f5f5f5, #e8e8e8);
-    background: -ms-linear-gradient(top, #f5f5f5, #e8e8e8);
-    background: -o-linear-gradient(top, #f5f5f5, #e8e8e8);
-    background: linear-gradient(top, #f5f5f5, #e8e8e8);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5', EndColorStr='#e8e8e8');
-  }
-  #wrapper > header nav li a.active { color:#222; }
+}
+#wrapper > header nav li a:hover { 
+  background: -webkit-linear-gradient(top, #f5f5f5, #e8e8e8);
+  background: -moz-linear-gradient(top, #f5f5f5, #e8e8e8);
+  background: -ms-linear-gradient(top, #f5f5f5, #e8e8e8);
+  background: -o-linear-gradient(top, #f5f5f5, #e8e8e8);
+  background: linear-gradient(top, #f5f5f5, #e8e8e8);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5', EndColorStr='#e8e8e8');
+}
 
 
 /***** end block *****/
@@ -241,13 +245,13 @@ body > #wrapper {
 /***** ARTICLE *****/
 
 article > div.centered {
-  margin-top:55px;
+  margin-top:50px;
 }
 
 /*** header ***/
 article header {
   height:90px;
-  line-height:94px;
+  line-height:90px;
   background: url(/shared/images/background_header.png) repeat-x 0 0;
 }
 article header h1 {
@@ -285,14 +289,16 @@ article header h1 {
   display:none;
 }
 
-#side-menu li:hover a {
-  text-decoration:underline;
-}
+#side-menu li:hover a,
 #side-menu li.active a {
+  text-decoration:underline;
   font-weight:bold;
   color:#222;
 }
+#side-menu li.active a { text-decoration:none; }
 
+
+#side-menu li:hover span,
 #side-menu li.active span {
   display:inline;
 }
@@ -302,20 +308,17 @@ article header h1 {
 /*** Content ***/
 .content h1 {
   font-size: 26px;
-  line-height:18px; 
-  margin: 2em 0 1em;
 }
 
-.content h1:first-child {  
-  margin:0 0 1em;
+.content h1:first-child { 
+  margin-bottom:15px; 
 }
 
 .content h2 {
   font-size: 16px;
-  line-height:20px;
   color: #333;
-  margin: 2em 0 1em;
-  background: transparent url(../images/crud-sprite.png) left 3px no-repeat;
+  margin: 2em auto 1em;
+  background: transparent url(../images/crud-sprite.png) left 2px no-repeat;
   padding-left: 22px;
 }
 
@@ -345,7 +348,8 @@ article header h1 {
   line-height:18px;
 }
 
-.content a:hover {
+.content a:hover,
+.content a:active {
   text-decoration:underline;
 }
 
@@ -423,6 +427,9 @@ article header h1 {
 p code {
   font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
   color: #52595d;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -458,6 +465,9 @@ pre {
   font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
   padding: 10px;
   overflow:auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -477,6 +487,9 @@ pre span.comment {color: #aaa;}
 pre.headers {
   margin-bottom: 0;
   border-bottom-width: 0;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
   color: #666;
   background-color: #f1f1f1;
   background-image: -moz-linear-gradient(top, #f1f1f1, #e1e1e1); 
@@ -490,16 +503,31 @@ pre.headers {
 }
 
 pre.no-response {
+  -webkit-border-radius: 3px 3px;
+  -moz-border-radius: 3px 3px;
+  border-radius: 3px 3px;
   border-bottom: 1px solid #CACACA;
 }
 
+pre.headers + pre.highlight {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+
 pre.highlight {
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
   background-color: #FAFAFB;
 }
 
 pre.terminal {
   background-color: #444;
   color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -525,6 +553,9 @@ span.codeline:hover {
   margin: 0px;
   padding-left: 3px;
   margin-left: -3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   color: #666666;
 }
 
@@ -551,6 +582,9 @@ span.codeline span {
 span.codeline span:hover {
   display: inline-block;
   text-indent: 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   background: #000;
   border: 1px solid #292929;
   max-width: 1000px;
@@ -607,6 +641,9 @@ span.bash-output {
 
 .more-info .more-content {
   display: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   background-color: #FFFFFF;
   border: 3px solid #DDDDDD;
   padding: 1em 2em;
@@ -631,6 +668,8 @@ span.bash-output {
 .list-module h2 {
   border: solid #cacaca;
   border-width: 1px;
+  border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
   -webkit-border-bottom-right-radius: 0px;
   -webkit-border-bottom-left-radius: 0px;
   -moz-background-clip: padding;
@@ -655,6 +694,8 @@ span.bash-output {
 .list-module .list-body {
   border: solid #cacaca;
   border-width: 0px 1px 1px 1px;
+  border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-bottom-left-radius: 3px;
   -moz-background-clip: padding;
@@ -785,7 +826,7 @@ div.expandable > ul h3 > a.expanded:hover {
 
 body > footer {
   height:130px;
-  margin-top:200px;
+  margin-top:170px;
   background-color:#f5f5f5;
 }
 
@@ -802,7 +843,6 @@ body > footer a:active,
 body > footer a:visited {
   color:#222;
 }
-body > footer a:hover { text-decoration:underline; }
 
 body > footer nav ul {
   overflow:hidden;
