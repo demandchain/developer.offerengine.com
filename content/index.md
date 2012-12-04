@@ -27,7 +27,9 @@ A _deal_ is a product that offers goods or services from different merchants at 
 ## Purchase
 
 A _purchase_ is a transaction in which a person (the _purchaser_) buys a quantity of unit inventory of a specific deal. A purchase results in one of the following:
+
 * A _voucher_, which a purchaser uses to redeem the deal at the deal merchant's location or website
+
 * A product that is shipped directly to the purchaser
 
 ## Implementation Example

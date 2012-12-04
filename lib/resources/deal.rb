@@ -212,13 +212,13 @@ ended
 : _Boolean_ Flagged if the deal has ended
 
 start_at
-: _Date_ The date and time that the deal was first available to purchase
+: _Date_ The date and time that the deal was first available to purchase (times are in UTC)
 
 end_at
-: _Date_ The date and time that the deal will no longer be available to purchase
+: _Date_ The date and time that the deal will no longer be available to purchase (times are in UTC)
 
 expires_at
-: _Date_ The date and time that the deal voucher will expire
+: _Date_ The date and time that the deal voucher will expire (times are in UTC)
 
 state
 : _String_ The current workflow state of the deal:
