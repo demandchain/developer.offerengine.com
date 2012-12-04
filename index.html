@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="Content-Language" content="en-us" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1020, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
   
@@ -23,12 +25,12 @@
   <header class="row">
     <div class="centered clearfix">
       <h1>
-        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
       </h1>
       <nav>
         <ul>
           <li><a href="http://www.deem.com/developer/">Home</a></li>
-          <li><a href="/">Documentation</a></li>
+          <li><a href="/" class="active">Documentation</a></li>
           <li><a href="mailto:support@offerengine.com">Support</a></li>
         </ul>
       </nav>
@@ -90,13 +92,13 @@
       <div class="content col9">
         <h1 id="overview">Overview</h1>
 
-<p>This application programming interface (API) provides the ability for you to seamlessly integrate in-context deals with your existing website, mobile app, emails, or any other internet enabled surfaces. You can include the entire sales process – from display through purchase – in order to provide an uninterrupted value added experience for your customers to purchase relevant deals.</p>
+<p>The Deem Offers application programming interface (API) lets you seamlessly integrate in-context deals with your  website, mobile app, emails, or any other internet enabled surfaces. You can include the entire sales process – from display through purchase – in order to provide an uninterrupted value added experience for your customers to purchase relevant deals.</p>
 
 <p>This website provides all the information you need to start offering deals to your users using the Deem Offers API.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>The Deem Offers API is <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a>. It is designed to use predictable, resource-oriented URLs and HTTP response codes to indicate API errors. We use built-in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a> features, such as HTTP authentication and HTTP verbs, which off-the-shelf HTTP clients can understand. We support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application. The API returns <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> in all responses, including errors.</p>
+<p>The Deem Offers API is <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a>, which means that it is designed to use predictable, resource-oriented URLs and HTTP response codes. We use built-in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a> features, such as HTTP authentication and HTTP verbs, which off-the-shelf HTTP clients can understand. We support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application. The API returns <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> in all responses, including errors.</p>
 
 <p>Accounts have test-mode and live-mode API keys. Both keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.</p>
 
@@ -131,16 +133,16 @@
 
 <ul>
 <li>
-    <p>Show Offers: Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.</p>
+    <p><b>Show Offers:</b> Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.</p>
   </li>
   <li>
-    <p>Show Offer Details: When a user selects a deal, he or she lands on a detail page that describes the deal. More detailed information is provided based on the information returned in the previous Get Deals request. The user can click the <em>Buy now</em> call-to-action button to start the purchase process.</p>
+    <p><b>Show Offer Details:</b> When a user selects a deal, he or she lands on a detail page that describes the deal. More detailed information is provided based on the information returned in the previous Get Deals request. The user can click the <em>Buy now</em> call-to-action button to start the purchase process.</p>
   </li>
   <li>
-    <p>Purchase Offer: The <em>Buy now</em> call-to-action button takes the user to a purchase form, where the user enters his or her purchasing information. The user presses the <em>Purchase</em> button to make the Execute Purchase request.</p>
+    <p><b>Purchase Offer</b>: The <em>Buy now</em> call-to-action button takes the user to a purchase form, where the user enters his or her purchasing information. The user presses the <em>Purchase</em> button to make the Execute Purchase request.</p>
   </li>
   <li>
-    <p>Redeem Offer: When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.</p>
+    <p><b>Redeem Offer</b> When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.</p>
   </li>
 </ul><p>To learn how to use the Deem Offers API, see our <a href="/v1/quick_start/">Quick Start Guide</a>.</p>
       </div>
@@ -171,6 +173,6 @@
 
 <script src="/shared/js/jquery.js"></script>
 <script src="/shared/js/documentation.js"></script>
-<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/prod/utag.js"></script>
 </body>
 </html>

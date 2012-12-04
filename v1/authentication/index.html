@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="Content-Language" content="en-us" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1020, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
   
@@ -23,12 +25,12 @@
   <header class="row">
     <div class="centered clearfix">
       <h1>
-        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
       </h1>
       <nav>
         <ul>
           <li><a href="http://www.deem.com/developer/">Home</a></li>
-          <li><a href="/">Documentation</a></li>
+          <li><a href="/" class="active">Documentation</a></li>
           <li><a href="mailto:support@offerengine.com">Support</a></li>
         </ul>
       </nav>
@@ -90,13 +92,13 @@
       <div class="content col9">
         <h1 id="authentication">Authentication</h1>
 
-<p>Authenticate to the OfferEngine API by providing your API key in each request. Your API key has many privileges, so you should <b>keep it secret</b>.</p>
+<p>Authentication is a way of identifying yourself in order to gain access to the API. You authenticate yourself with the Deem Offers API by providing your unique API key in each request. <b>You must keep your unique API key secret</b>.</p>
 
-<p>Your unique API key will be provided to you via your Admin console. If at any time your key has been compromised, generate a new key within Admin from the same location you received your intial key.</p>
+<p>Your unique API key is provided in the Admin Dashboard. If at any time your key has been compromised, you can generate a new key in the Admin Dashboard.</p>
 
 <p><b>All API requests must be made over HTTPS.</b> Calls made over plain HTTP will fail. You must authenticate for all requests.</p>
 
-<p>All that needs to be done for each request is to add the api_key parameter to each request (GET, POST, and PUT) with your unique key.</p>
+<p>Add the api_key parameter to each GET, POST, and PUT request with the value of your unique API key:</p>
 
 <h2 id="request">Request</h2>
 
@@ -135,6 +137,6 @@
 
 <script src="/shared/js/jquery.js"></script>
 <script src="/shared/js/documentation.js"></script>
-<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/prod/utag.js"></script>
 </body>
 </html>

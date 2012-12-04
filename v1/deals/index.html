@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="Content-Language" content="en-us" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1020, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
   
@@ -23,12 +25,12 @@
   <header class="row">
     <div class="centered clearfix">
       <h1>
-        <a href="/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
       </h1>
       <nav>
         <ul>
           <li><a href="http://www.deem.com/developer/">Home</a></li>
-          <li><a href="/">Documentation</a></li>
+          <li><a href="/" class="active">Documentation</a></li>
           <li><a href="mailto:support@offerengine.com">Support</a></li>
         </ul>
       </nav>
@@ -186,13 +188,13 @@
 <em>Boolean</em> Flagged if the deal has ended</dd>
   <dt>start_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal was first available to purchase</dd>
+<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
   <dt>end_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal will no longer be available to purchase</dd>
+<em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal voucher will expire</dd>
+<em>Date</em> The date and time that the deal voucher will expire (times are in UTC)</dd>
   <dt>state</dt>
   <dd>
 <em>String</em> The current workflow state of the deal:</dd>
@@ -499,13 +501,13 @@
 <em>Boolean</em> Flagged if the deal has ended</dd>
   <dt>start_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal was first available to purchase</dd>
+<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
   <dt>end_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal will no longer be available to purchase</dd>
+<em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal voucher will expire</dd>
+<em>Date</em> The date and time that the deal voucher will expire (times are in UTC)</dd>
   <dt>state</dt>
   <dd>
 <em>String</em> The current workflow state of the deal:</dd>
@@ -1145,6 +1147,6 @@
 
 <script src="/shared/js/jquery.js"></script>
 <script src="/shared/js/documentation.js"></script>
-<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/qa/utag.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/prod/utag.js"></script>
 </body>
 </html>
