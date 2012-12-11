@@ -12,9 +12,7 @@ title: Purchases
 
 ## Get a purchase
 
-To get a particular purchase object
-
-This operation returns a representation of a specific purchase transaction and associated information.
+This request retrieves a specific purchase object. It returns a representation of a specific purchase transaction and associated information.
 
 ### Request
 
@@ -84,44 +82,42 @@ redeemed_at
 
 ## Create a purchase
 
-To create a purchase for an existing user with a stored credit card
-
-This operation will execute a purchase transaction for an existing user that already has a stored credit card
+This request creates a purchase for an existing user with a stored payment card. This operation will execute a purchase transaction for an existing user that already has a stored payment card.
 
     POST /purchases
 
 ### Parameters
 deal_id
-: _String_  Id of the deal you are purchasing inventory for
+: _String_  ID of the deal for which you are purchasing inventory 
 
 quantity
 : _Integer_ The number of deals you are purchasing for this purchase
 
 user_id
-: _String_  Id of the user who is making the purchase
+: _String_  ID of the user who is making the purchase
 
 credit_card_id
-: _String_  Id of the credit card you are purchasing inventory for
+: _String_  ID of the payment card for which you are purchasing inventory 
 
 expected_price_per_unit
 : _Integer_ The expected price
 
 session_id (optional)
-: _String_ The session id that is associated to an affiliate
+: _String_ The session ID that is associated with an affiliate
 
 ### Response
 <%= headers 200 %>
 <%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:coupons => nil)) %>
 
 ## Reserve a purchase
-Temporarily (5 minutes) reserve inventory for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.
+Temporarily reserve inventory (for five minutes) for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.
 
     POST /purchases/reserve
 
 ### Parameters
 
 deal_id
-: _String_  Id of the deal you are reserving inventory for
+: _String_  ID of the deal for which you are reserving inventory 
 
 num_bought
 : _Integer_ The number of deals you are reserving for this purchase
@@ -132,14 +128,14 @@ num_bought
 <%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:fulfillment_state => "reserved", :payment_state => "pending", :coupons => [], :credit_card_id => nil, :user_id => nil)) %>
 
 ## Claim a purchase
-After inventory has been reserved for a purchase and payment processing was successful, you would call claim with your reservation token (the response from the reserve call). This will create a purchase record from your reservation if it is valid. If the reservation is invalid or expired, we will still attempt to create a purchase record however you will not be guaranteed success as the deal might be sold out.
+After inventory has been reserved for a purchase and payment processing is successful, you would use this requent with your reservation token (the response from the reserve call) to create a purchase record from your reservation -- if the reservation is valid. If the reservation is invalid or expired, we will still attempt to create a purchase record; however, succes is not guaranteed because the deal might be sold out.
 
     PUT /purchases/:purchase_id/claim
 
 ### Parameters
 
 user_id
-: _String_  Id of the user you are reserving inventory for
+: _String_  ID of the user for which you are reserving inventory 
 
 ### Response
 
@@ -147,7 +143,7 @@ user_id
 <%= json(:status => "success", :purchase => OfferEngine.purchase.merge(:credit_card_id => nil)) %>
 
 ## Release a reserved purchase
-If you have reserved inventory for a purchase, but the payment processing has failed, use release to indicate release the inventory of the purchase.
+If you have reserved inventory for a purchase but the payment processing failed, use this request to release the inventory of the purchase.
 
     PUT /purchases/:purchase_id/release
 
