@@ -42,10 +42,10 @@ user_id
 email
 : _String_ Email address of the user making the purchase
 
-password
+pass
 : _String_ Password of user making the purchase
 
-password_confirmation
+pass_confirmation
 : _String_ Exact duplicate of user password
 
 first_name
