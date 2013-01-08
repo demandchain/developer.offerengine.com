@@ -113,12 +113,12 @@ country
 
 ### New user account, new payment card, and a shipping address:
 
-<%= requests("POST /v1/purchases/full.json") %>
+<%= requests("POST /v1/purchases/full.json?api_key={api_key}") %>
 <%= json(OfferEngine.full_purchase_request_new()) %>
 
 ### Existing user account, stored payment card, and no shipping address:
 
-<%= requests("POST /v1/purchases/full.json") %>
+<%= requests("POST /v1/purchases/full.json?api_key={api_key}") %>
 <%= json(OfferEngine.full_purchase_request()) %>
 
 ## Response

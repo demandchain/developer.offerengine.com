@@ -36,7 +36,6 @@ module OfferEngine
 
   def self.full_purchase_request
     {
-      :api_key => $api_key,
       :deal_id => OfferEngine.short_deal[:id],
       :quantity => 1,
       :user_id => OfferEngine::USER[:id], 
@@ -46,7 +45,6 @@ module OfferEngine
 
   def self.full_purchase_request_new
     {
-      :api_key => $api_key,
       :deal_id => OfferEngine.short_deal[:id], 
       :quantity => 1,
       :user => OfferEngine.new_user, 
