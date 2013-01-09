@@ -212,10 +212,9 @@
 
 <h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
-<pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
+<pre class="headers"><code>POST /v1/purchases/full.json?api_key={api_key}</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"api_key"</span><span class="o">:</span> <span class="s2">"1234567"</span><span class="p">,</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
   <span class="s2">"quantity"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
@@ -243,10 +242,9 @@
 
 <h3 id="existing-user-account-stored-payment-card-and-no-shipping-address">Existing user account, stored payment card, and no shipping address:</h3>
 
-<pre class="headers"><code>POST /v1/purchases/full.json</code></pre>
+<pre class="headers"><code>POST /v1/purchases/full.json?api_key={api_key}</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"api_key"</span><span class="o">:</span> <span class="s2">"1234567"</span><span class="p">,</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"a-50-for-100-worth-of-dining-1"</span><span class="p">,</span>
   <span class="s2">"quantity"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">"user_id"</span><span class="o">:</span> <span class="s2">"ABC123"</span><span class="p">,</span>
