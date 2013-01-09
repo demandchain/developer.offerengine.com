@@ -261,10 +261,13 @@ supplier_id
 highlights
 : _String_ Additional important details about the deal
 
+instructions
+: _String_ Usage details for the deal
+
 category
 : _String_ Broad deal type
 
-:subcategory
+subcategory
 : _String_ More specific deal type
 
 robotitle
