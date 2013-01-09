@@ -102,7 +102,8 @@ postal_code
 : _String_
 
 pass
-: _String_ Password. If updating this value, pass_confirmation must also be provided.
+: _String_ Password, must be at least 5 characters long. If updating this value, pass_confirmation must also be
+provided.
 
 pass_confirmation
 : _String_ Same as pass
