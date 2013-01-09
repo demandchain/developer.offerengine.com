@@ -101,6 +101,12 @@ birthday
 postal_code
 : _String_
 
+pass
+: _String_ Password. If updating this value, pass_confirmation must also be provided.
+
+pass_confirmation
+: _String_ Same as pass
+
 partner_data
 : _Hash_ Store data about a user.  Be careful to not overwrite this value.
 
