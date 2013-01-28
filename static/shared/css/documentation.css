@@ -116,16 +116,18 @@ video { outline:none; }
 
 
 /************************** COLORS ********************************
-
-Blue: #00bcff / RGB: 0,188,255
-	used in links
 	
-Grey 1 #222222
-	used in lateral nav
-	used footer
+Blue 1: RGB(0,185,255)   / #00B9FF
+Blue 2: RGB(0,130,200)   / #0082C8
+Blue 3: RGB(160,245,255) / #A0F5FF
 
-Grey 2 #666666
-	used in top nav
+Black 1: RGB(34,34,34)    / #222222
+Black 2: RGB(70,70,70)    / #464646
+Grey 1:  RGB(102,102,102) / #666666	
+Grey 2:  RGB(150,150,150) / #969696
+Grey 3:  RGB(175,175,175) / #AFAFAF
+Grey 4:  RGB(200,200,200) / #C8C8C8
+Grey 5:  RGB(235,235,235) / #EBEBEB
 
 ******************************************************************/
 
@@ -185,11 +187,11 @@ body > #wrapper {
 
 #wrapper > header h1 { 
   height:100%;
-  line-height:58px;
-  width:180px;
+  width:200px;
   float:left;
+  display:block;
 }
-#wrapper > header h1 img { display:inline-block; }
+#wrapper > header h1 img { display:inline-block; margin-top:10px; }
 
 #wrapper > header nav {
   height:100%;
@@ -251,7 +253,8 @@ article > div.centered {
 article header {
   height:90px;
   line-height:94px;
-  background: url(/shared/images/background_header.png) repeat-x 0 0;
+  background-color: #00B9FF;
+  /*background: url(/shared/images/background_header.png) repeat-x 0 0;*/
 }
 article header h1 {
   font-size:32px;
@@ -785,28 +788,35 @@ div.expandable > ul h3 > a.expanded:hover {
 
 
 /***** FOOTER *****/
-
 body > footer {
-  height:130px;
-  margin-top:200px;
+  min-width:980px;
+  height:250px;
+  margin-top:250px;
   background-color:#f5f5f5;
 }
 
-body > footer > div { padding-top:40px; }
+body > footer > div { padding:70px 0 120px; }
 
 body > footer {
-  font-size:12px;
-  line-height:15px;
+  font-size:11px;
+  color:#999;
 }
 
+/*
 body > footer a, 
 body > footer a:link,
 body > footer a:active,
 body > footer a:visited {
   color:#222;
 }
-body > footer a:hover { text-decoration:underline; }
+*/
 
+body > footer nav {
+  overflow:hidden;
+  height:48px;
+  border-top:1px solid #eaeaea;
+  border-bottom:1px solid #eaeaea;
+}
 body > footer nav ul {
   overflow:hidden;
 }
@@ -814,21 +824,43 @@ body > footer nav ul {
 body > footer nav li {
   display:inline-block;
   float:left;
-  margin-right:24px;
-  
+  line-height:30px;
+	vertical-align:middle;
+}
+
+body > footer nav ul.left img {
+	width:auto; /*IE8*/
+	padding-top:3px;
+}
+
+body > footer nav ul.left li:first-child a {
+  padding-left:0;  
+}
+body > footer nav ul.left li:last-child a {
+  border-right:none;
+}
+
+body > footer nav ul.left a {
+  margin-top:11px;
+  padding:0 19px;
+  font-size:13px;
+  color:#666;
+  height:30px;  
+  border-right:1px solid #dfdfdf;
+}
+
+body > footer nav ul.right li {
+  line-height:52px;
+  margin-left:23px;
+}
+
+body > footer nav ul.right li a {
+  color:#999;
 }
 
 body > footer p {
-  margin-top:3px;
-  color:#666;  
+  line-height:13px;
+  margin-top:8px;
 }
-
-body > footer h6 {
-  margin-top:11px;
-  line-height:0;
-}
-
-body > footer h6 img { height:14px; }
-
 /***** end block *****/
 
