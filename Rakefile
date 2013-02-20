@@ -5,7 +5,7 @@ task :compile do
   `nanoc compile`
 end
 
-desc "Publish to http://developer.github.com"
+desc "Publish to http://developer.offerengine.com"
 task :publish => [:clean] do
   FileUtils.rm_r('output') if File.exist?('output')
 
@@ -14,7 +14,7 @@ task :publish => [:clean] do
   # this should not be necessary, but I can't figure out how to
   # just keep a goddamn static file in the root with nanoc
   File.open("output/CNAME", 'w+') do |f|
-    f.puts("developer.github.com")
+    f.puts("developer.offerengine.com")
   end
 
   ENV['GIT_DIR'] = File.expand_path(`git rev-parse --git-dir`.chomp)
