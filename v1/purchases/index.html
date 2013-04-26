@@ -101,9 +101,7 @@
   <li><a href="/v1/purchases/#release-a-reserved-purchase">Release a reserved purchase</a></li>
 </ul><h2 id="get-a-purchase">Get a purchase</h2>
 
-<p>To get a particular purchase object</p>
-
-<p>This operation returns a representation of a specific purchase transaction and associated information.</p>
+<p>This request retrieves a specific purchase object. It returns a representation of a specific purchase transaction and associated information.</p>
 
 <h3 id="request">Request</h3>
 
@@ -213,9 +211,7 @@
 
 <h2 id="create-a-purchase">Create a purchase</h2>
 
-<p>To create a purchase for an existing user with a stored credit card</p>
-
-<p>This operation will execute a purchase transaction for an existing user that already has a stored credit card</p>
+<p>This request creates a purchase for an existing user with a stored payment card. This operation will execute a purchase transaction for an existing user that already has a stored payment card.</p>
 
 <pre><code>POST /purchases
 </code></pre>
@@ -224,22 +220,22 @@
 <dl>
 <dt>deal_id</dt>
   <dd>
-<em>String</em>  Id of the deal you are purchasing inventory for</dd>
+<em>String</em>  ID of the deal for which you are purchasing inventory </dd>
   <dt>quantity</dt>
   <dd>
 <em>Integer</em> The number of deals you are purchasing for this purchase</dd>
   <dt>user_id</dt>
   <dd>
-<em>String</em>  Id of the user who is making the purchase</dd>
+<em>String</em>  ID of the user who is making the purchase</dd>
   <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  Id of the credit card you are purchasing inventory for</dd>
+<em>String</em>  ID of the payment card for which you are purchasing inventory </dd>
   <dt>expected_price_per_unit</dt>
   <dd>
 <em>Integer</em> The expected price</dd>
   <dt>session_id (optional)</dt>
   <dd>
-<em>String</em> The session id that is associated to an affiliate</dd>
+<em>String</em> The session ID that is associated with an affiliate</dd>
 </dl><h3 id="response-1">Response</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -271,7 +267,7 @@
 <span class="p">}</span></code></pre>
 
 <h2 id="reserve-a-purchase">Reserve a purchase</h2>
-<p>Temporarily (5 minutes) reserve inventory for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.</p>
+<p>Temporarily reserve inventory (for five minutes) for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.</p>
 
 <pre><code>POST /purchases/reserve
 </code></pre>
@@ -281,7 +277,7 @@
 <dl>
 <dt>deal_id</dt>
   <dd>
-<em>String</em>  Id of the deal you are reserving inventory for</dd>
+<em>String</em>  ID of the deal for which you are reserving inventory </dd>
   <dt>num_bought</dt>
   <dd>
 <em>Integer</em> The number of deals you are reserving for this purchase</dd>
@@ -319,7 +315,7 @@
 <span class="p">}</span></code></pre>
 
 <h2 id="claim-a-purchase">Claim a purchase</h2>
-<p>After inventory has been reserved for a purchase and payment processing was successful, you would call claim with your reservation token (the response from the reserve call). This will create a purchase record from your reservation if it is valid. If the reservation is invalid or expired, we will still attempt to create a purchase record however you will not be guaranteed success as the deal might be sold out.</p>
+<p>After inventory has been reserved for a purchase and payment processing is successful, you would use this requent with your reservation token (the response from the reserve call) to create a purchase record from your reservation – if the reservation is valid. If the reservation is invalid or expired, we will still attempt to create a purchase record; however, succes is not guaranteed because the deal might be sold out.</p>
 
 <pre><code>PUT /purchases/:purchase_id/claim
 </code></pre>
@@ -329,7 +325,7 @@
 <dl>
 <dt>user_id</dt>
   <dd>
-<em>String</em>  Id of the user you are reserving inventory for</dd>
+<em>String</em>  ID of the user for which you are reserving inventory </dd>
 </dl><h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -373,7 +369,7 @@
 <span class="p">}</span></code></pre>
 
 <h2 id="release-a-reserved-purchase">Release a reserved purchase</h2>
-<p>If you have reserved inventory for a purchase, but the payment processing has failed, use release to indicate release the inventory of the purchase.</p>
+<p>If you have reserved inventory for a purchase but the payment processing failed, use this request to release the inventory of the purchase.</p>
 
 <pre><code>PUT /purchases/:purchase_id/release
 </code></pre>

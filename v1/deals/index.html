@@ -93,17 +93,17 @@
       <div class="content col9">
         <h1 id="deals">Deals</h1>
 
-<p>The following deal related resource requests can be made to get or modify your deals.</p>
+<p>You can use the following deal-related resource requests to get or modify your deals:</p>
 
 <ul>
 <li><a href="/v1/deals/#get-a-deal">Get a deal</a></li>
-  <li><a href="/v1/deals/#get-deals-near-a-latitude-and-longitude">Get deals near latitude &amp; longitude</a></li>
-  <li><a href="/v1/deals/#external-approve-a-deal">External approve a deal</a></li>
-  <li><a href="/v1/deals/#external-validate-a-deal">External validate a deal</a></li>
-  <li><a href="/v1/deals/#external-reject-a-deal">External reject a deal</a></li>
+  <li><a href="/v1/deals/#get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</a></li>
+  <li><a href="/v1/deals/#external-approve-a-deal">Mark a deal as “externally approved”</a></li>
+  <li><a href="/v1/deals/#external-validate-a-deal">Mark a deal as “externally validated”</a></li>
+  <li><a href="/v1/deals/#external-reject-a-deal">Mark a deal as “externally rejected”l</a></li>
 </ul><h1 id="get-a-deal">Get a deal</h1>
 
-<p>This API call will return a single deal resource for the specific deal requested</p>
+<p>This request returns a single deal resource for a specific deal.</p>
 
 <h2 id="request">Request</h2>
 
@@ -112,7 +112,7 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>Only a single parameter exists for this call, which is included in the HTTP URL.</p>
+<p>This request requires a single parameter that must be included in the HTTP URL.</p>
 
 <dl>
 <dt>deal_id</dt>
@@ -125,11 +125,11 @@
 
 <h2 id="response">Response</h2>
 
-<p>The response json file will contain a single deal resource with the matching deal id provided in the request URL.</p>
+<p>The response JSON file will contain a single deal resource that matches the identifier slug provided in the request URL.</p>
 
 <h2 id="response-attributes">Response Attributes</h2>
 
-<p>The response json file will contain a list of deal resources meeting the request filter parameters</p>
+<p>The response JSON file will contain a list of deal resources matching the request filter parameters.</p>
 
 <h3 id="status-attributes">status attributes</h3>
 
@@ -390,13 +390,13 @@
 
 <h2 id="error-responses">Error Responses</h2>
 
-<p>Responses provided for failed requests</p>
+<p>Responses provided for failed requests:</p>
 
 <h3 id="section">404</h3>
 
 <dl>
 <dt>error_type = “find_failed”</dt>
-  <dd>Parameter information provided is invalid</dd>
+  <dd>Parameter information provided is invalid.</dd>
 </dl><h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
@@ -409,7 +409,7 @@
 
 <h1 id="get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</h1>
 
-<p>This API call returns an array of deal resources, ordered by start_at time with the earliest first, based upon the location filtering parameters passed in the request.</p>
+<p>This request returns an array of deal resources, ordered by start_at time (with the earliest first), based on the location filtering parameters passed in the request.</p>
 
 <h2 id="request-1">Request</h2>
 
@@ -418,7 +418,7 @@
 
 <h2 id="request-parameters-1">Request Parameters</h2>
 
-<p>Required location parameters should be provided as a json file. Results will be provided for active deals within the location area described with the request parameters.</p>
+<p>Required location parameters should be provided as a JSON file. Results will be provided for active deals within the location area described by the request parameters.</p>
 
 <dl>
 <dt>latitude</dt>
@@ -442,11 +442,11 @@
 
 <h2 id="response-1">Response</h2>
 
-<p>The response will provide a HTTP status of the request along with the associated response data provided as a json file</p>
+<p>The response will provide an HTTP status of the request along with the associated response data as a JSON file.</p>
 
 <h2 id="response-attributes-1">Response Attributes</h2>
 
-<p>The response json file will contain a list of deal resources meeting the request filter parameters.</p>
+<p>The response JSON file will contain a list of deal resources matching the request filter parameters.</p>
 
 <h3 id="status-attributes-1">status attributes</h3>
 
@@ -777,13 +777,13 @@
 
 <h2 id="error-responses-1">Error Responses</h2>
 
-<p>Responses provided for failed requests</p>
+<p>Responses provided for failed requests:</p>
 
 <h3 id="section-1">404</h3>
 
 <dl>
 <dt>error_type = “find_failed”</dt>
-  <dd>Parameter information provided is invalid</dd>
+  <dd>Parameter information provided is invalid.</dd>
 </dl><h2 id="error-response-example-1">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
@@ -794,9 +794,9 @@
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
 
-<h1 id="external-approve-a-deal">External approve a deal</h1>
+<h1 id="externally-approve-a-deal">Externally approve a deal</h1>
 
-<p>This API call will mark the deal as externally approved. The deal must be pending external approval state to send this request successfully. This request is only needed when external approval of deals are needed before they are activated for users to purchase.</p>
+<p>This request marks the deal as externally approved. The deal must be in the pending external approval state to send this request successfully. This request is needed only if deals must be externally approved before they are activated for users to purchase.</p>
 
 <h2 id="request-2">Request</h2>
 
@@ -805,7 +805,7 @@
 
 <h2 id="request-parameters-2">Request Parameters</h2>
 
-<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
+<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
 
 <dl>
 <dt>deal_id</dt>
@@ -813,7 +813,7 @@
 <em>String</em> Unique identifier slug for a specific deal</dd>
   <dt>reason</dt>
   <dd>
-<em>Optional String</em> Reason for validating</dd>
+<em>Optional String</em> Reason for approving</dd>
 </dl><h2 id="request-example-2">Request Example</h2>
 
 <pre><code>PUT /deals/my-restaurant/external_approve?api_key=1234567
@@ -821,16 +821,16 @@
 
 <h2 id="response-2">Response</h2>
 
-<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
 
 <h2 id="response-attributes-2">Response Attributes</h2>
 
-<p>The response json file will contain a single deal state attribute</p>
+<p>The response JSON file will contain a single deal state attribute.</p>
 
 <dl>
 <dt>deal</dt>
   <dd>
-<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
 </dl><h2 id="response-example-2">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -907,9 +907,9 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h1 id="external-validate-a-deal">External validate a deal</h1>
+<h1 id="externally-validate-a-deal">Externally validate a deal</h1>
 
-<p>This API call will mark the deal as externally validated. This is used to ensure the deal meets basic validation criteria from a 3rd party system before entering the ‘in review’ state for admin.</p>
+<p>This request marks the deal as externally validated. This is used to ensure that the deal meets the basic validation criteria from a third-party system before entering the “in review” state for admin.</p>
 
 <h2 id="request-3">Request</h2>
 
@@ -918,7 +918,7 @@
 
 <h2 id="request-parameters-3">Request Parameters</h2>
 
-<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
+<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
 
 <dl>
 <dt>deal_id</dt>
@@ -934,16 +934,16 @@
 
 <h2 id="response-3">Response</h2>
 
-<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
 
 <h2 id="response-attributes-3">Response Attributes</h2>
 
-<p>The response json file will contain a single deal state attribute</p>
+<p>The response JSON file will contain a single deal state attribute.</p>
 
 <dl>
 <dt>deal</dt>
   <dd>
-<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
 </dl><h2 id="response-example-3">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -1020,9 +1020,9 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="external-reject-a-deal">External reject a deal</h2>
+<h2 id="externally-reject-a-deal">Externally reject a deal</h2>
 
-<p>This API call will mark the deal as externally rejected. The deal must be pending external approval or pending external validation.</p>
+<p>This request marks the deal as externally rejected. The deal must be in the pending external approval or pending external validation state.</p>
 
 <h2 id="request-4">Request</h2>
 
@@ -1031,7 +1031,7 @@
 
 <h2 id="request-parameters-4">Request Parameters</h2>
 
-<p>Only a single required parameter exists for this call, which is included in the HTTP URL. A reason can also be included in the record through a json parameter.</p>
+<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
 
 <dl>
 <dt>deal_id</dt>
@@ -1039,7 +1039,7 @@
 <em>String</em> Unique identifier slug for a specific deal</dd>
   <dt>reason</dt>
   <dd>
-<em>Optional String</em> Reason for validating</dd>
+<em>Optional String</em> Reason for rejecting</dd>
 </dl><h2 id="request-example-4">Request Example</h2>
 
 <pre><code>PUT /deals/my-restaurant/external_validate?api_key=1234567
@@ -1047,16 +1047,16 @@
 
 <h2 id="response-4">Response</h2>
 
-<p>The response json file will contain the deal state attribute for the deal specificed in the request URL.</p>
+<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
 
 <h2 id="response-attributes-4">Response Attributes</h2>
 
-<p>The response json file will contain a single deal state attribute</p>
+<p>The response JSON file will contain a single deal state attribute.</p>
 
 <dl>
 <dt>deal</dt>
   <dd>
-<em>String</em> State of the deal which should be “external-approved” upon successful request</dd>
+<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
 </dl><h2 id="response-example-4">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
