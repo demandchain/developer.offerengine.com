@@ -2,6 +2,9 @@
 title: User Images
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # User Images
 
 Users can have a single image.

@@ -2,6 +2,9 @@
 title: Sessions
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # Sessions
 
 * [Create a session](/v1/sessions/#create-a-session)

@@ -2,6 +2,9 @@
 title: Region Activities
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # Region Activities
 
 ## List all region's activities
