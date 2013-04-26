@@ -2,6 +2,9 @@
 title: Deal Discussions
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # Deal Discussions
 
 ## Get a deal's discussion

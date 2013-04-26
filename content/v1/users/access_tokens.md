@@ -2,6 +2,9 @@
 title: User Access Tokens
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # User Access Tokens
 
 Access tokens are temporary tokens which allow users to call APIs directly. Think JavaScript checkout flows, and the like.

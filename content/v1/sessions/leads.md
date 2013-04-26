@@ -2,6 +2,9 @@
 title: Leads
 ---
 
+# Warning Deprecated
+**This call will be removed in a future release**
+
 # Sessions
 
 * [Create a lead, given a session id](/v1/sessions/#create-a-lead)
