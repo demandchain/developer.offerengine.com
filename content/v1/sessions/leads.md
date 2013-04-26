@@ -1,6 +1,8 @@
 ---
 title: Leads
 ---
+# Warning Deprecated
+**This call will be removed in a future release**
 
 # Session Leads
 
