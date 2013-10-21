@@ -16,55 +16,164 @@ module OfferEngine
 
   def self.deal
     {
-      :id => "my-restaurant",
-      :deal_id => "my-restaurant",
-      :locations => [],
-      :title => "Great Dining",
-      :type => "daily-deal",
-      :image_url => "deals/generic_medium.gif",
-      :image_url_abs =>  "http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif",
-      :shipping_address_required => false,
-      :merchant_name => "Morar, Shanahan and Ruecker",
-      :region_id => "san-francisco",
-      :starting_price => 5000,
-      :current_price => 5000,
-      :value => 10000,
-      :number_sold => 100,
-      :ended => true,
-      :start_at => "2011-11-20T02:35:58Z",
-      :end_at => "2011-11-22T04:59:59Z",
-      :expires_at => "2012-11-29T17:46:50-04:00",
-      :state => "in-flight",
-      :purchasable_number => 10,
-      :num_left => 10,
-      :region_name => "San Francisco",
-      :soldout => false,
-      :description1 => "Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut.",
-      :description2 => "Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem.",
-      :fine_print => "Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
-      :supplier_id => "sub-partner1",
-      :highlights => "Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
-      :instructions => "The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law.",
-      :maximum_allowance => nil,
-      :incentive_amount => nil,
-      :max_per_user => 10,
-      :min_spend => nil,
-      :incentive_percentage => nil,
-      :fixed_fee => nil,
-      :percent_fee => nil,
-      :category => "category",
-      :subcategory => "subcategory",
-      :robotitle => "$50 for $100 Great Dining at Kuhn, Goldner and Spencer",
-      :show_url => "http://domain/deal/my-restaurant",
-      :purchase_url => "http://domain/deal/my-restaurant/get",
-      :primary_image => {
-        "thumb" => {"dimensions" => "(198x130>)","url" => "http://domain/images/deals/generic640x426.gif"},
-        "tiny" =>  {"dimensions" => "(81x56)","url" => "http://domain/images/deals/generic640x426.gif"},
-        "xlarge" => {"dimensions" => "(640x640>)","url" => "http://domain/images/deals/generic640x426.gif"},
-        "large" => {"dimensions" => "(520x352)","url" => "http://domain/images/deals/generic640x426.gif"},
-        "medium" => {"dimensions" => "(390x260)","url" => "http://domain/images/deals/generic640x426.gif"}
+      id: "la-1024-wsc-hair-studio-01-2",
+      slug: "la-1024-wsc-hair-studio-01-2",
+      deal_id: "la-1024-wsc-hair-studio-01-2",
+      campaign: nil,
+      category: "Activities",
+      category_id: 1,
+      combine_linked_offers: nil,
+      current_price: 3900,
+      custom_data: { },
+      description1: "Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai.",
+      description2: "Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value).",
+      end_at: "2013-10-25T06:59:59Z",
+      ended: false,
+      expires_at: "2013-12-17T23:59:59-08:00",
+      fine_print: "Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation",
+      fine_print_legalese: "Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law.",
+      fixed_fee: nil,
+      fulfillment_method: "printed",
+      highlights: "Complete cocktail how-to's Choice of six locations 40 hours of instruction",
+      image_url: "/ugassets/deal/images/4/b/84555f69/medium.jpg",
+      image_url_abs: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg",
+      incentive_amount: nil,
+      incentive_percentage: nil,
+      instructions: "The Amount Paid for this Voucher is $39. This amount does not expire. The Promotional Value of this Voucher is $61. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law.",
+      locations: [
+        {
+          address: {
+            region: "CA",
+            postal_code: "90057",
+            street: "671 la fayette park place",
+            latitude: 34.060428619,
+            locality: "los angeles",
+            longitude: -118.283882141,
+            country: "US"
+          },
+          hours: "",
+          phone: "8887187201"
+        }
+      ],
+      lowdown: "Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai.",
+      max_linkage: nil,
+      max_per_user: 11,
+      max_gift_per_user: 0,
+      maximum_allowance: nil,
+      merchant_name: "1024 WSC Hair Studio 01",
+      min_spend: nil,
+      num_left: 499,
+      num_qualifying: nil,
+      number_sold: 0,
+      offer_construct: "",
+      percent_fee: nil,
+      primary_image: {
+        xlarge: {
+          size: "xlarge",
+          dimensions: "(640x640>)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/xlarge.jpg"
+        },
+        large: {
+          size: "large",
+          dimensions: "(520x352)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/large.jpg"
+        },
+        medium: {
+          size: "medium",
+          dimensions: "(390x260)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg"
+        },
+        tiny: {
+          size: "tiny",
+          dimensions: "(81x56)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/tiny.jpg"
+        },
+        _103: {
+          size: "_103",
+          dimensions: "(103x68)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_103.jpg"
+        },
+        _198: {
+          size: "_198",
+          dimensions: "(198x130)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_198.jpg"
+        },
+        _222: {
+          size: "_222",
+          dimensions: "(222x148)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_222.jpg"
+        },
+        _306: {
+          size: "_306",
+          dimensions: "(306x204)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_306.jpg"
+        },
+        _316: {
+          size: "_316",
+          dimensions: "(316x211)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_316.jpg"
+        },
+        _372: {
+          size: "_372",
+          dimensions: "(372x246)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_372.jpg"
+        },
+        _400: {
+          size: "_400",
+          dimensions: "(400x265)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_400.jpg"
+        },
+        _498: {
+          size: "_498",
+          dimensions: "(498x332)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_498.jpg"
+        },
+        _640: {
+          size: "_640",
+          dimensions: "(640x426)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_640.jpg"
+        },
+        _660: {
+          size: "_660",
+          dimensions: "(660x330)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_660.jpg"
+        },
+        featured: {
+          size: "featured",
+          dimensions: "(548x362)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/featured.jpg"
+        },
+        show: {
+          size: "show",
+          dimensions: "(615x409)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/show.jpg"
+        },
+        thumb: {
+          size: "thumb",
+          dimensions: "(352x236)",
+          url: "http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/thumb.jpg"
+        }
       },
-      :campaign => "campaign"
+      purchasable_number: 11,
+      region_id: "los-angeles",
+      region_name: "Los Angeles",
+      region_slug: "los-angeles",
+      robotitle: "$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01",
+      shipping_address_required: false,
+      situation: "Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value).",
+      soldout: false,
+      start_at: "2013-10-17T07:00:00Z",
+      starting_price: 3900,
+      state: "in-flight",
+      subcategory: "Bike Rentals",
+      subcategory_id: 18,
+      supplier_slug: "homerun",
+      title: "1024 WSC Salon - Other - $39 for $100",
+      type: "daily-deal",
+      value: 10000,
+      show_url: "http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2",
+      purchase_url: "https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout",
+      affinity_score: nil
     }
   end
   def self.deal2
@@ -158,8 +267,9 @@ module OfferEngine
       :error_msg => "Unable to find",
     }
   end
-  def self.deal_resource
-    "### status attributes
+
+def self.deal_resource
+"### status attributes
 
 status
 : _String_  State of the request (success or error)
@@ -169,58 +279,153 @@ status
 A list of deal resources with all associated deal attributes for each deal in the result set:
 
 id
-: _String_ Unique identifier for purchased deal 
+: _String_ Unique identifier for purchased deal
+
+slug
+: (Deprecated) _String Use id
 
 deal_id
-: _String_ Unique identifier for purchased deal 
+: (Deprecated) _String_ Use id
 
-title
-: _String_ Title of the purchased deal 
+affinity_score
+: _Float_ A value 0-5 which represents the overall desirability (quality) of the deal
 
-type
-: _String_ Type of the purchased deal 
+campaign
+: _String_ The name for tracking a group of deals used in a marketing campaign
 
-image_url
-: _String_ Relative URL for an image associated with the purchased deal 
-
-image_url_abs
-: _String_ Absolute URL for an image associated with the purchased deal 
-
-locations
-: _Array_ Merchant locations associated with the deal
-
-shipping_address_required
-: _Boolean_ Flagged if a shipping address is required to purchase this deal
-
-merchant_name
-: _String_ Name of the merchant of the deal
-
-region_id
-: _String_ Region (region slug) in which the deal is available 
-
-starting_price
-: _Integer_ The original price of the deal in cents
+category
+: _String_ Broad deal type
 
 current_price
 : _Integer_ The current price of the deal in cents
 
-value
-: _Integer_ The value of the deal in cents
+description1
+: _String_ Primary description of the deal
 
-number_sold
-: _Integer_ The quantity of units sold of this deal
-
-ended
-: _Boolean_ Flagged if the deal has ended
-
-start_at
-: _Date_ The date and time that the deal was first available to purchase (times are in UTC)
+description2
+: _String_ Secondary description of the deal
 
 end_at
 : _Date_ The date and time that the deal will no longer be available to purchase (times are in UTC)
 
+ended
+: _Boolean_ Flagged if the deal has ended
+
 expires_at
-: _Date_ The date and time that the deal voucher will expire (times are in UTC)
+: _Date_ The date and time that the deal voucher will expire (times are in timezone of deal's region)
+
+fine_print
+: _String_ Specific details and restrictions associated with the deal
+
+fine_print_legalese
+: _String_ Legal Specifics details and restrictions associated with the deal (fulfillment_method='printed' only)
+
+fixed_fee
+: _Integer_ The fee charged for running the deal in cents (only for card-linked deals)
+
+fulfillment_method
+: _String_ How the consumer redeems the deal:
+: * redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant's website.
+: * printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.
+: * shipped - The purchase is shipped to the customer
+
+highlights
+: _String_ Additional important details about the deal
+
+image_url
+: (Deprecated) _String_ Relative URL for an image associated with the purchased deal
+
+image_url_abs
+: _String_ Absolute URL for an image associated with the purchased deal
+
+incentive_amount
+: _Integer_ A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)
+
+incentive_percentage
+: _Integer_ The percent discount a user gets for using this deal (only for card-linked deals)
+
+instructions
+: _String_ Usage details for the deal
+
+locations
+: _Array_ of class Merchant::Location associated with the deal
+
+low_down
+: (Deprecated) _String_: Use description1
+
+max_linkage
+: _Integer_ Number of users that can link to deal (only for card-linked deals)
+
+max_per_user
+: _Integer_ The maximum quantity available to purchase by a user
+
+max_gift_per_user
+: _Integer_ How many gifts each user is allowed to buy
+
+maximum_allowance
+: _Integer_ The maximum value of a deal purchase (only for card-linked deals)
+
+merchant_name
+: _String_ Name of the merchant of the deal
+
+min_spend
+: _Integer_ The minimum value of a purchase to qualify for the deal (only for card-linked deals)
+
+num_left
+: _Integer_ The quantity of units left for purchase
+
+num_qualifying
+: _Integer_     Number of qualifying purchases required to trigger redemption (only for card-linked deals)
+
+number_sold
+: _Integer_ The quantity of units sold of this deal
+
+offer_construct
+: _String_ Readable description of the offer incentive(only for card-linked deals)
+
+percent_fee
+: _Integer_ The percent charged for running the deal (only for card-linked deals)
+
+primary_image
+: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes:
+  * _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
+  * Each item has a hash with the dimensions and URL.
+
+purchasable_number
+: _Integer_ The quantity of units available to sell. This combines logic from max_per_user, and num_left
+
+purchase_url
+: _String_ The URL for deal purchase web page
+
+region_id
+: _String_ Region (region slug) in which the deal is available
+
+region_name
+: _String_ Human-readable region name
+
+region_slug
+: (Deprecated) _String_ Use region_id
+
+robotitle
+: _String_ The deal title for affiliate feeds
+
+shipping_address_required
+: _Boolean_ Flagged if a shipping address is required to purchase this deal
+
+show_url
+: _String_ The URL for the deal details web page
+
+situation
+: (Deprecated) _String_ Use description2
+
+soldout
+: _Boolean_ Flagged if the deal has sold out of inventory
+
+start_at
+: _Date_ The date and time that the deal was first available to purchase (times are in UTC)
+
+starting_price
+: (Deprecated) _Integer_ Use current_price
 
 state
 : _String_ The current workflow state of the deal:
@@ -231,80 +436,46 @@ state
 : * approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
 : * in-flight - The deal is available for purchase.
 : * paused - The deal's sale is halted and the deal is not currently available for purchase.
+: * cancelled - The deal has been manually canelled and is no longer in flight
 : * landed - The run window has passed and the deal is no longer available for purchase.
 : * deleted - The deal has been removed.<br><br>
-
-purchasable_number
-: _Integer_ The quantity of units available to sell
-
-num_left
-: _Integer_ The quantity of units left for purchase
-
-region_name
-: _String_ Human-readable region name
-
-soldout
-: _Boolean_ Flagged if the deal has sold out of inventory
-
-description1
-: _String_ Primary description of the deal
-
-description2
-: _String_ Secondary description of the deal
-
-fine_print
-: _String_ Specific details and restrictions associated with the deal
-
-supplier_id
-: _String_ The slug for the deal's sourcing supplier
-
-highlights
-: _String_ Additional important details about the deal
-
-instructions
-: _String_ Usage details for the deal
-
-category
-: _String_ Broad deal type
 
 subcategory
 : _String_ More specific deal type
 
-robotitle
-: _String_ The deal title for affiliate feeds
+supplier_slug
+: _String_ (Deprecated) Use supplier_id
 
-show_url
-: _String_ The URL for the deal details web page
+supplier_id
+: _String_ The slug for the deal's sourcing supplier
 
-purchase_url
-: _String_ The URL for deal purchase web page
-      
-campaign
-: _String_ The name for tracking a group of deals used in a marketing campaign
+title
+: _String_ Title of the purchased deal
 
-max_per_user
-: _Integer_ The maximum quantity available to purchase by a user (only for card-linked deals)
+type
+: _String_ Type of the purchased deal
+: Daily Deal:
+: The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+:
+: On-going:
+: A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+:
+: Affiliate:
+: A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
+:
+: Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+:
+: a) exposes a redeemable code.
+: OR
+: b) redirects the user to a co-marketed website.
+:
+: Card-linked Offers:
+: A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.
 
-maximum_allowance
-: _Integer_ The maximum value of a deal purchase (only for card-linked deals)
+value
+: _Integer_ The value of the deal in cents
+"
 
-min_spend
-: _Integer_ The minimum value of a purchase to qualify for the deal (only for card-linked deals)
-
-incentive_amount
-: _Integer_ A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)
-
-incentive_percentage
-: _Integer_ The percent discount a user gets for using this deal (only for card-linked deals)
-
-fixed_fee
-: _Integer_ The fee charged for running the deal in cents (only for card-linked deals)
-
-percent_fee
-: _Integer_ The percent charged for running the deal (only for card-linked deals)
-
-primary_image
-: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL."
 
   end
 end
