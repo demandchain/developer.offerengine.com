@@ -19,6 +19,7 @@ module OfferEngine
       id: "la-1024-wsc-hair-studio-01-2",
       slug: "la-1024-wsc-hair-studio-01-2",
       deal_id: "la-1024-wsc-hair-studio-01-2",
+      affinity_score: nil,
       campaign: nil,
       category: "Activities",
       category_id: 1,
@@ -155,11 +156,13 @@ module OfferEngine
         }
       },
       purchasable_number: 11,
+      purchase_url: "https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout",
       region_id: "los-angeles",
       region_name: "Los Angeles",
       region_slug: "los-angeles",
       robotitle: "$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01",
       shipping_address_required: false,
+      show_url: "http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2",
       situation: "Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value).",
       soldout: false,
       start_at: "2013-10-17T07:00:00Z",
@@ -170,63 +173,170 @@ module OfferEngine
       supplier_slug: "homerun",
       title: "1024 WSC Salon - Other - $39 for $100",
       type: "daily-deal",
-      value: 10000,
-      show_url: "http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2",
-      purchase_url: "https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout",
-      affinity_score: nil
+      value: 10000
     }
   end
   def self.deal2
     {
-      :id => "your-restaurant",
-      :deal_id => "your-restaurant",
-      :locations => [],
-      :title => "Fine Dining",
-      :type => "daily-deal",
-      :image_url => "deals/generic_medium.gif",
-      :image_url_abs =>  "http://d89fsdf89sdf8.cloudfront.net/deals/generic_medium.gif",
-      :shipping_address_required => false,
-      :merchant_name => "Some Guys",
-      :region_id => "san-francisco",
-      :starting_price => 10000,
-      :current_price => 10000,
-      :value => 20000,
-      :number_sold => 1,
-      :ended => true,
-      :start_at => "2011-11-20T02:35:58Z",
-      :end_at => "2011-11-22T04:59:59Z",
-      :expires_at => "2012-11-29T17:46:50-04:00",
-      :state => "in-flight",
-      :purchasable_number => 10,
-      :num_left => 10,
-      :region_name => "San Francisco",
-      :soldout => false,
-      :description1 => "Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut.",
-      :description2 => "Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem.",
-      :fine_print => "Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
-      :supplier_id => "sub-partner1",
-      :highlights => "Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit.",
-      :instructions => "The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law.",
-      :maximum_allowance => nil,
-      :incentive_amount => nil,
-      :max_per_user => 10,
-      :min_spend => nil,
-      :incentive_percentage => nil,
-      :fixed_fee => nil,
-      :percent_fee => nil,
-      :category => "category",
-      :subcategory => "subcategory",
-      :robotitle => "$100 for $200 Fine Dining at Some Guys",
-      :show_url => "http://domain/deal/your-restaurant",
-      :purchase_url => "http://domain/deal/your-restaurant/get",
-      :primary_image => {
-        "thumb" => {"dimensions" => "(198x130>)","url" => "http://domain/images/deals/generic640x425.gif"},
-        "tiny" =>  {"dimensions" => "(81x56)","url" => "http://domain/images/deals/generic640x425.gif"},
-        "xlarge" => {"dimensions" => "(640x640>)","url" => "http://domain/images/deals/generic640x425.gif"},
-        "large" => {"dimensions" => "(520x352)","url" => "http://domain/images/deals/generic640x425.gif"},
-        "medium" => {"dimensions" => "(390x260)","url" => "http://domain/images/deals/generic640x425.gif"}
+      id: "den-621-rel-merchant-4",
+      slug: "den-621-rel-merchant-4",
+      deal_id: "den-621-rel-merchant-4",
+      affinity_score: nil,
+      campaign: nil,
+      category: "Activities",
+      category_id: 2,
+      combine_linked_offers: nil,
+      current_price: 20,
+      custom_data: { },
+      description1: "",
+      description2: "",
+      end_at: "2014-01-01T06:59:59Z",
+      ended: false,
+      expires_at: "2013-11-20T13:25:14-07:00",
+      fine_print: "",
+      fine_print_legalese: "",
+      fixed_fee: nil,
+      fulfillment_method: "printed",
+      highlights: nil,
+      image_url: "generics/chameleon_medium.gif",
+      image_url_abs: "https://homerun-f2.offerify.com/images/generics/chameleon_medium.gif",
+      incentive_amount: nil,
+      incentive_percentage: 15,
+      instructions: "",
+      locations: [
+        {
+        address:
+          {
+            region: "Colorado",
+            postal_code: "80234",
+            street: "7072 North Mariposa Court",
+            latitude: 39.923740387,
+            locality: "Westminster",
+            longitude: -105.003417969,
+            country: "United States"
+          },
+        hours: "",
+        phone: ""
+        }
+      ],
+      lowdown: "",
+      max_linkage: 10,
+      max_per_user: 1,
+      max_gift_per_user: 0,
+      maximum_allowance: 9999999,
+      merchant_name: "6/21 rel merchant",
+      min_spend: 1,
+      num_left: nil,
+      num_qualifying: 5,
+      number_sold: 0,
+      offer_construct: "15% off purchase",
+      percent_fee: 8,
+      primary_image: {
+        xlarge: {
+          size: "xlarge",
+          dimensions: "(640x640>)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_xlarge.gif"
+        },
+        large: {
+          size: "large",
+          dimensions: "(520x352)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_large.gif"
+        },
+        medium: {
+          size: "medium",
+          dimensions: "(390x260)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_medium.gif"
+        },
+        tiny: {
+          size: "tiny",
+          dimensions: "(81x56)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_tiny.gif"
+        },
+        _103: {
+          size: "_103",
+          dimensions: "(103x68)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__103.gif"
+        },
+        _198: {
+          size: "_198",
+          dimensions: "(198x130)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__198.gif"
+        },
+        _222: {
+          size: "_222",
+          dimensions: "(222x148)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__222.gif"
+        },
+        _306: {
+          size: "_306",
+          dimensions: "(306x204)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__306.gif"
+        },
+        _316: {
+          size: "_316",
+          dimensions: "(316x211)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__316.gif"
+        },
+        _372: {
+          size: "_372",
+          dimensions: "(372x246)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__372.gif"
+        },
+        _400: {
+          size: "_400",
+          dimensions: "(400x265)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__400.gif"
+        },
+        _498: {
+          size: "_498",
+          dimensions: "(498x332)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__498.gif"
+        },
+        _640: {
+          size: "_640",
+          dimensions: "(640x426)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__640.gif"
+        },
+        _660: {
+          size: "_660",
+          dimensions: "(660x330)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon__660.gif"
+        },
+        featured: {
+          size: "featured",
+          dimensions: "(548x362)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_featured.gif"
+        },
+        show: {
+          size: "show",
+          dimensions: "(615x409)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_show.gif"
+        },
+        thumb: {
+          size: "thumb",
+          dimensions: "(352x236)",
+          url: "https://homerun-f2.offerify.com/images/generics/chameleon_thumb.gif"
+        }
       },
-      :campaign => "campaign"
+      purchasable_number: 1,
+      purchase_url: "https://homerun-f2.offerify.com/deal/den-621-rel-merchant-4/checkout",
+      region_id: "denver",
+      region_name: "Denver",
+      region_slug: "denver",
+      robotitle: "15% off purchase",
+      shipping_address_required: false,
+      show_url: "http://homerun-f2.offerify.com/deal/den-621-rel-merchant-4",
+      situation: "",
+      soldout: false,
+      start_at: "2013-07-23T06:00:00Z",
+      starting_price: 20,
+      state: "in-flight",
+      subcategory: "Comedy",
+      subcategory_id: 3,
+      supplier_slug: "homerun",
+      title: "test_CLO_CSV_5",
+      type: "card-linked",
+      value: 100
     }
   end
   def self.deals_request
@@ -348,7 +458,7 @@ instructions
 : _String_ Usage details for the deal
 
 locations
-: _Array_ of class Merchant::Location associated with the deal
+: _Array_ The physical locations associated with the deal
 
 low_down
 : (Deprecated) _String_: Use description1
@@ -475,7 +585,5 @@ type
 value
 : _Integer_ The value of the deal in cents
 "
-
-
   end
 end

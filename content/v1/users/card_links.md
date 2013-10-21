@@ -40,7 +40,6 @@ or
 
 deal_ids
 : _Optional String_ Comma seperated list of deal ids (eg: ?deal_ids="first-deal,second-deal")
-:or
 : _Optional Array_ Multi-value list of deal ids (eq: ?deal_ids[]="first-deal"&deal_ids[]="second-deal")
 
 user_id
