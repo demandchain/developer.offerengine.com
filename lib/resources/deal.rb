@@ -378,8 +378,8 @@ module OfferEngine
     }
   end
 
-def self.deal_resource
-"### status attributes
+  def self.deal_resource
+  "### status attributes
 
 status
 : _String_  State of the request (success or error)
