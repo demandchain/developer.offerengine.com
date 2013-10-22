@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=1020, maximum-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
+
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  
+
   <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
-  
+
   <title>Deals - OfferEngine API</title>
-  
+
   <link href="/shared/css/documentation.css" rel="stylesheet" />
   <link href="/shared/css/pygments.css" rel="stylesheet" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css">
-  
-  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->  
+
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
   <!--[if lte IE 9]> <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
 </head>
 <body class="api">
@@ -37,14 +37,14 @@
       </nav>
     </div>
   </header>
-  
+
   <article class="row">
     <header class="row">
       <div class="centered clearfix">
         <h1>Deem Offers  API Documentation</h1>
       </div>
     </header>
-    
+
     <div class="centered clearfix">
       <nav id="side-menu" class="col3">
         <h1>Introduction</h1>
@@ -53,34 +53,29 @@
           <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
         </ul>
-      
+
         <h1>Getting Started</h1>
         <ul>
           <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
         </ul>
-      
+
         <h1>Core Calls</h1>
         <ul>
           <li><a href="/v1/get_deals/">Get Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/full_purchase/">Execute Purchases</a><span class="icon-arrow-right"></span></li>
         </ul>
-      
+
         <h1>Additional Calls</h1>
         <ul>
           <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/deals/discussions/">Deal Discussions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/sessions/">Sessions</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/sessions/leads/">Session Leads</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/regions/activity/">Region Activity</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/users/images/">User Images</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
@@ -89,7 +84,7 @@
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
       </nav>
-    
+
       <div class="content col9">
         <h1 id="deals">Deals</h1>
 
@@ -98,9 +93,6 @@
 <ul>
 <li><a href="/v1/deals/#get-a-deal">Get a deal</a></li>
   <li><a href="/v1/deals/#get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</a></li>
-  <li><a href="/v1/deals/#external-approve-a-deal">Mark a deal as “externally approved”</a></li>
-  <li><a href="/v1/deals/#external-validate-a-deal">Mark a deal as “externally validated”</a></li>
-  <li><a href="/v1/deals/#external-reject-a-deal">Mark a deal as “externally rejected”l</a></li>
 </ul><h1 id="get-a-deal">Get a deal</h1>
 
 <p>This request returns a single deal resource for a specific deal.</p>
@@ -144,58 +136,158 @@
 <dl>
 <dt>id</dt>
   <dd>
-<em>String</em> Unique identifier for purchased deal </dd>
+<em>String</em> Unique identifier for purchased deal</dd>
+  <dt>slug</dt>
+  <dd>(Deprecated) _String Use id</dd>
   <dt>deal_id</dt>
+  <dd>(Deprecated) <em>String</em> Use id</dd>
+  <dt>affinity_score</dt>
   <dd>
-<em>String</em> Unique identifier for purchased deal </dd>
-  <dt>title</dt>
+<em>Float</em> A value 0-5 which represents the overall desirability (quality) of the deal</dd>
+  <dt>campaign</dt>
   <dd>
-<em>String</em> Title of the purchased deal </dd>
-  <dt>type</dt>
+<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
+  <dt>category</dt>
   <dd>
-<em>String</em> Type of the purchased deal </dd>
-  <dt>image_url</dt>
-  <dd>
-<em>String</em> Relative URL for an image associated with the purchased deal </dd>
-  <dt>image_url_abs</dt>
-  <dd>
-<em>String</em> Absolute URL for an image associated with the purchased deal </dd>
-  <dt>locations</dt>
-  <dd>
-<em>Array</em> Merchant locations associated with the deal</dd>
-  <dt>shipping_address_required</dt>
-  <dd>
-<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
-  <dt>merchant_name</dt>
-  <dd>
-<em>String</em> Name of the merchant of the deal</dd>
-  <dt>region_id</dt>
-  <dd>
-<em>String</em> Region (region slug) in which the deal is available </dd>
-  <dt>starting_price</dt>
-  <dd>
-<em>Integer</em> The original price of the deal in cents</dd>
+<em>String</em> Broad deal type</dd>
   <dt>current_price</dt>
   <dd>
 <em>Integer</em> The current price of the deal in cents</dd>
-  <dt>value</dt>
+  <dt>description1</dt>
   <dd>
-<em>Integer</em> The value of the deal in cents</dd>
-  <dt>number_sold</dt>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
   <dd>
-<em>Integer</em> The quantity of units sold of this deal</dd>
-  <dt>ended</dt>
-  <dd>
-<em>Boolean</em> Flagged if the deal has ended</dd>
-  <dt>start_at</dt>
-  <dd>
-<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
+<em>String</em> Secondary description of the deal</dd>
   <dt>end_at</dt>
   <dd>
 <em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
+  <dt>ended</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has ended</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal voucher will expire (times are in UTC)</dd>
+<em>Date</em> The date and time that the deal voucher will expire (times are in timezone of deal’s region)</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>fine_print_legalese</dt>
+  <dd>
+<em>String</em> Legal Specifics details and restrictions associated with the deal (fulfillment_method=’printed’ only)</dd>
+  <dt>fixed_fee</dt>
+  <dd>
+<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
+  <dt>fulfillment_method</dt>
+  <dd>
+<em>String</em> How the consumer redeems the deal:</dd>
+  <dd>
+    <ul>
+<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>shipped - The purchase is shipped to the customer</li>
+    </ul>
+</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>image_url</dt>
+  <dd>(Deprecated) <em>String</em> Relative URL for an image associated with the purchased deal</dd>
+  <dt>image_url_abs</dt>
+  <dd>
+<em>String</em> Absolute URL for an image associated with the purchased deal</dd>
+  <dt>incentive_amount</dt>
+  <dd>
+<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>incentive_percentage</dt>
+  <dd>
+<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>instructions</dt>
+  <dd>
+<em>String</em> Usage details for the deal</dd>
+  <dt>locations</dt>
+  <dd>
+<em>Array</em> The physical locations associated with the deal</dd>
+  <dt>low_down</dt>
+  <dd>(Deprecated) <em>String</em>: Use description1</dd>
+  <dt>max_linkage</dt>
+  <dd>
+<em>Integer</em> Number of users that can link to deal (only for card-linked deals)</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user</dd>
+  <dt>max_gift_per_user</dt>
+  <dd>
+<em>Integer</em> How many gifts each user is allowed to buy</dd>
+  <dt>maximum_allowance</dt>
+  <dd>
+<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
+  <dt>merchant_name</dt>
+  <dd>
+<em>String</em> Name of the merchant of the deal</dd>
+  <dt>min_spend</dt>
+  <dd>
+<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>num_qualifying</dt>
+  <dd>
+<em>Integer</em>     Number of qualifying purchases required to trigger redemption (only for card-linked deals)</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of this deal</dd>
+  <dt>offer_construct</dt>
+  <dd>
+<em>String</em> Readable description of the offer incentive(only for card-linked deals)</dd>
+  <dt>percent_fee</dt>
+  <dd>
+<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
+  <dt>primary_image</dt>
+  <dd>
+<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
+* _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
+* Each item has a hash with the dimensions and URL.</dd>
+  <dt>purchasable_number</dt>
+  <dd>
+<em>Integer</em> The quantity of units available to sell. This combines logic from max_per_user, and num_left</dd>
+  <dt>purchase_url</dt>
+  <dd>
+<em>String</em> The URL for deal purchase web page</dd>
+  <dt>region_id</dt>
+  <dd>
+<em>String</em> Region (region slug) in which the deal is available</dd>
+  <dt>region_name</dt>
+  <dd>
+<em>String</em> Human-readable region name</dd>
+  <dt>region_slug</dt>
+  <dd>(Deprecated) <em>String</em> Use region_id</dd>
+  <dt>robotitle</dt>
+  <dd>
+<em>String</em> The deal title for affiliate feeds</dd>
+  <dt>shipping_address_required</dt>
+  <dd>
+<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
+  <dt>show_url</dt>
+  <dd>
+<em>String</em> The URL for the deal details web page</dd>
+  <dt>situation</dt>
+  <dd>(Deprecated) <em>String</em> Use description2</dd>
+  <dt>soldout</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
+  <dt>start_at</dt>
+  <dd>
+<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
+  <dt>starting_price</dt>
+  <dd>(Deprecated) <em>Integer</em> Use current_price</dd>
   <dt>state</dt>
   <dd>
 <em>String</em> The current workflow state of the deal:</dd>
@@ -231,6 +323,11 @@
 </dd>
   <dd>
     <ul>
+<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
 <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
 </dd>
@@ -240,78 +337,41 @@
 </li>
     </ul>
 </dd>
-  <dt>purchasable_number</dt>
-  <dd>
-<em>Integer</em> The quantity of units available to sell</dd>
-  <dt>num_left</dt>
-  <dd>
-<em>Integer</em> The quantity of units left for purchase</dd>
-  <dt>region_name</dt>
-  <dd>
-<em>String</em> Human-readable region name</dd>
-  <dt>soldout</dt>
-  <dd>
-<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
-  <dt>description1</dt>
-  <dd>
-<em>String</em> Primary description of the deal</dd>
-  <dt>description2</dt>
-  <dd>
-<em>String</em> Secondary description of the deal</dd>
-  <dt>fine_print</dt>
-  <dd>
-<em>String</em> Specific details and restrictions associated with the deal</dd>
-  <dt>supplier_id</dt>
-  <dd>
-<em>String</em> The slug for the deal’s sourcing supplier</dd>
-  <dt>highlights</dt>
-  <dd>
-<em>String</em> Additional important details about the deal</dd>
-  <dt>instructions</dt>
-  <dd>
-<em>String</em> Usage details for the deal</dd>
-  <dt>category</dt>
-  <dd>
-<em>String</em> Broad deal type</dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
-  <dt>robotitle</dt>
+  <dt>supplier_slug</dt>
   <dd>
-<em>String</em> The deal title for affiliate feeds</dd>
-  <dt>show_url</dt>
+<em>String</em> (Deprecated) Use supplier_id</dd>
+  <dt>supplier_id</dt>
   <dd>
-<em>String</em> The URL for the deal details web page</dd>
-  <dt>purchase_url</dt>
+<em>String</em> The slug for the deal’s sourcing supplier</dd>
+  <dt>title</dt>
   <dd>
-<em>String</em> The URL for deal purchase web page</dd>
-  <dt>campaign</dt>
+<em>String</em> Title of the purchased deal</dd>
+  <dt>type</dt>
   <dd>
-<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
-  <dt>max_per_user</dt>
+<em>String</em> Type of the purchased deal</dd>
+  <dd>Daily Deal:</dd>
+  <dd>The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+:</dd>
+  <dd>On-going:</dd>
+  <dd>A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+:</dd>
+  <dd>Affiliate:</dd>
+  <dd>A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
+:</dd>
+  <dd>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+:</dd>
+  <dd>a) exposes a redeemable code.</dd>
+  <dd>OR</dd>
+  <dd>b) redirects the user to a co-marketed website.
+:</dd>
+  <dd>Card-linked Offers:</dd>
+  <dd>A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</dd>
+  <dt>value</dt>
   <dd>
-<em>Integer</em> The maximum quantity available to purchase by a user (only for card-linked deals)</dd>
-  <dt>maximum_allowance</dt>
-  <dd>
-<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
-  <dt>min_spend</dt>
-  <dd>
-<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
-  <dt>incentive_amount</dt>
-  <dd>
-<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
-  <dt>incentive_percentage</dt>
-  <dd>
-<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
-  <dt>fixed_fee</dt>
-  <dd>
-<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
-  <dt>percent_fee</dt>
-  <dd>
-<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
-  <dt>primary_image</dt>
-  <dd>
-<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.</dd>
+<em>Integer</em> The value of the deal in cents</dd>
 </dl><h2 id="response-example">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -319,72 +379,166 @@
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"slug"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"affinity_score"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+    <span class="s2">"category_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"combine_linked_offers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+    <span class="s2">"custom_data"</span><span class="o">:</span> <span class="p">{</span>
 
-    <span class="p">],</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Great Dining"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Morar, Shanahan and Ruecker"</span><span class="p">,</span>
-    <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-    <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-    <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-    <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
-    <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-    <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-    <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-    <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-    <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-    <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+    <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+    <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
+    <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-12-17T23:59:59-08:00"</span><span class="p">,</span>
+    <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+    <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
     <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+    <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+    <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $39. This amount does not expire. The Promotional Value of this Voucher is $61. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+    <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+          <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"90057"</span><span class="p">,</span>
+          <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"671 la fayette park place"</span><span class="p">,</span>
+          <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">34.060428619</span><span class="p">,</span>
+          <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"los angeles"</span><span class="p">,</span>
+          <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">118.283882141</span><span class="p">,</span>
+          <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+        <span class="p">},</span>
+        <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"8887187201"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+    <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Hair Studio 01"</span><span class="p">,</span>
+    <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+    <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"offer_construct"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
     <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-    <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-    <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$50 for $100 Great Dining at Kuhn, Goldner and Spencer"</span><span class="p">,</span>
-    <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant/get"</span><span class="p">,</span>
     <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
       <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"xlarge"</span><span class="p">,</span>
         <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/xlarge.jpg"</span>
       <span class="p">},</span>
       <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"large"</span><span class="p">,</span>
         <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/large.jpg"</span>
       <span class="p">},</span>
       <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
         <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"tiny"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/tiny.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_103"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_103"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(103x68)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_103.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_198"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_198"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_198.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_222"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_222"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(222x148)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_222.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_306"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_306"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(306x204)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_306.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_316"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_316"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(316x211)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_316.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_372"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_372"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(372x246)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_372.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_400"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_400"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(400x265)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_400.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_498"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_498"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(498x332)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_498.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_640"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_640"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x426)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_640.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"_660"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_660"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(660x330)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_660.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"featured"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"featured"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(548x362)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/featured.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/show.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/thumb.jpg"</span>
       <span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
+    <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout"</span><span class="p">,</span>
+    <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+    <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Los Angeles"</span><span class="p">,</span>
+    <span class="s2">"region_slug"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+    <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01"</span><span class="p">,</span>
+    <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+    <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-10-17T07:00:00Z"</span><span class="p">,</span>
+    <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+    <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Bike Rentals"</span><span class="p">,</span>
+    <span class="s2">"subcategory_id"</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="s2">"supplier_slug"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+    <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -461,58 +615,158 @@
 <dl>
 <dt>id</dt>
   <dd>
-<em>String</em> Unique identifier for purchased deal </dd>
+<em>String</em> Unique identifier for purchased deal</dd>
+  <dt>slug</dt>
+  <dd>(Deprecated) _String Use id</dd>
   <dt>deal_id</dt>
+  <dd>(Deprecated) <em>String</em> Use id</dd>
+  <dt>affinity_score</dt>
   <dd>
-<em>String</em> Unique identifier for purchased deal </dd>
-  <dt>title</dt>
+<em>Float</em> A value 0-5 which represents the overall desirability (quality) of the deal</dd>
+  <dt>campaign</dt>
   <dd>
-<em>String</em> Title of the purchased deal </dd>
-  <dt>type</dt>
+<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
+  <dt>category</dt>
   <dd>
-<em>String</em> Type of the purchased deal </dd>
-  <dt>image_url</dt>
-  <dd>
-<em>String</em> Relative URL for an image associated with the purchased deal </dd>
-  <dt>image_url_abs</dt>
-  <dd>
-<em>String</em> Absolute URL for an image associated with the purchased deal </dd>
-  <dt>locations</dt>
-  <dd>
-<em>Array</em> Merchant locations associated with the deal</dd>
-  <dt>shipping_address_required</dt>
-  <dd>
-<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
-  <dt>merchant_name</dt>
-  <dd>
-<em>String</em> Name of the merchant of the deal</dd>
-  <dt>region_id</dt>
-  <dd>
-<em>String</em> Region (region slug) in which the deal is available </dd>
-  <dt>starting_price</dt>
-  <dd>
-<em>Integer</em> The original price of the deal in cents</dd>
+<em>String</em> Broad deal type</dd>
   <dt>current_price</dt>
   <dd>
 <em>Integer</em> The current price of the deal in cents</dd>
-  <dt>value</dt>
+  <dt>description1</dt>
   <dd>
-<em>Integer</em> The value of the deal in cents</dd>
-  <dt>number_sold</dt>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
   <dd>
-<em>Integer</em> The quantity of units sold of this deal</dd>
-  <dt>ended</dt>
-  <dd>
-<em>Boolean</em> Flagged if the deal has ended</dd>
-  <dt>start_at</dt>
-  <dd>
-<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
+<em>String</em> Secondary description of the deal</dd>
   <dt>end_at</dt>
   <dd>
 <em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
+  <dt>ended</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has ended</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal voucher will expire (times are in UTC)</dd>
+<em>Date</em> The date and time that the deal voucher will expire (times are in timezone of deal’s region)</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>fine_print_legalese</dt>
+  <dd>
+<em>String</em> Legal Specifics details and restrictions associated with the deal (fulfillment_method=’printed’ only)</dd>
+  <dt>fixed_fee</dt>
+  <dd>
+<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
+  <dt>fulfillment_method</dt>
+  <dd>
+<em>String</em> How the consumer redeems the deal:</dd>
+  <dd>
+    <ul>
+<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>shipped - The purchase is shipped to the customer</li>
+    </ul>
+</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>image_url</dt>
+  <dd>(Deprecated) <em>String</em> Relative URL for an image associated with the purchased deal</dd>
+  <dt>image_url_abs</dt>
+  <dd>
+<em>String</em> Absolute URL for an image associated with the purchased deal</dd>
+  <dt>incentive_amount</dt>
+  <dd>
+<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>incentive_percentage</dt>
+  <dd>
+<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>instructions</dt>
+  <dd>
+<em>String</em> Usage details for the deal</dd>
+  <dt>locations</dt>
+  <dd>
+<em>Array</em> The physical locations associated with the deal</dd>
+  <dt>low_down</dt>
+  <dd>(Deprecated) <em>String</em>: Use description1</dd>
+  <dt>max_linkage</dt>
+  <dd>
+<em>Integer</em> Number of users that can link to deal (only for card-linked deals)</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user</dd>
+  <dt>max_gift_per_user</dt>
+  <dd>
+<em>Integer</em> How many gifts each user is allowed to buy</dd>
+  <dt>maximum_allowance</dt>
+  <dd>
+<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
+  <dt>merchant_name</dt>
+  <dd>
+<em>String</em> Name of the merchant of the deal</dd>
+  <dt>min_spend</dt>
+  <dd>
+<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>num_qualifying</dt>
+  <dd>
+<em>Integer</em>     Number of qualifying purchases required to trigger redemption (only for card-linked deals)</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of this deal</dd>
+  <dt>offer_construct</dt>
+  <dd>
+<em>String</em> Readable description of the offer incentive(only for card-linked deals)</dd>
+  <dt>percent_fee</dt>
+  <dd>
+<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
+  <dt>primary_image</dt>
+  <dd>
+<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
+* _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
+* Each item has a hash with the dimensions and URL.</dd>
+  <dt>purchasable_number</dt>
+  <dd>
+<em>Integer</em> The quantity of units available to sell. This combines logic from max_per_user, and num_left</dd>
+  <dt>purchase_url</dt>
+  <dd>
+<em>String</em> The URL for deal purchase web page</dd>
+  <dt>region_id</dt>
+  <dd>
+<em>String</em> Region (region slug) in which the deal is available</dd>
+  <dt>region_name</dt>
+  <dd>
+<em>String</em> Human-readable region name</dd>
+  <dt>region_slug</dt>
+  <dd>(Deprecated) <em>String</em> Use region_id</dd>
+  <dt>robotitle</dt>
+  <dd>
+<em>String</em> The deal title for affiliate feeds</dd>
+  <dt>shipping_address_required</dt>
+  <dd>
+<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
+  <dt>show_url</dt>
+  <dd>
+<em>String</em> The URL for the deal details web page</dd>
+  <dt>situation</dt>
+  <dd>(Deprecated) <em>String</em> Use description2</dd>
+  <dt>soldout</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
+  <dt>start_at</dt>
+  <dd>
+<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
+  <dt>starting_price</dt>
+  <dd>(Deprecated) <em>Integer</em> Use current_price</dd>
   <dt>state</dt>
   <dd>
 <em>String</em> The current workflow state of the deal:</dd>
@@ -548,6 +802,11 @@
 </dd>
   <dd>
     <ul>
+<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
 <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
 </dd>
@@ -557,78 +816,41 @@
 </li>
     </ul>
 </dd>
-  <dt>purchasable_number</dt>
-  <dd>
-<em>Integer</em> The quantity of units available to sell</dd>
-  <dt>num_left</dt>
-  <dd>
-<em>Integer</em> The quantity of units left for purchase</dd>
-  <dt>region_name</dt>
-  <dd>
-<em>String</em> Human-readable region name</dd>
-  <dt>soldout</dt>
-  <dd>
-<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
-  <dt>description1</dt>
-  <dd>
-<em>String</em> Primary description of the deal</dd>
-  <dt>description2</dt>
-  <dd>
-<em>String</em> Secondary description of the deal</dd>
-  <dt>fine_print</dt>
-  <dd>
-<em>String</em> Specific details and restrictions associated with the deal</dd>
-  <dt>supplier_id</dt>
-  <dd>
-<em>String</em> The slug for the deal’s sourcing supplier</dd>
-  <dt>highlights</dt>
-  <dd>
-<em>String</em> Additional important details about the deal</dd>
-  <dt>instructions</dt>
-  <dd>
-<em>String</em> Usage details for the deal</dd>
-  <dt>category</dt>
-  <dd>
-<em>String</em> Broad deal type</dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
-  <dt>robotitle</dt>
+  <dt>supplier_slug</dt>
   <dd>
-<em>String</em> The deal title for affiliate feeds</dd>
-  <dt>show_url</dt>
+<em>String</em> (Deprecated) Use supplier_id</dd>
+  <dt>supplier_id</dt>
   <dd>
-<em>String</em> The URL for the deal details web page</dd>
-  <dt>purchase_url</dt>
+<em>String</em> The slug for the deal’s sourcing supplier</dd>
+  <dt>title</dt>
   <dd>
-<em>String</em> The URL for deal purchase web page</dd>
-  <dt>campaign</dt>
+<em>String</em> Title of the purchased deal</dd>
+  <dt>type</dt>
   <dd>
-<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
-  <dt>max_per_user</dt>
+<em>String</em> Type of the purchased deal</dd>
+  <dd>Daily Deal:</dd>
+  <dd>The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+:</dd>
+  <dd>On-going:</dd>
+  <dd>A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+:</dd>
+  <dd>Affiliate:</dd>
+  <dd>A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
+:</dd>
+  <dd>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+:</dd>
+  <dd>a) exposes a redeemable code.</dd>
+  <dd>OR</dd>
+  <dd>b) redirects the user to a co-marketed website.
+:</dd>
+  <dd>Card-linked Offers:</dd>
+  <dd>A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</dd>
+  <dt>value</dt>
   <dd>
-<em>Integer</em> The maximum quantity available to purchase by a user (only for card-linked deals)</dd>
-  <dt>maximum_allowance</dt>
-  <dd>
-<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
-  <dt>min_spend</dt>
-  <dd>
-<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
-  <dt>incentive_amount</dt>
-  <dd>
-<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
-  <dt>incentive_percentage</dt>
-  <dd>
-<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
-  <dt>fixed_fee</dt>
-  <dd>
-<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
-  <dt>percent_fee</dt>
-  <dd>
-<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
-  <dt>primary_image</dt>
-  <dd>
-<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes: thumb, tiny, xlarge, large, and medium. Each item has a hash with the dimensions and URL.</dd>
+<em>Integer</em> The value of the deal in cents</dd>
 </dl><h2 id="response-example-1">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
@@ -637,140 +859,328 @@
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"slug"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"affinity_score"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+      <span class="s2">"category_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"combine_linked_offers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+      <span class="s2">"custom_data"</span><span class="o">:</span> <span class="p">{</span>
 
-      <span class="p">],</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Great Dining"</span><span class="p">,</span>
-      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Morar, Shanahan and Ruecker"</span><span class="p">,</span>
-      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-      <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
-      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
+      <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-12-17T23:59:59-08:00"</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
       <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $39. This amount does not expire. The Promotional Value of this Voucher is $61. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+            <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"90057"</span><span class="p">,</span>
+            <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"671 la fayette park place"</span><span class="p">,</span>
+            <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">34.060428619</span><span class="p">,</span>
+            <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"los angeles"</span><span class="p">,</span>
+            <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">118.283882141</span><span class="p">,</span>
+            <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+          <span class="p">},</span>
+          <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"8887187201"</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+      <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"offer_construct"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$50 for $100 Great Dining at Kuhn, Goldner and Spencer"</span><span class="p">,</span>
-      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant"</span><span class="p">,</span>
-      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant/get"</span><span class="p">,</span>
       <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-        <span class="p">},</span>
-        <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-        <span class="p">},</span>
         <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"xlarge"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/xlarge.jpg"</span>
         <span class="p">},</span>
         <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"large"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/large.jpg"</span>
         <span class="p">},</span>
         <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"tiny"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/tiny.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_103"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_103"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(103x68)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_103.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_198"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_198"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_198.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_222"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_222"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(222x148)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_222.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_306"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_306"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(306x204)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_306.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_316"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_316"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(316x211)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_316.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_372"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_372"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(372x246)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_372.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_400"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_400"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(400x265)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_400.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_498"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_498"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(498x332)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_498.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_640"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_640"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x426)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_640.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"_660"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_660"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(660x330)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/_660.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"featured"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"featured"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(548x362)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/featured.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/thumb.jpg"</span>
         <span class="p">}</span>
       <span class="p">},</span>
-      <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Los Angeles"</span><span class="p">,</span>
+      <span class="s2">"region_slug"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-10-17T07:00:00Z"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Bike Rentals"</span><span class="p">,</span>
+      <span class="s2">"subcategory_id"</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="s2">"supplier_slug"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"your-restaurant"</span><span class="p">,</span>
-      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"your-restaurant"</span><span class="p">,</span>
-      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"slug"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"affinity_score"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+      <span class="s2">"category_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"combine_linked_offers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"custom_data"</span><span class="o">:</span> <span class="p">{</span>
 
-      <span class="p">],</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Fine Dining"</span><span class="p">,</span>
-      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d89fsdf89sdf8.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Some Guys"</span><span class="p">,</span>
-      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">20000</span><span class="p">,</span>
-      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
-      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2014-01-01T06:59:59Z"</span><span class="p">,</span>
+      <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-11-20T13:25:14-07:00"</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$100 for $200 Fine Dining at Some Guys"</span><span class="p">,</span>
-      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/your-restaurant"</span><span class="p">,</span>
-      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/your-restaurant/get"</span><span class="p">,</span>
+      <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"generics/chameleon_medium.gif"</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_medium.gif"</span><span class="p">,</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"Colorado"</span><span class="p">,</span>
+            <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"80234"</span><span class="p">,</span>
+            <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"7072 North Mariposa Court"</span><span class="p">,</span>
+            <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">39.923740387</span><span class="p">,</span>
+            <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"Westminster"</span><span class="p">,</span>
+            <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">105.003417969</span><span class="p">,</span>
+            <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"United States"</span>
+          <span class="p">},</span>
+          <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">""</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="mi">9999999</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"6/21 rel merchant"</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"offer_construct"</span><span class="o">:</span> <span class="s2">"15% off purchase"</span><span class="p">,</span>
+      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
       <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
-        <span class="p">},</span>
-        <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
-        <span class="p">},</span>
         <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"xlarge"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_xlarge.gif"</span>
         <span class="p">},</span>
         <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"large"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_large.gif"</span>
         <span class="p">},</span>
         <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
           <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x425.gif"</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_medium.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"tiny"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_tiny.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_103"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_103"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(103x68)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__103.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_198"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_198"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__198.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_222"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_222"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(222x148)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__222.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_306"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_306"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(306x204)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__306.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_316"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_316"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(316x211)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__316.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_372"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_372"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(372x246)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__372.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_400"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_400"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(400x265)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__400.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_498"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_498"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(498x332)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__498.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_640"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_640"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x426)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__640.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"_660"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"_660"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(660x330)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon__660.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"featured"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"featured"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(548x362)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_featured.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_show.gif"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/images/generics/chameleon_thumb.gif"</span>
         <span class="p">}</span>
       <span class="p">},</span>
-      <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/den-621-rel-merchant-4/checkout"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"denver"</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Denver"</span><span class="p">,</span>
+      <span class="s2">"region_slug"</span><span class="o">:</span> <span class="s2">"denver"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"15% off purchase"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-07-23T06:00:00Z"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Comedy"</span><span class="p">,</span>
+      <span class="s2">"subcategory_id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="s2">"supplier_slug"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
@@ -793,347 +1203,8 @@
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
-
-<h1 id="externally-approve-a-deal">Externally approve a deal</h1>
-
-<p>This request marks the deal as externally approved. The deal must be in the pending external approval state to send this request successfully. This request is needed only if deals must be externally approved before they are activated for users to purchase.</p>
-
-<h2 id="request-2">Request</h2>
-
-<pre><code>PUT /deals/{deal_id}/external_approve
-</code></pre>
-
-<h2 id="request-parameters-2">Request Parameters</h2>
-
-<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
-
-<dl>
-<dt>deal_id</dt>
-  <dd>
-<em>String</em> Unique identifier slug for a specific deal</dd>
-  <dt>reason</dt>
-  <dd>
-<em>Optional String</em> Reason for approving</dd>
-</dl><h2 id="request-example-2">Request Example</h2>
-
-<pre><code>PUT /deals/my-restaurant/external_approve?api_key=1234567
-</code></pre>
-
-<h2 id="response-2">Response</h2>
-
-<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
-
-<h2 id="response-attributes-2">Response Attributes</h2>
-
-<p>The response JSON file will contain a single deal state attribute.</p>
-
-<dl>
-<dt>deal</dt>
-  <dd>
-<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
-</dl><h2 id="response-example-2">Response Example</h2>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
-
-    <span class="p">],</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Great Dining"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Morar, Shanahan and Ruecker"</span><span class="p">,</span>
-    <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-    <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-    <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-    <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"external-approved"</span><span class="p">,</span>
-    <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-    <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-    <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-    <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-    <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-    <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-    <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-    <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$50 for $100 Great Dining at Kuhn, Goldner and Spencer"</span><span class="p">,</span>
-    <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant/get"</span><span class="p">,</span>
-    <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
-
-<h1 id="externally-validate-a-deal">Externally validate a deal</h1>
-
-<p>This request marks the deal as externally validated. This is used to ensure that the deal meets the basic validation criteria from a third-party system before entering the “in review” state for admin.</p>
-
-<h2 id="request-3">Request</h2>
-
-<pre><code>PUT /deals/{deal_id}/external_validate
-</code></pre>
-
-<h2 id="request-parameters-3">Request Parameters</h2>
-
-<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
-
-<dl>
-<dt>deal_id</dt>
-  <dd>
-<em>String</em> Unique identifier slug for a specific deal</dd>
-  <dt>reason</dt>
-  <dd>
-<em>Optional String</em> Reason for validating</dd>
-</dl><h2 id="request-example-3">Request Example</h2>
-
-<pre><code>PUT /deals/my-restaurant/external_validate?api_key=1234567
-</code></pre>
-
-<h2 id="response-3">Response</h2>
-
-<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
-
-<h2 id="response-attributes-3">Response Attributes</h2>
-
-<p>The response JSON file will contain a single deal state attribute.</p>
-
-<dl>
-<dt>deal</dt>
-  <dd>
-<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
-</dl><h2 id="response-example-3">Response Example</h2>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
-
-    <span class="p">],</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Great Dining"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Morar, Shanahan and Ruecker"</span><span class="p">,</span>
-    <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-    <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-    <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-    <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"external-validated"</span><span class="p">,</span>
-    <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-    <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-    <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-    <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-    <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-    <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-    <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-    <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$50 for $100 Great Dining at Kuhn, Goldner and Spencer"</span><span class="p">,</span>
-    <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant/get"</span><span class="p">,</span>
-    <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
-
-<h2 id="externally-reject-a-deal">Externally reject a deal</h2>
-
-<p>This request marks the deal as externally rejected. The deal must be in the pending external approval or pending external validation state.</p>
-
-<h2 id="request-4">Request</h2>
-
-<pre><code>PUT /deals/{deal_id}/external_reject
-</code></pre>
-
-<h2 id="request-parameters-4">Request Parameters</h2>
-
-<p>This request requires a single parameter that must be included in the HTTP URL. A reason can also be included in the record through a JSON parameter.</p>
-
-<dl>
-<dt>deal_id</dt>
-  <dd>
-<em>String</em> Unique identifier slug for a specific deal</dd>
-  <dt>reason</dt>
-  <dd>
-<em>Optional String</em> Reason for rejecting</dd>
-</dl><h2 id="request-example-4">Request Example</h2>
-
-<pre><code>PUT /deals/my-restaurant/external_validate?api_key=1234567
-</code></pre>
-
-<h2 id="response-4">Response</h2>
-
-<p>The response JSON file will contain the deal state attribute for the deal specificed in the request URL.</p>
-
-<h2 id="response-attributes-4">Response Attributes</h2>
-
-<p>The response JSON file will contain a single deal state attribute.</p>
-
-<dl>
-<dt>deal</dt>
-  <dd>
-<em>String</em> State of the deal which should be “external-approved” after a successful request.</dd>
-</dl><h2 id="response-example-4">Response Example</h2>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
-
-    <span class="p">],</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Great Dining"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-    <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span><span class="p">,</span>
-    <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"Morar, Shanahan and Ruecker"</span><span class="p">,</span>
-    <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"san-francisco"</span><span class="p">,</span>
-    <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-    <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"ended"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2011-11-20T02:35:58Z"</span><span class="p">,</span>
-    <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2011-11-22T04:59:59Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2012-11-29T17:46:50-04:00"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"rejected"</span><span class="p">,</span>
-    <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"San Francisco"</span><span class="p">,</span>
-    <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Blanditiis cupiditate iure possimus ipsam. Vel explicabo aut repudiandae. Ea et aliquid totam enim voluptates et rerum perspiciatis. Placeat voluptates veritatis qui ut et quia. Et perferendis nihil ut."</span><span class="p">,</span>
-    <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Exercitationem ex consequatur veniam magnam eum aut asperiores dolorum. Blanditiis dicta ut et quo. Expedita facilis impedit deserunt magnam. Voluptatum nostrum et repudiandae ipsam nihil sunt. Delectus qui nesciunt blanditiis omnis in illo nihil voluptatem."</span><span class="p">,</span>
-    <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Sapiente nisi beatae fugit. Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"sub-partner1"</span><span class="p">,</span>
-    <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Distinctio omnis suscipit minima expedita. Et qui eos neque beatae. Sit cum ut natus dicta perspiciatis laboriosam molestias corrupti. Molestias quia odio sit."</span><span class="p">,</span>
-    <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $10. This amount does not expire. The Promotional Value of this Voucher is $10. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2013-01-14. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
-    <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"category"</span><span class="p">,</span>
-    <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"subcategory"</span><span class="p">,</span>
-    <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$50 for $100 Great Dining at Kuhn, Goldner and Spencer"</span><span class="p">,</span>
-    <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant"</span><span class="p">,</span>
-    <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"http://domain/deal/my-restaurant/get"</span><span class="p">,</span>
-    <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(198x130&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"tiny"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(81x56)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"xlarge"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(640x640&gt;)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"large"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(520x352)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://domain/images/deals/generic640x426.gif"</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"campaign"</span><span class="o">:</span> <span class="s2">"campaign"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
       </div>
-      
+
     </div>
 
   </article>
@@ -1147,17 +1218,17 @@
           <li><a href="http://www.deem.com/"><img src="http://media.deem.com/designimages/deem_logo.png" alt="Deem" width="59" height="18"></a></li>
           <li><a href="http://www.deem.com/work">Save</a></li>
           <li><a href="http://www.deem.com/merchant">Sell</a></li>
-          <li><a href="http://www.reardencommerce.com/" target="_blank">Partner</a></li>
+          <li><a href="http://www.deem.com/" target="_blank">Partner</a></li>
           <li><a href="http://blog.deem.com/">Discover</a></li>
           <li><a href="http://www.deem.com/developer">Develop</a></li>
         </ul>
 
         <ul class="right">
-          <li><a href="http://www.reardencommerce.com/" target="_blank">About Us</a></li>     
-          <li><a href="http://www.reardencommerce.com/privacy/terms.html" target="_blank">Terms</a></li>
-          <li><a href="http://www.reardencommerce.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
+          <li><a href="http://www.deem.com/" target="_blank">About Us</a></li>
+          <li><a href="http://www.deem.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.deem.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
           <li><a href="mailto:needhelp@deem">Feedback</a></li>
-        </ul>      
+        </ul>
       </nav>
       <p>&copy; 1999-2013 Rearden Commerce, Inc. All rights reserved.</p>
     </div>
