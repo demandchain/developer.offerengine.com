@@ -27,7 +27,7 @@ Returns an array of card link representations.
 <%= json(:status => "success", :card_links => [OfferEngine.card_link]) %>
 
 ## Create a card link
-Creates a card link for a user and a deal in the linked state.
+Creates a card link for a user and a deal or batch of deals in the linked state.
 
     POST /card_links
 
@@ -36,8 +36,14 @@ Creates a card link for a user and a deal in the linked state.
 deal_id
 : _String_  Id of the deal
 
+or
+
+deal_ids
+: _Optional String_ Comma seperated list of deal ids (eg: ?deal_ids="first-deal,second-deal")
+: _Optional Array_ Multi-value list of deal ids (eq: ?deal_ids[]="first-deal"&deal_ids[]="second-deal")
+
 user_id
-: _String_  Id of the user
+: _String_ Id of the user
 
 ### Response
 
