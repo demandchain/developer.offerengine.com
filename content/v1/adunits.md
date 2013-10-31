@@ -4,13 +4,13 @@ title: Pre-Packaged Marketing Ad Units
 
 # Ad Units
 
-Partners can add pre-packaged marketing ad units to different web pages and sites to show deals and offers.
-The ad units operate like widgets to show in-flight deals and offers that users can click to acquire.
+Partners can add pre-packaged marketing ad units to different web pages and sites to show deals.
+The ad units operate like widgets to show in-flight deals that users can click to acquire.
 Up to 10 in-flight deals are selected for each ad unit based on request parameters, and they are rotated periodically.
 Request parameters applicable to the [Deals API](/v1/deals) are also applicable to ad units.
 <br><br>
 Partners need to include only one line of JavaScript to place an ad unit on a web page.  
-If no deals or offers identified for the ad units, then a stand-by ad unit is rendered with content "40 - 80% Off at ${partner web site}".
+If no deals are identified for the ad units, then a stand-by ad unit is rendered with content "40 - 80% Off at ${partner web site}".
 
 In version 1, three types of ad units are supported:
 
