@@ -1,5 +1,5 @@
 ---
-title: Pre-Packaged Marketing Ad Units
+title: Ad Units
 ---
 
 # Ad Units
