@@ -14,7 +14,7 @@ The Deem Offers API is [RESTful](http://en.wikipedia.org/wiki/Representational_S
 
 Accounts have test-mode and live-mode API keys. Both keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.
 
-If you have any problems or requests, please contact [support](mailto:support@offerengine.com).
+If you have any problems or requests, please contact [support](mailto:support@deem.com).
 
 ## Endpoint
 
