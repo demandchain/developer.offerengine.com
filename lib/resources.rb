@@ -10,6 +10,37 @@ require 'resources/batch'
 
 module OfferEngine
   module Helpers
+    module V3
+      FILTER = "filter (optional)
+: _String_ Filter the list according to applicable filters (comma-separated)."
+
+      COUNT = "count (optional)
+: _Boolean_ Returns the count instead of the list.  If present, per_page and page will be ignored."
+
+      PAGE_SIZE = "page_size (optional)
+: _Integer_ Limits the number of deals returned on a page.  Default is 100.  Max is also 100."
+
+      PAGE = "page (optional)
+: _Integer_ Returns the deals corresponding to the page number if the result cannot be displayed in a single page.  Default is 1."
+
+      ORDER = "order (optional)
+: _String_ Defines the order the deals are returned in. Values may be 'asc' and 'desc. Default is 'asc'."
+
+      FIELDS = "fields (optional)
+: _String_ Defines fields to include in the request. The minium set of fields will always be returned, plus any fields defined. e.g. fields = fulfillment_method, incentive_amount, incentive_percentage will return the minimum set of fields + these three. Default is 'all'."
+
+      IMAGES = "images (optional)
+: _String_ Defines the image links to be included in the images hash. e.g. images=small,medium will return just the small and medium images. Default is all."
+
+      def list_parameters(options={})
+        parameters = [COUNT, PAGE_SIZE, PAGE, ORDER, FIELDS, IMAGES]
+        if options[:applicable_filters]
+          parameters.unshift(FILTER + "  These include: \"#{options[:applicable_filters].join('", "')}\".")
+        end
+        parameters.join("\n\n")
+      end
+    end
+
     FILTER = "filter (optional)
 : _String_ Filter the list according to applicable filters (comma-separated)."
 
@@ -42,6 +73,7 @@ module OfferEngine
 end
 
 include OfferEngine::Helpers
+#include OfferEngine::Helpers::V3
 
 module GitHub
   module Resources
