@@ -148,5 +148,3 @@ error_type = "find_failed"
 
 <%= headers 404 %>
 <%= json(OfferEngine.deals_error()) %>
-
-V3.deals_error()) %>
