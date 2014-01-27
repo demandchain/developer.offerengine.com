@@ -73,7 +73,6 @@ module OfferEngine
 end
 
 include OfferEngine::Helpers
-#include OfferEngine::Helpers::V3
 
 module GitHub
   module Resources
