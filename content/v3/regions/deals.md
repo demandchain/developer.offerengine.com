@@ -21,9 +21,9 @@ If you are using the "city, state" syntax, abbreviations are not accepted.  "St 
 user_id (optional)
 : _String_ A user id that will be used to filter deals (e.g. based on user preferences).
 
-<%= list_parameters :applicable_filters => ["in_flight", "offer", "current", "not_bg"]%>
+<%= OfferEngine::V3.list_parameters :applicable_filters => ["in_flight", "offer", "current", "not_bg"]%>
 
 ### Response
 
 <%= headers 200 %>
-<%= json(:status => "success", :deals => [OfferEngine.deal]) %>
+<%= json(:status => "success", :deals => [OfferEngine::V3.deal]) %>
