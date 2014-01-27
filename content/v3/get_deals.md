@@ -12,32 +12,15 @@ Each deal has a number of attributes you can use to filter the Get Deals request
 
 If you make this call with no set parameters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to "true" when making this call.
 
-## Request 
+## Request
 
-	GET /v1/deals?api_key={api_key}
+	GET /v3/deals?api_key={api_key}
 
 ## Request Parameters
 
 You provide the parameters as a JSON file. All parameter fields are optional. As you add a parameter, it is evaluated in a logical AND operation with any other paramaters to filter the results. For example, if the <i>title</i> parameter is set to "burger" and the <i>state</i> parameter is set to "in-flight", the filtering returns only in-flight deals that have "burger" in the title.
 
 ### Individual deal detail parameters
-
-slug
-: _Optional String_ Filter deals by a particular deal slug.
-
-marketplace_slug
-: _Optional String_ Filter deals by a particular marketplace deal slug.
-
-title
-: _Optional String_ Filter deals by title with this value ("burger" could return deals with titles "$20 off Bob's Burgers", "$10 off Burgermeister", and so on).
-
-### State parameters
-
-state
-: _Optional String_ Filter deals in this workflow state ("in-flight", "approved", "submitted", "landed", "in-review", "rejected", "paused", and "deleted"). <b>The "in-flight" state is the most relevant state because it identifies deals currently available for purchase.</b>
-
-show_all
-: _Optional Boolean_ Show deals in all workflow states (true only).
 
 ### Category parameters
 
@@ -47,17 +30,12 @@ category
 subcategory
 : _Optional String_ Filter deals by subcategory with this value ("Me" could return deals in the subcategories "Mexican", "Mediterreanean", and "Medical - Other").
 
-### Merchant parameters
-
-merchant
-: _Optional String_ Filter deals by merchant name with this value ("burger" could return deals with merchants named "Bob's Burger", "Burgermeister", and so on).
-
 ### Price parameters
 
 price_min
 : _Optional Integer_ Filter the minimum deal price in cents (i.e., 100 equals one dollar).
 
-price_max 
+price_max
 : _Optional Integer_ Filter the maximum deal price in cents.
 
 ### Location parameters
@@ -74,44 +52,17 @@ longitude
 radius
 : _Optional Float_ Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.
 
-### User parameters
-
-user
-: _Optional String_ Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.
-
-### Source parameters
-
-suppliers 
-: _Optional Array_ Filter deals by supplier (a partner slug or set of comma-separated partner slugs).
-
-vendors
-: _Optional Array_ Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).
-
 ### Inventory parameters
- 
-num_left
-: _Optional Integer_ Filter deals by the quantity of inventory left.
 
 exclude_soldout
 : _Optional Boolean_ Filter deals that are not sold out (true only).
-
-### Scheduling parameters
-
-runs_min
-: _Optional Date_ Filter the minimum deal run date.
-
-runs_max
-: _Optional Date_ Filter the maximum deal run date.
-
-card_links_redeemed
-: _Optional Boolean_ Filter deals that are not card-linked (false only).
 
 ## Request Example
 
 ### New user account, new payment card, and a shipping address:
 
-<%= requests("GET /v1/deals?api_key=1234567") %>
-<%= json(OfferEngine.deals_request()) %>
+<%= requests("GET /v3/deals?api_key=1234567") %>
+<%= json(OfferEngine::V3.deals_request()) %>
 
 ## Response
 
@@ -121,19 +72,19 @@ The response includes the HTTP status of the request along with the associated r
 
 The response JSON file contains a list of deal resources that meet the request filter parameters.
 
-<%= get_deal_resource %>
+<%= OfferEngine::V3.deal_resource %>
 
 ## Response Examples
 
 ### Filter deals by the "san_francisco" region with two deals returned:
 
 <%= headers 200 %>
-<%= json(OfferEngine.deals) %>
+<%= json(OfferEngine::V3.deals) %>
 
 ### Filter deals by the "restaurants" category with no deals returned:
 
 <%= headers 200 %>
-<%= json(OfferEngine.deals_empty) %>
+<%= json(OfferEngine::V3.deals_empty) %>
 
 ## Error Responses
 
@@ -147,6 +98,4 @@ error_type = "find_failed"
 ## Error Response Example
 
 <%= headers 404 %>
-<%= json(OfferEngine.deals_error()) %>
-
-V3.deals_error()) %>
+<%= json(OfferEngine::V3.deals_error()) %>

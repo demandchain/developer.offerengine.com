@@ -241,6 +241,11 @@ fulfillment_method
 highlights
 : _String_ Additional important details about the deal
 
+images
+: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes:
+  * large, medium, small, and tiny
+  * Each item points to the images URL.
+
 incentive_amount
 : _Integer_ A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)
 
@@ -282,11 +287,6 @@ number_sold
 
 percent_fee
 : _Integer_ The percent charged for running the deal (only for card-linked deals)
-
-images
-: _Hash_ A list of deal images in different sizes. Each image is available in the following sizes:
-  * large, medium, small, and tiny
-  * Each item points to the images URL.
 
 purchase_url
 : _String_ The URL for deal purchase web page
