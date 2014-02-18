@@ -73,6 +73,12 @@ created_at
 state
 : _String_  State of the purchase (<possible results>)
 
+qrcode_url
+: _String_  URL for the qrcode image associated with the coupon
+
+qrcode_base64
+: _String_  Base64 encoded qrcode image associated with the coupon
+
 redeemed_at
 : _Optional String_  Date and time when purchase voucher was redeemed
 
@@ -88,7 +94,7 @@ This request creates a purchase for an existing user with a stored payment card.
 
 ### Parameters
 deal_id
-: _String_  ID of the deal for which you are purchasing inventory 
+: _String_  ID of the deal for which you are purchasing inventory
 
 quantity
 : _Integer_ The number of deals you are purchasing for this purchase
@@ -97,7 +103,7 @@ user_id
 : _String_  ID of the user who is making the purchase
 
 credit_card_id
-: _String_  ID of the payment card for which you are purchasing inventory 
+: _String_  ID of the payment card for which you are purchasing inventory
 
 expected_price_per_unit
 : _Integer_ The expected price
@@ -117,7 +123,7 @@ Temporarily reserve inventory (for five minutes) for a purchase in order to proc
 ### Parameters
 
 deal_id
-: _String_  ID of the deal for which you are reserving inventory 
+: _String_  ID of the deal for which you are reserving inventory
 
 num_bought
 : _Integer_ The number of deals you are reserving for this purchase
@@ -135,7 +141,7 @@ After inventory has been reserved for a purchase and payment processing is succe
 ### Parameters
 
 user_id
-: _String_  ID of the user for which you are reserving inventory 
+: _String_  ID of the user for which you are reserving inventory
 
 ### Response
 
