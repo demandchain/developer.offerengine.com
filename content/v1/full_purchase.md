@@ -8,14 +8,14 @@ You can use the all-in-one Execute Purchases call to create a purchase, create a
 
 This single operation will create a new user if the user doesn't already exist, and execute a single purchase transaction. It will also associate the purchase card information with the user. It doesn't matter if a user or purchase card resource already exists in the system. The backend software is intelligent enough to match existing resources to fullfill the purchase properly.
 
-## Request 
+## Request
 
 	POST /v1/purchases/full.json?api_key={api_key}
 
 ## Request Parameters
 
-You provide the required and optional parameters as a JSON file. The required fields are: 
-* <b>purchase parameters</b> (<i>deal_id, quantity</i>) 
+You provide the required and optional parameters as a JSON file. The required fields are:
+* <b>purchase parameters</b> (<i>deal_id, quantity</i>)
 * <b>user parameters</b> (<i>user id<i/> or <i>user resource</i>)
 * <b>payment card parameters</b> (<i>credit card id</i> or <i>credit card resource</i>)
 * <b>shipping address parameters</b> (<i>shipping address id</i> or <i>shipping address resource</i>) if the deal needs to be shipped
@@ -71,7 +71,7 @@ number
 verification_value
 : _String_ Verification value (CVV) for the payment card when a payment card number is provided
 
-month 
+month
 : _String_ Two-digit month for the payment card expiration date when a payment card number is provided
 
 year
@@ -182,22 +182,22 @@ credit_card_id
 #### Deal attributes
 
 id
-: _String_ Unique identifier for the purchased deal 
+: _String_ Unique identifier for the purchased deal
 
 deal_id
-: _String_ Unique identifier for the purchased deal 
+: _String_ Unique identifier for the purchased deal
 
 title
-: _String_ Title of the purchased deal 
+: _String_ Title of the purchased deal
 
 type
-: _String_ Type of the purchased deal 
+: _String_ Type of the purchased deal
 
 image_url
-: _String_ Relative URL for an image associated with the purchased deal 
+: _String_ Relative URL for an image associated with the purchased deal
 
 image_url_abs
-: _String_ Absolute URL for an image associated with the purchased deal 
+: _String_ Absolute URL for an image associated with the purchased deal
 
 #### Coupon attributes
 
@@ -208,7 +208,7 @@ slug
 : _String_  Unique identifier for this purchase voucher
 
 deal_id
-: _String_  Unique identifier for purchased deal 
+: _String_  Unique identifier for purchased deal
 
 deal_type
 : _String_  Type of purchased deal ("daily-deal", "city-sampler", "private-reserve", "card-linked")
@@ -231,13 +231,19 @@ state
 redeemed_at
 : _Optional String_  Date and time when the purchase voucher was redeemed
 
+qrcode_url
+: _String_  URL for the qrcode image associated with the coupon
+
+qrcode_base64
+: _String_  Base64 encoded qrcode image associated with the coupon
+
 ## Response Example
 <%= headers 200 %>
 <%= json(OfferEngine.full_purchase()) %>
 
 ## Error Responses
 
-Responses are provided for each failed portion of the purchase request. if the user, payment card, or shipping address sections fail, the purchase does not occur. You don't have to worry that purchases might be made with invalid data. 
+Responses are provided for each failed portion of the purchase request. if the user, payment card, or shipping address sections fail, the purchase does not occur. You don't have to worry that purchases might be made with invalid data.
 
 ### 409
 
