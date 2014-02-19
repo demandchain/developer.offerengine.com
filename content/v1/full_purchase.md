@@ -211,7 +211,7 @@ deal_id
 : _String_  Unique identifier for purchased deal
 
 deal_type
-: _String_  Type of purchased deal ("daily-deal", "city-sampler", "private-reserve", "card-linked")
+: _String_  Type of purchased deal ("daily-deal", "'on-going", "card-linked")
 
 barcode
 : _String_  Unique barcode used for purchase redemption
