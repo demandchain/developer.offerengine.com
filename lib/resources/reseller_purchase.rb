@@ -1,41 +1,100 @@
 module OfferEngine
   def self.new_reseller_card_linked_purchase
     {
-        :deal_id => "deal1234",
-        :transaction_amount => "3599",
-        :transaction_date => "2014-06-06T20:30:05Z",
+        :deal_id               => "deal1234",
+        :transaction_amount    => "3599",
+        :transaction_date      => "2014-06-06T20:30:05Z",
         :transaction_reference => "trans1234",
-        :first_name => "Hank",
-        :last_name => "Rearden"
+        :first_name            => "Hank",
+        :last_name             => "Rearden"
     }
   end
 
   def self.new_reseller_daily_deal_purchase
     {
-        :deal_id => "deal1234",
-        :quantity => "2",
-        :transaction_date => "2014-06-06T20:30:05Z",
+        :deal_id               => "deal1234",
+        :quantity              => "2",
+        :transaction_date      => "2014-06-06T20:30:05Z",
         :transaction_reference => "trans1234",
-        :first_name => "Hank",
-        :last_name => "Rearden"
+        :first_name            => "Hank",
+        :last_name             => "Rearden"
     }
   end
 
   def self.new_reseller_daily_deal_shipped_purchase
     {
-        :deal_id => "deal1234",
-        :quantity => "2",
-        :transaction_date => "2014-06-06T20:30:05Z",
+        :deal_id               => "deal1234",
+        :quantity              => "2",
+        :transaction_date      => "2014-06-06T20:30:05Z",
         :transaction_reference => "trans1234",
-        :first_name => "Hank",
-        :last_name => "Rearden",
-        :address_name => "Home",
-        :address1 => "123 Any St.",
-        :address2 => "Suite 100",
-        :postal_code => "12345",
-        :city => "Any Town",
-        :state => "CA",
-        :country => "US"
+        :first_name            => "Hank",
+        :last_name             => "Rearden",
+        :address_name          => "Home",
+        :address1              => "123 Any St.",
+        :address2              => "Suite 100",
+        :postal_code           => "12345",
+        :city                  => "Any Town",
+        :state                 => "CA",
+        :country               => "US"
+    }
+  end
+
+  $reseller_purchase_id = "af063ec2"
+
+  def self.reseller_purchase
+    {
+        id:                    $reseller_purchase_id,
+        transaction_reference: "client_ref_id",
+        price:                 OfferEngine.deal[:current_price],
+        amount:                OfferEngine.deal[:current_price] * OfferEngine.deal[:number_sold],
+        number_bought:         OfferEngine.deal[:number_sold],
+        payment_state:         "charged",
+        fulfillment_state:     "fulfilled",
+        created_at:            "Fri Dec 16 19:11:15 UTC 2011",
+        deal:                  {
+            id:            OfferEngine.deal[:id],
+            title:         OfferEngine.deal[:title],
+            image_url_abs: OfferEngine.deal[:primary_image][:large][:url]
+        },
+        :coupons               => [OfferEngine.coupon]
+    }
+  end
+
+  def self.reseller_purchase_error_all
+    {
+        :status     => "error",
+        :error_type => "validation_failed",
+        :error_msg  => "validation failed",
+        :errors     => [
+            {
+                :type     => "invalid",
+                :message  => "cannot purchase that many",
+                :field    => "quantity",
+                :resource => "purchase"
+            },
+            {
+                :type     => "not_found",
+                :message  => "doesn not exist",
+                :resource => "shipping_address"
+            }
+        ],
+    }
+  end
+
+  def self.reseller_purchase_error
+    {
+        :status         => "error",
+        :error_type     => "validation_failed",
+        :error_msg      => "validation failed",
+        :user_id        => OfferEngine::USER[:id],
+        :errors         => [
+            {
+                :type     => "invalid",
+                :message  => "cannot purchase that many",
+                :field    => "quantity",
+                :resource => "purchase",
+            },
+        ],
     }
   end
 end

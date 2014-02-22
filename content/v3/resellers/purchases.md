@@ -69,7 +69,7 @@ country
 : _String_ Two-character country abbreviation
 
 
-### Card Linked Request Example
+### Reseller purchases Request Example
 
 <%= requests("POST /resellers/purchases.json?api_key={api_key}") %>
 <%= json(OfferEngine.new_reseller_card_linked_purchase()) %>
@@ -87,4 +87,29 @@ country
 ### Response
 
 <%= headers 200 %>
-<%= json(:status => "success", :purchase_id => "abc123") %>
+<%= json(OfferEngine.reseller_purchase()) %>
+
+## Error Responses
+
+If there is an error creating the purchase or any required portion an error message will be returned.
+
+### 422
+
+error_type = "cannot_fufill"
+: Not able to fulfill the purchase
+
+error_type = "validations_failed"
+: Validation failed, which can be five failure types ("missing_field", "missing", "invalid", "not_owner", and "not_found"). Each type also has the associated resource that caused the error ("user", "purchase", "shipping address") and may also have a field narrowing down the specific attribute if applicable.
+
+
+## Error Response Example
+
+### Validation errors for purchase only
+
+<%= headers 422 %>
+<%= json(OfferEngine.reseller_purchase_error()) %>
+
+### Validation errors for purchase, and shipping address
+
+<%= headers 422 %>
+<%= json(OfferEngine.reseller_purchase_error_all()) %>
