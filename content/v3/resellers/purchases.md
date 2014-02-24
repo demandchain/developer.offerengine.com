@@ -51,7 +51,7 @@ Which fields are required depends on the type of the deal a purchase is being re
 
 ### Available Fields
 
-The following fields may be included in any purchase request.  All fields send will be used,
+The following fields may be included in any purchase request.  All fields sent will be used,
 though they may have little to no meaning for some requests.
 
 

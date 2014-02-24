@@ -45,10 +45,8 @@ module OfferEngine
     {
         id:                    $reseller_purchase_id,
         transaction_reference: "client_ref_id",
-        price:                 OfferEngine.deal[:current_price],
         amount:                OfferEngine.deal[:current_price] * OfferEngine.deal[:number_sold],
         number_bought:         OfferEngine.deal[:number_sold],
-        payment_state:         "charged",
         fulfillment_state:     "fulfilled",
         created_at:            "Fri Dec 16 19:11:15 UTC 2011",
         deal:                  {
@@ -56,7 +54,7 @@ module OfferEngine
             title:         OfferEngine.deal[:title],
             image_url_abs: OfferEngine.deal[:primary_image][:large][:url]
         },
-        :coupons               => [OfferEngine.coupon]
+        :coupons               => [OfferEngine.reseller_coupon]
     }
   end
 
@@ -74,7 +72,7 @@ module OfferEngine
             },
             {
                 :type     => "not_found",
-                :message  => "doesn not exist",
+                :message  => "does not exist",
                 :resource => "shipping_address"
             }
         ],

@@ -13,6 +13,19 @@ module OfferEngine
     }
   end
 
+  def self.reseller_coupon
+    {
+        :id              => "a21c5452d8",
+        :expires_at      => nil,
+        :created_at      => "Fri Dec 16 19:14:55 UTC 2011",
+        :qr_code_url     => "http://domain/coupon/qr_code/ab231c9e",
+        :qr_code         => "apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6",
+        :state           => "valid",
+        :redemption_code => nil,
+        :redeemed_at     => nil
+    }
+  end
+
   def self.full_coupon
     {
         :id              => "a21c5452d8",
