@@ -124,12 +124,11 @@ If there is an error creating the purchase or any required portion an error mess
 
 ### 422
 
-error_type = "cannot_fufill"
+error_type = "cannot_fulfill"
 : Not able to fulfill the purchase
 
 error_type = "validations_failed"
-: Validation failed, which can be five failure types ("missing_field", "missing", "invalid", "not_owner", and "not_found"). Each type also has the associated resource that caused the error ("user", "purchase", "shipping address") and may also have a field narrowing down the specific attribute if applicable.
-
+: Validation failed, which can be five failure types ("missing_field", "missing", "invalid", "not_owner", and "not_found"). Each type also has the associated resource that caused the error ("purchase") and may also have a field narrowing down the specific attribute if applicable.
 
 ## Error Response Example
 
