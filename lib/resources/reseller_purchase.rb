@@ -65,14 +65,14 @@ module OfferEngine
         :error_msg  => "validation failed",
         :errors     => [
             {
-                :type     => "invalid",
-                :message  => "cannot purchase that many",
-                :field    => "quantity",
-                :resource => "purchase"
+                :type     => "not_found",
+                :message  => "deal not found",
+                :resource => "deal"
             },
             {
-                :type     => "not_found",
-                :message  => "does not exist",
+                :type     => "invalid",
+                :message  => "code is invalid",
+                :field    => "postal_code",
                 :resource => "shipping_address"
             }
         ],
@@ -87,10 +87,9 @@ module OfferEngine
         :user_id        => OfferEngine::USER[:id],
         :errors         => [
             {
-                :type     => "invalid",
-                :message  => "cannot purchase that many",
-                :field    => "quantity",
-                :resource => "purchase",
+                :type     => "not_found",
+                :message  => "deal not found",
+                :resource => "deal"
             },
         ],
     }
