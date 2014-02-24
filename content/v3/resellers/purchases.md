@@ -14,9 +14,46 @@ be used if the transaction is completely managed by the third party.
 
     POST /resellers/purchases
 
-### Parameters
+### Required Parameters
 
-#### Required
+Which fields are required depends on the type of the deal a purchase is being recorded for.
+
+#### Daily Deal or On Going deals
+* deal_id
+* quantity
+* transaction_reference
+* transaction_date
+* transaction_amount
+* first_name
+* last_name
+
+#### Shipped
+* deal_id
+* quantity
+* transaction_reference
+* transaction_date
+* transaction_amount
+* first_name
+* last_name
+* address_type
+* address_one
+* postal_code
+* city
+* state
+* country
+
+#### Card Linked
+* deal_id
+* transaction_reference
+* transaction_date
+* transaction_amount
+
+
+### Available Fields
+
+The following fields may be included in any purchase request.  All fields send will be used,
+though they may have little to no meaning for some requests.
+
 
 deal_id
 : _String_ The id of the deal that was purchased
@@ -27,46 +64,38 @@ transaction_reference
 transaction_date (in ISO 8601 format)
 : _String_
 
-#### Optional
-
 first_name
-: _String_
+: _String_ The first name of the user who made the purchase
 
 last_name
-: _String_
+: _String_ The last name of the user who made the purchase
 
-#### Required for Card Linked
-
-transaction_amount (in cents)
-: _Integer_
-
-#### Required for Daily Deal and On Going
+transaction_amount
+: _Integer_ The amount of the transaction in cents.  (100 represents 1 dollar.)
 
 quantity
-: _Integer_ Number of deals to be purchased
+: _Integer_ Number of deals to be purchased.  If this is not specified and is not required, this will default to 1.
 
-#### Required for Shipped fulfillment method
-
-address_name
+address_type
 : _String_ Name associated with this shipping address (Home, Work, etc.)
 
-address1
-: _String_ First line
+address_one
+: _String_ First line of the shipping address
 
-address2 (optional)
-: _String_ Second line
+address_two
+: _String_ Second line of the shipping address
 
 postal_code
-: _String_ Postal/Zip code
+: _String_ Postal/Zip code of the shipping address
 
 city
-: _String_ City name
+: _String_ City name of the shipping address
 
 state
-: _String_ Two-character state abbreviation
+: _String_ Two-character state abbreviation of the shipping address
 
 country
-: _String_ Two-character country abbreviation
+: _String_ Two-character country abbreviation of the shipping address
 
 
 ### Reseller purchases Request Example
