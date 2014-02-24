@@ -90,10 +90,12 @@
         <h1 id="user-credit-cards">User Credit Cards</h1>
 
 <ul>
-<li><a href="/v1/users/credit_cards/#list-all-users-credit-cards">List all user’s credit cards</a></li>
+  <li><a href="/v1/users/credit_cards/#list-all-users-credit-cards">List all user’s credit cards</a></li>
   <li><a href="/v1/users/credit_cards/#create-a-credit-card">Create a credit card</a></li>
   <li><a href="/v1/users/credit_cards/#set-default-credit-card">Set default credit card</a></li>
-</ul><h2 id="list-all-users-credit-cards">List all user’s credit cards</h2>
+</ul>
+
+<h2 id="list-all-users-credit-cards">List all user’s credit cards</h2>
 <p>Returns an array of credit card representations.</p>
 
 <pre><code>GET /credit_cards
@@ -102,7 +104,7 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
 <em>String</em> Id of the user</dd>
   <dt>count (optional)</dt>
@@ -114,7 +116,9 @@
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -141,7 +145,7 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
 <em>String</em> Id of the user</dd>
   <dt>number</dt>
@@ -156,7 +160,9 @@
   <dt>year</dt>
   <dd>
 <em>Integer</em> Expiration year in digit format.</dd>
-</dl><h3 id="response-1">Response</h3>
+</dl>
+
+<h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -179,6 +185,7 @@
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

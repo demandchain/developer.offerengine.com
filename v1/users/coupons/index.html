@@ -90,9 +90,11 @@
         <h1 id="user-coupons">User Coupons</h1>
 
 <ul>
-<li><a href="/v1/users/coupons/#list-all-users-coupons">List all user’s coupons</a></li>
+  <li><a href="/v1/users/coupons/#list-all-users-coupons">List all user’s coupons</a></li>
   <li><a href="/v1/users/coupons/#redeem-a-coupon">Redeem a coupon</a></li>
-</ul><h2 id="list-all-users-coupons">List all user’s coupons</h2>
+</ul>
+
+<h2 id="list-all-users-coupons">List all user’s coupons</h2>
 <p>Returns an array of coupon representations.</p>
 
 <pre><code>GET /users/:user_id/coupons
@@ -101,7 +103,7 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>filter (optional)</dt>
+  <dt>filter (optional)</dt>
   <dd>
 <em>String</em> Filter the list according to applicable filters (comma-separated).  These include: “valid”, “redeemed”, “expired”.</dd>
   <dt>count (optional)</dt>
@@ -113,7 +115,9 @@
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -157,6 +161,7 @@ PUT /coupons/:coupon_id/redeem
     <span class="s2">"print_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupons/a21c5452d8/print"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

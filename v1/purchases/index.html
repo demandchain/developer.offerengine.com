@@ -90,12 +90,14 @@
         <h1 id="purchases">Purchases</h1>
 
 <ul>
-<li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
+  <li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
   <li><a href="/v1/purchases/#create-a-purchase">Create a purchase</a></li>
   <li><a href="/v1/purchases/#reserve-a-purchase">Reserve a purchase</a></li>
   <li><a href="/v1/purchases/#claim-a-purchase">Claim a purchase</a></li>
   <li><a href="/v1/purchases/#release-a-reserved-purchase">Release a reserved purchase</a></li>
-</ul><h2 id="get-a-purchase">Get a purchase</h2>
+</ul>
+
+<h2 id="get-a-purchase">Get a purchase</h2>
 
 <p>This request retrieves a specific purchase object. It returns a representation of a specific purchase transaction and associated information.</p>
 
@@ -117,7 +119,7 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of this purchase (“success” or error type)</dd>
   <dt>purchase_id</dt>
@@ -132,9 +134,11 @@
   <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  Unique identifier for credit card used to make this purchase</dd>
-</dl><h4 id="coupons">coupons</h4>
+</dl>
+
+<h4 id="coupons">coupons</h4>
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>slug</dt>
@@ -161,10 +165,18 @@
   <dt>state</dt>
   <dd>
 <em>String</em>  State of the purchase (&lt;possible results&gt;)</dd>
+  <dt>qrcode_url</dt>
+  <dd>
+<em>String</em>  URL for the qrcode image associated with the coupon</dd>
+  <dt>qrcode_base64</dt>
+  <dd>
+<em>String</em>  Base64 encoded qrcode image associated with the coupon</dd>
   <dt>redeemed_at</dt>
   <dd>
 <em>Optional String</em>  Date and time when purchase voucher was redeemed</dd>
-</dl><h3 id="response-example">Response Example</h3>
+</dl>
+
+<h3 id="response-example">Response Example</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -214,9 +226,9 @@
 
 <h3 id="parameters-2">Parameters</h3>
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
-<em>String</em>  ID of the deal for which you are purchasing inventory </dd>
+<em>String</em>  ID of the deal for which you are purchasing inventory</dd>
   <dt>quantity</dt>
   <dd>
 <em>Integer</em> The number of deals you are purchasing for this purchase</dd>
@@ -225,14 +237,16 @@
 <em>String</em>  ID of the user who is making the purchase</dd>
   <dt>credit_card_id</dt>
   <dd>
-<em>String</em>  ID of the payment card for which you are purchasing inventory </dd>
+<em>String</em>  ID of the payment card for which you are purchasing inventory</dd>
   <dt>expected_price_per_unit</dt>
   <dd>
 <em>Integer</em> The expected price</dd>
   <dt>session_id (optional)</dt>
   <dd>
 <em>String</em> The session ID that is associated with an affiliate</dd>
-</dl><h3 id="response-1">Response</h3>
+</dl>
+
+<h3 id="response-1">Response</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -271,13 +285,15 @@
 <h3 id="parameters-3">Parameters</h3>
 
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
-<em>String</em>  ID of the deal for which you are reserving inventory </dd>
+<em>String</em>  ID of the deal for which you are reserving inventory</dd>
   <dt>num_bought</dt>
   <dd>
 <em>Integer</em> The number of deals you are reserving for this purchase</dd>
-</dl><h3 id="response-2">Response</h3>
+</dl>
+
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -319,10 +335,12 @@
 <h3 id="parameters-4">Parameters</h3>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
-<em>String</em>  ID of the user for which you are reserving inventory </dd>
-</dl><h3 id="response-3">Response</h3>
+<em>String</em>  ID of the user for which you are reserving inventory</dd>
+</dl>
+
+<h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -402,6 +420,7 @@
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

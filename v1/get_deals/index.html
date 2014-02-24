@@ -109,7 +109,7 @@
 <h3 id="individual-deal-detail-parameters">Individual deal detail parameters</h3>
 
 <dl>
-<dt>slug</dt>
+  <dt>slug</dt>
   <dd>
 <em>Optional String</em> Filter deals by a particular deal slug.</dd>
   <dt>marketplace_slug</dt>
@@ -118,44 +118,54 @@
   <dt>title</dt>
   <dd>
 <em>Optional String</em> Filter deals by title with this value (“burger” could return deals with titles “$20 off Bob’s Burgers”, “$10 off Burgermeister”, and so on).</dd>
-</dl><h3 id="state-parameters">State parameters</h3>
+</dl>
+
+<h3 id="state-parameters">State parameters</h3>
 
 <dl>
-<dt>state</dt>
+  <dt>state</dt>
   <dd>
 <em>Optional String</em> Filter deals in this workflow state (“in-flight”, “approved”, “submitted”, “landed”, “in-review”, “rejected”, “paused”, and “deleted”). <b>The “in-flight” state is the most relevant state because it identifies deals currently available for purchase.</b>
 </dd>
   <dt>show_all</dt>
   <dd>
 <em>Optional Boolean</em> Show deals in all workflow states (true only).</dd>
-</dl><h3 id="category-parameters">Category parameters</h3>
+</dl>
+
+<h3 id="category-parameters">Category parameters</h3>
 
 <dl>
-<dt>category</dt>
+  <dt>category</dt>
   <dd>
 <em>Optional String</em> Filter deals by category with this value (“Foo” could return deals in the category “Food”).</dd>
   <dt>subcategory</dt>
   <dd>
 <em>Optional String</em> Filter deals by subcategory with this value (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”).</dd>
-</dl><h3 id="merchant-parameters">Merchant parameters</h3>
+</dl>
+
+<h3 id="merchant-parameters">Merchant parameters</h3>
 
 <dl>
-<dt>merchant</dt>
+  <dt>merchant</dt>
   <dd>
 <em>Optional String</em> Filter deals by merchant name with this value (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, and so on).</dd>
-</dl><h3 id="price-parameters">Price parameters</h3>
+</dl>
+
+<h3 id="price-parameters">Price parameters</h3>
 
 <dl>
-<dt>price_min</dt>
+  <dt>price_min</dt>
   <dd>
 <em>Optional Integer</em> Filter the minimum deal price in cents (i.e., 100 equals one dollar).</dd>
   <dt>price_max </dt>
   <dd>
 <em>Optional Integer</em> Filter the maximum deal price in cents.</dd>
-</dl><h3 id="location-parameters">Location parameters</h3>
+</dl>
+
+<h3 id="location-parameters">Location parameters</h3>
 
 <dl>
-<dt>region</dt>
+  <dt>region</dt>
   <dd>
 <em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip code.</dd>
   <dt>latitude</dt>
@@ -167,34 +177,42 @@
   <dt>radius</dt>
   <dd>
 <em>Optional Float</em> Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.</dd>
-</dl><h3 id="user-parameters">User parameters</h3>
+</dl>
+
+<h3 id="user-parameters">User parameters</h3>
 
 <dl>
-<dt>user</dt>
+  <dt>user</dt>
   <dd>
 <em>Optional String</em> Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.</dd>
-</dl><h3 id="source-parameters">Source parameters</h3>
+</dl>
+
+<h3 id="source-parameters">Source parameters</h3>
 
 <dl>
-<dt>suppliers </dt>
+  <dt>suppliers </dt>
   <dd>
 <em>Optional Array</em> Filter deals by supplier (a partner slug or set of comma-separated partner slugs).</dd>
   <dt>vendors</dt>
   <dd>
 <em>Optional Array</em> Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).</dd>
-</dl><h3 id="inventory-parameters">Inventory parameters</h3>
+</dl>
+
+<h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
-<dt>num_left</dt>
+  <dt>num_left</dt>
   <dd>
 <em>Optional Integer</em> Filter deals by the quantity of inventory left.</dd>
   <dt>exclude_soldout</dt>
   <dd>
 <em>Optional Boolean</em> Filter deals that are not sold out (true only).</dd>
-</dl><h3 id="scheduling-parameters">Scheduling parameters</h3>
+</dl>
+
+<h3 id="scheduling-parameters">Scheduling parameters</h3>
 
 <dl>
-<dt>runs_min</dt>
+  <dt>runs_min</dt>
   <dd>
 <em>Optional Date</em> Filter the minimum deal run date.</dd>
   <dt>runs_max</dt>
@@ -203,7 +221,9 @@
   <dt>card_links_redeemed</dt>
   <dd>
 <em>Optional Boolean</em> Filter deals that are not card-linked (false only).</dd>
-</dl><h2 id="request-example">Request Example</h2>
+</dl>
+
+<h2 id="request-example">Request Example</h2>
 
 <h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
@@ -225,15 +245,17 @@
 <h3 id="status-attributes">status attributes</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of the request (success or error)</dd>
-</dl><h3 id="deal-attributes">Deal attributes</h3>
+</dl>
+
+<h3 id="deal-attributes">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for purchased deal</dd>
   <dt>slug</dt>
@@ -281,19 +303,19 @@
 <em>String</em> How the consumer redeems the deal:</dd>
   <dd>
     <ul>
-<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+      <li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+      <li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>shipped - The purchase is shipped to the customer</li>
+      <li>shipped - The purchase is shipped to the customer</li>
     </ul>
-</dd>
+  </dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
@@ -392,50 +414,50 @@
 <em>String</em> The current workflow state of the deal:</dd>
   <dd>
     <ul>
-<li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
+      <li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
+      <li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>rejected - The deal failed approval and is not available for purchase.</li>
+      <li>rejected - The deal failed approval and is not available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
+      <li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>in-flight - The deal is available for purchase.</li>
+      <li>in-flight - The deal is available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
+      <li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+      <li>cancelled - The deal has been manually canelled and is no longer in flight</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>landed - The run window has passed and the deal is no longer available for purchase.</li>
+      <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>deleted - The deal has been removed.<br><br>
+      <li>deleted - The deal has been removed.<br><br>
 </li>
     </ul>
-</dd>
+  </dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
@@ -471,7 +493,9 @@
   <dt>value</dt>
   <dd>
 <em>Integer</em> The value of the deal in cents</dd>
-</dl><h2 id="response-examples">Response Examples</h2>
+</dl>
+
+<h2 id="response-examples">Response Examples</h2>
 
 <h3 id="filter-deals-by-the-sanfrancisco-region-with-two-deals-returned">Filter deals by the “san_francisco” region with two deals returned:</h3>
 
@@ -825,9 +849,11 @@
 <h3 id="section">404</h3>
 
 <dl>
-<dt>error_type = “find_failed”</dt>
+  <dt>error_type = “find_failed”</dt>
   <dd>Parameter information provided is invalid.</dd>
-</dl><h2 id="error-response-example">Error Response Example</h2>
+</dl>
+
+<h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
 
@@ -836,6 +862,7 @@
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

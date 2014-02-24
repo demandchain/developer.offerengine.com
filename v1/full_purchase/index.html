@@ -100,8 +100,8 @@
 
 <h2 id="request-parameters">Request Parameters</h2>
 
-<p>You provide the required and optional parameters as a JSON file. The required fields are: 
-* <b>purchase parameters</b> (<i>deal_id, quantity</i>) 
+<p>You provide the required and optional parameters as a JSON file. The required fields are:
+* <b>purchase parameters</b> (<i>deal_id, quantity</i>)
 * <b>user parameters</b> (<i>user id<i></i> or <i>user resource</i>)
 * <b>payment card parameters</b> (<i>credit card id</i> or <i>credit card resource</i>)
 * <b>shipping address parameters</b> (<i>shipping address id</i> or <i>shipping address resource</i>) if the deal needs to be shipped</i></p>
@@ -109,7 +109,7 @@
 <h3 id="purchase-parameters">Purchase parameters</h3>
 
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
 <em>String</em> ID of the deal for which you are purchasing inventory</dd>
   <dt>quantity</dt>
@@ -117,19 +117,23 @@
 <em>Integer</em> Number of deals to be purchased
 <br><br>
 </dd>
-</dl><h3 id="user-parameters">User parameters</h3>
+</dl>
+
+<h3 id="user-parameters">User parameters</h3>
 <p>Provide a stored ID or a complete user resource with the associated user fields (<i>email, password,</i> and <i>password_confirmation</i>).</p>
 
 <h4 id="user-id">User id</h4>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
 <em>String</em> ID of the user making the purchase</dd>
-</dl><h5 id="user-resource">User resource</h5>
+</dl>
+
+<h5 id="user-resource">User resource</h5>
 
 <dl>
-<dt>email</dt>
+  <dt>email</dt>
   <dd>
 <em>String</em> Email address of the user making the purchase</dd>
   <dt>pass</dt>
@@ -146,25 +150,29 @@
 <em>Optional String</em> Last name of user
 <br><br>
 </dd>
-</dl><h3 id="payment-card-parameters">Payment card parameters</h3>
+</dl>
+
+<h3 id="payment-card-parameters">Payment card parameters</h3>
 <p>Provide a stored ID or a complete payment card resource with the associated payment card fields (<i>number, verfication_value, month,</i> and <i>year</i>).</p>
 
 <h4 id="payment-card-id">Payment card id</h4>
 
 <dl>
-<dt>credit_card_id</dt>
+  <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  ID of the stored payment card used for purchasing</dd>
-</dl><h4 id="payment-card-resource">Payment card resource</h4>
+</dl>
+
+<h4 id="payment-card-resource">Payment card resource</h4>
 
 <dl>
-<dt>number</dt>
+  <dt>number</dt>
   <dd>
 <em>String</em>  Payment card number used for purchasing</dd>
   <dt>verification_value</dt>
   <dd>
 <em>String</em> Verification value (CVV) for the payment card when a payment card number is provided</dd>
-  <dt>month </dt>
+  <dt>month</dt>
   <dd>
 <em>String</em> Two-digit month for the payment card expiration date when a payment card number is provided</dd>
   <dt>year</dt>
@@ -172,19 +180,23 @@
 <em>String</em> Four-digit year for the payment card expiration date when a payment card number is provided
 <br><br>
 </dd>
-</dl><h3 id="shipping-address-parameters">Shipping address parameters</h3>
+</dl>
+
+<h3 id="shipping-address-parameters">Shipping address parameters</h3>
 <p>Provide an existing ID or a complete shipping address resource with the associated shipping address fields (<i>address_one, postal_code, city, state,</i> and <i>country</i>). This is required only for deals with a “shipped” fulfillment type.</p>
 
 <h4 id="shipping-address-id">Shipping address id</h4>
 
 <dl>
-<dt>shipping_address_id</dt>
+  <dt>shipping_address_id</dt>
   <dd>
 <em>String</em>  ID of the stored shipping address used for purchasing</dd>
-</dl><h4 id="shipping-address-resource">Shipping address resource</h4>
+</dl>
+
+<h4 id="shipping-address-resource">Shipping address resource</h4>
 
 <dl>
-<dt>name</dt>
+  <dt>name</dt>
   <dd>
 <em>String</em> Name associated with this shipping address (Home, Work, and so on)</dd>
   <dt>address_one</dt>
@@ -205,7 +217,9 @@
   <dt>country</dt>
   <dd>
 <em>String</em> Two-character country abbreviation of shipping address</dd>
-</dl><h2 id="request-example">Request Example</h2>
+</dl>
+
+<h2 id="request-example">Request Example</h2>
 
 <h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
@@ -259,16 +273,18 @@
 <h3 id="status-attributes">Status attributes</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of this purchase (success or error)</dd>
-</dl><h3 id="purchases-attributes">Purchases attributes</h3>
+</dl>
+
+<h3 id="purchases-attributes">Purchases attributes</h3>
 
 <p>The response includes a purchase attribute, deal attributes, a user attribute, a payment card attribute, coupon attributes, and errors for each attribute that failed during the request.</p>
 
 <h4 id="purchase-attributes">Purchase attributes</h4>
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for this purchase</dd>
   <dt>purchase_id</dt>
@@ -298,43 +314,51 @@
   <dt>number_bought</dt>
   <dd>
 <em>Integer</em> Quantity of the deals bought</dd>
-</dl><h4 id="user-attribute">User attribute</h4>
+</dl>
+
+<h4 id="user-attribute">User attribute</h4>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
 <em>String</em>  Unique identifier for the user making the purchase</dd>
-</dl><h4 id="payment-card-attribute">Payment card attribute</h4>
+</dl>
+
+<h4 id="payment-card-attribute">Payment card attribute</h4>
 
 <dl>
-<dt>credit_card_id</dt>
+  <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  Unique identifier for the payment card used to make this purchase</dd>
-</dl><h4 id="deal-attributes">Deal attributes</h4>
+</dl>
+
+<h4 id="deal-attributes">Deal attributes</h4>
 
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
-<em>String</em> Unique identifier for the purchased deal </dd>
+<em>String</em> Unique identifier for the purchased deal</dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em> Unique identifier for the purchased deal </dd>
+<em>String</em> Unique identifier for the purchased deal</dd>
   <dt>title</dt>
   <dd>
-<em>String</em> Title of the purchased deal </dd>
+<em>String</em> Title of the purchased deal</dd>
   <dt>type</dt>
   <dd>
-<em>String</em> Type of the purchased deal </dd>
+<em>String</em> Type of the purchased deal</dd>
   <dt>image_url</dt>
   <dd>
-<em>String</em> Relative URL for an image associated with the purchased deal </dd>
+<em>String</em> Relative URL for an image associated with the purchased deal</dd>
   <dt>image_url_abs</dt>
   <dd>
-<em>String</em> Absolute URL for an image associated with the purchased deal </dd>
-</dl><h4 id="coupon-attributes">Coupon attributes</h4>
+<em>String</em> Absolute URL for an image associated with the purchased deal</dd>
+</dl>
+
+<h4 id="coupon-attributes">Coupon attributes</h4>
 
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>slug</dt>
@@ -342,10 +366,10 @@
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>deal_id</dt>
   <dd>
-<em>String</em>  Unique identifier for purchased deal </dd>
+<em>String</em>  Unique identifier for purchased deal</dd>
   <dt>deal_type</dt>
   <dd>
-<em>String</em>  Type of purchased deal (“daily-deal”, “city-sampler”, “private-reserve”, “card-linked”)</dd>
+<em>String</em>  Type of purchased deal (“daily-deal”, “‘on-going”, “card-linked”)</dd>
   <dt>barcode</dt>
   <dd>
 <em>String</em>  Unique barcode used for purchase redemption</dd>
@@ -364,7 +388,15 @@
   <dt>redeemed_at</dt>
   <dd>
 <em>Optional String</em>  Date and time when the purchase voucher was redeemed</dd>
-</dl><h2 id="response-example">Response Example</h2>
+  <dt>qrcode_url</dt>
+  <dd>
+<em>String</em>  URL for the qrcode image associated with the coupon</dd>
+  <dt>qrcode_base64</dt>
+  <dd>
+<em>String</em>  Base64 encoded qrcode image associated with the coupon</dd>
+</dl>
+
+<h2 id="response-example">Response Example</h2>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -407,23 +439,27 @@
 
 <h2 id="error-responses">Error Responses</h2>
 
-<p>Responses are provided for each failed portion of the purchase request. if the user, payment card, or shipping address sections fail, the purchase does not occur. You don’t have to worry that purchases might be made with invalid data. </p>
+<p>Responses are provided for each failed portion of the purchase request. if the user, payment card, or shipping address sections fail, the purchase does not occur. You don’t have to worry that purchases might be made with invalid data.</p>
 
 <h3 id="section">409</h3>
 
 <dl>
-<dt>error_type = “already_charging”</dt>
+  <dt>error_type = “already_charging”</dt>
   <dd>Existing purchase still processing</dd>
-</dl><h3 id="section-1">422</h3>
+</dl>
+
+<h3 id="section-1">422</h3>
 
 <dl>
-<dt>error_type = “cannot_fufill”</dt>
+  <dt>error_type = “cannot_fufill”</dt>
   <dd>Not able to fulfill the purchase</dd>
   <dt>error_type = “declined”</dt>
   <dd>Purchase declined</dd>
   <dt>error_type = “validations_failed”</dt>
   <dd>Validation failed, which can be five failure types (“missing_field”, “missing”, “invalid”, “not_owner”, and “not_found”). Each type also has the associated resource that caused the error (“user”, “credit_card”, “purchase”, “shipping address”) and may also have a field narrowing down the specific attribute if applicable.</dd>
-</dl><h2 id="error-response-example">Error Response Example</h2>
+</dl>
+
+<h2 id="error-response-example">Error Response Example</h2>
 
 <h3 id="validation-errors-for-purchase-only">Validation errors for purchase only</h3>
 
@@ -478,6 +514,7 @@
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

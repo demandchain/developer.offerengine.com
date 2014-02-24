@@ -90,12 +90,14 @@
         <h1 id="user-card-links">User Card Links</h1>
 
 <ul>
-<li><a href="/v1/users/card_links/#list-all-users-card-links">List all user’s card links</a></li>
+  <li><a href="/v1/users/card_links/#list-all-users-card-links">List all user’s card links</a></li>
   <li><a href="/v1/users/card_links/#create-a-card-link">Create a card link</a></li>
   <li><a href="/v1/users/card_links/#unlink-a-card-link">Unlink a card link</a></li>
   <li><a href="/v1/users/card_links/#link-a-card-link">Link a card link</a></li>
   <li><a href="/v1/users/card_links/#redeem-a-card-link">Redeem a card link</a></li>
-</ul><p>A card link represents a user linking to a deal.  Once created, a card link will have a state of either “linked”, “unlinked”, or “fulfilled”.</p>
+</ul>
+
+<p>A card link represents a user linking to a deal.  Once created, a card link will have a state of either “linked”, “unlinked”, or “fulfilled”.</p>
 
 <h2 id="list-all-users-card-links">List all user’s card links</h2>
 <p>Returns an array of card link representations.</p>
@@ -106,7 +108,7 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>filter (optional)</dt>
+  <dt>filter (optional)</dt>
   <dd>
 <em>String</em> Filter the list according to applicable filters (comma-separated).  These include: “linked”, “unlinked”, “fulfilled”.</dd>
   <dt>count (optional)</dt>
@@ -118,7 +120,9 @@
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -144,13 +148,15 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
 <em>String</em>  Id of the deal</dd>
-</dl><p>or</p>
+</dl>
+
+<p>or</p>
 
 <dl>
-<dt>deal_ids</dt>
+  <dt>deal_ids</dt>
   <dd>
 <em>Optional String</em> Comma seperated list of deal ids (eg: ?deal_ids=”first-deal,second-deal”)</dd>
   <dd>
@@ -158,7 +164,9 @@
   <dt>user_id</dt>
   <dd>
 <em>String</em> Id of the user</dd>
-</dl><h3 id="response-1">Response</h3>
+</dl>
+
+<h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -224,7 +232,7 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <dl>
-<dt>transaction_amount</dt>
+  <dt>transaction_amount</dt>
   <dd>
 <em>Integer</em> total amount charged in cents</dd>
   <dt>transaction_date</dt>
@@ -235,13 +243,16 @@
   <dt>max_redemption</dt>
   <dd>
 <em>Boolean</em> Set to true if this redemption fulfills the card link.</dd>
-</dl><h3 id="response-4">Response</h3>
+</dl>
+
+<h3 id="response-4">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

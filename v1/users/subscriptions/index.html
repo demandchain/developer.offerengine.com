@@ -90,11 +90,13 @@
         <h1 id="subscriptions">Subscriptions</h1>
 
 <ul>
-<li><a href="/v1/users/subscriptions/#list-all-users-subscriptions">List all user’s subscriptions</a></li>
+  <li><a href="/v1/users/subscriptions/#list-all-users-subscriptions">List all user’s subscriptions</a></li>
   <li><a href="/v1/users/subscriptions/#get-a-subscription">Get a subscription</a></li>
   <li><a href="/v1/users/subscriptions/#create-a-subscription">Create a subscription</a></li>
   <li><a href="/v1/users/subscriptions/#update-a-subscription">Update a subscription</a></li>
-</ul><h2 id="list-all-users-subscriptions">List all user’s subscriptions</h2>
+</ul>
+
+<h2 id="list-all-users-subscriptions">List all user’s subscriptions</h2>
 <p>Returns an array of subscription representations.</p>
 
 <pre><code>GET /users/:user_id/subscriptions
@@ -104,7 +106,7 @@ GET /users/:user_email/subscriptions
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>count (optional)</dt>
+  <dt>count (optional)</dt>
   <dd>
 <em>Boolean</em> Returns the count instead of the list.  If present, per_page and page will be ignored.</dd>
   <dt>per_page (optional)</dt>
@@ -113,7 +115,9 @@ GET /users/:user_email/subscriptions
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -167,9 +171,11 @@ GET /users/:user_email/subscriptions
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>zip</dt>
+  <dt>zip</dt>
   <dd><em>Integer</em></dd>
-</dl><pre class="headers"><code>Status: 200 OK</code></pre>
+</dl>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
@@ -194,10 +200,12 @@ GET /users/:user_email/subscriptions
 <h3 id="parameters-2">Parameters</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  Can be “active” or “inactive”.</dd>
-</dl><h3 id="response-2">Response</h3>
+</dl>
+
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -215,6 +223,7 @@ GET /users/:user_email/subscriptions
     <span class="s2">"source"</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

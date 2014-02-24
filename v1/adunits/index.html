@@ -100,10 +100,12 @@ If no deals are identified for the ad units, then a stand-by ad unit is rendered
 <p>In version 1, three types of ad units are supported:</p>
 
 <ol>
-<li>300 x 250 - Business Name, Percentage off, Image</li>
+  <li>300 x 250 - Business Name, Percentage off, Image</li>
   <li>180 x 150 - Business Name, Percentage off, Image</li>
   <li>728 x 90 - Business Name, Percentage off, Image, Description, Call to action</li>
-</ol><h2 id="x-250---business-name-percentage-off-image">300 x 250 - Business Name, Percentage off, Image</h2>
+</ol>
+
+<h2 id="x-250---business-name-percentage-off-image">300 x 250 - Business Name, Percentage off, Image</h2>
 <p><img src="/images/ad-unit-300-250.png" alt="Ad Unit 300x250"></p>
 
 <pre><code>&lt;script src="https://${partner_slug}-admin.offers.com/api/v1/adunits.js?widget_size=300"&gt;&lt;/script&gt;
@@ -123,19 +125,24 @@ If no deals are identified for the ad units, then a stand-by ad unit is rendered
 
 <h2 id="request-parameters">Request Parameters</h2>
 <dl>
-<dt>widget_size</dt>
+  <dt>widget_size</dt>
   <dd>Size of the ad unit widget</dd>
   <dt>rotate_interval_in_seconds</dt>
   <dd>Ad unit widget rotation interval in seconds</dd>
-</dl><h3 id="note">Note</h3>
+</dl>
+
+<h3 id="note">Note</h3>
 <ol>
-<li>Request parameters are not mandatory.  By default, the “728 x 90” ad unit is rendered with a rotation interval of 10 seconds (if there is more than one deal).</li>
+  <li>Request parameters are not mandatory.  By default, the “728 x 90” ad unit is rendered with a rotation interval of 10 seconds (if there is more than one deal).</li>
   <li>Only in-flight deals are selected.  Card-linked offers are not selected.</li>
   <li>Other request parameters applicable for the Deals API are also applicable to ad units.</li>
-</ol><h3 id="see-also">See Also</h3>
+</ol>
+
+<h3 id="see-also">See Also</h3>
 <ul>
-<li><a href="/v1/deals">Deals API</a></li>
+  <li><a href="/v1/deals">Deals API</a></li>
 </ul>
+
       </div>
 
     </div>
