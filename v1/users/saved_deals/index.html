@@ -84,18 +84,21 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
         <h1 id="user-saved-deals">User Saved Deals</h1>
 
 <ul>
-  <li><a href="/v1/users/saved_deals/#list-all-users-saved-deals">List all user’s saved deals</a></li>
+<li><a href="/v1/users/saved_deals/#list-all-users-saved-deals">List all user’s saved deals</a></li>
   <li><a href="/v1/users/saved_deals/#create-a-saved-deal">Create a saved deal</a></li>
   <li><a href="/v1/users/saved_deals/#delete-a-saved-deal">Delete a saved deal</a></li>
-</ul>
-
-<p>A saved deal let’s a user keep a list of deals for future reference.</p>
+</ul><p>A saved deal let’s a user keep a list of deals for future reference.</p>
 
 <h2 id="list-all-users-saved-deals">List all user’s saved deals</h2>
 <p>Returns an array of saved deal representations.</p>
@@ -106,7 +109,7 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-  <dt>count (optional)</dt>
+<dt>count (optional)</dt>
   <dd>
 <em>Boolean</em> Returns the count instead of the list.  If present, per_page and page will be ignored.</dd>
   <dt>per_page (optional)</dt>
@@ -115,9 +118,7 @@
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl>
-
-<h3 id="response">Response</h3>
+</dl><h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -141,15 +142,13 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-  <dt>deal_id</dt>
+<dt>deal_id</dt>
   <dd>
 <em>String</em>  Id of the deal</dd>
   <dt>user_id</dt>
   <dd>
 <em>String</em>  Id of the user</dd>
-</dl>
-
-<h3 id="response-1">Response</h3>
+</dl><h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -175,7 +174,6 @@
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
 <span class="p">}</span></code></pre>
-
       </div>
 
     </div>

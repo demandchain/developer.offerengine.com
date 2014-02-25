@@ -84,19 +84,22 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
         <h1 id="users">Users</h1>
 
 <ul>
-  <li><a href="/v1/users/#get-a-user">Get a user</a></li>
+<li><a href="/v1/users/#get-a-user">Get a user</a></li>
   <li><a href="/v1/users/#create-a-user">Create a user</a></li>
   <li><a href="/v1/users/#update-a-user">Update a user</a></li>
   <li><a href="/v1/users/#update-a-user-by-email">Update a user by email</a></li>
-</ul>
-
-<p>Many of the resources on the users API provide a shortcut for getting
+</ul><p>Many of the resources on the users API provide a shortcut for getting
 information about the currently authenticated user. If a request URL
 does not include a <code>:user</code> parameter than the response will be for the
 user infered from an access token.</p>
@@ -130,26 +133,26 @@ user infered from an access token.</p>
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-  <dt>email</dt>
+<dt>email</dt>
   <dd><em>String</em></dd>
   <dt>source</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> used for reporting</li>
       <li>only valid with <em>api_token</em>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>token</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> partner token</li>
       <li>only valid with <em>api_token</em>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>first_name</dt>
   <dd><em>String</em></dd>
   <dt>last_name</dt>
@@ -167,9 +170,7 @@ user infered from an access token.</p>
   <dt>session_id (optional)</dt>
   <dd>
 <em>STRING</em> If specified, the action will find the affiliate information from the session and remember the user is created through the affiliate</dd>
-</dl>
-
-<h3 id="response-1">Response</h3>
+</dl><h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -186,26 +187,26 @@ user infered from an access token.</p>
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-  <dt>email</dt>
+<dt>email</dt>
   <dd><em>String</em></dd>
   <dt>source</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> used for reporting</li>
       <li>only valid with <em>api_token</em>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>token</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> partner token</li>
       <li>only valid with <em>api_token</em>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>first_name</dt>
   <dd><em>String</em></dd>
   <dt>last_name</dt>
@@ -227,9 +228,7 @@ provided.</dd>
   <dt>is_deleted</dt>
   <dd>
 <em>Boolean</em> The soft delete status of a user.</dd>
-</dl>
-
-<h3 id="response-2">Response</h3>
+</dl><h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -261,11 +260,11 @@ provided.</dd>
 <p>The ramifications of this are as follows:-</p>
 
 <ul>
-  <li>
+<li>
     <p>assuming the user pre-exists in the offer engine</p>
 
     <ul>
-      <li>
+<li>
         <p>if a token is included in the request but it has not changed  <br>
 then no further action is required</p>
       </li>
@@ -277,45 +276,43 @@ then no further action is required</p>
         <p>if a token is included in the request but it has changed  <br>
 then the overwrite_token = true option must be included:    </p>
         <ul>
-          <li>this will instruct the api to update the users token with the new value,  <br>
+<li>this will instruct the api to update the users token with the new value,  <br>
 failure to include the option will result in a 422 error</li>
         </ul>
-      </li>
+</li>
     </ul>
-  </li>
+</li>
   <li>
     <p>assuming the user does not exist yet in the offer engine</p>
 
     <ul>
-      <li>this resource can still be PUT to,   <br>
+<li>this resource can still be PUT to,   <br>
 resulting in the user being created in the offer engine:  <br>
 The overwrite token is not required in this scenario   </li>
     </ul>
-  </li>
-</ul>
-
-<h3 id="parameters-2">Parameters</h3>
+</li>
+</ul><h3 id="parameters-2">Parameters</h3>
 
 <dl>
-  <dt>source</dt>
+<dt>source</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> used for reporting</li>
       <li>only valid with <em>api_token</em>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>token</dt>
   <dd>
     <ul>
-      <li>
+<li>
 <em>String</em> partner token</li>
       <li>only valid with <em>api_token</em>
 </li>
       <li>see note above: optional overwrite_token=true might be required on the request</li>
     </ul>
-  </dd>
+</dd>
   <dt>first_name</dt>
   <dd><em>String</em></dd>
   <dt>last_name</dt>
@@ -330,9 +327,7 @@ The overwrite token is not required in this scenario   </li>
   <dt>is_deleted</dt>
   <dd>
 <em>Boolean</em> The soft delete status of a user.</dd>
-</dl>
-
-<h3 id="response-3">Response</h3>
+</dl><h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -349,18 +344,15 @@ The overwrite token is not required in this scenario   </li>
 <span class="p">}</span></code></pre>
 
 <ul>
-  <li>if the token has changed for an existing user and the overwrite_token=true option  <br>
+<li>if the token has changed for an existing user and the overwrite_token=true option  <br>
 was not included on the request then the reponse will be</li>
-</ul>
-
-<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+</ul><pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"update_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to update, partner token has changed"</span>
 <span class="p">}</span></code></pre>
-
       </div>
 
     </div>

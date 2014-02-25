@@ -84,6 +84,11 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
@@ -114,24 +119,22 @@
 <p>A <em>purchase</em> is a transaction in which a person (the <em>purchaser</em>) buys a quantity of unit inventory of a specific deal. A purchase results in one of the following:</p>
 
 <ul>
-  <li>
+<li>
     <p>A <em>voucher</em>, which a purchaser uses to redeem the deal at the deal merchant’s location or website</p>
   </li>
   <li>
     <p>A product that is shipped directly to the purchaser</p>
   </li>
-</ul>
-
-<h2 id="implementation-example">Implementation Example</h2>
+</ul><h2 id="implementation-example">Implementation Example</h2>
 
 <p>You can provide deals to your customers using just two simple API calls: <em>get deals</em> and <em>execute a purchase.</em> The following example is a brief description of how these calls work with an existing mobile application.</p>
 
 <p>In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow: </p>
 
-<p><img src="/images/mobile_use_example.png" alt="Mobile Example Image"> </p>
+<p><img src="/images/mobile_use_example.png" alt="Mobile Example Image"></p>
 
 <ul>
-  <li>
+<li>
     <p><b>Show Offers:</b> Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.</p>
   </li>
   <li>
@@ -143,10 +146,7 @@
   <li>
     <p><b>Redeem Offer</b> When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.</p>
   </li>
-</ul>
-
-<p>To learn how to use the Deem Offers API, see our <a href="/v1/quick_start/">Quick Start Guide</a>.</p>
-
+</ul><p>To learn how to use the Deem Offers API, see our <a href="/v1/quick_start/">Quick Start Guide</a>.</p>
       </div>
 
     </div>

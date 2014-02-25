@@ -84,6 +84,11 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
@@ -92,11 +97,9 @@
 <p>You can use the following deal-related resource requests to get or modify your deals:</p>
 
 <ul>
-  <li><a href="/v1/deals/#get-a-deal">Get a deal</a></li>
+<li><a href="/v1/deals/#get-a-deal">Get a deal</a></li>
   <li><a href="/v1/deals/#get-deals-near-a-latitude-and-longitude">Get deals near a latitude and longitude</a></li>
-</ul>
-
-<h1 id="get-a-deal">Get a deal</h1>
+</ul><h1 id="get-a-deal">Get a deal</h1>
 
 <p>This request returns a single deal resource for a specific deal.</p>
 
@@ -110,12 +113,10 @@
 <p>This request requires a single parameter that must be included in the HTTP URL.</p>
 
 <dl>
-  <dt>deal_id</dt>
+<dt>deal_id</dt>
   <dd>
 <em>String</em> Unique identifier slug for a specific deal</dd>
-</dl>
-
-<h2 id="request-example">Request Example</h2>
+</dl><h2 id="request-example">Request Example</h2>
 
 <pre><code>GET /v1/deals/my-restaurant?api_key=1234567
 </code></pre>
@@ -131,17 +132,15 @@
 <h3 id="status-attributes">status attributes</h3>
 
 <dl>
-  <dt>status</dt>
+<dt>status</dt>
   <dd>
 <em>String</em>  State of the request (success or error)</dd>
-</dl>
-
-<h3 id="deal-attributes">Deal attributes</h3>
+</dl><h3 id="deal-attributes">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
-  <dt>id</dt>
+<dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for purchased deal</dd>
   <dt>slug</dt>
@@ -189,19 +188,19 @@
 <em>String</em> How the consumer redeems the deal:</dd>
   <dd>
     <ul>
-      <li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>shipped - The purchase is shipped to the customer</li>
+<li>shipped - The purchase is shipped to the customer</li>
     </ul>
-  </dd>
+</dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
@@ -300,50 +299,50 @@
 <em>String</em> The current workflow state of the deal:</dd>
   <dd>
     <ul>
-      <li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
+<li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
+<li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>rejected - The deal failed approval and is not available for purchase.</li>
+<li>rejected - The deal failed approval and is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
+<li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>in-flight - The deal is available for purchase.</li>
+<li>in-flight - The deal is available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
+<li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
+<li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>deleted - The deal has been removed.<br><br>
+<li>deleted - The deal has been removed.<br><br>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
@@ -379,9 +378,7 @@
   <dt>value</dt>
   <dd>
 <em>Integer</em> The value of the deal in cents</dd>
-</dl>
-
-<h2 id="response-example">Response Example</h2>
+</dl><h2 id="response-example">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -558,11 +555,9 @@
 <h3 id="section">404</h3>
 
 <dl>
-  <dt>error_type = “find_failed”</dt>
+<dt>error_type = “find_failed”</dt>
   <dd>Parameter information provided is invalid.</dd>
-</dl>
-
-<h2 id="error-response-example">Error Response Example</h2>
+</dl><h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
 
@@ -586,7 +581,7 @@
 <p>Required location parameters should be provided as a JSON file. Results will be provided for active deals within the location area described by the request parameters.</p>
 
 <dl>
-  <dt>latitude</dt>
+<dt>latitude</dt>
   <dd>
 <em>Float</em> latitude coordinate for origin of search</dd>
   <dt>longitude</dt>
@@ -595,9 +590,7 @@
   <dt>radius</dt>
   <dd>
 <em>Float</em> distance in miles from origin</dd>
-</dl>
-
-<h2 id="request-example-1">Request Example</h2>
+</dl><h2 id="request-example-1">Request Example</h2>
 
 <pre class="headers"><code>GET /v1/deals/locate?api_key=1234567</code></pre>
 
@@ -618,17 +611,15 @@
 <h3 id="status-attributes-1">status attributes</h3>
 
 <dl>
-  <dt>status</dt>
+<dt>status</dt>
   <dd>
 <em>String</em>  State of the request (success or error)</dd>
-</dl>
-
-<h3 id="deal-attributes-1">Deal attributes</h3>
+</dl><h3 id="deal-attributes-1">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
-  <dt>id</dt>
+<dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for purchased deal</dd>
   <dt>slug</dt>
@@ -676,19 +667,19 @@
 <em>String</em> How the consumer redeems the deal:</dd>
   <dd>
     <ul>
-      <li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>shipped - The purchase is shipped to the customer</li>
+<li>shipped - The purchase is shipped to the customer</li>
     </ul>
-  </dd>
+</dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
@@ -787,50 +778,50 @@
 <em>String</em> The current workflow state of the deal:</dd>
   <dd>
     <ul>
-      <li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
+<li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
+<li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>rejected - The deal failed approval and is not available for purchase.</li>
+<li>rejected - The deal failed approval and is not available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
+<li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>in-flight - The deal is available for purchase.</li>
+<li>in-flight - The deal is available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
+<li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
+<li>landed - The run window has passed and the deal is no longer available for purchase.</li>
     </ul>
-  </dd>
+</dd>
   <dd>
     <ul>
-      <li>deleted - The deal has been removed.<br><br>
+<li>deleted - The deal has been removed.<br><br>
 </li>
     </ul>
-  </dd>
+</dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
@@ -866,9 +857,7 @@
   <dt>value</dt>
   <dd>
 <em>Integer</em> The value of the deal in cents</dd>
-</dl>
-
-<h2 id="response-example-1">Response Example</h2>
+</dl><h2 id="response-example-1">Response Example</h2>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1209,11 +1198,9 @@
 <h3 id="section-1">404</h3>
 
 <dl>
-  <dt>error_type = “find_failed”</dt>
+<dt>error_type = “find_failed”</dt>
   <dd>Parameter information provided is invalid.</dd>
-</dl>
-
-<h2 id="error-response-example-1">Error Response Example</h2>
+</dl><h2 id="error-response-example-1">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
 
@@ -1222,7 +1209,6 @@
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
-
       </div>
 
     </div>

@@ -84,20 +84,23 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
         <h1 id="purchases">Purchases</h1>
 
 <ul>
-  <li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
+<li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
   <li><a href="/v1/purchases/#create-a-purchase">Create a purchase</a></li>
   <li><a href="/v1/purchases/#reserve-a-purchase">Reserve a purchase</a></li>
   <li><a href="/v1/purchases/#claim-a-purchase">Claim a purchase</a></li>
   <li><a href="/v1/purchases/#release-a-reserved-purchase">Release a reserved purchase</a></li>
-</ul>
-
-<h2 id="get-a-purchase">Get a purchase</h2>
+</ul><h2 id="get-a-purchase">Get a purchase</h2>
 
 <p>This request retrieves a specific purchase object. It returns a representation of a specific purchase transaction and associated information.</p>
 
@@ -119,7 +122,7 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-  <dt>status</dt>
+<dt>status</dt>
   <dd>
 <em>String</em>  State of this purchase (“success” or error type)</dd>
   <dt>purchase_id</dt>
@@ -134,11 +137,9 @@
   <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  Unique identifier for credit card used to make this purchase</dd>
-</dl>
-
-<h4 id="coupons">coupons</h4>
+</dl><h4 id="coupons">coupons</h4>
 <dl>
-  <dt>id</dt>
+<dt>id</dt>
   <dd>
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>slug</dt>
@@ -174,9 +175,7 @@
   <dt>redeemed_at</dt>
   <dd>
 <em>Optional String</em>  Date and time when purchase voucher was redeemed</dd>
-</dl>
-
-<h3 id="response-example">Response Example</h3>
+</dl><h3 id="response-example">Response Example</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -207,7 +206,8 @@
         <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
         <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
-        <span class="s2">"barcode"</span><span class="o">:</span> <span class="s2">"19435755354"</span><span class="p">,</span>
+        <span class="s2">"qr_code_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupon/qr_code/ab231c9e"</span><span class="p">,</span>
+        <span class="s2">"qr_code"</span><span class="o">:</span> <span class="s2">"apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6"</span><span class="p">,</span>
         <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
         <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -226,7 +226,7 @@
 
 <h3 id="parameters-2">Parameters</h3>
 <dl>
-  <dt>deal_id</dt>
+<dt>deal_id</dt>
   <dd>
 <em>String</em>  ID of the deal for which you are purchasing inventory</dd>
   <dt>quantity</dt>
@@ -244,9 +244,7 @@
   <dt>session_id (optional)</dt>
   <dd>
 <em>String</em> The session ID that is associated with an affiliate</dd>
-</dl>
-
-<h3 id="response-1">Response</h3>
+</dl><h3 id="response-1">Response</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -285,15 +283,13 @@
 <h3 id="parameters-3">Parameters</h3>
 
 <dl>
-  <dt>deal_id</dt>
+<dt>deal_id</dt>
   <dd>
 <em>String</em>  ID of the deal for which you are reserving inventory</dd>
   <dt>num_bought</dt>
   <dd>
 <em>Integer</em> The number of deals you are reserving for this purchase</dd>
-</dl>
-
-<h3 id="response-2">Response</h3>
+</dl><h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -335,12 +331,10 @@
 <h3 id="parameters-4">Parameters</h3>
 
 <dl>
-  <dt>user_id</dt>
+<dt>user_id</dt>
   <dd>
 <em>String</em>  ID of the user for which you are reserving inventory</dd>
-</dl>
-
-<h3 id="response-3">Response</h3>
+</dl><h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -372,7 +366,8 @@
         <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
         <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
-        <span class="s2">"barcode"</span><span class="o">:</span> <span class="s2">"19435755354"</span><span class="p">,</span>
+        <span class="s2">"qr_code_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupon/qr_code/ab231c9e"</span><span class="p">,</span>
+        <span class="s2">"qr_code"</span><span class="o">:</span> <span class="s2">"apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6"</span><span class="p">,</span>
         <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
         <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -420,7 +415,6 @@
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
-
       </div>
 
     </div>

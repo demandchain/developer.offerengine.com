@@ -84,6 +84,11 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
@@ -92,12 +97,10 @@
 <p>Deem Offers provides an API for integrating deals with your existing platform and services. Follow these three simple steps to get a fully functional Deem Offers API implementation up and running:</p>
 
 <ol>
-  <li>Authentication</li>
+<li>Authentication</li>
   <li>Get Deals</li>
   <li>Execute Purchases</li>
-</ol>
-
-<p>In order to use the Deem Offers API, you must be an approved Deem Offers partner with access to your Deem Offers Admin site. If you are not a Deem Offers partner, or you can’t log into your Deem Offers Admin site, please contact <a href="mailto:support@deem.com">support</a>.</p>
+</ol><p>In order to use the Deem Offers API, you must be an approved Deem Offers partner with access to your Deem Offers Admin site. If you are not a Deem Offers partner, or you can’t log into your Deem Offers Admin site, please contact <a href="mailto:support@deem.com">support</a>.</p>
 
 <h2 id="step-1-authentication">Step 1: Authentication</h2>
 
@@ -363,7 +366,8 @@
         <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
         <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
-        <span class="s2">"barcode"</span><span class="o">:</span> <span class="s2">"19435755354"</span><span class="p">,</span>
+        <span class="s2">"qr_code_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupon/qr_code/ab231c9e"</span><span class="p">,</span>
+        <span class="s2">"qr_code"</span><span class="o">:</span> <span class="s2">"apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6"</span><span class="p">,</span>
         <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
         <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -378,7 +382,6 @@
 <h2 id="additional-requests">Additional Requests</h2>
 
 <p>Additional requests – such as getting deals from specific locations or regions, managing user sessions, getting user information, creating targted emails, and getting statistical information – are included with the Deem Offers API. The additional calls are not necessary to provide Deem Offers deals to your customers, but you may find them useful. To learn more about additional requests, see <a href="/v1/advanced/">Additional Calls</a>.</p>
-
       </div>
 
     </div>

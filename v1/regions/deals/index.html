@@ -84,6 +84,11 @@
           <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
       </nav>
 
       <div class="content col9">
@@ -104,7 +109,7 @@ GET /regions/:city,:state/deals
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-  <dt>user_id (optional)</dt>
+<dt>user_id (optional)</dt>
   <dd>
 <em>String</em> A user id that will be used to filter deals (e.g. based on user preferences).</dd>
   <dt>filter (optional)</dt>
@@ -119,9 +124,7 @@ GET /regions/:city,:state/deals
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl>
-
-<h3 id="response">Response</h3>
+</dl><h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -292,7 +295,6 @@ GET /regions/:city,:state/deals
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
-
       </div>
 
     </div>

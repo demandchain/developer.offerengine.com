@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1020, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+
+  <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+
+  <title>Reseller Purchase - OfferEngine API</title>
+
+  <link href="/shared/css/documentation.css" rel="stylesheet" />
+  <link href="/shared/css/pygments.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css">
+
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if lte IE 9]> <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
+</head>
+<body class="api">
+
+<div id="wrapper">
+  <header class="row">
+    <div class="centered clearfix">
+      <h1>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/" class="active">Documentation</a></li>
+          <li><a href="mailto:support@deem.com">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article class="row">
+    <header class="row">
+      <div class="centered clearfix">
+        <h1>Deem Offers  API Documentation</h1>
+      </div>
+    </header>
+
+    <div class="centered clearfix">
+      <nav id="side-menu" class="col3">
+        <h1>Introduction</h1>
+        <ul>
+          <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>Getting Started</h1>
+        <ul>
+          <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>Core Calls</h1>
+        <ul>
+          <li><a href="/v1/get_deals/">Get Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/full_purchase/">Execute Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>Additional Calls</h1>
+        <ul>
+          <li><a href="/v1/adunits/">Ad Units</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/subscriptions/">User Subscriptions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>Reseller Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      </nav>
+
+      <div class="content col9">
+        <h1 id="purchases">Purchases</h1>
+
+<ul>
+<li><a href="/v3/resellers/purchases/#create-a-purchase">Create a purchase</a></li>
+</ul><p>Endpoint to create purchases for a third party reseller.  This api is only to
+be used if the transaction is completely managed by the third party.</p>
+
+<h2 id="create-a-purchase">Create a purchase</h2>
+
+<pre><code>POST /resellers/purchases
+</code></pre>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<p>Which fields are required depends on the type of the deal a purchase is being recorded for.</p>
+
+<h4 id="daily-deal-or-on-going-deals">Daily Deal or On Going deals</h4>
+<ul>
+<li>deal_id</li>
+  <li>quantity</li>
+  <li>transaction_reference</li>
+  <li>transaction_date</li>
+  <li>transaction_amount</li>
+  <li>first_name</li>
+  <li>last_name</li>
+</ul><h4 id="shipped">Shipped</h4>
+<ul>
+<li>deal_id</li>
+  <li>quantity</li>
+  <li>transaction_reference</li>
+  <li>transaction_date</li>
+  <li>transaction_amount</li>
+  <li>first_name</li>
+  <li>last_name</li>
+  <li>address_type</li>
+  <li>address_one</li>
+  <li>postal_code</li>
+  <li>city</li>
+  <li>state</li>
+  <li>country</li>
+</ul><h4 id="card-linked">Card Linked</h4>
+<ul>
+<li>deal_id</li>
+  <li>transaction_reference</li>
+  <li>transaction_date</li>
+  <li>transaction_amount</li>
+</ul><h3 id="available-fields">Available Fields</h3>
+
+<p>The following fields may be included in any purchase request.  All fields sent will be used,
+though they may have little to no meaning for some requests.</p>
+
+<dl>
+<dt>deal_id</dt>
+  <dd>
+<em>String</em> The id of the deal that was purchased</dd>
+  <dt>transaction_reference</dt>
+  <dd>
+<em>String</em> Partner generated reference for the transaction</dd>
+  <dt>transaction_date (in ISO 8601 format)</dt>
+  <dd><em>String</em></dd>
+  <dt>first_name</dt>
+  <dd>
+<em>String</em> The first name of the user who made the purchase</dd>
+  <dt>last_name</dt>
+  <dd>
+<em>String</em> The last name of the user who made the purchase</dd>
+  <dt>transaction_amount</dt>
+  <dd>
+<em>Integer</em> The amount of the transaction in cents.  (100 represents 1 dollar.)</dd>
+  <dt>quantity</dt>
+  <dd>
+<em>Integer</em> Number of deals to be purchased.  If this is not specified and is not required, this will default to 1.</dd>
+  <dt>address_type</dt>
+  <dd>
+<em>String</em> Name associated with this shipping address (Home, Work, etc.)</dd>
+  <dt>address_one</dt>
+  <dd>
+<em>String</em> First line of the shipping address</dd>
+  <dt>address_two</dt>
+  <dd>
+<em>String</em> Second line of the shipping address</dd>
+  <dt>postal_code</dt>
+  <dd>
+<em>String</em> Postal/Zip code of the shipping address</dd>
+  <dt>city</dt>
+  <dd>
+<em>String</em> City name of the shipping address</dd>
+  <dt>state</dt>
+  <dd>
+<em>String</em> Two-character state abbreviation of the shipping address</dd>
+  <dt>country</dt>
+  <dd>
+<em>String</em> Two-character country abbreviation of the shipping address</dd>
+</dl><h3 id="reseller-purchases-request-example">Reseller purchases Request Example</h3>
+
+<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
+  <span class="s2">"transaction_amount"</span><span class="o">:</span> <span class="s2">"3599"</span><span class="p">,</span>
+  <span class="s2">"transaction_date"</span><span class="o">:</span> <span class="s2">"2014-06-06T20:30:05Z"</span><span class="p">,</span>
+  <span class="s2">"transaction_reference"</span><span class="o">:</span> <span class="s2">"trans1234"</span><span class="p">,</span>
+  <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"Hank"</span><span class="p">,</span>
+  <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Rearden"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="daily-deal-or-on-going-request-example">Daily Deal or On Going Request Example</h3>
+
+<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
+  <span class="s2">"quantity"</span><span class="o">:</span> <span class="s2">"2"</span><span class="p">,</span>
+  <span class="s2">"transaction_date"</span><span class="o">:</span> <span class="s2">"2014-06-06T20:30:05Z"</span><span class="p">,</span>
+  <span class="s2">"transaction_reference"</span><span class="o">:</span> <span class="s2">"trans1234"</span><span class="p">,</span>
+  <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"Hank"</span><span class="p">,</span>
+  <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Rearden"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="daily-deal-or-on-going-shipped-request-example">Daily Deal or On Going Shipped Request Example</h3>
+
+<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
+  <span class="s2">"quantity"</span><span class="o">:</span> <span class="s2">"2"</span><span class="p">,</span>
+  <span class="s2">"transaction_date"</span><span class="o">:</span> <span class="s2">"2014-06-06T20:30:05Z"</span><span class="p">,</span>
+  <span class="s2">"transaction_reference"</span><span class="o">:</span> <span class="s2">"trans1234"</span><span class="p">,</span>
+  <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"Hank"</span><span class="p">,</span>
+  <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Rearden"</span><span class="p">,</span>
+  <span class="s2">"address_name"</span><span class="o">:</span> <span class="s2">"Home"</span><span class="p">,</span>
+  <span class="s2">"address1"</span><span class="o">:</span> <span class="s2">"123 Any St."</span><span class="p">,</span>
+  <span class="s2">"address2"</span><span class="o">:</span> <span class="s2">"Suite 100"</span><span class="p">,</span>
+  <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"12345"</span><span class="p">,</span>
+  <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Any Town"</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+  <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"af063ec2"</span><span class="p">,</span>
+  <span class="s2">"transaction_reference"</span><span class="o">:</span> <span class="s2">"client_ref_id"</span><span class="p">,</span>
+  <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"fulfillment_state"</span><span class="o">:</span> <span class="s2">"fulfilled"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:11:15 UTC 2011"</span><span class="p">,</span>
+  <span class="s2">"deal"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
+    <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal/images/4/b/84555f69/large.jpg"</span>
+  <span class="p">},</span>
+  <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
+      <span class="s2">"qr_code_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupon/qr_code/ab231c9e"</span><span class="p">,</span>
+      <span class="s2">"qr_code"</span><span class="o">:</span> <span class="s2">"apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
+      <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="error-responses">Error Responses</h2>
+
+<p>If there is an error creating the purchase or any required portion an error message will be returned.</p>
+
+<h3 id="section">422</h3>
+
+<dl>
+<dt>error_type = “cannot_fulfill”</dt>
+  <dd>Not able to fulfill the purchase</dd>
+  <dt>error_type = “validations_failed”</dt>
+  <dd>Validation failed, which can be five failure types (“missing_field”, “missing”, “invalid”, “not_owner”, and “not_found”). Each type also has the associated resource that caused the error (“purchase”) and may also have a field narrowing down the specific attribute if applicable.</dd>
+</dl><h2 id="error-response-example">Error Response Example</h2>
+
+<h3 id="validation-errors-for-purchase-only">Validation errors for purchase only</h3>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"validation_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"validation failed"</span><span class="p">,</span>
+  <span class="s2">"user_id"</span><span class="o">:</span> <span class="s2">"ABC123"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"not_found"</span><span class="p">,</span>
+      <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"deal not found"</span><span class="p">,</span>
+      <span class="s2">"resource"</span><span class="o">:</span> <span class="s2">"deal"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="validation-errors-for-purchase-and-shipping-address">Validation errors for purchase, and shipping address</h3>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"validation_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"validation failed"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"not_found"</span><span class="p">,</span>
+      <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"deal not found"</span><span class="p">,</span>
+      <span class="s2">"resource"</span><span class="o">:</span> <span class="s2">"deal"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"invalid"</span><span class="p">,</span>
+      <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"code is invalid"</span><span class="p">,</span>
+      <span class="s2">"field"</span><span class="o">:</span> <span class="s2">"postal_code"</span><span class="p">,</span>
+      <span class="s2">"resource"</span><span class="o">:</span> <span class="s2">"shipping_address"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+      </div>
+
+    </div>
+
+  </article>
+</div>
+
+
+<footer class="row">
+  <div class="centered">
+      <nav>
+        <ul class="left">
+          <li><a href="http://www.deem.com/"><img src="http://media.deem.com/designimages/deem_logo.png" alt="Deem" width="59" height="18"></a></li>
+          <li><a href="http://www.deem.com/work">Save</a></li>
+          <li><a href="http://www.deem.com/merchant">Sell</a></li>
+          <li><a href="http://www.deem.com/" target="_blank">Partner</a></li>
+          <li><a href="http://blog.deem.com/">Discover</a></li>
+          <li><a href="http://www.deem.com/developer">Develop</a></li>
+        </ul>
+
+        <ul class="right">
+          <li><a href="http://www.deem.com/" target="_blank">About Us</a></li>
+          <li><a href="http://www.deem.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.deem.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
+          <li><a href="mailto:needhelp@deem">Feedback</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 1999-2013 Rearden Commerce, Inc. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="/shared/js/jquery.js"></script>
+<script src="/shared/js/documentation.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/prod/utag.js"></script>
+</body>
+</html>
