@@ -12,7 +12,7 @@ be used if the transaction is completely managed by the third party.
 
 ## Create a purchase
 
-    POST /resellers/purchases
+    POST /v3/resellers/purchases
 
 ### Required Parameters
 
@@ -100,17 +100,17 @@ country
 
 ### Reseller purchases Request Example
 
-<%= requests("POST /resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
 <%= json(OfferEngine.new_reseller_card_linked_purchase()) %>
 
 ### Daily Deal or On Going Request Example
 
-<%= requests("POST /resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
 <%= json(OfferEngine.new_reseller_daily_deal_purchase()) %>
 
 ### Daily Deal or On Going Shipped Request Example
 
-<%= requests("POST /resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
 <%= json(OfferEngine.new_reseller_daily_deal_shipped_purchase()) %>
 
 ### Response
