@@ -35,7 +35,8 @@ module OfferEngine
         :postal_code           => "12345",
         :city                  => "Any Town",
         :state                 => "CA",
-        :country               => "US"
+        :country               => "US",
+        :telephone             => "312-555-1212"
     }
   end
 

@@ -12,7 +12,7 @@ be used if the transaction is completely managed by the third party.
 
 ## Create a purchase
 
-    POST /v3/resellers/purchases
+    POST https://<username>:<password>@api.offers.deem.com/v3/resellers/purchases
 
 ### Required Parameters
 
@@ -41,6 +41,7 @@ Which fields are required depends on the type of the deal a purchase is being re
 * city
 * state
 * country
+* telephone
 
 #### Card Linked
 * deal_id
@@ -79,10 +80,10 @@ quantity
 address_type
 : _String_ Name associated with this shipping address (Home, Work, etc.)
 
-address_one
+address1
 : _String_ First line of the shipping address
 
-address_two
+address2
 : _String_ Second line of the shipping address
 
 postal_code
@@ -97,20 +98,23 @@ state
 country
 : _String_ Two-character country abbreviation of the shipping address
 
+telephone
+: _String_ The telephone number of the user that made the purchase
+
 
 ### Reseller purchases Request Example
 
-<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_card_linked_purchase()) %>
 
 ### Daily Deal or On Going Request Example
 
-<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_daily_deal_purchase()) %>
 
 ### Daily Deal or On Going Shipped Request Example
 
-<%= requests("POST /v3/resellers/purchases.json?api_key={api_key}") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_daily_deal_shipped_purchase()) %>
 
 ### Response

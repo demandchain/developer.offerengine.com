@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: V1 Authentication
 ---
 
 # Authentication
