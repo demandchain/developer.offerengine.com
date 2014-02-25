@@ -101,7 +101,7 @@ be used if the transaction is completely managed by the third party.</p>
 
 <h2 id="create-a-purchase">Create a purchase</h2>
 
-<pre><code>POST /resellers/purchases
+<pre><code>POST /v3/resellers/purchases
 </code></pre>
 
 <h3 id="required-parameters">Required Parameters</h3>
@@ -187,7 +187,7 @@ though they may have little to no meaning for some requests.</p>
 <em>String</em> Two-character country abbreviation of the shipping address</dd>
 </dl><h3 id="reseller-purchases-request-example">Reseller purchases Request Example</h3>
 
-<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
@@ -200,7 +200,7 @@ though they may have little to no meaning for some requests.</p>
 
 <h3 id="daily-deal-or-on-going-request-example">Daily Deal or On Going Request Example</h3>
 
-<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
@@ -213,7 +213,7 @@ though they may have little to no meaning for some requests.</p>
 
 <h3 id="daily-deal-or-on-going-shipped-request-example">Daily Deal or On Going Shipped Request Example</h3>
 
-<pre class="headers"><code>POST /resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
