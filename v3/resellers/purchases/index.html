@@ -50,7 +50,7 @@
         <h1>Introduction</h1>
         <ul>
           <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v1/authentication/">Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">V1 Authentication</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
         </ul>
 
@@ -59,13 +59,13 @@
           <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
         </ul>
 
-        <h1>Core Calls</h1>
+        <h1>V1 Core Calls</h1>
         <ul>
           <li><a href="/v1/get_deals/">Get Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/full_purchase/">Execute Purchases</a><span class="icon-arrow-right"></span></li>
         </ul>
 
-        <h1>Additional Calls</h1>
+        <h1>V1 Additional Calls</h1>
         <ul>
           <li><a href="/v1/adunits/">Ad Units</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
@@ -85,9 +85,10 @@
           <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
         </ul>
 
-        <h1>Reseller Calls</h1>
+        <h1>V3 Additional Calls</h1>
         <ul>
-          <li><a href="/v3/resellers/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/authentication/">V3 Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/resellers/purchases/">Reseller Purchases</a><span class="icon-arrow-right"></span></li>
         </ul>
       </nav>
 
@@ -101,7 +102,7 @@ be used if the transaction is completely managed by the third party.</p>
 
 <h2 id="create-a-purchase">Create a purchase</h2>
 
-<pre><code>POST /v3/resellers/purchases
+<pre><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases
 </code></pre>
 
 <h3 id="required-parameters">Required Parameters</h3>
@@ -132,6 +133,7 @@ be used if the transaction is completely managed by the third party.</p>
   <li>city</li>
   <li>state</li>
   <li>country</li>
+  <li>telephone</li>
 </ul><h4 id="card-linked">Card Linked</h4>
 <ul>
 <li>deal_id</li>
@@ -167,10 +169,10 @@ though they may have little to no meaning for some requests.</p>
   <dt>address_type</dt>
   <dd>
 <em>String</em> Name associated with this shipping address (Home, Work, etc.)</dd>
-  <dt>address_one</dt>
+  <dt>address1</dt>
   <dd>
 <em>String</em> First line of the shipping address</dd>
-  <dt>address_two</dt>
+  <dt>address2</dt>
   <dd>
 <em>String</em> Second line of the shipping address</dd>
   <dt>postal_code</dt>
@@ -185,9 +187,12 @@ though they may have little to no meaning for some requests.</p>
   <dt>country</dt>
   <dd>
 <em>String</em> Two-character country abbreviation of the shipping address</dd>
+  <dt>telephone</dt>
+  <dd>
+<em>String</em> The telephone number of the user that made the purchase</dd>
 </dl><h3 id="reseller-purchases-request-example">Reseller purchases Request Example</h3>
 
-<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
@@ -200,7 +205,7 @@ though they may have little to no meaning for some requests.</p>
 
 <h3 id="daily-deal-or-on-going-request-example">Daily Deal or On Going Request Example</h3>
 
-<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
@@ -213,7 +218,7 @@ though they may have little to no meaning for some requests.</p>
 
 <h3 id="daily-deal-or-on-going-shipped-request-example">Daily Deal or On Going Shipped Request Example</h3>
 
-<pre class="headers"><code>POST /v3/resellers/purchases.json?api_key={api_key}</code></pre>
+<pre class="headers"><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"deal1234"</span><span class="p">,</span>
@@ -228,7 +233,8 @@ though they may have little to no meaning for some requests.</p>
   <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"12345"</span><span class="p">,</span>
   <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Any Town"</span><span class="p">,</span>
   <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
-  <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+  <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span><span class="p">,</span>
+  <span class="s2">"telephone"</span><span class="o">:</span> <span class="s2">"312-555-1212"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="response">Response</h3>

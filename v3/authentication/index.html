@@ -11,7 +11,7 @@
   <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
 
-  <title>Overview - OfferEngine API</title>
+  <title>V3 Authentication - OfferEngine API</title>
 
   <link href="/shared/css/documentation.css" rel="stylesheet" />
   <link href="/shared/css/pygments.css" rel="stylesheet" />
@@ -93,61 +93,27 @@
       </nav>
 
       <div class="content col9">
-        <h1 id="overview">Overview</h1>
+        <h1 id="authentication">Authentication</h1>
 
-<p>The Deem Offers application programming interface (API) lets you seamlessly integrate in-context deals with your  website, mobile app, emails, or any other internet enabled surfaces. You can include the entire sales process – from display through purchase – in order to provide an uninterrupted value added experience for your customers to purchase relevant deals.</p>
+<p>Authentication is a way of identifying yourself in order to gain access to the API. The v3 api namespace is different
+than v1 in that it uses http basic authentication.  You authenticate yourself with the Deem Offers API by providing your
+unique API username &amp; password with each request. <b>You must keep your unique API password secret</b>.</p>
 
-<p>This website provides all the information you need to start offering deals to your users using the Deem Offers API.</p>
+<p>Your unique credentials are provided in the Admin Dashboard. If at any time your key has been compromised, you can generate a new key in the Admin Dashboard.</p>
 
-<h2 id="introduction">Introduction</h2>
+<p><b>All API requests must be made over HTTPS.</b> Calls made over plain HTTP will fail. You must authenticate for all requests.</p>
 
-<p>The Deem Offers API is <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a>, which means that it is designed to use predictable, resource-oriented URLs and HTTP response codes. We use built-in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP</a> features, such as HTTP authentication and HTTP verbs, which off-the-shelf HTTP clients can understand. We support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application. The API returns <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> in all responses, including errors.</p>
+<p>For http basic authentication, include the username &amp; password between the protocol &amp; the domain name.</p>
 
-<p>Accounts have test-mode and live-mode API keys. Both keys can be active at the same time. Data created with test-mode credentials will never modify or alter your production data and will never actually charge purchase cards.</p>
+<h2 id="request">Request</h2>
 
-<p>If you have any problems or requests, please contact <a href="mailto:support@deem.com">support</a>.</p>
+<pre><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases
+</code></pre>
 
-<h2 id="endpoint">Endpoint</h2>
+<h2 id="request-example">Request Example</h2>
 
-<p><b>https://api.offers.deem.com/</b></p>
-
-<h2 id="deal">Deal</h2>
-
-<p>A <em>deal</em> is a product that offers goods or services from different merchants at discounted levels. </p>
-
-<h2 id="purchase">Purchase</h2>
-
-<p>A <em>purchase</em> is a transaction in which a person (the <em>purchaser</em>) buys a quantity of unit inventory of a specific deal. A purchase results in one of the following:</p>
-
-<ul>
-<li>
-    <p>A <em>voucher</em>, which a purchaser uses to redeem the deal at the deal merchant’s location or website</p>
-  </li>
-  <li>
-    <p>A product that is shipped directly to the purchaser</p>
-  </li>
-</ul><h2 id="implementation-example">Implementation Example</h2>
-
-<p>You can provide deals to your customers using just two simple API calls: <em>get deals</em> and <em>execute a purchase.</em> The following example is a brief description of how these calls work with an existing mobile application.</p>
-
-<p>In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow: </p>
-
-<p><img src="/images/mobile_use_example.png" alt="Mobile Example Image"></p>
-
-<ul>
-<li>
-    <p><b>Show Offers:</b> Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.</p>
-  </li>
-  <li>
-    <p><b>Show Offer Details:</b> When a user selects a deal, he or she lands on a detail page that describes the deal. More detailed information is provided based on the information returned in the previous Get Deals request. The user can click the <em>Buy now</em> call-to-action button to start the purchase process.</p>
-  </li>
-  <li>
-    <p><b>Purchase Offer</b>: The <em>Buy now</em> call-to-action button takes the user to a purchase form, where the user enters his or her purchasing information. The user presses the <em>Purchase</em> button to make the Execute Purchase request.</p>
-  </li>
-  <li>
-    <p><b>Redeem Offer</b> When an Execute Purchase request is successful, a purchase confirmation page appears with a link to the redemption voucher for the newly purchased deal.</p>
-  </li>
-</ul><p>To learn how to use the Deem Offers API, see our <a href="/v1/quick_start/">Quick Start Guide</a>.</p>
+<pre><code>POST https://abcd1234:La20wWgtT0PC@api.offers.deem.com/v3/resellers/purchases?deal_id=some_deal&amp;...
+</code></pre>
       </div>
 
     </div>
