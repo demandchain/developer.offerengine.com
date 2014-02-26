@@ -102,7 +102,7 @@ telephone
 : _String_ The telephone number of the user that made the purchase
 
 
-### Reseller purchases Request Example
+### Card Linked Request Example
 
 <%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_card_linked_purchase()) %>
