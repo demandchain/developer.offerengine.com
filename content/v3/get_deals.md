@@ -6,9 +6,9 @@ title: Get Deals
 
 The Get Deals call returns a set of applicable deal resources based on the filtering parameters you pass in your request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.
 
-In the request you must specify the attributes that you would like returned for each deal, in the JSON response. You may specify any, or all of the attributes available. See the "Specifying attributes to be returned" for an example and see the "Response" section for a list of all possible values.
+You must specify in the request the attributes you want returned in the JSON response for each deal. You may specify all available fields or a subset of fields that you need.. You may specify any, or all of the attributes available. See the "Specifying attributes to be returned" for an example and see the "Response" section for a list of all possible values.
 
-You may also specify the sort order that you would like the deals returned in within the JSON response. You can find the sort options allowed in the "Specifying sort order" section.
+Returned results will be sorted in descending order by deal end date. If you would like the results sorted differently, you may also specify the sort order for deals returned within the JSON response. You can find the sort options in the "Specifying sort order" section.
 
 Each deal has a number of attributes you can use to filter the Get Deals request -- the price point, the amount of inventory, the merchant, the deal title, the run date, the location, and so on. You can find all of the possible filtering parameters in the "Specifying filters" section. For more information about the deal resource, see the "Response" section.
 
@@ -17,6 +17,7 @@ If you make this call with no filters, Get Deals returns a list of <i>all</i> "i
 ## Specifying attributes to be returned
 
 You provide the attributes to be included in the query string with the key word "fields".
+The list of attributes to be returned should be a comma separated list of fields. Some fields (like _images_ include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].
 
 GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b>
 
