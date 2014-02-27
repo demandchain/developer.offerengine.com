@@ -313,11 +313,7 @@ shipping_address_required
 show_url
 : _String_ The URL for the deal details web page
 
-<<<<<<< HEAD
 sold_out
-=======
-soldout
->>>>>>> d0e0229ab00b7683d5fdfba1dc33a2fc97572159
 : _Boolean_ Flagged if the deal has sold out of inventory
 
 start_at
