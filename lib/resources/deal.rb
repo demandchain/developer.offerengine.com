@@ -140,11 +140,7 @@ module OfferEngine
         robotitle: "15% off purchase",
         shipping_address_required: false,
         show_url: "http://homerun-f2.offerify.com/deal/den-621-rel-merchant-4",
-<<<<<<< HEAD
         sold_out: false,
-=======
-        soldout: false,
->>>>>>> d0e0229ab00b7683d5fdfba1dc33a2fc97572159
         start_at: "2013-07-23T06:00:00Z",
         state: "in-flight",
         subcategory: "Comedy",
@@ -329,28 +325,11 @@ start_at
 
 state
 : _String_ The current workflow state of the deal:
-<<<<<<< HEAD
 : * in-flight - The deal is available for purchase. (This is the only state returned by the API)
-=======
-
-: * submitted - Base deal data has been entered and the deal is not available for purchase.
-: * in-review - The deal needs approval to continue in the workflow and is not available for purchase.
-: * rejected - The deal failed approval and is not available for purchase.
-: * approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
-: * in-flight - The deal is available for purchase.
-: * paused - The deal's sale is halted and the deal is not currently available for purchase.
-: * cancelled - The deal has been manually canelled and is no longer in flight
-: * landed - The run window has passed and the deal is no longer available for purchase.
-: * deleted - The deal has been removed.<br><br>
->>>>>>> d0e0229ab00b7683d5fdfba1dc33a2fc97572159
 
 subcategory
 : _String_ More specific deal type
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d0e0229ab00b7683d5fdfba1dc33a2fc97572159
 supplier_id
 : _String_ Unique identifier for supplier of the deal
 
