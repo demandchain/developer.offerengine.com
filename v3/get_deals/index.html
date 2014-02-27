@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1020, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+
+  <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
+
+  <title>Get Deals - OfferEngine API</title>
+
+  <link href="/shared/css/documentation.css" rel="stylesheet" />
+  <link href="/shared/css/pygments.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css">
+
+  <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if lte IE 9]> <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css" rel="stylesheet" /> <![endif]-->
+</head>
+<body class="api">
+
+<div id="wrapper">
+  <header class="row">
+    <div class="centered clearfix">
+      <h1>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="http://www.deem.com/developer/">Home</a></li>
+          <li><a href="/" class="active">Documentation</a></li>
+          <li><a href="mailto:support@deem.com">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article class="row">
+    <header class="row">
+      <div class="centered clearfix">
+        <h1>Deem Offers  API Documentation</h1>
+      </div>
+    </header>
+
+    <div class="centered clearfix">
+      <nav id="side-menu" class="col3">
+        <h1>Introduction</h1>
+        <ul>
+          <li><a href="/">Overview</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/authentication/">V3 Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/authentication/">V1 Authentication</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/errors/">Errors</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>Getting Started</h1>
+        <ul>
+          <li><a href="/v1/quick_start/">Quick Start</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>V3 Core Calls</h1>
+        <ul>
+          <li><a href="/v3/get_deals/">Get Deals</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>V1 Core Calls</h1>
+        <ul>
+          <li><a href="/v1/get_deals/">Get Deals(Deprecated)</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/full_purchase/">Execute Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>V1 Additional Calls</h1>
+        <ul>
+          <li><a href="/v1/adunits/">Ad Units</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/deals/">Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/coupons/">User Coupons</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/credit_cards/">User Credit Cards</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/purchases/">User Purchases</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/saved_deals/">User Saved Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/shipping_addresses/">User Shipping Addresses</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/users/subscriptions/">User Subscriptions</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/targeted_emails/batches/">Targeted Emails</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v1/stats/merchants/">Stats</a><span class="icon-arrow-right"></span></li>
+        </ul>
+
+        <h1>V3 Additional Calls</h1>
+        <ul>
+          <li><a href="/v3/resellers/purchases/">Reseller Purchases</a><span class="icon-arrow-right"></span></li>
+        </ul>
+      </nav>
+
+      <div class="content col9">
+        <h1 id="get-deals">Get Deals</h1>
+
+<p>The Get Deals call returns a set of applicable deal resources based on the filtering parameters you pass in your request. You can request a broad list of available deals or very specific highly targeted deals to provide to your users.</p>
+
+<p>You must specify in the request the attributes you want returned in the JSON response for each deal. You may specify all available fields or a subset of fields that you need.. You may specify any, or all of the attributes available. See the “Specifying attributes to be returned” for an example and see the “Response” section for a list of all possible values.</p>
+
+<p>Returned results will be sorted in descending order by deal end date. If you would like the results sorted differently, you may also specify the sort order for deals returned within the JSON response. You can find the sort options in the “Specifying sort order” section.</p>
+
+<p>Each deal has a number of attributes you can use to filter the Get Deals request – the price point, the amount of inventory, the merchant, the deal title, the run date, the location, and so on. You can find all of the possible filtering parameters in the “Specifying filters” section. For more information about the deal resource, see the “Response” section.</p>
+
+<p>If you make this call with no filters, Get Deals returns a list of <i>all</i> “in-flight” (currently active) deals across <i>all</i> geographical regions – including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you pass <i>filters=sold_out=false</i> when making this call.</p>
+
+<h2 id="specifying-attributes-to-be-returned">Specifying attributes to be returned</h2>
+
+<p>You provide the attributes to be included in the query string with the key word “fields”.
+The list of attributes to be returned should be a comma separated list of fields. Some fields (like <em>images</em> include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].</p>
+
+<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b></p>
+
+<h2 id="specifying-sort-order">Specifying sort order</h2>
+
+<p>You specify the sort order in the query string with the key word “sort”. Ascending(asc) and Descending(desc) order can be indicated in parentheses.</p>
+
+<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>sort=start_at(desc)</b>&amp;fields=id,title,price,region,type,images[small,large]</p>
+
+<h2 id="specifying-filters">Specifying filters</h2>
+
+<p>You specify filtering in the query string with the key word “filter”.</p>
+
+<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500</b>&amp;fields=id,title,price,region,type,images[small,large]</p>
+
+<p>As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.</p>
+
+<h3 id="individual-deal-filter-parameters">Individual deal filter parameters</h3>
+
+<h3 id="category-parameters">Category parameters</h3>
+
+<dl>
+<dt>category</dt>
+  <dd>
+<em>Optional String</em> : Filter deals by category. Deals can be returned in the category “foo” using ?filter=category=foo. Deals can be returned in multiple categories using ?filter=category[foo,bar].</dd>
+  <dt>subcategory</dt>
+  <dd>
+<em>Optional String</em> : Filter deals by subcategory. Deals can be returned in the subcategory “foo” using ?filter=subcategory=foo. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].</dd>
+</dl><h3 id="price-parameters">Price parameters</h3>
+
+<dl>
+<dt>price</dt>
+  <dd>
+<em>Optional Integer</em> : Filter the deal price in cents (i.e., 100 equals one dollar). Can be used in conjunction with “&lt;”, “&gt;”, “=” and combinations thereof using for instance ?filter=price&gt;=1500. Multiple exact price matches can be selected using ?filter=price[1300,1500]</dd>
+</dl><h3 id="location-parameters">Location parameters</h3>
+
+<dl>
+<dt>region</dt>
+  <dd>
+<em>Optional String</em> : Filter deals by region_id. Can be used in conjunction with “=” and “[]”. To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].</dd>
+  <dt>region_city</dt>
+  <dd>
+<em>Optional String</em> : Filter deals by region city. Can be used in conjunction with “=” and “[]”. To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].</dd>
+  <dt>lat_long_radius</dt>
+  <dd>
+<em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]</dd>
+</dl><h3 id="inventory-parameters">Inventory parameters</h3>
+
+<dl>
+<dt>sold_out</dt>
+  <dd>
+<em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use sold_out=false to select deals that are not sold_out</dd>
+</dl><h2 id="response">Response</h2>
+
+<p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
+
+<h2 id="response-attributes">Response Attributes</h2>
+
+<p>The response JSON file contains a list of deal resources that meet the request filter parameters.</p>
+
+<h3 id="status-attributes">status attributes</h3>
+
+<dl>
+<dt>status</dt>
+  <dd>
+<em>String</em>  State of the request (success or error)</dd>
+</dl><h3 id="deal-attributes">Deal attributes</h3>
+
+<p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
+
+<dl>
+<dt>id</dt>
+  <dd>
+<em>String</em> Unique identifier for purchased deal</dd>
+  <dt>campaign</dt>
+  <dd>
+<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
+  <dt>category</dt>
+  <dd>
+<em>String</em> Broad deal type</dd>
+  <dt>category_id</dt>
+  <dd>
+<em>String</em> Unique identifier for category the deal is in</dd>
+  <dt>description1</dt>
+  <dd>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
+  <dd>
+<em>String</em> Secondary description of the deal</dd>
+  <dt>end_at</dt>
+  <dd>
+<em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
+  <dt>expires_at</dt>
+  <dd>
+<em>Date</em> The date and time that the deal voucher will expire (times are in timezone of deal’s region)</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>fine_print_legalese</dt>
+  <dd>
+<em>String</em> Legal Specifics details and restrictions associated with the deal (fulfillment_method=’printed’ only)</dd>
+  <dt>fixed_fee</dt>
+  <dd>
+<em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
+  <dt>fulfillment_method</dt>
+  <dd>
+<em>String</em> How the consumer redeems the deal:</dd>
+  <dd>
+    <ul>
+<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+    </ul>
+</dd>
+  <dd>
+    <ul>
+<li>shipped - The purchase is shipped to the customer</li>
+    </ul>
+</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>images</dt>
+  <dd>
+<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
+* large, medium, small, and tiny
+* Each item points to the images URL.</dd>
+  <dt>incentive_amount</dt>
+  <dd>
+<em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>incentive_percentage</dt>
+  <dd>
+<em>Integer</em> The percent discount a user gets for using this deal (only for card-linked deals)</dd>
+  <dt>instructions</dt>
+  <dd>
+<em>String</em> Usage details for the deal</dd>
+  <dt>locations</dt>
+  <dd>
+<em>Array</em> The physical locations associated with the deal</dd>
+  <dt>max_linkage</dt>
+  <dd>
+<em>Integer</em> Number of users that can link to deal (only for card-linked deals)</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user</dd>
+  <dt>max_gift_per_user</dt>
+  <dd>
+<em>Integer</em> How many gifts each user is allowed to buy</dd>
+  <dt>maximum_allowance</dt>
+  <dd>
+<em>Integer</em> The maximum value of a deal purchase (only for card-linked deals)</dd>
+  <dt>merchant_name</dt>
+  <dd>
+<em>String</em> Name of the merchant of the deal</dd>
+  <dt>min_spend</dt>
+  <dd>
+<em>Integer</em> The minimum value of a purchase to qualify for the deal (only for card-linked deals)</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>num_qualifying</dt>
+  <dd>
+<em>Integer</em>     Number of qualifying purchases required to trigger redemption (only for card-linked deals)</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of this deal</dd>
+  <dt>percent_fee</dt>
+  <dd>
+<em>Integer</em> The percent charged for running the deal (only for card-linked deals)</dd>
+  <dt>purchase_url</dt>
+  <dd>
+<em>String</em> The URL for deal purchase web page</dd>
+  <dt>region_id</dt>
+  <dd>
+<em>String</em> Unique identifier for region in which the deal is for sale</dd>
+  <dt>region_name</dt>
+  <dd>
+<em>String</em> Human-readable region name</dd>
+  <dt>robotitle</dt>
+  <dd>
+<em>String</em> The deal title for affiliate feeds</dd>
+  <dt>shipping_address_required</dt>
+  <dd>
+<em>Boolean</em> Flagged if a shipping address is required to purchase this deal</dd>
+  <dt>show_url</dt>
+  <dd>
+<em>String</em> The URL for the deal details web page</dd>
+  <dt>sold_out</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
+  <dt>start_at</dt>
+  <dd>
+<em>Date</em> The date and time that the deal was first available to purchase (times are in UTC)</dd>
+  <dt>state</dt>
+  <dd>
+<em>String</em> The current workflow state of the deal:</dd>
+  <dd>
+    <ul>
+<li>in-flight - The deal is available for purchase. (This is the only state returned by the API)</li>
+    </ul>
+</dd>
+  <dt>subcategory</dt>
+  <dd>
+<em>String</em> More specific deal type</dd>
+  <dt>supplier_id</dt>
+  <dd>
+<em>String</em> Unique identifier for supplier of the deal</dd>
+  <dt>title</dt>
+  <dd>
+<em>String</em> Title of the purchased deal</dd>
+  <dt>type</dt>
+  <dd>
+<em>String</em> Type of the purchased deal</dd>
+  <dd>Daily Deal:</dd>
+  <dd>The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+:</dd>
+  <dd>On-going:</dd>
+  <dd>A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+:</dd>
+  <dd>Affiliate:</dd>
+  <dd>A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
+:</dd>
+  <dd>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+:</dd>
+  <dd>a) exposes a redeemable code.</dd>
+  <dd>OR</dd>
+  <dd>b) redirects the user to a co-marketed website.
+:</dd>
+  <dd>Card-linked Offers:</dd>
+  <dd>A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</dd>
+  <dt>value</dt>
+  <dd>
+<em>Integer</em> The value of the deal in cents</dd>
+</dl><h2 id="response-examples">Response Examples</h2>
+
+<h3 id="filter-deals-by-the-losangeles-region-with-two-deals-returned">Filter deals by the “los_angeles” region with two deals returned:</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+      <span class="s2">"category_id"</span><span class="o">:</span> <span class="s2">"activities"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-12-17T23:59:59-08:00"</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+      <span class="s2">"images"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"small"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/medium.jpg"</span><span class="p">,</span>
+        <span class="s2">"large"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/large.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $39. This amount does not expire. The Promotional Value of this Voucher is $61. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+            <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"90057"</span><span class="p">,</span>
+            <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"671 la fayette park place"</span><span class="p">,</span>
+            <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">34.060428619</span><span class="p">,</span>
+            <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"los angeles"</span><span class="p">,</span>
+            <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">118.283882141</span><span class="p">,</span>
+            <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+          <span class="p">},</span>
+          <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"8887187201"</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+      <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Los Angeles"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-10-17T07:00:00Z"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Bike Rentals"</span><span class="p">,</span>
+      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+      <span class="s2">"category_id"</span><span class="o">:</span> <span class="s2">"activities"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2014-01-01T06:59:59Z"</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-11-20T13:25:14-07:00"</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"images"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"small"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/medium.jpg"</span><span class="p">,</span>
+        <span class="s2">"large"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/large.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"Colorado"</span><span class="p">,</span>
+            <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"80234"</span><span class="p">,</span>
+            <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"7072 North Mariposa Court"</span><span class="p">,</span>
+            <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">39.923740387</span><span class="p">,</span>
+            <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"Westminster"</span><span class="p">,</span>
+            <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">105.003417969</span><span class="p">,</span>
+            <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"United States"</span>
+          <span class="p">},</span>
+          <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">""</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="mi">9999999</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"6/21 rel merchant"</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/den-621-rel-merchant-4/checkout"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"denver"</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Denver"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"15% off purchase"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"sold_out"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-07-23T06:00:00Z"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Comedy"</span><span class="p">,</span>
+      <span class="s2">"subcategory_id"</span><span class="o">:</span> <span class="s2">"comedy"</span><span class="p">,</span>
+      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="filter-deals-by-the-restaurants-category-with-no-deals-returned">Filter deals by the “restaurants” category with no deals returned:</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
+
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="error-responses">Error Responses</h2>
+
+<p>Responses provided for failed requests:</p>
+
+<h3 id="section">400</h3>
+
+<dl>
+<dt>status = “error”</dt>
+  <dt>message = “Bad request syntax”</dt>
+  <dt>errors = {“query_string”:”fields= isd is not recognised as a valid field for inclusion in this JSON response”}}</dt>
+  <dd>Parameter information provided is invalid.</dd>
+</dl><h2 id="error-response-examples">Error Response Examples</h2>
+
+<pre class="headers"><code>Status: </code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Bad request syntax"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="s2">"{\"query_string\":\"fields= isd is not recognised as a valid field for inclusion in this JSON response\"}},"</span>
+<span class="p">}</span></code></pre>
+
+<pre class="headers"><code>Status: </code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Bad request syntax"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="s2">"{\"query_string\":\"sort= value is not allowed as a sorting option\"}},"</span>
+<span class="p">}</span></code></pre>
+      </div>
+
+    </div>
+
+  </article>
+</div>
+
+
+<footer class="row">
+  <div class="centered">
+      <nav>
+        <ul class="left">
+          <li><a href="http://www.deem.com/"><img src="http://media.deem.com/designimages/deem_logo.png" alt="Deem" width="59" height="18"></a></li>
+          <li><a href="http://www.deem.com/work">Save</a></li>
+          <li><a href="http://www.deem.com/merchant">Sell</a></li>
+          <li><a href="http://www.deem.com/" target="_blank">Partner</a></li>
+          <li><a href="http://blog.deem.com/">Discover</a></li>
+          <li><a href="http://www.deem.com/developer">Develop</a></li>
+        </ul>
+
+        <ul class="right">
+          <li><a href="http://www.deem.com/" target="_blank">About Us</a></li>
+          <li><a href="http://www.deem.com/privacy/terms.html" target="_blank">Terms</a></li>
+          <li><a href="http://www.deem.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
+          <li><a href="mailto:needhelp@deem">Feedback</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 1999-2014 Deem, Inc. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="/shared/js/jquery.js"></script>
+<script src="/shared/js/documentation.js"></script>
+<script src="https://tealium.hs.llnwd.net/o43/utag/rearden/main/prod/utag.js"></script>
+</body>
+</html>
