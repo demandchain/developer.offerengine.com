@@ -16,8 +16,8 @@ For http basic authentication, include the username &amp; password between the p
 
 ## Request
 
-	POST https://<username>:<password>@api.offers.deem.com/v3/resellers/purchases
+	POST https://<username>:<password>@api.offers.deem.com/api/v3/resellers/purchases
 
 ## Request Example
 
-	POST https://abcd1234:La20wWgtT0PC@api.offers.deem.com/v3/resellers/purchases?deal_id=some_deal&...
+	POST https://abcd1234:La20wWgtT0PC@api.offers.deem.com/api/v3/resellers/purchases?deal_id=some_deal&...

@@ -34,10 +34,10 @@ module OfferEngine
         fulfillment_method: "printed",
         highlights: "Complete cocktail how-to's Choice of six locations 40 hours of instruction",
         images: {
-          tiny_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
-          small_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
-          medium_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/medium.jpg",
-          large_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/large.jpg"
+          tiny: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
+          small: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
+          medium: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/medium.jpg",
+          large: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/large.jpg"
         },
         incentive_amount: nil,
         incentive_percentage: nil,
@@ -100,10 +100,10 @@ module OfferEngine
         fulfillment_method: "printed",
         highlights: nil,
         images: {
-          tiny_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg",
-          small_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg",
-          medium_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/medium.jpg",
-          large_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/large.jpg"
+          tiny: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg",
+          small: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/tiny.jpg",
+          medium: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/medium.jpg",
+          large: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff55ac03/large.jpg"
         },
         incentive_amount: nil,
         incentive_percentage: 15,
@@ -140,7 +140,7 @@ module OfferEngine
         robotitle: "15% off purchase",
         shipping_address_required: false,
         show_url: "http://homerun-f2.offerify.com/deal/den-621-rel-merchant-4",
-        soldout: false,
+        sold_out: false,
         start_at: "2013-07-23T06:00:00Z",
         state: "in-flight",
         subcategory: "Comedy",
@@ -182,11 +182,18 @@ module OfferEngine
         :deals => []
       }
     end
-    def self.deals_error
+    def self.deals_error_no_fields_supplied
       {
         :status => "error",
-        :error_type => "find_failed",
-        :error_msg => "Unable to find",
+        :message => "Bad request syntax",
+        :errors => "{\"query_string\":\"fields= isd is not recognised as a valid field for inclusion in this JSON response\"}},"
+      }
+    end
+    def self.deals_error_sorting
+      {
+        :status => "error",
+        :message => "Bad request syntax",
+        :errors => "{\"query_string\":\"sort= value is not allowed as a sorting option\"}},"
       }
     end
     def self.deal_resource
@@ -306,7 +313,7 @@ shipping_address_required
 show_url
 : _String_ The URL for the deal details web page
 
-soldout
+sold_out
 : _Boolean_ Flagged if the deal has sold out of inventory
 
 start_at
@@ -314,20 +321,10 @@ start_at
 
 state
 : _String_ The current workflow state of the deal:
-
-: * submitted - Base deal data has been entered and the deal is not available for purchase.
-: * in-review - The deal needs approval to continue in the workflow and is not available for purchase.
-: * rejected - The deal failed approval and is not available for purchase.
-: * approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
-: * in-flight - The deal is available for purchase.
-: * paused - The deal's sale is halted and the deal is not currently available for purchase.
-: * cancelled - The deal has been manually canelled and is no longer in flight
-: * landed - The run window has passed and the deal is no longer available for purchase.
-: * deleted - The deal has been removed.<br><br>
+: * in-flight - The deal is available for purchase. (This is the only state returned by the API)
 
 subcategory
 : _String_ More specific deal type
-
 
 supplier_id
 : _String_ Unique identifier for supplier of the deal

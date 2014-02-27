@@ -12,7 +12,7 @@ be used if the transaction is completely managed by the third party.
 
 ## Create a purchase
 
-    POST https://<username>:<password>@api.offers.deem.com/v3/resellers/purchases
+    POST https://<username>:<password>@api.offers.deem.com/api/v3/resellers/purchases
 
 ### Required Parameters
 
