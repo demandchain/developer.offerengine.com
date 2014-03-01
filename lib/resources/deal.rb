@@ -186,7 +186,7 @@ module OfferEngine
       {
         :status => "error",
         :message => "Bad request syntax",
-        :errors => "{\"query_string\":\"fields= isd is not recognised as a valid field for inclusion in this JSON response\"}},"
+        :errors => "{\"query_string\":\"fields= isd is not recognized as a valid field for inclusion in this JSON response\"}},"
       }
     end
     def self.deals_error_sorting

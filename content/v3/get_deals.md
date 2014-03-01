@@ -14,24 +14,28 @@ Each deal has a number of attributes you can use to filter the Get Deals request
 
 If you make this call with no filters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you pass <i>filters=sold_out=false</i> when making this call.
 
+## Request
+
+    GET /api/v3/deals
+
 ## Specifying attributes to be returned
 
 You provide the attributes to be included in the query string with the key word "fields".
 The list of attributes to be returned should be a comma separated list of fields. Some fields (like _images_ include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].
 
-GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b>
+    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b>
 
 ## Specifying sort order
 
 You specify the sort order in the query string with the key word "sort". Ascending(asc) and Descending(desc) order can be indicated in parentheses.
 
-GET https://username:password@api.offers.deem.com/api/v3/deals?<b>sort=start_at(desc)</b>&fields=id,title,price,region,type,images[small,large]
+    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>sort=start_at(desc)</b>&fields=id,title,price,region,type,images[small,large]
 
 ## Specifying filters
 
 You specify filtering in the query string with the key word "filter".
 
-GET https://username:password@api.offers.deem.com/api/v3/deals?<b>filter=region[san-francisco,phoenix],sold_out=false,price>1500</b>&fields=id,title,price,region,type,images[small,large]
+    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>filter=region[san-francisco,phoenix],sold_out=false,price>1500</b>&fields=id,title,price,region,type,images[small,large]
 
 As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.
 
@@ -59,12 +63,12 @@ region_city
 : _Optional String_ : Filter deals by region city. Can be used in conjunction with "=" and "[]". To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].
 
 lat_long_radius
-: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]
+: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long_radius[123.1112,-321.1132,5]
 
 ### Inventory parameters
 
 sold_out
-: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use sold_out=false to select deals that are not sold_out
+: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out=false to select deals that are not sold_out
 
 ## Response
 
