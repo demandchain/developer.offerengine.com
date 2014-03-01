@@ -14,6 +14,7 @@ module OfferEngine
     {
         :deal_id               => "deal1234",
         :quantity              => "2",
+        :transaction_amount    => "3599",
         :transaction_date      => "2014-06-06T20:30:05Z",
         :transaction_reference => "trans1234",
         :first_name            => "Hank",
@@ -25,6 +26,7 @@ module OfferEngine
     {
         :deal_id               => "deal1234",
         :quantity              => "2",
+        :transaction_amount    => "3599",
         :transaction_date      => "2014-06-06T20:30:05Z",
         :transaction_reference => "trans1234",
         :first_name            => "Hank",

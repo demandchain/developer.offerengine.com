@@ -104,17 +104,17 @@ telephone
 
 ### Card Linked Request Example
 
-<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_card_linked_purchase()) %>
 
 ### Daily Deal or On Going Request Example
 
-<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_daily_deal_purchase()) %>
 
 ### Daily Deal or On Going Shipped Request Example
 
-<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/v3/resellers/purchases.json") %>
+<%= requests("POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/resellers/purchases.json") %>
 <%= json(OfferEngine.new_reseller_daily_deal_shipped_purchase()) %>
 
 ### Response
