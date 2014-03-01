@@ -112,24 +112,32 @@
 
 <p>If you make this call with no filters, Get Deals returns a list of <i>all</i> “in-flight” (currently active) deals across <i>all</i> geographical regions – including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you pass <i>filters=sold_out=false</i> when making this call.</p>
 
+<h2 id="request">Request</h2>
+
+<pre><code>GET /api/v3/deals
+</code></pre>
+
 <h2 id="specifying-attributes-to-be-returned">Specifying attributes to be returned</h2>
 
 <p>You provide the attributes to be included in the query string with the key word “fields”.
 The list of attributes to be returned should be a comma separated list of fields. Some fields (like <em>images</em> include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].</p>
 
-<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b></p>
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;fields=id,title,price,region,type,images[small,large]&lt;/b&gt;
+</code></pre>
 
 <h2 id="specifying-sort-order">Specifying sort order</h2>
 
 <p>You specify the sort order in the query string with the key word “sort”. Ascending(asc) and Descending(desc) order can be indicated in parentheses.</p>
 
-<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>sort=start_at(desc)</b>&amp;fields=id,title,price,region,type,images[small,large]</p>
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;sort=start_at(desc)&lt;/b&gt;&amp;fields=id,title,price,region,type,images[small,large]
+</code></pre>
 
 <h2 id="specifying-filters">Specifying filters</h2>
 
 <p>You specify filtering in the query string with the key word “filter”.</p>
 
-<p>GET https://username:password@api.offers.deem.com/api/v3/deals?<b>filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500</b>&amp;fields=id,title,price,region,type,images[small,large]</p>
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500&lt;/b&gt;&amp;fields=id,title,price,region,type,images[small,large]
+</code></pre>
 
 <p>As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.</p>
 
@@ -161,13 +169,13 @@ The list of attributes to be returned should be a comma separated list of fields
 <em>Optional String</em> : Filter deals by region city. Can be used in conjunction with “=” and “[]”. To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].</dd>
   <dt>lat_long_radius</dt>
   <dd>
-<em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]</dd>
+<em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long_radius[123.1112,-321.1132,5]</dd>
 </dl><h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
 <dt>sold_out</dt>
   <dd>
-<em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use sold_out=false to select deals that are not sold_out</dd>
+<em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out=false to select deals that are not sold_out</dd>
 </dl><h2 id="response">Response</h2>
 
 <p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
@@ -521,7 +529,7 @@ The list of attributes to be returned should be a comma separated list of fields
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
   <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Bad request syntax"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="s2">"{\"query_string\":\"fields= isd is not recognised as a valid field for inclusion in this JSON response\"}},"</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="s2">"{\"query_string\":\"fields= isd is not recognized as a valid field for inclusion in this JSON response\"}},"</span>
 <span class="p">}</span></code></pre>
 
 <pre class="headers"><code>Status: </code></pre>
