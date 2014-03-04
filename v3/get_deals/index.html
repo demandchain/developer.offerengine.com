@@ -75,7 +75,6 @@
         <ul>
           <li><a href="/v1/adunits/">Ad Units</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/deals/">Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/deals/">Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
@@ -122,21 +121,21 @@
 <p>You provide the attributes to be included in the query string with the key word “fields”.
 The list of attributes to be returned should be a comma separated list of fields. Some fields (like <em>images</em> include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].</p>
 
-<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?fields=id,title,price,region,type,images[small,large]
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;fields=id,title,price,region,type,images[small,large]&lt;/b&gt;
 </code></pre>
 
 <h2 id="specifying-sort-order">Specifying sort order</h2>
 
 <p>You specify the sort order in the query string with the key word “sort”. Ascending(asc) and Descending(desc) order can be indicated in parentheses.</p>
 
-<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?sort=start_at(desc)&amp;fields=id,title,price,region,type,images[small,large]
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;sort=start_at(desc)&lt;/b&gt;&amp;fields=id,title,price,region,type,images[small,large]
 </code></pre>
 
 <h2 id="specifying-filters">Specifying filters</h2>
 
 <p>You specify filtering in the query string with the key word “filter”.</p>
 
-<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500&amp;fields=id,title,price,region,type,images[small,large]
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?&lt;b&gt;filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500&lt;/b&gt;&amp;fields=id,title,price,region,type,images[small,large]
 </code></pre>
 
 <p>As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.</p>
