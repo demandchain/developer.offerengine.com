@@ -36,7 +36,8 @@ Which fields are required depends on the type of the deal a purchase is being re
 * first_name
 * last_name
 * address_type
-* address_one
+* address1
+* address2
 * postal_code
 * city
 * state
