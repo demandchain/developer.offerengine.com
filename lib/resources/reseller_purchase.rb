@@ -32,6 +32,7 @@ module OfferEngine
         :first_name            => "Hank",
         :last_name             => "Rearden",
         :address_name          => "Home",
+        :address_type          => "Home",
         :address1              => "123 Any St.",
         :address2              => "Suite 100",
         :postal_code           => "12345",
