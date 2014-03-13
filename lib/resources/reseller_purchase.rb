@@ -73,9 +73,9 @@ module OfferEngine
                 :resource => "deal"
             },
             {
-                :type     => "invalid",
-                :message  => "code is invalid",
-                :field    => "postal_code",
+                :type     => "missing_field",
+                :message  => "address_type is required",
+                :field    => "address_type",
                 :resource => "shipping_address"
             }
         ],
