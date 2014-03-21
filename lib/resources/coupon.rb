@@ -41,4 +41,19 @@ module OfferEngine
         :stamp_url       => "http://domain/coupons/a21c5452d8/stamp",
     }
   end
+
+  def self.reseller_coupon_status
+    {
+        :coupon          => OfferEngine.reseller_coupon
+    }
+  end
+
+  def self.coupon_error
+    {
+      :status            => "error",
+      :error_type        => "find_failed",
+      :error_msg         => "Failed. not found.",
+    }
+  end
+
 end
