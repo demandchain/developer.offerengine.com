@@ -11,7 +11,7 @@
   <link rel="icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="http://media.deem.com/designimages/deemsmb_favicon.ico" />
 
-  <title>V3 Authentication - OfferEngine API</title>
+  <title>Reseller Coupons - OfferEngine API</title>
 
   <link href="/shared/css/documentation.css" rel="stylesheet" />
   <link href="/shared/css/pygments.css" rel="stylesheet" />
@@ -100,27 +100,47 @@
       </nav>
 
       <div class="content col9">
-        <h1 id="authentication">Authentication</h1>
+        <h1 id="reseller-coupons">Reseller Coupons</h1>
 
-<p>Authentication is a way of identifying yourself in order to gain access to the API. The v3 api namespace is different
-than v1 in that it uses http basic authentication.  You authenticate yourself with the Deem Offers API by providing your
-unique API username &amp; password with each request. <b>You must keep your unique API password secret</b>.</p>
+<ul>
+<li><a href="/v3/resellers/coupons/#check-coupon-status">Check the status of a coupon</a></li>
+</ul><h2 id="check-coupon-status">Check coupon status</h2>
 
-<p>Your unique credentials are provided in the Admin Dashboard. If at any time your key has been compromised, you can generate a new key in the Admin Dashboard.</p>
+<p>Endpoint for a third party reseller to check the status of a coupon.</p>
 
-<p><b>All API requests must be made over HTTPS.</b> Calls made over plain HTTP will fail. You must authenticate for all requests.</p>
-
-<p>For http basic authentication, include the username &amp; password between the protocol &amp; the domain name.</p>
-
-<h2 id="request">Request</h2>
-
-<pre><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/resellers/purchases
+<pre><code>POST https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/coupons/:coupon_id
 </code></pre>
 
-<h2 id="request-example">Request Example</h2>
+<h3 id="response">Response</h3>
 
-<pre><code>POST https://abcd1234:La20wWgtT0PC@api.offers.deem.com/api/v3/resellers/purchases?deal_id=some_deal&amp;...
-</code></pre>
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"coupon"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"a21c5452d8"</span><span class="p">,</span>
+    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"Fri Dec 16 19:14:55 UTC 2011"</span><span class="p">,</span>
+    <span class="s2">"qr_code_url"</span><span class="o">:</span> <span class="s2">"http://domain/coupon/qr_code/ab231c9e"</span><span class="p">,</span>
+    <span class="s2">"qr_code"</span><span class="o">:</span> <span class="s2">"apaosidnqw4tdsdpqi45jf091835ukdfq3-40695.kfmdg-q09i6m'ldfi8nqk6"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"valid"</span><span class="p">,</span>
+    <span class="s2">"redemption_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"redeemed_at"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="error-responses">Error Responses</h2>
+
+<p>If there is an error in processing the request, an error message will be returned.</p>
+
+<h3 id="error-response-example">Error Response Example</h3>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Failed. not found."</span>
+<span class="p">}</span></code></pre>
       </div>
 
     </div>
