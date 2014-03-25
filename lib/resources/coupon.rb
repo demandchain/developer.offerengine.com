@@ -42,6 +42,35 @@ module OfferEngine
     }
   end
 
+  def self.reseller_cancel_coupon
+    {
+        :status          => "success",
+    }
+  end
+
+  def self.reseller_coupon_not_found
+    {
+      :status            => "error",
+      :error_type        => "invalid_coupon",
+      :error_msg         => "coupon could not be found",
+    }
+  end
+
+  def self.reseller_coupon_cancel_failed
+    {
+      :status            => "error",
+      :message           => "Validation failed",
+      :code              => "422",
+      :errors            =>
+      { :coupons => [
+        "barcode 656352535683 is non refundable","in a non refundable state",
+        "coupons cannot already be part of another refund",
+        "you can not refund more coupons than were bought"
+        ],
+      }
+    }
+  end
+
   def self.reseller_coupon_status
     {
         :coupon          => OfferEngine.reseller_coupon
