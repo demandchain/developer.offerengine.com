@@ -104,6 +104,7 @@
 
 <ul>
 <li><a href="/v3/resellers/coupons/#check-coupon-status">Check the status of a coupon</a></li>
+  <li><a href="/v3/resellers/coupons/#cancel-coupon">Cancel coupon</a></li>
 </ul><h2 id="check-coupon-status">Check coupon status</h2>
 
 <p>Endpoint for a third party reseller to check the status of a coupon.</p>
@@ -140,6 +141,55 @@
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Failed. not found."</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="cancel-coupon">Cancel coupon</h2>
+
+<p>Endpoint for a third party reseller to cancel a coupon.</p>
+
+<pre><code>DELETE https://&lt;username&gt;:&lt;password&gt;@api.offers.deem.com/api/v3/coupons/:coupon_id/cancel
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="error-responses-1">Error Responses</h2>
+
+<p>If there is an error in processing the request, an error message will be returned.</p>
+
+<h3 id="error-response-example-1">Error Response Example</h3>
+
+<p>Error returned when a coupon is not found.</p>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"invalid_coupon"</span><span class="p">,</span>
+  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"coupon could not be found"</span>
+<span class="p">}</span></code></pre>
+
+<p>Error returned when cancel coupon fails.</p>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
+  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Validation failed"</span><span class="p">,</span>
+  <span class="s2">"code"</span><span class="o">:</span> <span class="s2">"422"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"barcode 656352535683 is non refundable"</span><span class="p">,</span>
+      <span class="s2">"in a non refundable state"</span><span class="p">,</span>
+      <span class="s2">"coupons cannot already be part of another refund"</span><span class="p">,</span>
+      <span class="s2">"you can not refund more coupons than were bought"</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
       </div>
 
