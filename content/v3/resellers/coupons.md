@@ -11,7 +11,7 @@ title: Reseller Coupons
 
 Endpoint for a third party reseller to check the status of a coupon.
 
-    POST https://<username>:<password>@api.offers.deem.com/api/v3/coupons/:coupon_id
+    GET https://<username>:<password>@api.offers.deem.com/api/v3/coupons/:coupon_id
 
 ### Response
 
