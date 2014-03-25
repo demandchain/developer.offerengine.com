@@ -50,9 +50,9 @@ module OfferEngine
 
   def self.reseller_coupon_not_found
     {
-      :status            => "error",
-      :error_type        => "invalid_coupon",
-      :error_msg         => "coupon could not be found",
+        status:  "error",
+        message: "Failed. not found.",
+        type:    "find_failed"
     }
   end
 
@@ -84,5 +84,4 @@ module OfferEngine
       :error_msg         => "Failed. not found.",
     }
   end
-
 end

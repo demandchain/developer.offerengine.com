@@ -46,7 +46,7 @@ If there is an error in processing the request, an error message will be returne
 
 Error returned when a coupon is not found.
 
-<%= headers 422 %>
+<%= headers 404 %>
 <%= json(OfferEngine.reseller_coupon_not_found()) %>
 
 Error returned when cancel coupon fails.
