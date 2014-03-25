@@ -166,12 +166,12 @@
 
 <p>Error returned when a coupon is not found.</p>
 
-<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"error"</span><span class="p">,</span>
-  <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"invalid_coupon"</span><span class="p">,</span>
-  <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"coupon could not be found"</span>
+  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Failed. not found."</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"find_failed"</span>
 <span class="p">}</span></code></pre>
 
 <p>Error returned when cancel coupon fails.</p>
