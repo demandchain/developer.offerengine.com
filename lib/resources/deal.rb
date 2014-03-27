@@ -18,6 +18,7 @@ module OfferEngine
         }
       }
     end
+
     def self.deal
       {
         id: "la-1024-wsc-hair-studio-01-2",
@@ -79,11 +80,13 @@ module OfferEngine
         state: "in-flight",
         subcategory: "Bike Rentals",
         supplier_id: "homerun",
+        tags: ["Adult", "Limited-time-only"],
         title: "1024 WSC Salon - Other - $39 for $100",
         type: "daily-deal",
         value: 10000
       }
     end
+
     def self.deal2
       {
         id: "den-621-rel-merchant-4",
@@ -146,17 +149,20 @@ module OfferEngine
         subcategory: "Comedy",
         subcategory_id: "comedy",
         supplier_id: "homerun",
+        tags: ["Adult", "Limited-time-only"],
         title: "test_CLO_CSV_5",
         type: "card-linked",
         value: 100
       }
     end
+
     def self.deals_request
       {
         :region => self.deal[:region_id],
         :exclude_soldout => "true",
       }
     end
+
     def self.deals_locate_request
       {
         :latitude => $latitude,
@@ -164,24 +170,28 @@ module OfferEngine
         :radius => $radius,
       }
     end
+
     def self.deals
       {
         :status => "success",
         :deals => [self.deal, self.deal2,]
       }
     end
+
     def self.deal_success
       {
         :status => "success",
         :deals => [self.deal]
       }
     end
+
     def self.deals_empty
       {
         :status => "success",
         :deals => []
       }
     end
+
     def self.deals_error_no_fields_supplied
       {
         :status => "error",
@@ -189,6 +199,7 @@ module OfferEngine
         :errors => "{\"query_string\":\"fields= isd is not recognized as a valid field for inclusion in this JSON response\"}},"
       }
     end
+
     def self.deals_error_sorting
       {
         :status => "error",
@@ -196,6 +207,7 @@ module OfferEngine
         :errors => "{\"query_string\":\"sort= value is not allowed as a sorting option\"}},"
       }
     end
+
     def self.deal_resource
     "### status attributes
 
@@ -328,6 +340,9 @@ subcategory
 
 supplier_id
 : _String_ Unique identifier for supplier of the deal
+
+tags
+: _Array_ An array of the tags associated with this deal
 
 title
 : _String_ Title of the purchased deal
@@ -526,11 +541,13 @@ value
       subcategory: "Bike Rentals",
       subcategory_id: 18,
       supplier_slug: "homerun",
+      tags: ["Adult", "Limited-time-only"],
       title: "1024 WSC Salon - Other - $39 for $100",
       type: "daily-deal",
       value: 10000
     }
   end
+
   def self.deal2
     {
       id: "den-621-rel-merchant-4",
@@ -689,17 +706,20 @@ value
       subcategory: "Comedy",
       subcategory_id: 3,
       supplier_slug: "homerun",
+      tags: ["Adult", "Limited-time-only"],
       title: "test_CLO_CSV_5",
       type: "card-linked",
       value: 100
     }
   end
+
   def self.deals_request
     {
       :region => self.deal[:region_id],
       :exclude_soldout => "true",
     }
   end
+
   def self.deals_locate_request
     {
       :latitude => $latitude,
@@ -707,24 +727,28 @@ value
       :radius => $radius,
     }
   end
+
   def self.deals
     {
       :status => "success",
       :deals => [self.deal, self.deal2,]
     }
   end
+
   def self.deal_success
     {
       :status => "success",
       :deals => [self.deal]
     }
   end
+
   def self.deals_empty
     {
       :status => "success",
       :deals => []
     }
   end
+
   def self.deals_error
     {
       :status => "error",
@@ -913,6 +937,9 @@ supplier_slug
 
 supplier_id
 : _String_ The slug for the deal's sourcing supplier
+
+tags
+: _Array_ An array of the tags associated with this deal
 
 title
 : _String_ Title of the purchased deal
