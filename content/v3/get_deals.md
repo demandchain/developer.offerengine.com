@@ -23,19 +23,19 @@ If you make this call with no filters, Get Deals returns a list of <i>all</i> "i
 You provide the attributes to be included in the query string with the key word "fields".
 The list of attributes to be returned should be a comma separated list of fields. Some fields (like _images_ include multiple sub-fields that can be returned. For these, you must specify which sub-fields to return inside a set of square brackets [].
 
-    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>fields=id,title,price,region,type,images[small,large]</b>
+    GET https://username:password@api.offers.deem.com/api/v3/deals?fields=id,title,price,region,type,images[small,large]
 
 ## Specifying sort order
 
 You specify the sort order in the query string with the key word "sort". Ascending(asc) and Descending(desc) order can be indicated in parentheses.
 
-    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>sort=start_at(desc)</b>&fields=id,title,price,region,type,images[small,large]
+    GET https://username:password@api.offers.deem.com/api/v3/deals?sort=start_at(desc)&fields=id,title,price,region,type,images[small,large]
 
 ## Specifying filters
 
 You specify filtering in the query string with the key word "filter".
 
-    GET https://username:password@api.offers.deem.com/api/v3/deals?<b>filter=region[san-francisco,phoenix],sold_out=false,price>1500</b>&fields=id,title,price,region,type,images[small,large]
+    GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out=false,price>1500&fields=id,title,price,region,type,images[small,large]
 
 As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.
 
