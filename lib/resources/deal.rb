@@ -22,9 +22,11 @@ module OfferEngine
     def self.deal
       {
         id: "la-1024-wsc-hair-studio-01-2",
+        address_id: "8a23af0847",
         campaign: nil,
         category: "Activities",
         category_id: "activities",
+        cost: 7000,
         description1: "Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai.",
         description2: "Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value).",
         end_at: "2013-10-25T06:59:59Z",
@@ -62,6 +64,7 @@ module OfferEngine
         max_per_user: 11,
         max_gift_per_user: 0,
         maximum_allowance: nil,
+        merchant_id: "a5b03069dd",
         merchant_name: "1024 WSC Hair Studio 01",
         min_spend: nil,
         num_left: 499,
@@ -80,7 +83,7 @@ module OfferEngine
         state: "in-flight",
         subcategory: "Bike Rentals",
         supplier_id: "homerun",
-        tags: ["Adult", "Limited-time-only"],
+        tags: ["Limited-time-only"],
         title: "1024 WSC Salon - Other - $39 for $100",
         type: "daily-deal",
         value: 10000
@@ -90,9 +93,11 @@ module OfferEngine
     def self.deal2
       {
         id: "den-621-rel-merchant-4",
+        address_id: "8a23af0847",
         campaign: nil,
         category: "Activities",
         category_id: "activities",
+        cost: 7000,
         description1: "",
         description2: "",
         end_at: "2014-01-01T06:59:59Z",
@@ -131,6 +136,7 @@ module OfferEngine
         max_per_user: 1,
         max_gift_per_user: 0,
         maximum_allowance: 9999999,
+        merchant_id: "a5b03069dd",
         merchant_name: "6/21 rel merchant",
         min_spend: 1,
         num_left: nil,
@@ -149,10 +155,10 @@ module OfferEngine
         subcategory: "Comedy",
         subcategory_id: "comedy",
         supplier_id: "homerun",
-        tags: ["Adult", "Limited-time-only"],
+        tags: ["Limited-time-only"],
         title: "test_CLO_CSV_5",
         type: "card-linked",
-        value: 100
+        value: 10000
       }
     end
 
@@ -173,22 +179,22 @@ module OfferEngine
 
     def self.deals
       {
-        :status => "success",
-        :deals => [self.deal, self.deal2,]
+        :deals => [self.deal, self.deal2,],
+        :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
       }
     end
 
     def self.deal_success
       {
-        :status => "success",
-        :deals => [self.deal]
+        :deals => [self.deal],
+        :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
       }
     end
 
     def self.deals_empty
       {
-        :status => "success",
-        :deals => []
+        :deals => [],
+        :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
       }
     end
 
@@ -212,7 +218,7 @@ module OfferEngine
     "### status attributes
 
 status
-: _String_  State of the request (success or error)
+: _String_  State of the request (error) only present when an error has occurred
 
 ### Deal attributes
 
@@ -730,22 +736,22 @@ value
 
   def self.deals
     {
-      :status => "success",
-      :deals => [self.deal, self.deal2,]
+      :deals => [self.deal, self.deal2,],
+      :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
     }
   end
 
   def self.deal_success
     {
-      :status => "success",
-      :deals => [self.deal]
+      :deals => [self.deal],
+      :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
     }
   end
 
   def self.deals_empty
     {
-      :status => "success",
-      :deals => []
+      :deals => [],
+      :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
     }
   end
 

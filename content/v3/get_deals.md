@@ -35,7 +35,7 @@ You specify the sort order in the query string with the key word "sort". Ascendi
 
 You specify filtering in the query string with the key word "filter".
 
-    GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out=false,price>1500&fields=id,title,price,region,type,images[small,large]
+    GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out[false],price>1500&fields=id,title,price,region,type,images[small,large]
 
 As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.
 
@@ -44,10 +44,10 @@ As you add a parameter to the filter with a comma(,), it is evaluated with a log
 ### Category parameters
 
 category
-: _Optional String_ : Filter deals by category. Deals can be returned in the category "foo" using ?filter=category=foo. Deals can be returned in multiple categories using ?filter=category[foo,bar].
+: _Optional String_ : Filter deals by category. Deals can be returned in the category "foo" using ?filter=category[foo]. Deals can be returned in multiple categories using ?filter=category[foo,bar].
 
 subcategory
-: _Optional String_ : Filter deals by subcategory. Deals can be returned in the subcategory "foo" using ?filter=subcategory=foo. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].
+: _Optional String_ : Filter deals by subcategory. Deals can be returned in the subcategory "foo" using ?filter=subcategory[foo]. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].
 
 ### Price parameters
 
@@ -57,18 +57,18 @@ price
 ### Location parameters
 
 region
-: _Optional String_ : Filter deals by region_id. Can be used in conjunction with "=" and "[]". To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].
+: _Optional String_ : Filter deals by region_id. Can be used in conjunction with "[]". To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].
 
 region_city
-: _Optional String_ : Filter deals by region city. Can be used in conjunction with "=" and "[]". To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].
+: _Optional String_ : Filter deals by region city. Can be used in conjunction with "[]". To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].
 
-lat_long_radius
-: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long_radius[123.1112,-321.1132,5]
+lat_long
+: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]
 
 ### Inventory parameters
 
 sold_out
-: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out=false to select deals that are not sold_out
+: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out[false] to select deals that are not sold_out
 
 ## Response
 
