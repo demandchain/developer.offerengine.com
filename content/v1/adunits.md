@@ -21,17 +21,17 @@ In version 1, three types of ad units are supported:
 ## 300 x 250 - Business Name, Percentage off, Image
 <img src="/images/ad-unit-300-250.png" alt="Ad Unit 300x250" >
 
-    <script src="https://${partner_slug}-admin.offers.com/api/v1/adunits.js?widget_size=300"></script>
+    <script src="https://${partner_slug}-admin.offers.deem.com/api/v1/adunits.js?widget_size=300"></script>
 
 ## 180 x 150 - Business Name, Percentage off, Image
 <img src="/images/ad-unit-180-150.png" alt="Ad Unit 180x150" >
 
-    <script src="https://${partner_slug}-admin.offers.com/api/v1/adunits.js?widget_size=180"></script>
+    <script src="https://${partner_slug}-admin.offers.deem.com/api/v1/adunits.js?widget_size=180"></script>
 
 ## 728 x 90 - Business Name, Percentage off, Image, Description, Call to action
 <img src="/images/ad-unit-728-90.png" alt="Ad Unit 728x90" >
 
-    <script src="https://${partner_slug}-admin.offers.com/api/v1/adunits.js"></script>
+    <script src="https://${partner_slug}-admin.offers.deem.com/api/v1/adunits.js"></script>
 
 ## Request Parameters
 widget_size
