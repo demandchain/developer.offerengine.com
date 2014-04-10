@@ -494,7 +494,6 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
@@ -828,7 +827,8 @@
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
       <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span>
     <span class="p">}</span>
-  <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="filter-deals-by-the-restaurants-category-with-no-deals-returned">Filter deals by the “restaurants” category with no deals returned:</h3>
@@ -836,10 +836,10 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
 
-  <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="error-responses">Error Responses</h2>

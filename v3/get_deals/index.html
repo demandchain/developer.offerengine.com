@@ -136,7 +136,7 @@ The list of attributes to be returned should be a comma separated list of fields
 
 <p>You specify filtering in the query string with the key word “filter”.</p>
 
-<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out=false,price&gt;1500&amp;fields=id,title,price,region,type,images[small,large]
+<pre><code>GET https://username:password@api.offers.deem.com/api/v3/deals?filter=region[san-francisco,phoenix],sold_out[false],price&gt;1500&amp;fields=id,title,price,region,type,images[small,large]
 </code></pre>
 
 <p>As you add a parameter to the filter with a comma(,), it is evaluated with a logical AND operation with any other parameter to filter the results.</p>
@@ -148,10 +148,10 @@ The list of attributes to be returned should be a comma separated list of fields
 <dl>
 <dt>category</dt>
   <dd>
-<em>Optional String</em> : Filter deals by category. Deals can be returned in the category “foo” using ?filter=category=foo. Deals can be returned in multiple categories using ?filter=category[foo,bar].</dd>
+<em>Optional String</em> : Filter deals by category. Deals can be returned in the category “foo” using ?filter=category[foo]. Deals can be returned in multiple categories using ?filter=category[foo,bar].</dd>
   <dt>subcategory</dt>
   <dd>
-<em>Optional String</em> : Filter deals by subcategory. Deals can be returned in the subcategory “foo” using ?filter=subcategory=foo. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].</dd>
+<em>Optional String</em> : Filter deals by subcategory. Deals can be returned in the subcategory “foo” using ?filter=subcategory[foo]. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].</dd>
 </dl><h3 id="price-parameters">Price parameters</h3>
 
 <dl>
@@ -163,19 +163,19 @@ The list of attributes to be returned should be a comma separated list of fields
 <dl>
 <dt>region</dt>
   <dd>
-<em>Optional String</em> : Filter deals by region_id. Can be used in conjunction with “=” and “[]”. To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].</dd>
+<em>Optional String</em> : Filter deals by region_id. Can be used in conjunction with “[]”. To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].</dd>
   <dt>region_city</dt>
   <dd>
-<em>Optional String</em> : Filter deals by region city. Can be used in conjunction with “=” and “[]”. To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].</dd>
-  <dt>lat_long_radius</dt>
+<em>Optional String</em> : Filter deals by region city. Can be used in conjunction with “[]”. To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].</dd>
+  <dt>lat_long</dt>
   <dd>
-<em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long_radius[123.1112,-321.1132,5]</dd>
+<em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]</dd>
 </dl><h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
 <dt>sold_out</dt>
   <dd>
-<em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out=false to select deals that are not sold_out</dd>
+<em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out[false] to select deals that are not sold_out</dd>
 </dl><h2 id="response">Response</h2>
 
 <p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
@@ -189,7 +189,7 @@ The list of attributes to be returned should be a comma separated list of fields
 <dl>
 <dt>status</dt>
   <dd>
-<em>String</em>  State of the request (success or error)</dd>
+<em>String</em>  State of the request (error) only present when an error has occurred</dd>
 </dl><h3 id="deal-attributes">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
@@ -370,13 +370,14 @@ The list of attributes to be returned should be a comma separated list of fields
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"address_id"</span><span class="o">:</span> <span class="s2">"8a23af0847"</span><span class="p">,</span>
       <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
       <span class="s2">"category_id"</span><span class="o">:</span> <span class="s2">"activities"</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">7000</span><span class="p">,</span>
       <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
       <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
       <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
@@ -414,6 +415,7 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
       <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"merchant_id"</span><span class="o">:</span> <span class="s2">"a5b03069dd"</span><span class="p">,</span>
       <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Hair Studio 01"</span><span class="p">,</span>
       <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
@@ -433,7 +435,6 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Bike Rentals"</span><span class="p">,</span>
       <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
       <span class="s2">"tags"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">"Adult"</span><span class="p">,</span>
         <span class="s2">"Limited-time-only"</span>
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
@@ -442,9 +443,11 @@ The list of attributes to be returned should be a comma separated list of fields
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
+      <span class="s2">"address_id"</span><span class="o">:</span> <span class="s2">"8a23af0847"</span><span class="p">,</span>
       <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
       <span class="s2">"category_id"</span><span class="o">:</span> <span class="s2">"activities"</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">7000</span><span class="p">,</span>
       <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2014-01-01T06:59:59Z"</span><span class="p">,</span>
@@ -482,6 +485,7 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="mi">9999999</span><span class="p">,</span>
+      <span class="s2">"merchant_id"</span><span class="o">:</span> <span class="s2">"a5b03069dd"</span><span class="p">,</span>
       <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"6/21 rel merchant"</span><span class="p">,</span>
       <span class="s2">"min_spend"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"num_left"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -501,14 +505,14 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"subcategory_id"</span><span class="o">:</span> <span class="s2">"comedy"</span><span class="p">,</span>
       <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
       <span class="s2">"tags"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">"Adult"</span><span class="p">,</span>
         <span class="s2">"Limited-time-only"</span>
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
     <span class="p">}</span>
-  <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="filter-deals-by-the-restaurants-category-with-no-deals-returned">Filter deals by the “restaurants” category with no deals returned:</h3>
@@ -516,10 +520,10 @@ The list of attributes to be returned should be a comma separated list of fields
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
   <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
 
-  <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="error-responses">Error Responses</h2>
