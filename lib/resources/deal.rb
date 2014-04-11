@@ -215,7 +215,8 @@ module OfferEngine
     end
 
     def self.deal_resource
-    "### status attributes
+    "
+### Status attributes
 
 status
 : _String_  State of the request (error) only present when an error has occurred
@@ -375,6 +376,11 @@ type
 
 value
 : _Integer_ The value of the deal in cents
+
+### Pagination attributes
+
+next_page
+: _String_ The URL for the next page of deals.
 "
     end
   end
