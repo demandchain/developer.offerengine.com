@@ -22,7 +22,6 @@ module OfferEngine
     def self.deal
       {
         id: "la-1024-wsc-hair-studio-01-2",
-        address_id: "8a23af0847",
         campaign: nil,
         category: "Activities",
         category_id: "activities",
@@ -48,6 +47,7 @@ module OfferEngine
         locations: [
           {
             address: {
+              address_id: "8a23af0847",
               region: "CA",
               postal_code: "90057",
               street: "671 la fayette park place",
@@ -93,7 +93,6 @@ module OfferEngine
     def self.deal2
       {
         id: "den-621-rel-merchant-4",
-        address_id: "8a23af0847",
         campaign: nil,
         category: "Activities",
         category_id: "activities",
@@ -120,6 +119,7 @@ module OfferEngine
           {
           address:
             {
+              address_id: "8a23af0847",
               region: "Colorado",
               postal_code: "80234",
               street: "7072 North Mariposa Court",
@@ -237,6 +237,9 @@ category
 category_id
 : _String_ Unique identifier for category the deal is in
 
+cost
+: _Integer_ The cost of the deal in cents
+
 description1
 : _String_ Primary description of the deal
 
@@ -295,6 +298,9 @@ max_gift_per_user
 
 maximum_allowance
 : _Integer_ The maximum value of a deal purchase (only for card-linked deals)
+
+merchant_id
+: _String_ Unique identifier for the merchant offering the deal
 
 merchant_name
 : _String_ Name of the merchant of the deal
