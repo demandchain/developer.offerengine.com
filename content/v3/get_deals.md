@@ -60,7 +60,7 @@ region
 : _Optional String_ : Filter deals by region_id. Can be used in conjunction with "[]". To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].
 
 region_city
-: _Optional String_ : Filter deals by region city. Can be used in conjunction with "[]". To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].
+: _Optional String_ : Filter deals by city within two character state. Should be nested within "[]". To select a deals from multiple region cities, use ?filter=region_city[[san%20francisco,ca],[los%20angeles,ca]].
 
 lat_long
 : _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]
