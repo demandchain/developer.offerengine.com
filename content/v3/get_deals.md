@@ -52,7 +52,7 @@ subcategory
 ### Price parameters
 
 price
-: _Optional Integer_ : Filter the deal price in cents (i.e., 100 equals one dollar). Can be used in conjunction with "<", ">", "=" and combinations thereof using for instance ?filter=price>=1500. Multiple exact price matches can be selected using ?filter=price[1300,1500]
+: _Optional Integer_ : Filter the deal price in cents (i.e., 100 equals one dollar). Can be used in conjunction with "<", ">", "=" and combinations thereof using for instance ?filter=price>=1500. Multiple exact price matches can be selected using ?filter=price[1300,1500].
 
 ### Location parameters
 
@@ -60,15 +60,15 @@ region
 : _Optional String_ : Filter deals by region_id. Can be used in conjunction with "[]". To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].
 
 region_city
-: _Optional String_ : Filter deals by region city. Can be used in conjunction with "[]". To select a deals from multiple region cities, use ?filter=region_city[san%20francisco,los%20angeles].
+: _Optional String_ : Filter deals by city within two character state. Should be nested within "[]". Use?filter=region_city[san%20francisco,ca]. To select deals from multiple region cities, nest the selection array within an outer array. Use ?filter=region_city[[san%20francisco,ca],[los%20angeles,ca]].
 
 lat_long
-: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5]
+: _Optional String_ : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5].
 
 ### Inventory parameters
 
 sold_out
-: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out[false] to select deals that are not sold_out
+: _Optional Boolean_ : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out[false] to select deals that are not sold_out.
 
 ## Response
 
