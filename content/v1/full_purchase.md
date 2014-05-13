@@ -76,6 +76,9 @@ month
 
 year
 : _String_ Four-digit year for the payment card expiration date when a payment card number is provided
+
+zip_code
+: _String_ The zip code for the billing address for the payment card when a payment card number is provided.
 <br/><br/>
 
 ### Shipping address parameters
