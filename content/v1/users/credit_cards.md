@@ -47,6 +47,9 @@ month
 year
 : _Integer_ Expiration year in digit format.
 
+zip_code
+: _String_ The zip code for the billing address for the card.
+
 ### Response
 
 <%= headers 200 %>
