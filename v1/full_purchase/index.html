@@ -182,7 +182,10 @@
 <em>String</em> Two-digit month for the payment card expiration date when a payment card number is provided</dd>
   <dt>year</dt>
   <dd>
-<em>String</em> Four-digit year for the payment card expiration date when a payment card number is provided
+<em>String</em> Four-digit year for the payment card expiration date when a payment card number is provided</dd>
+  <dt>zip_code</dt>
+  <dd>
+<em>String</em> The zip code for the billing address for the payment card when a payment card number is provided.
 <br><br>
 </dd>
 </dl><h3 id="shipping-address-parameters">Shipping address parameters</h3>
@@ -236,9 +239,10 @@
   <span class="p">},</span>
   <span class="s2">"credit_card"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"number"</span><span class="o">:</span> <span class="s2">"424242424242424"</span><span class="p">,</span>
-    <span class="s2">"cvv"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"verification_value"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"month"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"year"</span><span class="o">:</span> <span class="mi">2014</span>
+    <span class="s2">"year"</span><span class="o">:</span> <span class="mi">2014</span><span class="p">,</span>
+    <span class="s2">"zip_code"</span><span class="o">:</span> <span class="s2">"90210"</span>
   <span class="p">},</span>
   <span class="s2">"shipping_address"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"address_one"</span><span class="o">:</span> <span class="s2">"501 Howard St"</span><span class="p">,</span>
