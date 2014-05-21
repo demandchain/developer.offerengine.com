@@ -30,6 +30,7 @@ module OfferEngine
         description2: "Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value).",
         end_at: "2013-10-25T06:59:59Z",
         expires_at: "2013-12-17T23:59:59-08:00",
+        expiration_days: nil,
         fine_print: "Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation",
         fine_print_legalese: "Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law.",
         fixed_fee: nil,
@@ -101,6 +102,7 @@ module OfferEngine
         description2: "",
         end_at: "2014-01-01T06:59:59Z",
         expires_at: "2013-11-20T13:25:14-07:00",
+        expiration_days: nil,
         fine_print: "",
         fine_print_legalese: "",
         fixed_fee: nil,
@@ -250,7 +252,10 @@ end_at
 : _Date_ The date and time that the deal will no longer be available to purchase (times are in UTC)
 
 expires_at
-: _Date_ The date and time that the deal voucher will expire (times are in timezone of deal's region)
+: _Date_ If set, the date and time that the deal voucher will expire (times are in timezone of deal's region)
+
+expiration_days
+: _Integer_ If set, the number of days after which a voucher will expire.
 
 fine_print
 : _String_ Specific details and restrictions associated with the deal
