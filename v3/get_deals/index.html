@@ -221,7 +221,10 @@ The list of attributes to be returned should be a comma separated list of fields
 <em>Date</em> The date and time that the deal will no longer be available to purchase (times are in UTC)</dd>
   <dt>expires_at</dt>
   <dd>
-<em>Date</em> The date and time that the deal voucher will expire (times are in timezone of deal’s region)</dd>
+<em>Date</em> If set, the date and time that the deal voucher will expire (times are in timezone of deal’s region)</dd>
+  <dt>expiration_days</dt>
+  <dd>
+<em>Integer</em> If set, the number of days after which a voucher will expire.</dd>
   <dt>fine_print</dt>
   <dd>
 <em>String</em> Specific details and restrictions associated with the deal</dd>
@@ -393,6 +396,7 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
       <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
       <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-12-17T23:59:59-08:00"</span><span class="p">,</span>
+      <span class="s2">"expiration_days"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
       <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
       <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -463,6 +467,7 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2014-01-01T06:59:59Z"</span><span class="p">,</span>
       <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-11-20T13:25:14-07:00"</span><span class="p">,</span>
+      <span class="s2">"expiration_days"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
