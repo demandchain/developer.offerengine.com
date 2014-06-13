@@ -11,7 +11,7 @@ module OfferEngine
         title: "$50 for $100 worth of Dining",
         type: "daily-deal",
         images: {
-          tiny_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg", 
+          tiny_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
           small_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg",
           medium_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/medium.jpg",
           large_url: "https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/large.jpg"
@@ -327,6 +327,9 @@ percent_fee
 
 purchase_url
 : _String_ The URL for deal purchase web page
+
+redemption_url
+: _String_ The URL a purchaser will redeem the coupon/redemption code
 
 region_id
 : _String_ Unique identifier for region in which the deal is for sale
