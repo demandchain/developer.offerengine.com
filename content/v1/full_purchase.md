@@ -25,6 +25,12 @@ You provide the required and optional parameters as a JSON file. The required fi
 deal_id
 : _String_ ID of the deal for which you are purchasing inventory
 
+deal_item_id
+: _Optional String_ ID of the option for the deal for which you are purchasing inventory
+
+  If a deal has options, this parameter is required.  If a deal does not have any options, then this parameter must
+  not be sent or must be blank.
+
 quantity
 : _Integer_ Number of deals to be purchased
 <br/><br/>
@@ -160,6 +166,9 @@ created_at
 deal_id
 : _String_ Unique identifier for the deal purchased
 
+deal_item_id
+: _String_ Unique identifier for the deal option purchased.  Will be blank for deals that do not support options.
+
 deal_type
 : _String_ Type of the deal purchased
 
@@ -189,6 +198,9 @@ id
 
 deal_id
 : _String_ Unique identifier for the purchased deal
+
+deal_item_id
+: _String_ Unique identifier for the deal option purchased.  Will be blank for deals that do not support options.
 
 title
 : _String_ Title of the purchased deal

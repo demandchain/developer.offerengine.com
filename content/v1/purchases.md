@@ -96,6 +96,12 @@ This request creates a purchase for an existing user with a stored payment card.
 deal_id
 : _String_  ID of the deal for which you are purchasing inventory
 
+deal_item_id
+: _Optional String_ ID of the option for the deal for which you are purchasing inventory
+
+  If a deal has options, this parameter is required.  If a deal does not have any options, then this parameter must
+  not be sent or must be blank.
+
 quantity
 : _Integer_ The number of deals you are purchasing for this purchase
 
@@ -124,6 +130,12 @@ Temporarily reserve inventory (for five minutes) for a purchase in order to proc
 
 deal_id
 : _String_  ID of the deal for which you are reserving inventory
+
+deal_item_id
+: _Optional String_ ID of the option for the deal for which you are purchasing inventory
+
+  If a deal has options, this parameter is required.  If a deal does not have any options, then this parameter must
+  not be sent or must be blank.
 
 num_bought
 : _Integer_ The number of deals you are reserving for this purchase
