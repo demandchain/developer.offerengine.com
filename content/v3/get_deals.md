@@ -74,7 +74,7 @@ sold_out
 
 include_deal_item
 : _Optional Boolean_ : Filter deals that do or do not include options. Use ?filter=include_deal_item[false] to select
- deals which do not have options.  Use ?include_deal_item[true] to allow both deals with and without options
+ deals which do not have options.  Use ?filter=include_deal_item[true] to allow both deals with and without options
  to be returned.
 
 ## Response
@@ -276,6 +276,9 @@ product_name
 
 sort_order
 : _Integer_ The order of the item in the list.
+
+quantity_remaining
+: _Integer_ The total number of items remaining.
 
 Options will also include the following columns if the same columns are included for the deal.  Although the column
 names are the same, the values in the options are independent of the deal and may be the same or different.
