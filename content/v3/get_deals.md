@@ -264,24 +264,39 @@ value
 sku
 : _String_ The SKU (Stock Keeping Unit) for a deal.
 
+
+### deal_items
+The resultset for a deal will also include the following field in the result-set:
+
 deal_items
 : _Array of Hashes_ A list of options for the deal.
 
+Unlike the other fields in the result-set for a deal, this item is always included and may not be specified in the
+fields parameter.
 
-### Deal Option attributes
-The options for a deal which are in the deal_items array will always include the following attributes:
+If empty or null, this field may be ignored.
+
+If the array is not empty, then the items listed in the array are choices, referred to as options, which the user can
+select from to indicate exactly what they want to purchase.  When deal_items exist,
+the information in the deal represents an overall summary of the basic deal and the items represent the specific
+details of what can actually be purchased.  Although items do not have all of the same fields that a deal has,
+they do have many of the same fields, and the values of each item are independent of each other and the deal.  That is,
+each item can have its own cost, value, highlights, etc.  By specifying fields for a deal,
+you are also specifying that those same fields (if they are appropriate for an item) should be output for items.
+
+In addition to the fields which are chosen based on the fields parameter, the following fields will be output for all
+items:
 
 product_name
 : _String_ The name of the option (equivalent to title for the deal)
 
 sort_order
-: _Integer_ The order of the item in the list.
+: _Integer_ The order of the item in the list of options.
 
 quantity_remaining
 : _Integer_ The total number of items remaining.
 
-Options will also include the following columns if the same columns are included for the deal.  Although the column
-names are the same, the values in the options are independent of the deal and may be the same or different.
+The full list of fields which will be output for an item based on the fields parameter:
 
 * id
 * campaign

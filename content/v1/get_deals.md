@@ -106,7 +106,7 @@ runs_max
 card_links_redeemed
 : _Optional Boolean_ Filter deals that are not card-linked (false only).
 
-### Deals with options parameters
+### Deal Option Parameters
 
 include_deal_item
 : _Optional Boolean_ Filter deals that do or do not include options. Use ?include_deal_item=false to select

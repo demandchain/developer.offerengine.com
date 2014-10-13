@@ -1068,7 +1068,7 @@ product_name
 : _String_ The name of the option (equivalent to title for the deal)
 
 sort_order
-: _Integer_ The order of the item in the list.
+: _Integer_ The order of the item in the list of options.
 
 id
 : _String_ Unique identifier for purchased deal
