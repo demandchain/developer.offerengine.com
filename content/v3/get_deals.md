@@ -266,7 +266,7 @@ sku
 
 
 ### deal_items
-The resultset for a deal will also include the following field in the result-set:
+The result-set for a deal will also include the following field:
 
 deal_items
 : _Array of Hashes_ A list of options for the deal.
@@ -276,7 +276,7 @@ fields parameter.
 
 If empty or null, this field may be ignored.
 
-If the array is not empty, then the items listed in the array are choices, referred to as options, which the user can
+If the array is not empty, then the items listed in the array are choices, referred to as <i>options</i>, which the user can
 select from to indicate exactly what they want to purchase.  When deal_items exist,
 the information in the deal represents an overall summary of the basic deal and the items represent the specific
 details of what can actually be purchased.  Although items do not have all of the same fields that a deal has,
@@ -296,7 +296,7 @@ sort_order
 quantity_remaining
 : _Integer_ The total number of items remaining.
 
-The full list of fields which will be output for an item based on the fields parameter:
+The following shows the full list of fields output for an item based on the fields parameter:
 
 * id
 * campaign
