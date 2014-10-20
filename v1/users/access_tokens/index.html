@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -115,24 +114,26 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>expires_in</dt>
+  <dt>expires_in</dt>
   <dd>
 <em>Integer</em> time to live in seconds</dd>
   <dt>scope</dt>
   <dd>
     <ul>
-<li>
+      <li>
 <em>String</em> comma separated resources Examples: <code>user</code>, <code>credit_card</code>
 </li>
       <li>
 <code>all</code> for unlimited</li>
     </ul>
-</dd>
+  </dd>
   <dt>access</dt>
   <dd>
 <em>String</em> <code>read</code>, <code>write</code>, <code>read,write</code>
 </dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -146,6 +147,7 @@
     <span class="s2">"access"</span><span class="o">:</span> <span class="s2">"read,write"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

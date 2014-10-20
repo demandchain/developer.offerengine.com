@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -103,10 +102,12 @@
         <h1 id="batches">Batches</h1>
 
 <ul>
-<li><a href="/v1/targeted_emails/batches/#get-a-batch">Get a batch</a></li>
+  <li><a href="/v1/targeted_emails/batches/#get-a-batch">Get a batch</a></li>
   <li><a href="/v1/targeted_emails/batches/#create-a-batch">Create a batch</a></li>
   <li><a href="/v1/targeted_emails/batches/#cancel-a-batch">Cancel a batch</a></li>
-</ul><h2 id="get-a-batch">Get a batch</h2>
+</ul>
+
+<h2 id="get-a-batch">Get a batch</h2>
 <p>Returns a serialized representation of the batch.</p>
 
 <pre><code>GET /v1/targeted_email/batches/:batch_id
@@ -115,13 +116,15 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>api_key</dt>
+  <dt>api_key</dt>
   <dd>
 <em>String</em> Partners API key</dd>
   <dt>deal_id</dt>
   <dd>
 <em>String</em> The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -143,13 +146,15 @@
 
 <h5 id="dealid">deal_id</h5>
 <dl>
-<dt>deal_id is absent</dt>
+  <dt>deal_id is absent</dt>
   <dd>“is required”</dd>
   <dt>deal_id is unknown</dt>
   <dd>“unknown deal”</dd>
   <dt>deal does not match batch’s deal</dt>
   <dd>“does not match this batch”</dd>
-</dl><h2 id="create-a-batch">Create a batch</h2>
+</dl>
+
+<h2 id="create-a-batch">Create a batch</h2>
 <p>Creates a new targeted email batch. 
 Limited to 1000 user ids per request.
 Limited to 10 000 scheduled user ids per send_at day.</p>
@@ -160,7 +165,7 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>api_key</dt>
+  <dt>api_key</dt>
   <dd>
 <em>String</em> Partners api_key</dd>
   <dt>deal_id</dt>
@@ -175,7 +180,9 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <dt>send_at</dt>
   <dd>
 <em>String</em> UTC Time the batch delivery should be scheduled for. Must be after tonight midnight and before tomorrow midnight.</dd>
-</dl><h3 id="response-1">Response</h3>
+</dl>
+
+<h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -197,15 +204,17 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 
 <h5 id="dealid-1">deal_id</h5>
 <dl>
-<dt>deal_id is absent</dt>
+  <dt>deal_id is absent</dt>
   <dd>“is required”</dd>
   <dt>deal_id is unknown</dt>
   <dd>“unknown deal”</dd>
   <dt>deal is not in-flight or or approved</dt>
   <dd>“deal’s status must be in-flight or approved”</dd>
-</dl><h5 id="sendat">send_at</h5>
+</dl>
+
+<h5 id="sendat">send_at</h5>
 <dl>
-<dt>send_at is absent</dt>
+  <dt>send_at is absent</dt>
   <dd>“is required”</dd>
   <dt>send_at is not tomorrow</dt>
   <dd>“must be tomorrow”</dd>
@@ -213,21 +222,27 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <dd>“must be after deal’s start time”</dd>
   <dt>send_at is after deal end time</dt>
   <dd>“must be before deal’s end time”</dd>
-</dl><h5 id="userids">user_ids</h5>
+</dl>
+
+<h5 id="userids">user_ids</h5>
 <dl>
-<dt>is absent</dt>
+  <dt>is absent</dt>
   <dd>“is required”</dd>
   <dt>all are invalid or do not exist</dt>
   <dd>“are all invalid”</dd>
   <dt>all user_ids already scheduled for that day</dt>
   <dd>“are all already scheduled for that day”</dd>
-</dl><h5 id="mode">mode</h5>
+</dl>
+
+<h5 id="mode">mode</h5>
 <dl>
-<dt>is absent</dt>
+  <dt>is absent</dt>
   <dd>“is required”</dd>
   <dt>is invalid</dt>
   <dd>“must be either (…)”</dd>
-</dl><h2 id="cancel-a-batch">Cancel a batch</h2>
+</dl>
+
+<h2 id="cancel-a-batch">Cancel a batch</h2>
 <p>Cancels the batch.</p>
 
 <pre><code>DELETE /v1/targeted_email/batches/:batch_id
@@ -235,7 +250,7 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 
 <h3 id="parameters-2">Parameters</h3>
 <dl>
-<dt>api_key</dt>
+  <dt>api_key</dt>
   <dd>
 <em>String</em> Partners API key</dd>
   <dt>batch_id</dt>
@@ -244,7 +259,9 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <dt>deal_id</dt>
   <dd>
 <em>String</em> The deal id associated with the batch. Used as a guard to verify that the batch is associated with this deal.</dd>
-</dl><h3 id="response-2">Response</h3>
+</dl>
+
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -266,20 +283,24 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
 
 <h5 id="dealid-2">deal_id</h5>
 <dl>
-<dt>deal_id is absent</dt>
+  <dt>deal_id is absent</dt>
   <dd>“is required”</dd>
   <dt>deal_id is unknown</dt>
   <dd>“unknown deal”</dd>
   <dt>deal does not match batch’s deal</dt>
   <dd>“does not match this batch”</dd>
-</dl><h5 id="batchid">batch_id</h5>
+</dl>
+
+<h5 id="batchid">batch_id</h5>
 <dl>
-<dt>batch is already processed</dt>
+  <dt>batch is already processed</dt>
   <dd>“is already processed, cannot be cancelled”</dd>
-</dl><h2 id="possible-batch-statuses">Possible Batch Statuses</h2>
+</dl>
+
+<h2 id="possible-batch-statuses">Possible Batch Statuses</h2>
 
 <dl>
-<dt>pending</dt>
+  <dt>pending</dt>
   <dd>batch is ready and waiting for the send_at time to deliver its targeted emails.</dd>
   <dt>processed</dt>
   <dd>batch has delivered all of its targeted emails successfully.</dd>
@@ -288,6 +309,7 @@ Limited to 10 000 scheduled user ids per send_at day.</p>
   <dt>cancelled</dt>
   <dd>batch was cancelled before its delivery time (send_at time).</dd>
 </dl>
+
       </div>
 
     </div>

@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -146,22 +145,26 @@ The list of attributes to be returned should be a comma separated list of fields
 <h3 id="category-parameters">Category parameters</h3>
 
 <dl>
-<dt>category</dt>
+  <dt>category</dt>
   <dd>
 <em>Optional String</em> : Filter deals by category. Deals can be returned in the category “foo” using ?filter=category[foo]. Deals can be returned in multiple categories using ?filter=category[foo,bar].</dd>
   <dt>subcategory</dt>
   <dd>
 <em>Optional String</em> : Filter deals by subcategory. Deals can be returned in the subcategory “foo” using ?filter=subcategory[foo]. Deals can be returned in multiple subcategories using ?filter=subcategory[foo,bar].</dd>
-</dl><h3 id="price-parameters">Price parameters</h3>
+</dl>
+
+<h3 id="price-parameters">Price parameters</h3>
 
 <dl>
-<dt>price</dt>
+  <dt>price</dt>
   <dd>
 <em>Optional Integer</em> : Filter the deal price in cents (i.e., 100 equals one dollar). Can be used in conjunction with “&lt;”, “&gt;”, “=” and combinations thereof using for instance ?filter=price&gt;=1500. Multiple exact price matches can be selected using ?filter=price[1300,1500].</dd>
-</dl><h3 id="location-parameters">Location parameters</h3>
+</dl>
+
+<h3 id="location-parameters">Location parameters</h3>
 
 <dl>
-<dt>region</dt>
+  <dt>region</dt>
   <dd>
 <em>Optional String</em> : Filter deals by region_id. Can be used in conjunction with “[]”. To select all deals from multiple regions, use ?filter=region[san-francisco,atlanta].</dd>
   <dt>region_city</dt>
@@ -170,13 +173,27 @@ The list of attributes to be returned should be a comma separated list of fields
   <dt>lat_long</dt>
   <dd>
 <em>Optional String</em> : Filter deals by location using latitude, longitude and radius in miles. Use ?filter=lat_long[123.1112,-321.1132,5].</dd>
-</dl><h3 id="inventory-parameters">Inventory parameters</h3>
+</dl>
+
+<h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
-<dt>sold_out</dt>
+  <dt>sold_out</dt>
   <dd>
 <em>Optional Boolean</em> : Filter deals that are either sold_out or not sold_out. Use ?filter=sold_out[false] to select deals that are not sold_out.</dd>
-</dl><h2 id="response">Response</h2>
+</dl>
+
+<h3 id="deal-option-parameters">Deal Option parameters</h3>
+
+<dl>
+  <dt>include_deal_item</dt>
+  <dd>
+<em>Optional Boolean</em> : Filter deals that do or do not include options. Use ?filter=include_deal_item[false] to select
+ deals which do not have options.  Use ?filter=include_deal_item[true] to allow both deals with and without options
+ to be returned.</dd>
+</dl>
+
+<h2 id="response">Response</h2>
 
 <p>The response includes the HTTP status of the request along with the associated response data provided in a JSON file.</p>
 
@@ -187,15 +204,17 @@ The list of attributes to be returned should be a comma separated list of fields
 <h3 id="status-attributes">Status attributes</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of the request (error) only present when an error has occurred</dd>
-</dl><h3 id="deal-attributes">Deal attributes</h3>
+</dl>
+
+<h3 id="deal-attributes">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for purchased deal</dd>
   <dt>campaign</dt>
@@ -239,27 +258,31 @@ The list of attributes to be returned should be a comma separated list of fields
 <em>String</em> How the consumer redeems the deal:</dd>
   <dd>
     <ul>
-<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+      <li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+      <li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
     </ul>
-</dd>
+  </dd>
   <dd>
     <ul>
-<li>shipped - The purchase is shipped to the customer</li>
+      <li>shipped - The purchase is shipped to the customer</li>
     </ul>
-</dd>
+  </dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
   <dt>images</dt>
   <dd>
 <em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
-* large, medium, small, and tiny
-* Each item points to the images URL.</dd>
+
+    <ul>
+      <li>large, medium, small, and tiny</li>
+      <li>Each item points to the images URL.</li>
+    </ul>
+  </dd>
   <dt>incentive_amount</dt>
   <dd>
 <em>Integer</em> A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)</dd>
@@ -337,9 +360,9 @@ The list of attributes to be returned should be a comma separated list of fields
 <em>String</em> The current workflow state of the deal:</dd>
   <dd>
     <ul>
-<li>in-flight - The deal is available for purchase. (This is the only state returned by the API)</li>
+      <li>in-flight - The deal is available for purchase. (This is the only state returned by the API)</li>
     </ul>
-</dd>
+  </dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
@@ -354,34 +377,105 @@ The list of attributes to be returned should be a comma separated list of fields
 <em>String</em> Title of the purchased deal</dd>
   <dt>type</dt>
   <dd>
-<em>String</em> Type of the purchased deal</dd>
-  <dd>Daily Deal:</dd>
-  <dd>The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
-:</dd>
-  <dd>On-going:</dd>
-  <dd>A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
-:</dd>
-  <dd>Affiliate:</dd>
-  <dd>A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
-:</dd>
-  <dd>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
-:</dd>
-  <dd>a) exposes a redeemable code.</dd>
-  <dd>OR</dd>
-  <dd>b) redirects the user to a co-marketed website.
-:</dd>
-  <dd>Card-linked Offers:</dd>
-  <dd>A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</dd>
+<em>String</em> Type of the purchased deal
+Daily Deal:
+The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+
+    <p>On-going:
+A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.</p>
+
+    <p>Affiliate:
+A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a
+coupon code.</p>
+
+    <p>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:</p>
+
+    <p>a) exposes a redeemable code.
+OR
+b) redirects the user to a co-marketed website.</p>
+
+    <p>Card-linked Offers:
+A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without
+having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</p>
+  </dd>
   <dt>value</dt>
   <dd>
 <em>Integer</em> The value of the deal in cents</dd>
-</dl><h3 id="pagination-attributes">Pagination attributes</h3>
+  <dt>sku</dt>
+  <dd>
+<em>String</em> The SKU (Stock Keeping Unit) for a deal.</dd>
+</dl>
+
+<h3 id="dealitems">deal_items</h3>
+<p>The result-set for a deal will also include the following field:</p>
 
 <dl>
-<dt>next_page</dt>
+  <dt>deal_items</dt>
+  <dd>
+<em>Array of Hashes</em> A list of options for the deal.</dd>
+</dl>
+
+<p>Unlike the other fields in the result-set for a deal, this item is always included and may not be specified in the
+fields parameter.</p>
+
+<p>If empty or null, this field may be ignored.</p>
+
+<p>If the array is not empty, then the items listed in the array are choices, referred to as <i>options</i>, which the user can
+select from to indicate exactly what they want to purchase.  When deal_items exist,
+the information in the deal represents an overall summary of the basic deal and the items represent the specific
+details of what can actually be purchased.  Although items do not have all of the same fields that a deal has,
+they do have many of the same fields, and the values of each item are independent of each other and the deal.  That is,
+each item can have its own cost, value, highlights, etc.  By specifying fields for a deal,
+you are also specifying that those same fields (if they are appropriate for an item) should be output for items.</p>
+
+<p>In addition to the fields which are chosen based on the fields parameter, the following fields will be output for all
+items:</p>
+
+<dl>
+  <dt>product_name</dt>
+  <dd>
+<em>String</em> The name of the option (equivalent to title for the deal)</dd>
+  <dt>sort_order</dt>
+  <dd>
+<em>Integer</em> The order of the item in the list of options.</dd>
+  <dt>quantity_remaining</dt>
+  <dd>
+<em>Integer</em> The total number of items remaining.</dd>
+</dl>
+
+<p>The following shows the full list of fields output for an item based on the fields parameter:</p>
+
+<ul>
+  <li>id</li>
+  <li>campaign</li>
+  <li>cost</li>
+  <li>highlights</li>
+  <li>max_per_user</li>
+  <li>max_gift_per_user</li>
+  <li>num_left</li>
+  <li>sold_out</li>
+  <li>value</li>
+  <li>price</li>
+  <li>number_sold</li>
+  <li>redemption_url</li>
+  <li>purchasable_number</li>
+  <li>description1</li>
+  <li>description2</li>
+  <li>fine_print</li>
+  <li>instructions</li>
+  <li>images</li>
+  <li>sku</li>
+</ul>
+
+<h3 id="pagination-attributes">Pagination attributes</h3>
+
+<dl>
+  <dt>next_page</dt>
   <dd>
 <em>String</em> The URL for the next page of deals.</dd>
-</dl><h2 id="response-examples">Response Examples</h2>
+</dl>
+
+<h2 id="response-examples">Response Examples</h2>
 
 <h3 id="filter-deals-by-the-losangeles-region-with-two-deals-returned">Filter deals by the “los_angeles” region with two deals returned:</h3>
 
@@ -458,7 +552,8 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a"</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
@@ -529,7 +624,8 @@ The list of attributes to be returned should be a comma separated list of fields
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"9k3e249-98a"</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
@@ -546,6 +642,146 @@ The list of attributes to be returned should be a comma separated list of fields
   <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
 <span class="p">}</span></code></pre>
 
+<h3 id="filter-deals-by-the-losangeles-region-with-one-deal-with-options-returned">Filter deals by the “los_angeles” region with one deal with options returned:</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"deals"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"category"</span><span class="o">:</span> <span class="s2">"Activities"</span><span class="p">,</span>
+      <span class="s2">"category_id"</span><span class="o">:</span> <span class="s2">"activities"</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">7000</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"end_at"</span><span class="o">:</span> <span class="s2">"2013-10-25T06:59:59Z"</span><span class="p">,</span>
+      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"2013-12-17T23:59:59-08:00"</span><span class="p">,</span>
+      <span class="s2">"expiration_days"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"fixed_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"fulfillment_method"</span><span class="o">:</span> <span class="s2">"printed"</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+      <span class="s2">"images"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"tiny"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"small"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/medium.jpg"</span><span class="p">,</span>
+        <span class="s2">"large"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal/images/b/5/ff54ac03/large.jpg"</span>
+      <span class="p">},</span>
+      <span class="s2">"incentive_amount"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"incentive_percentage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $39. This amount does not expire. The Promotional Value of this Voucher is $61. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"locations"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"address"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"address_id"</span><span class="o">:</span> <span class="s2">"8a23af0847"</span><span class="p">,</span>
+            <span class="s2">"region"</span><span class="o">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+            <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"90057"</span><span class="p">,</span>
+            <span class="s2">"street"</span><span class="o">:</span> <span class="s2">"671 la fayette park place"</span><span class="p">,</span>
+            <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">34.060428619</span><span class="p">,</span>
+            <span class="s2">"locality"</span><span class="o">:</span> <span class="s2">"los angeles"</span><span class="p">,</span>
+            <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">118.283882141</span><span class="p">,</span>
+            <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span>
+          <span class="p">},</span>
+          <span class="s2">"hours"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"8887187201"</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">"max_linkage"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"maximum_allowance"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"merchant_id"</span><span class="o">:</span> <span class="s2">"a5b03069dd"</span><span class="p">,</span>
+      <span class="s2">"merchant_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"min_spend"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+      <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"percent_fee"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"purchase_url"</span><span class="o">:</span> <span class="s2">"https://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2/checkout"</span><span class="p">,</span>
+      <span class="s2">"region_id"</span><span class="o">:</span> <span class="s2">"los-angeles"</span><span class="p">,</span>
+      <span class="s2">"region_name"</span><span class="o">:</span> <span class="s2">"Los Angeles"</span><span class="p">,</span>
+      <span class="s2">"robotitle"</span><span class="o">:</span> <span class="s2">"$39 for $100 of 1024 WSC Salon - Other at 1024 WSC Hair Studio 01"</span><span class="p">,</span>
+      <span class="s2">"shipping_address_required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"show_url"</span><span class="o">:</span> <span class="s2">"http://homerun-f2.offerify.com/deal/la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"start_at"</span><span class="o">:</span> <span class="s2">"2013-10-17T07:00:00Z"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"in-flight"</span><span class="p">,</span>
+      <span class="s2">"subcategory"</span><span class="o">:</span> <span class="s2">"Bike Rentals"</span><span class="p">,</span>
+      <span class="s2">"supplier_id"</span><span class="o">:</span> <span class="s2">"homerun"</span><span class="p">,</span>
+      <span class="s2">"tags"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">"Limited-time-only"</span>
+      <span class="p">],</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"9k3e249-98"</span><span class="p">,</span>
+      <span class="s2">"deal_items"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"ox92fa13nh"</span><span class="p">,</span>
+          <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">8000</span><span class="p">,</span>
+          <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+          <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+          <span class="s2">"images"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"tiny"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+            <span class="s2">"small"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+            <span class="s2">"medium"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/medium.jpg"</span><span class="p">,</span>
+            <span class="s2">"large"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/large.jpg"</span>
+          <span class="p">},</span>
+          <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $49. This amount does not expire. The Promotional Value of this Voucher is $151. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+          <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">4900</span><span class="p">,</span>
+          <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $49 for $200"</span><span class="p">,</span>
+          <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="mi">20000</span><span class="p">,</span>
+          <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"9k3e249-98b"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"ox92fa13nh"</span><span class="p">,</span>
+          <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">9000</span><span class="p">,</span>
+          <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+          <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"Complete cocktail how-to's Choice of six locations 40 hours of instruction"</span><span class="p">,</span>
+          <span class="s2">"images"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"tiny"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+            <span class="s2">"small"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/tiny.jpg"</span><span class="p">,</span>
+            <span class="s2">"medium"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/medium.jpg"</span><span class="p">,</span>
+            <span class="s2">"large"</span><span class="o">:</span> <span class="s2">"https://d2x9dz1etb1m98.cloudfront.net/ugassets/deal_item/images/b/5/ff54ac03/large.jpg"</span>
+          <span class="p">},</span>
+          <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"The Amount Paid for this Voucher is $59. This amount does not expire. The Promotional Value of this Voucher is $241. This amount will expire on the referenced expiration date. This Voucher is redeemable starting 2012-11-12. This Voucher is transferable. This voucher has two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. Promotional Value will expire on the expiration dates unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+          <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">499</span><span class="p">,</span>
+          <span class="s2">"num_qualifying"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">5900</span><span class="p">,</span>
+          <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $59 for $300"</span><span class="p">,</span>
+          <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
+          <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"9k3e249-98c"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100&amp;include_deal_item=[true]\""</span>
+<span class="p">}</span></code></pre>
+
 <h2 id="error-responses">Error Responses</h2>
 
 <p>Responses provided for failed requests:</p>
@@ -553,11 +789,13 @@ The list of attributes to be returned should be a comma separated list of fields
 <h3 id="section">400</h3>
 
 <dl>
-<dt>status = “error”</dt>
+  <dt>status = “error”</dt>
   <dt>message = “Bad request syntax”</dt>
   <dt>errors = {“query_string”:”fields= isd is not recognised as a valid field for inclusion in this JSON response”}}</dt>
   <dd>Parameter information provided is invalid.</dd>
-</dl><h2 id="error-response-examples">Error Response Examples</h2>
+</dl>
+
+<h2 id="error-response-examples">Error Response Examples</h2>
 
 <pre class="headers"><code>Status: </code></pre>
 
@@ -574,6 +812,7 @@ The list of attributes to be returned should be a comma separated list of fields
   <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Bad request syntax"</span><span class="p">,</span>
   <span class="s2">"errors"</span><span class="o">:</span> <span class="s2">"{\"query_string\":\"sort= value is not allowed as a sorting option\"}},"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

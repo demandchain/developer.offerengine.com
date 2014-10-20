@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -122,7 +121,7 @@
 <h3 id="individual-deal-detail-parameters">Individual deal detail parameters</h3>
 
 <dl>
-<dt>slug</dt>
+  <dt>slug</dt>
   <dd>
 <em>Optional String</em> Filter deals by a particular deal slug.</dd>
   <dt>marketplace_slug</dt>
@@ -131,44 +130,54 @@
   <dt>title</dt>
   <dd>
 <em>Optional String</em> Filter deals by title with this value (“burger” could return deals with titles “$20 off Bob’s Burgers”, “$10 off Burgermeister”, and so on).</dd>
-</dl><h3 id="state-parameters">State parameters</h3>
+</dl>
+
+<h3 id="state-parameters">State parameters</h3>
 
 <dl>
-<dt>state</dt>
+  <dt>state</dt>
   <dd>
 <em>Optional String</em> Filter deals in this workflow state (“in-flight”, “approved”, “submitted”, “landed”, “in-review”, “rejected”, “paused”, and “deleted”). <b>The “in-flight” state is the most relevant state because it identifies deals currently available for purchase.</b>
 </dd>
   <dt>show_all</dt>
   <dd>
 <em>Optional Boolean</em> Show deals in all workflow states (true only).</dd>
-</dl><h3 id="category-parameters">Category parameters</h3>
+</dl>
+
+<h3 id="category-parameters">Category parameters</h3>
 
 <dl>
-<dt>category</dt>
+  <dt>category</dt>
   <dd>
 <em>Optional String</em> Filter deals by category with this value (“Foo” could return deals in the category “Food”).</dd>
   <dt>subcategory</dt>
   <dd>
 <em>Optional String</em> Filter deals by subcategory with this value (“Me” could return deals in the subcategories “Mexican”, “Mediterreanean”, and “Medical - Other”).</dd>
-</dl><h3 id="merchant-parameters">Merchant parameters</h3>
+</dl>
+
+<h3 id="merchant-parameters">Merchant parameters</h3>
 
 <dl>
-<dt>merchant</dt>
+  <dt>merchant</dt>
   <dd>
 <em>Optional String</em> Filter deals by merchant name with this value (“burger” could return deals with merchants named “Bob’s Burger”, “Burgermeister”, and so on).</dd>
-</dl><h3 id="price-parameters">Price parameters</h3>
+</dl>
+
+<h3 id="price-parameters">Price parameters</h3>
 
 <dl>
-<dt>price_min</dt>
+  <dt>price_min</dt>
   <dd>
 <em>Optional Integer</em> Filter the minimum deal price in cents (i.e., 100 equals one dollar).</dd>
-  <dt>price_max </dt>
+  <dt>price_max</dt>
   <dd>
 <em>Optional Integer</em> Filter the maximum deal price in cents.</dd>
-</dl><h3 id="location-parameters">Location parameters</h3>
+</dl>
+
+<h3 id="location-parameters">Location parameters</h3>
 
 <dl>
-<dt>region</dt>
+  <dt>region</dt>
   <dd>
 <em>Optional String</em> Filter deals by region slug, city/state, IP address, or zip code.</dd>
   <dt>latitude</dt>
@@ -180,34 +189,42 @@
   <dt>radius</dt>
   <dd>
 <em>Optional Float</em> Filter deals within a circular radius around the required <i>longitude</i> and <i>latitude</i> values.</dd>
-</dl><h3 id="user-parameters">User parameters</h3>
+</dl>
+
+<h3 id="user-parameters">User parameters</h3>
 
 <dl>
-<dt>user</dt>
+  <dt>user</dt>
   <dd>
 <em>Optional String</em> Filter deals for a specific user (user slug or email address). Required: the scheduling parameter <i>card_links_redeemed</i> must be false, and the location parameter <i>region</i> must be specified.</dd>
-</dl><h3 id="source-parameters">Source parameters</h3>
+</dl>
+
+<h3 id="source-parameters">Source parameters</h3>
 
 <dl>
-<dt>suppliers </dt>
+  <dt>suppliers</dt>
   <dd>
 <em>Optional Array</em> Filter deals by supplier (a partner slug or set of comma-separated partner slugs).</dd>
   <dt>vendors</dt>
   <dd>
 <em>Optional Array</em> Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).</dd>
-</dl><h3 id="inventory-parameters">Inventory parameters</h3>
+</dl>
+
+<h3 id="inventory-parameters">Inventory parameters</h3>
 
 <dl>
-<dt>num_left</dt>
+  <dt>num_left</dt>
   <dd>
 <em>Optional Integer</em> Filter deals by the quantity of inventory left.</dd>
   <dt>exclude_soldout</dt>
   <dd>
 <em>Optional Boolean</em> Filter deals that are not sold out (true only).</dd>
-</dl><h3 id="scheduling-parameters">Scheduling parameters</h3>
+</dl>
+
+<h3 id="scheduling-parameters">Scheduling parameters</h3>
 
 <dl>
-<dt>runs_min</dt>
+  <dt>runs_min</dt>
   <dd>
 <em>Optional Date</em> Filter the minimum deal run date.</dd>
   <dt>runs_max</dt>
@@ -216,7 +233,19 @@
   <dt>card_links_redeemed</dt>
   <dd>
 <em>Optional Boolean</em> Filter deals that are not card-linked (false only).</dd>
-</dl><h2 id="request-example">Request Example</h2>
+</dl>
+
+<h3 id="deal-option-parameters">Deal Option Parameters</h3>
+
+<dl>
+  <dt>include_deal_item</dt>
+  <dd>
+<em>Optional Boolean</em> Filter deals that do or do not include options. Use ?include_deal_item=false to select
+deals which do not have options.  Use ?include_deal_item=true to allow both deals with and without options
+to be returned.</dd>
+</dl>
+
+<h2 id="request-example">Request Example</h2>
 
 <h3 id="new-user-account-new-payment-card-and-a-shipping-address">New user account, new payment card, and a shipping address:</h3>
 
@@ -238,15 +267,17 @@
 <h3 id="status-attributes">status attributes</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of the request (success or error)</dd>
-</dl><h3 id="deal-attributes">Deal attributes</h3>
+</dl>
+
+<h3 id="deal-attributes">Deal attributes</h3>
 
 <p>A list of deal resources with all associated deal attributes for each deal in the result set:</p>
 
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em> Unique identifier for purchased deal</dd>
   <dt>slug</dt>
@@ -291,22 +322,14 @@
 <em>Integer</em> The fee charged for running the deal in cents (only for card-linked deals)</dd>
   <dt>fulfillment_method</dt>
   <dd>
-<em>String</em> How the consumer redeems the deal:</dd>
-  <dd>
+<em>String</em> How the consumer redeems the deal:
+
     <ul>
-<li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+      <li>redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant’s website.</li>
+      <li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
+      <li>shipped - The purchase is shipped to the customer</li>
     </ul>
-</dd>
-  <dd>
-    <ul>
-<li>printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>shipped - The purchase is shipped to the customer</li>
-    </ul>
-</dd>
+  </dd>
   <dt>highlights</dt>
   <dd>
 <em>String</em> Additional important details about the deal</dd>
@@ -365,8 +388,12 @@
   <dt>primary_image</dt>
   <dd>
 <em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
-* _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
-* Each item has a hash with the dimensions and URL.</dd>
+
+    <ul>
+      <li>_103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge</li>
+      <li>Each item has a hash with the dimensions and URL.</li>
+    </ul>
+  </dd>
   <dt>purchasable_number</dt>
   <dd>
 <em>Integer</em> The quantity of units available to sell. This combines logic from max_per_user, and num_left</dd>
@@ -402,53 +429,21 @@
   <dd>(Deprecated) <em>Integer</em> Use current_price</dd>
   <dt>state</dt>
   <dd>
-<em>String</em> The current workflow state of the deal:</dd>
-  <dd>
+<em>String</em> The current workflow state of the deal:
+
     <ul>
-<li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>rejected - The deal failed approval and is not available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>in-flight - The deal is available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>cancelled - The deal has been manually canelled and is no longer in flight</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>landed - The run window has passed and the deal is no longer available for purchase.</li>
-    </ul>
-</dd>
-  <dd>
-    <ul>
-<li>deleted - The deal has been removed.<br><br>
+      <li>submitted - Base deal data has been entered and the deal is not available for purchase.</li>
+      <li>in-review - The deal needs approval to continue in the workflow and is not available for purchase.</li>
+      <li>rejected - The deal failed approval and is not available for purchase.</li>
+      <li>approved - The content is complete and the deal is ready to be run, but not yet available for purchase.</li>
+      <li>in-flight - The deal is available for purchase.</li>
+      <li>paused - The deal’s sale is halted and the deal is not currently available for purchase.</li>
+      <li>cancelled - The deal has been manually canelled and is no longer in flight</li>
+      <li>landed - The run window has passed and the deal is no longer available for purchase.</li>
+      <li>deleted - The deal has been removed.<br><br>
 </li>
     </ul>
-</dd>
+  </dd>
   <dt>subcategory</dt>
   <dd>
 <em>String</em> More specific deal type</dd>
@@ -466,28 +461,126 @@
 <em>String</em> Title of the purchased deal</dd>
   <dt>type</dt>
   <dd>
-<em>String</em> Type of the purchased deal</dd>
-  <dd>Daily Deal:</dd>
-  <dd>The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
-:</dd>
-  <dd>On-going:</dd>
-  <dd>A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
-:</dd>
-  <dd>Affiliate:</dd>
-  <dd>A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
-:</dd>
-  <dd>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
-:</dd>
-  <dd>a) exposes a redeemable code.</dd>
-  <dd>OR</dd>
-  <dd>b) redirects the user to a co-marketed website.
-:</dd>
-  <dd>Card-linked Offers:</dd>
-  <dd>A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</dd>
+<em>String</em> Type of the purchased deal
+Daily Deal:
+The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+
+    <p>On-going:
+A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.</p>
+
+    <p>Affiliate:
+A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.</p>
+
+    <p>Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:</p>
+
+    <p>a) exposes a redeemable code.
+OR
+b) redirects the user to a co-marketed website.</p>
+
+    <p>Card-linked Offers:
+A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.</p>
+  </dd>
   <dt>value</dt>
   <dd>
 <em>Integer</em> The value of the deal in cents</dd>
-</dl><h2 id="response-examples">Response Examples</h2>
+  <dt>sku</dt>
+  <dd>
+<em>String</em> The SKU (Stock Keeping Unit) for a deal.</dd>
+  <dt>deal_items</dt>
+  <dd>
+<em>Array of Hashes</em> A list of options for the deal.</dd>
+</dl>
+
+<h3 id="deal-option-attributes">Deal Option attributes</h3>
+<p>The options for a deal which are in the deal_items array include the following attributes:</p>
+
+<dl>
+  <dt>product_name</dt>
+  <dd>
+<em>String</em> The name of the option (equivalent to title for the deal)</dd>
+  <dt>sort_order</dt>
+  <dd>
+<em>Integer</em> The order of the item in the list of options.</dd>
+  <dt>id</dt>
+  <dd>
+<em>String</em> Unique identifier for purchased deal</dd>
+  <dt>cost</dt>
+  <dd>
+<em>Integer</em> The cost of the deal in cents</dd>
+  <dt>value</dt>
+  <dd>
+<em>Integer</em> The value of the deal in cents</dd>
+  <dt>current_price</dt>
+  <dd>
+<em>Integer</em> The current price of the deal in cents</dd>
+  <dt>max_per_user</dt>
+  <dd>
+<em>Integer</em> The maximum quantity available to purchase by a user</dd>
+  <dt>max_gift_per_user</dt>
+  <dd>
+<em>Integer</em> How many gifts each user is allowed to buy</dd>
+  <dt>highlights</dt>
+  <dd>
+<em>String</em> Additional important details about the deal</dd>
+  <dt>description1</dt>
+  <dd>
+<em>String</em> Primary description of the deal</dd>
+  <dt>description2</dt>
+  <dd>
+<em>String</em> Secondary description of the deal</dd>
+  <dt>fine_print</dt>
+  <dd>
+<em>String</em> Specific details and restrictions associated with the deal</dd>
+  <dt>fine_print_legalese</dt>
+  <dd>
+<em>String</em> Legal Specifics details and restrictions associated with the deal (fulfillment_method=’printed’ only)</dd>
+  <dt>instructions</dt>
+  <dd>
+<em>String</em> Usage details for the deal</dd>
+  <dt>situation</dt>
+  <dd>(Deprecated) <em>String</em> Use description2</dd>
+  <dt>campaign</dt>
+  <dd>
+<em>String</em> The name for tracking a group of deals used in a marketing campaign</dd>
+  <dt>redemption_url</dt>
+  <dd>
+<em>String</em> The URL a purchaser will redeem the coupon/redemption code</dd>
+  <dt>num_left</dt>
+  <dd>
+<em>Integer</em> The quantity of units left for purchase</dd>
+  <dt>purchasable_number</dt>
+  <dd>
+<em>Integer</em> The quantity of units available to sell. This combines logic from max_per_user, and num_left</dd>
+  <dt>low_down</dt>
+  <dd>(Deprecated) <em>String</em>: Use description1</dd>
+  <dt>number_sold</dt>
+  <dd>
+<em>Integer</em> The quantity of units sold of this deal</dd>
+  <dt>soldout</dt>
+  <dd>
+<em>Boolean</em> Flagged if the deal has sold out of inventory</dd>
+  <dt>image_url</dt>
+  <dd>(Deprecated) <em>String</em> Relative URL for an image associated with the purchased deal</dd>
+  <dt>starting_price</dt>
+  <dd>(Deprecated) <em>Integer</em> Use current_price</dd>
+  <dt>image_url_abs</dt>
+  <dd>
+<em>String</em> Absolute URL for an image associated with the purchased deal</dd>
+  <dt>primary_image</dt>
+  <dd>
+<em>Hash</em> A list of deal images in different sizes. Each image is available in the following sizes:
+
+    <ul>
+      <li>featured, medium, thumb</li>
+      <li>Each item has a hash with the dimensions and URL.</li>
+    </ul>
+  </dd>
+  <dt>sku</dt>
+  <dd>
+<em>String</em> The SKU (Stock Keeping Unit) for a deal.</dd>
+</dl>
+
+<h2 id="response-examples">Response Examples</h2>
 
 <h3 id="filter-deals-by-the-sanfrancisco-region-with-two-deals-returned">Filter deals by the “san_francisco” region with two deals returned:</h3>
 
@@ -659,7 +752,8 @@
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a"</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"den-621-rel-merchant-4"</span><span class="p">,</span>
@@ -825,7 +919,98 @@
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"card-linked"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a"</span><span class="p">,</span>
+      <span class="s2">"deal_items"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+          <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+          <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+          <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+          <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+          <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+          <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+          <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+          <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+          <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+          <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+          <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+          <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+            <span class="p">},</span>
+            <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+            <span class="p">},</span>
+            <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+            <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"zil284n2k31"</span><span class="p">,</span>
+          <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 2"</span><span class="p">,</span>
+          <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">2200</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="mi">15000</span><span class="p">,</span>
+          <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">11500</span><span class="p">,</span>
+          <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">32</span><span class="p">,</span>
+          <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is a super awesome deal"</span><span class="p">,</span>
+          <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+          <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+          <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+          <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+          <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+          <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">44123765</span><span class="p">,</span>
+          <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+          <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">11500</span><span class="p">,</span>
+          <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+          <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+            <span class="p">},</span>
+            <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+            <span class="p">},</span>
+            <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+              <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+              <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+            <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-2"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"\"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&amp;filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&amp;page=2&amp;per_page=100\""</span>
@@ -849,9 +1034,11 @@
 <h3 id="section">404</h3>
 
 <dl>
-<dt>error_type = “find_failed”</dt>
+  <dt>error_type = “find_failed”</dt>
   <dd>Parameter information provided is invalid.</dd>
-</dl><h2 id="error-response-example">Error Response Example</h2>
+</dl>
+
+<h2 id="error-response-example">Error Response Example</h2>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
 
@@ -860,6 +1047,7 @@
   <span class="s2">"error_type"</span><span class="o">:</span> <span class="s2">"find_failed"</span><span class="p">,</span>
   <span class="s2">"error_msg"</span><span class="o">:</span> <span class="s2">"Unable to find"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

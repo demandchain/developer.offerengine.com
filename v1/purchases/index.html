@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -103,12 +102,14 @@
         <h1 id="purchases">Purchases</h1>
 
 <ul>
-<li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
+  <li><a href="/v1/purchases/#get-a-purchase">Get a purchase</a></li>
   <li><a href="/v1/purchases/#create-a-purchase">Create a purchase</a></li>
   <li><a href="/v1/purchases/#reserve-a-purchase">Reserve a purchase</a></li>
   <li><a href="/v1/purchases/#claim-a-purchase">Claim a purchase</a></li>
   <li><a href="/v1/purchases/#release-a-reserved-purchase">Release a reserved purchase</a></li>
-</ul><h2 id="get-a-purchase">Get a purchase</h2>
+</ul>
+
+<h2 id="get-a-purchase">Get a purchase</h2>
 
 <p>This request retrieves a specific purchase object. It returns a representation of a specific purchase transaction and associated information.</p>
 
@@ -130,7 +131,7 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <dl>
-<dt>status</dt>
+  <dt>status</dt>
   <dd>
 <em>String</em>  State of this purchase (“success” or error type)</dd>
   <dt>purchase_id</dt>
@@ -145,9 +146,11 @@
   <dt>credit_card_id</dt>
   <dd>
 <em>String</em>  Unique identifier for credit card used to make this purchase</dd>
-</dl><h4 id="coupons">coupons</h4>
+</dl>
+
+<h4 id="coupons">coupons</h4>
 <dl>
-<dt>id</dt>
+  <dt>id</dt>
   <dd>
 <em>String</em>  Unique identifier for this purchase voucher</dd>
   <dt>slug</dt>
@@ -183,7 +186,9 @@
   <dt>redeemed_at</dt>
   <dd>
 <em>Optional String</em>  Date and time when purchase voucher was redeemed</dd>
-</dl><h3 id="response-example">Response Example</h3>
+</dl>
+
+<h3 id="response-example">Response Example</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -193,6 +198,7 @@
     <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
     <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
     <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
     <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
     <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -208,6 +214,50 @@
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
       <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
       <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
+    <span class="p">},</span>
+    <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+      <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+      <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
     <span class="p">},</span>
     <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
@@ -234,9 +284,16 @@
 
 <h3 id="parameters-2">Parameters</h3>
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
 <em>String</em>  ID of the deal for which you are purchasing inventory</dd>
+  <dt>deal_item_id</dt>
+  <dd>
+<em>Optional String</em> ID of the option for the deal for which you are purchasing inventory
+
+    <p>If a deal has options, this parameter is required.  If a deal does not have any options, then this parameter must
+not be sent or must be blank.</p>
+  </dd>
   <dt>quantity</dt>
   <dd>
 <em>Integer</em> The number of deals you are purchasing for this purchase</dd>
@@ -252,7 +309,9 @@
   <dt>session_id (optional)</dt>
   <dd>
 <em>String</em> The session ID that is associated with an affiliate</dd>
-</dl><h3 id="response-1">Response</h3>
+</dl>
+
+<h3 id="response-1">Response</h3>
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -262,6 +321,7 @@
     <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
     <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
     <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
     <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
     <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -278,6 +338,50 @@
       <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
       <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
     <span class="p">},</span>
+    <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+      <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+      <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
+    <span class="p">},</span>
     <span class="s2">"coupons"</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
@@ -291,13 +395,22 @@
 <h3 id="parameters-3">Parameters</h3>
 
 <dl>
-<dt>deal_id</dt>
+  <dt>deal_id</dt>
   <dd>
 <em>String</em>  ID of the deal for which you are reserving inventory</dd>
+  <dt>deal_item_id</dt>
+  <dd>
+<em>Optional String</em> ID of the option for the deal for which you are purchasing inventory
+
+    <p>If a deal has options, this parameter is required.  If a deal does not have any options, then this parameter must
+not be sent or must be blank.</p>
+  </dd>
   <dt>num_bought</dt>
   <dd>
 <em>Integer</em> The number of deals you are reserving for this purchase</dd>
-</dl><h3 id="response-2">Response</h3>
+</dl>
+
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -308,6 +421,7 @@
     <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
     <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
     <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
     <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
     <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -324,6 +438,50 @@
       <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
       <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
     <span class="p">},</span>
+    <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+      <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+      <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
+    <span class="p">},</span>
     <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
 
     <span class="p">]</span>
@@ -339,10 +497,12 @@
 <h3 id="parameters-4">Parameters</h3>
 
 <dl>
-<dt>user_id</dt>
+  <dt>user_id</dt>
   <dd>
 <em>String</em>  ID of the user for which you are reserving inventory</dd>
-</dl><h3 id="response-3">Response</h3>
+</dl>
+
+<h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -353,6 +513,7 @@
     <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
     <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
     <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
     <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
     <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -368,6 +529,50 @@
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
       <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
       <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
+    <span class="p">},</span>
+    <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+      <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+      <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
     <span class="p">},</span>
     <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
@@ -402,6 +607,7 @@
     <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
     <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
     <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
+    <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
     <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
     <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -418,11 +624,56 @@
       <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
       <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
     <span class="p">},</span>
+    <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
+      <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
+      <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
+      <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
+      <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
+      <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
+      <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
+      <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
+      <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
+      <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
+      <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
+      <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
+      <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
+        <span class="p">},</span>
+        <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
+          <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
+          <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
+    <span class="p">},</span>
     <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
 
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>

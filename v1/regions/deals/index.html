@@ -78,7 +78,6 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
-          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -117,7 +116,7 @@ GET /regions/:city,:state/deals
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-<dt>user_id (optional)</dt>
+  <dt>user_id (optional)</dt>
   <dd>
 <em>String</em> A user id that will be used to filter deals (e.g. based on user preferences).</dd>
   <dt>filter (optional)</dt>
@@ -132,7 +131,9 @@ GET /regions/:city,:state/deals
   <dt>page (optional)</dt>
   <dd>
 <em>Integer</em> Returns the list corresponding to the page number if the result cannot be displayed in a single page.  Default is 1.</dd>
-</dl><h3 id="response">Response</h3>
+</dl>
+
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -303,10 +304,12 @@ GET /regions/:city,:state/deals
       <span class="p">],</span>
       <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1024 WSC Salon - Other - $39 for $100"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
-      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span>
+      <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     </div>
