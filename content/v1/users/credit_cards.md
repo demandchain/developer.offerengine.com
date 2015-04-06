@@ -11,7 +11,7 @@ title: User Credit Cards
 ## List all user's credit cards
 Returns an array of credit card representations.
 
-    GET /credit_cards
+    GET /api/v1/credit_cards
 
 ### Parameters
 
@@ -28,7 +28,7 @@ user_id
 ## Create a credit card
 Stores a credit card for user purchases.
 
-    POST /credit_cards
+    POST /api/v1/credit_cards
 
 ### Parameters
 
@@ -60,7 +60,7 @@ Make an existing credit card the default card.
 
 Note: If a user only has one credit card, it will be the default credit card.
 
-   PUT /credit_cards/:credit_card_id/default
+   PUT /api/v1/credit_cards/:credit_card_id/default
 
 ### Response
 

@@ -7,7 +7,7 @@ title: User Purchases
 ## List all user's purchases
 Returns an array of purchase representations.
 
-    GET /users/:user_id/purchases
+    GET /api/v1/users/:user_id/purchases
 
 
 ### Parameters

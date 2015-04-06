@@ -12,7 +12,7 @@ Access tokens are temporary tokens which allow users to call APIs directly. Thin
 
 ## Create an access token
 
-    POST /users/:user/access_tokens
+    POST /api/v1/users/:user/access_tokens
 
 
 ### Parameters

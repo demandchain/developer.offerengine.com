@@ -10,7 +10,7 @@ title: Region Activities
 ## List all region's activities
 Returns an array of activity representations.
 
-    GET /regions/:region_id/activity
+    GET /api/v1/regions/:region_id/activity
 
 ### Response
 

@@ -9,7 +9,7 @@ title: Merchants
 ## Get merchant stats
 Returns a csv file of all the merchants.
 
-    GET /stats/merchants
+    GET /api/v1/stats/merchants
 
 ### Response
 

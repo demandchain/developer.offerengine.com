@@ -11,7 +11,7 @@ title: Targeted Emails Batches
 ## Get a batch
 Returns a serialized representation of the batch.
 
-    GET /v1/targeted_email/batches/:batch_id
+    GET /api/v1/targeted_email/batches/:batch_id
 
 ### Parameters
 
@@ -40,11 +40,11 @@ deal does not match batch's deal
 
 
 ## Create a batch
-Creates a new targeted email batch. 
+Creates a new targeted email batch.
 Limited to 1000 user ids per request.
 Limited to 10 000 scheduled user ids per send_at day.
 
-    POST /v1/targeted_email/batches
+    POST /api/v1/targeted_email/batches
 
 
 ### Parameters
@@ -115,7 +115,7 @@ is invalid
 ## Cancel a batch
 Cancels the batch.
 
-    DELETE /v1/targeted_email/batches/:batch_id
+    DELETE /api/v1/targeted_email/batches/:batch_id
 
 ### Parameters
 api_key

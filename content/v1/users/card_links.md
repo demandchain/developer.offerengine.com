@@ -15,7 +15,7 @@ A card link represents a user linking to a deal.  Once created, a card link will
 ## List all user's card links
 Returns an array of card link representations.
 
-    GET /users/:user_id/card_links
+    GET /api/v1/users/:user_id/card_links
 
 ### Parameters
 
@@ -29,7 +29,7 @@ Returns an array of card link representations.
 ## Create a card link
 Creates a card link for a user and a deal or batch of deals in the linked state.
 
-    POST /card_links
+    POST /api/v1/card_links
 
 ### Parameters
 
@@ -53,7 +53,7 @@ user_id
 ## Unlink a card link
 Used to change a card link from "linked" to "unlinked".
 
-    PUT /card_links/:card_link_id/unlink
+    PUT /api/v1/card_links/:card_link_id/unlink
 
 ### Response
 
@@ -63,7 +63,7 @@ Used to change a card link from "linked" to "unlinked".
 ## Link a card link
 Used to change a card link from "unlinked" to "linked".
 
-    PUT /card_links/:card_link_id/link
+    PUT /api/v1/card_links/:card_link_id/link
 
 ### Response
 
@@ -73,7 +73,7 @@ Used to change a card link from "unlinked" to "linked".
 ## Redeem a card link
 Used to notify us when a card link has been redeemed.
 
-    PUT /card_links/:card_link_id/redeem
+    PUT /api/v1/card_links/:card_link_id/redeem
 
 ### Parameters
 
