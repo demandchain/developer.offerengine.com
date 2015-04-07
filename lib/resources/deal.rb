@@ -196,7 +196,6 @@ module OfferEngine
     def self.deals_empty
       {
         :deals => [],
-        :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
       }
     end
 
