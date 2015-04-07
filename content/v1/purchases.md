@@ -56,7 +56,7 @@ deal_id
 : _String_  Unique identifier for deal purchased
 
 deal_type
-: _String_  Type of deal purchased (<possible results>)
+: _String_  Type of deal purchased (_possible results_)
 
 barcode
 : _String_  Unique barcode used for purchase redemption
@@ -71,7 +71,7 @@ created_at
 : _String_  Date and time purchase was made
 
 state
-: _String_  State of the purchase (<possible results>)
+: _String_  State of the purchase (_possible results_)
 
 qrcode_url
 : _String_  URL for the qrcode image associated with the coupon
