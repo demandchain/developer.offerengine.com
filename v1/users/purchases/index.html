@@ -26,13 +26,13 @@
   <header class="row">
     <div class="centered clearfix">
       <h1>
-        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_developers.png" alt="Deem Developers" /></a>
+        <a href="http://www.deem.com/developer/"><img src="/shared/images/deem_logo.png" alt="Deem Developers" /></a>
       </h1>
       <nav>
         <ul>
           <li><a href="http://www.deem.com/developer/">Home</a></li>
           <li><a href="/" class="active">Documentation</a></li>
-          <li><a href="mailto:support@deem.com">Support</a></li>
+          <li><a href="https://www.deem.com/programs/support">Support</a></li>
         </ul>
       </nav>
     </div>
@@ -78,6 +78,7 @@
           <li><a href="/v1/purchases/">Purchases</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/">Regions</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/regions/deals/">Region Deals</a><span class="icon-arrow-right"></span></li>
+          <li><a href="/v3/regions/deals/">V3 Region Deals</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/">Users</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/access_tokens/">User Access Tokens</a><span class="icon-arrow-right"></span></li>
           <li><a href="/v1/users/card_links/">User Card Links</a><span class="icon-arrow-right"></span></li>
@@ -133,7 +134,6 @@
       <span class="s2">"purchase_id"</span><span class="o">:</span> <span class="s2">"34063ec2"</span><span class="p">,</span>
       <span class="s2">"deal_type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
       <span class="s2">"deal_id"</span><span class="o">:</span> <span class="s2">"la-1024-wsc-hair-studio-01-2"</span><span class="p">,</span>
-      <span class="s2">"deal_item_id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
       <span class="s2">"price"</span><span class="o">:</span> <span class="mi">3900</span><span class="p">,</span>
       <span class="s2">"amount"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">"number_bought"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -149,50 +149,6 @@
         <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"daily-deal"</span><span class="p">,</span>
         <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"deals/generic_medium.gif"</span><span class="p">,</span>
         <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://d2x9dz1etb1m98.cloudfront.net/deals/generic_medium.gif"</span>
-      <span class="p">},</span>
-      <span class="s2">"deal_item"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"kej27njw01n"</span><span class="p">,</span>
-        <span class="s2">"product_name"</span><span class="o">:</span> <span class="s2">"test_CLO_CSV_5_option 1"</span><span class="p">,</span>
-        <span class="s2">"sort_order"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"cost"</span><span class="o">:</span> <span class="mi">1200</span><span class="p">,</span>
-        <span class="s2">"value"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-        <span class="s2">"current_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
-        <span class="s2">"max_gift_per_user"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-        <span class="s2">"max_per_user"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">"highlights"</span><span class="o">:</span> <span class="s2">"This is an awesome deal"</span><span class="p">,</span>
-        <span class="s2">"description1"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
-        <span class="s2">"description2"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
-        <span class="s2">"fine_print"</span><span class="o">:</span> <span class="s2">"Must be 18 or older with valid ID - Limit 1 voucher per person - By appointment/reservation only - Valid only at participating locations - Classes subject to availability - Valid at West Los Angeles, Hollywood, Orange County, Long Beach, Canyon Country and Riverside locations only - Call the location of the school you wish to take the course at to schedule your appointment for orientation"</span><span class="p">,</span>
-        <span class="s2">"fine_print_legalese"</span><span class="o">:</span> <span class="s2">"Redeemable vouchers have two values: (1) Amount Paid; and (2) Promotional Value. The Amount Paid means the amount paid by you to purchase the voucher. Amount Paid does not expire unless the voucher is redeemed or refunded. The Promotional Value means the additional value beyond the Amount Paid. The Amount Paid for this Voucher is $39.00. This amount does not expire. The Promotional Value of this Voucher is $61.00. Promotional Value will expire on 12/17/2013 unless prohibited by law."</span><span class="p">,</span>
-        <span class="s2">"instructions"</span><span class="o">:</span> <span class="s2">"Buy it now!"</span><span class="p">,</span>
-        <span class="s2">"situation"</span><span class="o">:</span> <span class="s2">"Do you prefer go to bed when the roosters are crowing as opposed to waking up with them? Night owls have a reason to give a hoot with today's deal: $199 for a two-week bartending course at National Bartenders School (a $495 value)."</span><span class="p">,</span>
-        <span class="s2">"campaign"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="s2">"num_left"</span><span class="o">:</span> <span class="mi">3965</span><span class="p">,</span>
-        <span class="s2">"purchasable_number"</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-        <span class="s2">"lowdown"</span><span class="o">:</span> <span class="s2">"Complete cocktail and bartending how-to's. With National Bartenders School, you'll have your choice of six locations across Southern California to choose from. Each location recreates an actual bar, with all the equipment and tools you'll be using on the job. Over the course of 40 hours, you'll get to know your Tom Collins from your Shirley Temples. This deal includes all the books, registration fees and certification required to get you behind an actual bar. And with their job placement assistance, you'll be doing your best Sam Malone impression quicker than it takes to mix a Mai Tai."</span><span class="p">,</span>
-        <span class="s2">"number_sold"</span><span class="o">:</span> <span class="mi">123765</span><span class="p">,</span>
-        <span class="s2">"soldout"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s2">"image_url"</span><span class="o">:</span> <span class="s2">"/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
-        <span class="s2">"starting_price"</span><span class="o">:</span> <span class="mi">7500</span><span class="p">,</span>
-        <span class="s2">"image_url_abs"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span><span class="p">,</span>
-        <span class="s2">"primary_image"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"medium"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"medium"</span><span class="p">,</span>
-            <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(390x260)"</span><span class="p">,</span>
-            <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/medium.jpg"</span>
-          <span class="p">},</span>
-          <span class="s2">"show"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"show"</span><span class="p">,</span>
-            <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(615x409)"</span><span class="p">,</span>
-            <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/show.jpg"</span>
-          <span class="p">},</span>
-          <span class="s2">"thumb"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="o">:</span> <span class="s2">"thumb"</span><span class="p">,</span>
-            <span class="s2">"dimensions"</span><span class="o">:</span> <span class="s2">"(352x236)"</span><span class="p">,</span>
-            <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://hrugassets-staging.s3.amazonaws.com/ugassets/deal_item/images/4/b/84555f69/thumb.jpg"</span>
-          <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="s2">"sku"</span><span class="o">:</span> <span class="s2">"123456-98a-1"</span>
       <span class="p">},</span>
       <span class="s2">"coupons"</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -224,18 +180,16 @@
       <nav>
         <ul class="left">
           <li><a href="http://www.deem.com/"><img src="http://media.deem.com/designimages/deem_logo.png" alt="Deem" width="59" height="18"></a></li>
-          <li><a href="http://www.deem.com/work">Save</a></li>
-          <li><a href="http://www.deem.com/merchant">Sell</a></li>
-          <li><a href="http://www.deem.com/" target="_blank">Partner</a></li>
+          <li><a href="https://www.deem.com/products/">Products</a></li>
           <li><a href="http://blog.deem.com/">Discover</a></li>
-          <li><a href="http://www.deem.com/developer">Develop</a></li>
+          <li><a href="http://www.deem.com/developer">Developers</a></li>
         </ul>
 
         <ul class="right">
-          <li><a href="http://www.deem.com/" target="_blank">About Us</a></li>
+          <li><a href="https://www.deem.com/company/about" target="_blank">About Us</a></li>
           <li><a href="http://www.deem.com/privacy/terms.html" target="_blank">Terms</a></li>
           <li><a href="http://www.deem.com/privacy/global-privacy-statement.html" target="_blank">Privacy</a></li>
-          <li><a href="mailto:needhelp@deem">Feedback</a></li>
+          <li><a href="https://www.deem.com/programs/support">Feedback</a></li>
         </ul>
       </nav>
       <p>&copy; 1999-2014 Deem, Inc. All rights reserved.</p>

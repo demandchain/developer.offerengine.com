@@ -72,7 +72,7 @@ button {  width: auto; overflow: visible; }
 
 body, select, input, textarea {  color: #666; }
 h1, h2, h3, h4, h5, h6, h7 { font-weight: normal; }
-a, a:link, a:visited, a:active { color:#00BCFF; text-decoration:none; }
+a, a:link, a:visited, a:active { color:#32AA00; text-decoration:none; }
 a:hover { color:#666; text-decoration:none;}
 
 img, object, embed { max-width: 100%; }
@@ -117,7 +117,7 @@ video { outline:none; }
 
 /************************** COLORS ********************************
 	
-Blue 1: RGB(0,185,255)   / #00B9FF
+Blue 1: RGB(0,185,255)   / #32AA00
 Blue 2: RGB(0,130,200)   / #0082C8
 Blue 3: RGB(160,245,255) / #A0F5FF
 
@@ -145,7 +145,7 @@ p a { display:inline; }
 
 body { color:#222; }
 
-a, a:link, a:visited, a:active { color:#00bcff; }
+a, a:link, a:visited, a:active { color:#32AA00; }
 
 
 ul,ol {
@@ -253,7 +253,7 @@ article > div.centered {
 article header {
   height:90px;
   line-height:94px;
-  background-color: #00B9FF;
+  background-color: #32AA00;
   /*background: url(/shared/images/background_header.png) repeat-x 0 0;*/
 }
 article header h1 {
