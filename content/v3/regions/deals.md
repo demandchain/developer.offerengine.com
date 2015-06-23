@@ -11,9 +11,9 @@ If you are using the "city, state" syntax, abbreviations are not accepted.  "St 
 
 *Important Note*: There are default filters "in_flight", "current", "not_bg" for backwards compatibility.  Most partners will want to override the filter value with "in_flight".
 
-    GET /regions/:region_id/deals
-    GET /regions/:zip/deals
-    GET /regions/:city,:state/deals
+    GET /api/v3/regions/:region_id/deals
+    GET /api/v3/regions/:zip/deals
+    GET /api/v3/regions/:city,:state/deals
 
 
 ### Parameters

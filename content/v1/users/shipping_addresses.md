@@ -9,7 +9,7 @@ Store a shipping address for a user
 
 Note: All addresses are geo-located and corrected for typos.
 
-    POST /shipping_addresss
+    POST /api/v1/shipping_addresss
 
 ### Parameters
 

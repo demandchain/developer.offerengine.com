@@ -10,7 +10,7 @@ title: User Coupons
 ## List all user's coupons
 Returns an array of coupon representations.
 
-    GET /users/:user_id/coupons
+    GET /api/v1/users/:user_id/coupons
 
 ### Parameters
 
@@ -24,8 +24,8 @@ Returns an array of coupon representations.
 ## Redeem a coupon
 Marks a coupon as redeemed.
 
-    PUT /users/:user_id/coupons/:coupon_id/redeem
-    PUT /coupons/:coupon_id/redeem
+    PUT /api/v1/users/:user_id/coupons/:coupon_id/redeem
+    PUT /api/v1/coupons/:coupon_id/redeem
 
 ### Response
 

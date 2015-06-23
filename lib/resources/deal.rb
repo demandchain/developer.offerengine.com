@@ -196,7 +196,6 @@ module OfferEngine
     def self.deals_empty
       {
         :deals => [],
-        :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
       }
     end
 
@@ -268,17 +267,19 @@ fixed_fee
 
 fulfillment_method
 : _String_ How the consumer redeems the deal:
-: * redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant's website.
-: * printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.
-: * shipped - The purchase is shipped to the customer
+:^
+* redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant's website.
+* printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.
+* shipped - The purchase is shipped to the customer
 
 highlights
 : _String_ Additional important details about the deal
 
 images
 : _Hash_ A list of deal images in different sizes. Each image is available in the following sizes:
-  * large, medium, small, and tiny
-  * Each item points to the images URL.
+:^
+* large, medium, small, and tiny
+* Each item points to the images URL.
 
 incentive_amount
 : _Integer_ A flat amount of discount in cents that a user gets for using this deal (only for card-linked deals)
@@ -354,7 +355,8 @@ start_at
 
 state
 : _String_ The current workflow state of the deal:
-: * in-flight - The deal is available for purchase. (This is the only state returned by the API)
+: ^
+* in-flight - The deal is available for purchase. (This is the only state returned by the API)
 
 subcategory
 : _String_ More specific deal type
@@ -370,23 +372,15 @@ title
 
 type
 : _String_ Type of the purchased deal
-: Daily Deal:
-: The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
-:
-: On-going:
-: A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
-:
-: Affiliate:
-: A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
-:
-: Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
-:
-: a) exposes a redeemable code.
-: OR
-: b) redirects the user to a co-marketed website.
-:
-: Card-linked Offers:
-: A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.
+: ^
+* Daily Deal - The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+* On-going - A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+* Affiliate - A deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
+    * Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+        * a) exposes a redeemable code.
+        * OR
+        * b) redirects the user to a co-marketed website.
+* Card-linked Offers - A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.
 
 value
 : _Integer_ The value of the deal in cents
@@ -771,7 +765,6 @@ next_page
   def self.deals_empty
     {
       :deals => [],
-      :next_page => '"https://api.offers.deem.com//api/v3/deals?fields=tags%2Cincentive_percentage%2Crobotitle%2Ccategory%2Ctitle%2Cstate%2Cprice%2Cregion%2Ctype%2Cimages%5Bsmall%2Clarge%5D&filter=lat_long%5B34.0936203%2C-118.377601624%2C5%5D%2Ccategory%5BShopping2%5D&page=2&per_page=100"'
     }
   end
 
@@ -840,9 +833,10 @@ fixed_fee
 
 fulfillment_method
 : _String_ How the consumer redeems the deal:
-: * redemptioncoded - A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant's website.
-: * printed - A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.
-: * shipped - The purchase is shipped to the customer
+: ^
+* redemptioncoded: A purchase grants the customer a code which is provided by a merchant that can be redeemed on the merchant's website.
+* printed: A user pays for and prints out a physical coupon to bring to a store to redeem for a discount on goods or services.
+* shipped: The purchase is shipped to the customer
 
 highlights
 : _String_ Additional important details about the deal
@@ -903,8 +897,9 @@ percent_fee
 
 primary_image
 : _Hash_ A list of deal images in different sizes. Each image is available in the following sizes:
-  * _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
-  * Each item has a hash with the dimensions and URL.
+: ^
+* _103, _135, _180, _198, _222, _300, _306, _316, _372, _400, _498, _640, _660, featured, large, medium, show, thumb, tiny, and xlarge
+* Each item has a hash with the dimensions and URL.
 
 purchasable_number
 : _Integer_ The quantity of units available to sell. This combines logic from max_per_user, and num_left
@@ -944,16 +939,16 @@ starting_price
 
 state
 : _String_ The current workflow state of the deal:
-
-: * submitted - Base deal data has been entered and the deal is not available for purchase.
-: * in-review - The deal needs approval to continue in the workflow and is not available for purchase.
-: * rejected - The deal failed approval and is not available for purchase.
-: * approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
-: * in-flight - The deal is available for purchase.
-: * paused - The deal's sale is halted and the deal is not currently available for purchase.
-: * cancelled - The deal has been manually canelled and is no longer in flight
-: * landed - The run window has passed and the deal is no longer available for purchase.
-: * deleted - The deal has been removed.<br><br>
+: ^
+* submitted - Base deal data has been entered and the deal is not available for purchase.
+* in-review - The deal needs approval to continue in the workflow and is not available for purchase.
+* rejected - The deal failed approval and is not available for purchase.
+* approved - The content is complete and the deal is ready to be run, but not yet available for purchase.
+* in-flight - The deal is available for purchase.
+* paused - The deal's sale is halted and the deal is not currently available for purchase.
+* cancelled - The deal has been manually canelled and is no longer in flight
+* landed - The run window has passed and the deal is no longer available for purchase.
+* deleted - The deal has been removed.<br><br>
 
 subcategory
 : _String_ More specific deal type
@@ -972,23 +967,16 @@ title
 
 type
 : _String_ Type of the purchased deal
-: Daily Deal:
-: The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
-:
-: On-going:
-: A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
-:
-: Affiliate:
-: A a deal that can be claimed by a consumer for free. The consumer can click the Claim this deal button to obtain a coupon code.
-:
-: Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
-:
-: a) exposes a redeemable code.
-: OR
-: b) redirects the user to a co-marketed website.
-:
-: Card-linked Offers:
-: A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.
+: ^
+* Daily Deal - The Daily Deal is a prepaid voucher which is in-flight on a partner site for a short period of time.
+* On-going - A long-running prepaid voucher deal which is in-flight on partner sites for more than 15 days.
+* Affiliate - A a deal that can be claimed by a consumer for free.
+    * The consumer can click the Claim this deal button to obtain a coupon code.
+    * Affiliate deals do not have actual purchases or vouchers associated with them. A user claims an affiliate deal which:
+        * a) exposes a redeemable code.
+        * OR
+        * b) redirects the user to a co-marketed website.
+* Card-linked Offers - A card-linked offer (CLO) is an offer linked to a payment card. The user links an offer to his or her card without having to pay anything. When the user buys the product or service from the qualifying merchant, the offer is applied to the transaction immediately, reducing the card charge, or is applied as a credit to the card.
 
 value
 : _Integer_ The value of the deal in cents

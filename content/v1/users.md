@@ -17,7 +17,7 @@ user infered from an access token.
 
 ## Get a user
 
-    GET /users/:user_id
+    GET /api/v1/users/:user_id
 
 ### Response
 
@@ -28,7 +28,7 @@ user infered from an access token.
 
 ## Create a user
 
-    POST /users
+    POST /api/v1/users
 
 
 ### Parameters
@@ -73,7 +73,7 @@ session_id (optional)
 
 ## Update a user
 
-    PUT /users/:user_id
+    PUT /api/v1/users/:user_id
 
 
 ### Parameters
@@ -135,23 +135,23 @@ The ramifications of this are as follows:-
 
 * assuming the user pre-exists in the offer engine
 
-  * if a token is included in the request but it has not changed    
+  * if a token is included in the request but it has not changed
   then no further action is required
-    
-  * if a token is included in the request and there was not a token previously    
+
+  * if a token is included in the request and there was not a token previously
   then no further action is required
-    
-  * if a token is included in the request but it has changed    
-  then the overwrite_token = true option must be included:    
-    * this will instruct the api to update the users token with the new value,    
+
+  * if a token is included in the request but it has changed
+  then the overwrite_token = true option must be included:
+    * this will instruct the api to update the users token with the new value,
     failure to include the option will result in a 422 error
-  
+
 * assuming the user does not exist yet in the offer engine
 
-  * this resource can still be PUT to,     
-  resulting in the user being created in the offer engine:    
-  The overwrite token is not required in this scenario   
-    
+  * this resource can still be PUT to,
+  resulting in the user being created in the offer engine:
+  The overwrite token is not required in this scenario
+
 
 ### Parameters
 
@@ -163,7 +163,7 @@ token
 : * _String_ partner token
   * only valid with _api_token_
   * see note above: optional overwrite_token=true might be required on the request
-  
+
 first_name
 : _String_
 
@@ -188,7 +188,7 @@ is_deleted
 <%= headers 200 %>
 <%= json(:status => "success", :user => OfferEngine::USER) %>
 
-* if the token has changed for an existing user and the overwrite_token=true option    
+* if the token has changed for an existing user and the overwrite_token=true option
   was not included on the request then the reponse will be
 
 <%= headers 422 %>

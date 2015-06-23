@@ -16,7 +16,7 @@ This request retrieves a specific purchase object. It returns a representation o
 
 ### Request
 
-    GET /purchases/<purchase_id>?api_key=<api_key>
+    GET /api/v1/purchases/<purchase_id>?api_key=<api_key>
 
 ### Parameters
 
@@ -24,7 +24,7 @@ None
 
 ### Request Example
 
-<%= requests("GET /purchases/34063ec2.json?api_key=1234567") %>
+<%= requests("GET /api/v1/purchases/34063ec2.json?api_key=1234567") %>
 
 ### Response
 
@@ -56,7 +56,7 @@ deal_id
 : _String_  Unique identifier for deal purchased
 
 deal_type
-: _String_  Type of deal purchased (<possible results>)
+: _String_  Type of deal purchased (_possible results_)
 
 barcode
 : _String_  Unique barcode used for purchase redemption
@@ -71,7 +71,7 @@ created_at
 : _String_  Date and time purchase was made
 
 state
-: _String_  State of the purchase (<possible results>)
+: _String_  State of the purchase (_possible results_)
 
 qrcode_url
 : _String_  URL for the qrcode image associated with the coupon
@@ -90,7 +90,7 @@ redeemed_at
 
 This request creates a purchase for an existing user with a stored payment card. This operation will execute a purchase transaction for an existing user that already has a stored payment card.
 
-    POST /purchases
+    POST /api/v1/purchases
 
 ### Parameters
 deal_id
@@ -118,7 +118,7 @@ session_id (optional)
 ## Reserve a purchase
 Temporarily reserve inventory (for five minutes) for a purchase in order to process payment transactions. If the transaction succeeds, you would perform a checkout; otherwise, you would return the inventory.
 
-    POST /purchases/reserve
+    POST /api/v1/purchases/reserve
 
 ### Parameters
 
@@ -136,7 +136,7 @@ num_bought
 ## Claim a purchase
 After inventory has been reserved for a purchase and payment processing is successful, you would use this requent with your reservation token (the response from the reserve call) to create a purchase record from your reservation -- if the reservation is valid. If the reservation is invalid or expired, we will still attempt to create a purchase record; however, succes is not guaranteed because the deal might be sold out.
 
-    PUT /purchases/:purchase_id/claim
+    PUT /api/v1/purchases/:purchase_id/claim
 
 ### Parameters
 
@@ -151,7 +151,7 @@ user_id
 ## Release a reserved purchase
 If you have reserved inventory for a purchase but the payment processing failed, use this request to release the inventory of the purchase.
 
-    PUT /purchases/:purchase_id/release
+    PUT /api/v1/purchases/:purchase_id/release
 
 ### Response
 

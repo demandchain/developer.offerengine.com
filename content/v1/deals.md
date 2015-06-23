@@ -15,7 +15,7 @@ This request returns a single deal resource for a specific deal.
 
 ## Request
 
-    GET /deals/{deal_id}?api_key={api_key}
+    GET /api/v1/deals/{deal_id}?api_key={api_key}
 
 ## Request Parameters
 
@@ -26,7 +26,7 @@ deal_id
 
 ## Request Example
 
-	GET /v1/deals/my-restaurant?api_key=1234567
+	GET /api/v1/deals/my-restaurant?api_key=1234567
 
 ## Response
 
@@ -63,7 +63,7 @@ This request returns an array of deal resources, ordered by start_at time (with 
 
 ## Request
 
-    GET /deals/locate?api_key={api_key}
+    GET /api/v1/deals/locate?api_key={api_key}
 
 ## Request Parameters
 
@@ -80,7 +80,7 @@ radius
 
 ## Request Example
 
-<%= requests("GET /v1/deals/locate?api_key=1234567") %>
+<%= requests("GET /api/v1/deals/locate?api_key=1234567") %>
 <%= json(OfferEngine.deals_locate_request()) %>
 
 ## Response

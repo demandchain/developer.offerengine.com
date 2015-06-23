@@ -22,7 +22,7 @@ If you have any problems or requests, please contact [support](https://www.deem.
 
 ## Deal
 
-A _deal_ is a product that offers goods or services from different merchants at discounted levels. 
+A _deal_ is a product that offers goods or services from different merchants at discounted levels.
 
 ## Purchase
 
@@ -36,9 +36,9 @@ A _purchase_ is a transaction in which a person (the _purchaser_) buys a quantit
 
 You can provide deals to your customers using just two simple API calls: _get deals_ and _execute a purchase._ The following example is a brief description of how these calls work with an existing mobile application.
 
-In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow: 
+In this example, a partner has integrated the entire deal viewing and purchasing process into a native mobile app experience. The following diagram shows the user purchase flow and the steps needed to implement each part of the flow:
 
-<img src="/images/mobile_use_example.png" alt="Mobile Example Image" > 
+<img src="/images/mobile_use_example.png" alt="Mobile Example Image" >
 
 * <b>Show Offers:</b> Request deals using the Get Deals call. The call returns a list of deals available to purchase based on the filter parameters your provide with the request. Users see a subset of the deals with just a few key aspects of each deal.
 

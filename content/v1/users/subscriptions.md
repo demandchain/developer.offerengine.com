@@ -12,8 +12,8 @@ title: Subscriptions
 ## List all user's subscriptions
 Returns an array of subscription representations.
 
-    GET /users/:user_id/subscriptions
-    GET /users/:user_email/subscriptions
+    GET /api/v1/users/:user_id/subscriptions
+    GET /api/v1/users/:user_email/subscriptions
 
 ### Parameters
 
@@ -27,7 +27,7 @@ Returns an array of subscription representations.
 ## Get a subscription
 Returns a serialized representation of the subscription.
 
-    GET /subscriptions/:subscription_id
+    GET /api/v1/subscriptions/:subscription_id
 
 ### Response
 
@@ -36,7 +36,7 @@ Returns a serialized representation of the subscription.
 
 ## Create a subscription
 
-    POST /users/:user_id/subscriptions
+    POST /api/v1/users/:user_id/subscriptions
 
 ### Parameters
 
@@ -48,7 +48,7 @@ zip
 
 ## Update a subscription
 
-    PUT /subscriptions/:subscription_id
+    PUT /api/v1/subscriptions/:subscription_id
 
 ### Parameters
 

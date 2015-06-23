@@ -10,7 +10,7 @@ This single operation will create a new user if the user doesn't already exist, 
 
 ## Request
 
-	POST /v1/purchases/full.json?api_key={api_key}
+	POST /api/v1/purchases/full.json?api_key={api_key}
 
 ## Request Parameters
 

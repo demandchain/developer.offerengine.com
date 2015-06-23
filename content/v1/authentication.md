@@ -13,9 +13,9 @@ Your unique API key is provided in the Admin Dashboard. If at any time your key 
 Add the api_key parameter to each GET, POST, and PUT request with the value of your unique API key:
 
 ## Request
-	
-	GET /v1/deals?api_key={api_key}
+
+	GET /api/v1/deals?api_key={api_key}
 
 ## Request Example
 
-	GET /v1/deals?api_key=1234567
+	GET /api/v1/deals?api_key=1234567

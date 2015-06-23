@@ -12,9 +12,9 @@ Each deal has a number of attributes you can use to filter the Get Deals request
 
 If you make this call with no set parameters, Get Deals returns a list of <i>all</i> "in-flight" (currently active) deals across <i>all</i> geographical regions -- including deals that are sold out and deals that are <i>not</i> sold out. To avoid retrieving sold-out deals, we recommend that you set <i>exclude_soldout</i> to "true" when making this call.
 
-## Request 
+## Request
 
-	GET /v1/deals?api_key={api_key}
+	GET /api/v1/deals?api_key={api_key}
 
 ## Request Parameters
 
@@ -57,7 +57,7 @@ merchant
 price_min
 : _Optional Integer_ Filter the minimum deal price in cents (i.e., 100 equals one dollar).
 
-price_max 
+price_max
 : _Optional Integer_ Filter the maximum deal price in cents.
 
 ### Location parameters
@@ -81,14 +81,14 @@ user
 
 ### Source parameters
 
-suppliers 
+suppliers
 : _Optional Array_ Filter deals by supplier (a partner slug or set of comma-separated partner slugs).
 
 vendors
 : _Optional Array_ Filter deals by vendor (a vendor slug or set of comma-separated vendor slugs).
 
 ### Inventory parameters
- 
+
 num_left
 : _Optional Integer_ Filter deals by the quantity of inventory left.
 
@@ -110,7 +110,7 @@ card_links_redeemed
 
 ### New user account, new payment card, and a shipping address:
 
-<%= requests("GET /v1/deals?api_key=1234567") %>
+<%= requests("GET /api/v1/deals?api_key=1234567") %>
 <%= json(OfferEngine.deals_request()) %>
 
 ## Response
